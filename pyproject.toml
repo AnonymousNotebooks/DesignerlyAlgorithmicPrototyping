@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "plenty-in-the-pantry"
+version = "0.1.0"
+description = ""
+authors = ["EM-Via <104364594+EM-Via@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jupyter-book = "^0.15.1"
+ipykernel = "^6.29.0"
+pandas = "^2.2.0"
+polars = "^0.20.5"
+altair = "^5.2.0"
+plotly = "^5.18.0"
+ghp-import = "^2.1.0"
+vega-datasets = "^0.9.0"
+numpy = "^1.26.3"
+seaborn = "^0.13.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
