@@ -30,11 +30,9 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-
-# To parse raw HTML image syntax, enable the html_image extension to your list of extensions in _config.yml:
-
-# parse:
-#   myst_enable_extensions: 
-#       # don't forget to list any other extensions you want enabled,
-#     # including those that are enabled by default! See here: https://jupyterbook.org/en/stable/customize/config.html
-#     - html image
+  
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default! See here: https://jupyterbook.org/en/stable/customize/config.html
+    - html_image
