@@ -671,7 +671,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -718,8 +718,8 @@ document.write(`
       <td>5</td>
       <td>RABEKO choco light 250g</td>
       <td>2</td>
-      <td>2.82</td>
-      <td>5.64</td>
+      <td>2.82000</td>
+      <td>5.64000</td>
       <td>2021-11-23</td>
       <td>Tuesday</td>
       <td>12:32:00</td>
@@ -736,8 +736,8 @@ document.write(`
       <td>5</td>
       <td>JOYVALLE pudding griesmeel natuur 135g</td>
       <td>4</td>
-      <td>0.99</td>
-      <td>3.96</td>
+      <td>0.99000</td>
+      <td>3.96000</td>
       <td>2021-11-23</td>
       <td>Tuesday</td>
       <td>12:32:00</td>
@@ -754,8 +754,8 @@ document.write(`
       <td>5</td>
       <td>BONI tomatensoep met balletjes 950ml</td>
       <td>1</td>
-      <td>1.99</td>
-      <td>1.99</td>
+      <td>1.99000</td>
+      <td>1.99000</td>
       <td>2021-11-23</td>
       <td>Tuesday</td>
       <td>12:32:00</td>
@@ -772,8 +772,8 @@ document.write(`
       <td>5</td>
       <td>LIEBIG DELISOUP 9 groenten brik 1L</td>
       <td>1</td>
-      <td>2.59</td>
-      <td>2.59</td>
+      <td>2.59000</td>
+      <td>2.59000</td>
       <td>2021-11-23</td>
       <td>Tuesday</td>
       <td>12:32:00</td>
@@ -790,8 +790,8 @@ document.write(`
       <td>5</td>
       <td>LIEBIG DELISOUP tom. Balletjes brik 1L</td>
       <td>1</td>
-      <td>2.59</td>
-      <td>2.59</td>
+      <td>2.59000</td>
+      <td>2.59000</td>
       <td>2021-11-23</td>
       <td>Tuesday</td>
       <td>12:32:00</td>
@@ -803,116 +803,277 @@ document.write(`
       <td>canned foods</td>
     </tr>
     <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
+      <th>5</th>
+      <td>1</td>
+      <td>6</td>
+      <td>KLEIN GROF GESN.</td>
+      <td>1</td>
+      <td>1.30000</td>
+      <td>1.30000</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:39:00</td>
+      <td>noon</td>
+      <td>bakery</td>
+      <td>Sys</td>
+      <td>0</td>
+      <td>bread</td>
+      <td>bakery</td>
     </tr>
     <tr>
-      <th>367</th>
-      <td>8</td>
-      <td>37</td>
-      <td>AH GR BIET GEITENKAAS SALADE</td>
+      <th>6</th>
       <td>1</td>
-      <td>2.99</td>
-      <td>2.99</td>
-      <td>2022-01-26</td>
+      <td>6</td>
+      <td>CHOCOLADEKOEK</td>
+      <td>2</td>
+      <td>1.20000</td>
+      <td>2.40000</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:39:00</td>
+      <td>noon</td>
+      <td>bakery</td>
+      <td>Sys</td>
+      <td>0</td>
+      <td>danish</td>
+      <td>bakery</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>6</td>
+      <td>SANDWICH</td>
+      <td>4</td>
+      <td>0.60000</td>
+      <td>2.40000</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:39:00</td>
+      <td>noon</td>
+      <td>bakery</td>
+      <td>Sys</td>
+      <td>0</td>
+      <td>sandwich</td>
+      <td>bakery</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>7</td>
+      <td>WRAP KIP</td>
+      <td>1</td>
+      <td>3.00000</td>
+      <td>3.00000</td>
+      <td>2021-11-24</td>
       <td>Wednesday</td>
-      <td>12:36:00</td>
+      <td>12:32:00</td>
       <td>noon</td>
       <td>supermarket</td>
       <td>Albert Heijn</td>
-      <td>0</td>
-      <td>lunch salad</td>
-      <td>fruit &amp; vegetables</td>
+      <td>1</td>
+      <td>lunch</td>
+      <td>meat, fish &amp; veggie</td>
     </tr>
     <tr>
-      <th>368</th>
-      <td>8</td>
-      <td>38</td>
-      <td>EIERKOEKEN</td>
+      <th>9</th>
       <td>1</td>
-      <td>1.69</td>
-      <td>1.69</td>
-      <td>2022-01-27</td>
-      <td>Thursday</td>
-      <td>11:20:00</td>
-      <td>morning</td>
+      <td>7</td>
+      <td>AH EGGWRAP</td>
+      <td>1</td>
+      <td>3.99000</td>
+      <td>3.99000</td>
+      <td>2021-11-24</td>
+      <td>Wednesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
       <td>supermarket</td>
       <td>Albert Heijn</td>
       <td>1</td>
-      <td>egg cakes</td>
-      <td>snacks</td>
+      <td>lunch</td>
+      <td>meat, fish &amp; veggie</td>
     </tr>
     <tr>
-      <th>369</th>
+      <th>10</th>
+      <td>1</td>
       <td>8</td>
-      <td>38</td>
-      <td>AH MLTSALADE</td>
+      <td>CRODINO 8+2</td>
       <td>1</td>
-      <td>5.49</td>
-      <td>5.49</td>
-      <td>2022-01-27</td>
-      <td>Thursday</td>
-      <td>11:20:00</td>
-      <td>morning</td>
-      <td>supermarket</td>
-      <td>Albert Heijn</td>
-      <td>1</td>
-      <td>lunch salad</td>
-      <td>fruit &amp; vegetables</td>
-    </tr>
-    <tr>
-      <th>370</th>
-      <td>8</td>
-      <td>38</td>
-      <td>MENTOS</td>
-      <td>1</td>
-      <td>3.89</td>
-      <td>3.89</td>
-      <td>2022-01-27</td>
-      <td>Thursday</td>
-      <td>11:20:00</td>
-      <td>morning</td>
-      <td>supermarket</td>
-      <td>Albert Heijn</td>
-      <td>0</td>
-      <td>mints</td>
-      <td>snacks</td>
-    </tr>
-    <tr>
-      <th>371</th>
-      <td>8</td>
-      <td>39</td>
-      <td>AH MLTSALADE</td>
-      <td>1</td>
-      <td>2.95</td>
-      <td>2.95</td>
-      <td>2022-01-27</td>
+      <td>4.49000</td>
+      <td>4.49000</td>
+      <td>2021-11-26</td>
       <td>Friday</td>
-      <td>12:15:00</td>
-      <td>noon</td>
+      <td>17:25:00</td>
+      <td>afternoon</td>
       <td>supermarket</td>
-      <td>Albert Heijn</td>
+      <td>Delhaize</td>
       <td>0</td>
-      <td>lunch salad</td>
+      <td>alcoholic drinks</td>
+      <td>beverages</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1</td>
+      <td>8</td>
+      <td>400GR 365 APPELCOMP</td>
+      <td>1</td>
+      <td>0.75000</td>
+      <td>0.75000</td>
+      <td>2021-11-26</td>
+      <td>Friday</td>
+      <td>17:25:00</td>
+      <td>afternoon</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>0</td>
+      <td>apple sauce</td>
+      <td>canned foods</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1</td>
+      <td>8</td>
+      <td>JONAGOLD</td>
+      <td>1</td>
+      <td>0.89586</td>
+      <td>0.89586</td>
+      <td>2021-11-26</td>
+      <td>Friday</td>
+      <td>17:25:00</td>
+      <td>afternoon</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>0</td>
+      <td>apples</td>
       <td>fruit &amp; vegetables</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>1</td>
+      <td>8</td>
+      <td>ZOE PUNTPAPRIKA R</td>
+      <td>1</td>
+      <td>0.77870</td>
+      <td>0.77870</td>
+      <td>2021-11-26</td>
+      <td>Friday</td>
+      <td>17:25:00</td>
+      <td>afternoon</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>0</td>
+      <td>bell peppers</td>
+      <td>fruit &amp; vegetables</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>8</td>
+      <td>BLAUWE BESSEN 500G</td>
+      <td>1</td>
+      <td>5.99000</td>
+      <td>5.99000</td>
+      <td>2021-11-26</td>
+      <td>Friday</td>
+      <td>17:25:00</td>
+      <td>afternoon</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>blueberries</td>
+      <td>fruit &amp; vegetables</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>1</td>
+      <td>8</td>
+      <td>400GR BROCCOLI</td>
+      <td>1</td>
+      <td>0.99000</td>
+      <td>0.99000</td>
+      <td>2021-11-26</td>
+      <td>Friday</td>
+      <td>17:25:00</td>
+      <td>afternoon</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>0</td>
+      <td>broccoli</td>
+      <td>fruit &amp; vegetables</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>1</td>
+      <td>8</td>
+      <td>Bayonneham</td>
+      <td>1</td>
+      <td>1.77660</td>
+      <td>1.77660</td>
+      <td>2021-11-26</td>
+      <td>Friday</td>
+      <td>17:25:00</td>
+      <td>afternoon</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>0</td>
+      <td>charcuterie</td>
+      <td>meat, fish &amp; veggie</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>1</td>
+      <td>8</td>
+      <td>Italiaanse kiprollade</td>
+      <td>1</td>
+      <td>1.52588</td>
+      <td>1.52588</td>
+      <td>2021-11-26</td>
+      <td>Friday</td>
+      <td>17:25:00</td>
+      <td>afternoon</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>0</td>
+      <td>charcuterie</td>
+      <td>meat, fish &amp; veggie</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>1</td>
+      <td>8</td>
+      <td>Kippenwit</td>
+      <td>1</td>
+      <td>1.46880</td>
+      <td>1.46880</td>
+      <td>2021-11-26</td>
+      <td>Friday</td>
+      <td>17:25:00</td>
+      <td>afternoon</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>0</td>
+      <td>charcuterie</td>
+      <td>meat, fish &amp; veggie</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>1</td>
+      <td>8</td>
+      <td>WATOU SPECIAL</td>
+      <td>1</td>
+      <td>4.09000</td>
+      <td>4.09000</td>
+      <td>2021-11-26</td>
+      <td>Friday</td>
+      <td>17:25:00</td>
+      <td>afternoon</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>0</td>
+      <td>cheese</td>
+      <td>dairy &amp; plant based</td>
     </tr>
   </tbody>
 </table>
-<p>372 rows × 15 columns</p>
 </div></div></div>
 </div>
 </section>
