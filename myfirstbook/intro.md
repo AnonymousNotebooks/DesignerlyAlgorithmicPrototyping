@@ -4,7 +4,7 @@ This book is part of a paper titled: "Plenty in the Pantry: A Designer's Explora
 
 The notebooks in this book correlate to the six-step approach as described in the paper (see figure below). The notebooks are numbered accordingly. 
 
-![aproach](../Planty-in-the-Pantry/myfirstbook/approach.png)
+![fishy](myfirstbook/approach.jpg)
 
 ```{tableofcontents}
 ```
