@@ -2,6 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: introjupy.ipynb
+root: Notebooks/0. introjupy.ipynb
 chapters:
-- file: Notebooks/Collecting the data.ipynb
+- file: Notebooks/1. Collecting relevant data.ipynb
+- file: Notebooks/2.Structuring and visualizing.ipynb
