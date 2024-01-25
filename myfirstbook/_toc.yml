@@ -4,4 +4,4 @@
 format: jb-book
 root: intro
 chapters:
-- file: DataPrep.ipynb
+- file: Collecting the data.ipynb
