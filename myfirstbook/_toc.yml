@@ -4,4 +4,4 @@
 format: jb-book
 root: introjupy.ipynb
 chapters:
-- file: myfirstbook/Notebooks/Collecting the data.ipynb
+- file: Notebooks/Collecting the data.ipynb
