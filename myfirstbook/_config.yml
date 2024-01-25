@@ -3,7 +3,7 @@
 
 title: Planty in the Pantry
 author: anonymous
-logo: logo.png
+logo: _images/logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

@@ -65,6 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/2. Structuring and visualizing';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="1. Collecting relevant data" href="1.%20Collecting%20relevant%20data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,8 +127,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -150,8 +149,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Planty in the Pantry - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Planty in the Pantry - Home"/>`);</script>
   
-    <p class="title logo__title">Planty in the Pantry</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -164,8 +169,13 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1.%20Collecting%20relevant%20data.html">1. Collecting relevant data</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Structuring and labeling the data</a></li>
+
+
+
 
 </ul>
 
@@ -489,19 +499,24 @@ Outcome (example):
       <th>HH</th>
       <th>week</th>
       <th>order_ID</th>
-      <th>item_id</th>
+      <th>item_name</th>
       <th>amount</th>
       <th>price_unit</th>
       <th>price_total</th>
       <th>date</th>
       <th>day</th>
       <th>timestamp</th>
-      <th>time</th>
-      <th>store_type</th>
-      <th>store_name</th>
-      <th>promo</th>
-      <th>item_type</th>
-      <th>category</th>
+      <th>...</th>
+      <th>item_id</th>
+      <th>type_id</th>
+      <th>order_amount</th>
+      <th>order_price</th>
+      <th>day_num</th>
+      <th>storetype_num</th>
+      <th>storename_num</th>
+      <th>cat_num</th>
+      <th>time_num</th>
+      <th>promo_num</th>
     </tr>
   </thead>
   <tbody>
@@ -517,12 +532,17 @@ Outcome (example):
       <td>372</td>
       <td>372</td>
       <td>372</td>
-      <td>372</td>
-      <td>372</td>
-      <td>372</td>
+      <td>...</td>
       <td>372.000000</td>
-      <td>372</td>
-      <td>372</td>
+      <td>372.000000</td>
+      <td>372.000000</td>
+      <td>372.000000</td>
+      <td>372.000000</td>
+      <td>372.000000</td>
+      <td>372.000000</td>
+      <td>372.000000</td>
+      <td>372.000000</td>
+      <td>372.000000</td>
     </tr>
     <tr>
       <th>unique</th>
@@ -536,12 +556,17 @@ Outcome (example):
       <td>26</td>
       <td>7</td>
       <td>35</td>
-      <td>4</td>
-      <td>5</td>
-      <td>9</td>
+      <td>...</td>
       <td>NaN</td>
-      <td>126</td>
-      <td>16</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>top</th>
@@ -555,12 +580,17 @@ Outcome (example):
       <td>2022-01-08</td>
       <td>Saturday</td>
       <td>17:25:00</td>
-      <td>morning</td>
-      <td>supermarket</td>
-      <td>Okay</td>
+      <td>...</td>
       <td>NaN</td>
-      <td>charcuterie</td>
-      <td>fruit &amp; vegetables</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>freq</th>
@@ -574,12 +604,17 @@ Outcome (example):
       <td>45</td>
       <td>87</td>
       <td>44</td>
-      <td>186</td>
-      <td>306</td>
-      <td>127</td>
+      <td>...</td>
       <td>NaN</td>
-      <td>25</td>
-      <td>103</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>mean</th>
@@ -593,12 +628,17 @@ Outcome (example):
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>...</td>
+      <td>147.865591</td>
+      <td>42.543011</td>
+      <td>30.381720</td>
+      <td>68.919265</td>
+      <td>2.661290</td>
+      <td>3.392473</td>
+      <td>4.212366</td>
+      <td>7.521505</td>
+      <td>1.387097</td>
       <td>0.083333</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>std</th>
@@ -612,12 +652,17 @@ Outcome (example):
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>...</td>
+      <td>91.676674</td>
+      <td>34.169954</td>
+      <td>16.118312</td>
+      <td>36.489459</td>
+      <td>1.591184</td>
+      <td>1.344550</td>
+      <td>2.396214</td>
+      <td>4.050499</td>
+      <td>0.896621</td>
       <td>0.276758</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>min</th>
@@ -631,12 +676,17 @@ Outcome (example):
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>...</td>
       <td>0.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>2.950000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>25%</th>
@@ -650,12 +700,17 @@ Outcome (example):
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>...</td>
+      <td>68.750000</td>
+      <td>14.000000</td>
+      <td>13.000000</td>
+      <td>25.571500</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+      <td>6.000000</td>
+      <td>1.000000</td>
       <td>0.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>50%</th>
@@ -669,12 +724,17 @@ Outcome (example):
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>...</td>
+      <td>145.500000</td>
+      <td>34.500000</td>
+      <td>34.000000</td>
+      <td>72.487014</td>
+      <td>3.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>9.000000</td>
+      <td>2.000000</td>
       <td>0.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>75%</th>
@@ -688,12 +748,17 @@ Outcome (example):
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>...</td>
+      <td>225.000000</td>
+      <td>68.000000</td>
+      <td>38.000000</td>
+      <td>103.329980</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>6.000000</td>
+      <td>11.000000</td>
+      <td>2.000000</td>
       <td>0.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>max</th>
@@ -707,15 +772,21 @@ Outcome (example):
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>...</td>
+      <td>313.000000</td>
+      <td>125.000000</td>
+      <td>53.000000</td>
+      <td>114.878340</td>
+      <td>6.000000</td>
+      <td>4.000000</td>
+      <td>8.000000</td>
+      <td>15.000000</td>
+      <td>3.000000</td>
       <td>1.000000</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
   </tbody>
 </table>
+<p>11 rows × 27 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -737,6 +808,50 @@ Outcome (example):
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;order_amount&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;order_ID&#39;</span><span class="p">)[</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
 <span class="c1"># make a new column for the price per order</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;order_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;order_ID&#39;</span><span class="p">)[</span><span class="s1">&#39;price_total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_28579/3658727776.py:7: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  df[&#39;item_id&#39;] = pd.factorize(df[&#39;item_name&#39;])[0]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#create an ID for each item </span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;item_id&#39;</span><span class="p">:</span><span class="s1">&#39;item_name&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_name&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">#create an ID for each type </span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;type_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/algorithms.py:765,</span> in <span class="ni">factorize</span><span class="nt">(values, sort, use_na_sentinel, size_hint)</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="p">(</span><span class="n">ABCIndex</span><span class="p">,</span> <span class="n">ABCSeries</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">763</span>     <span class="k">return</span> <span class="n">values</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span> <span class="n">use_na_sentinel</span><span class="o">=</span><span class="n">use_na_sentinel</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">765</span> <span class="n">values</span> <span class="o">=</span> <span class="n">_ensure_arraylike</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">func_name</span><span class="o">=</span><span class="s2">&quot;factorize&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span> <span class="n">original</span> <span class="o">=</span> <span class="n">values</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span> <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="p">(</span><span class="n">ABCDatetimeArray</span><span class="p">,</span> <span class="n">ABCTimedeltaArray</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">770</span>     <span class="ow">and</span> <span class="n">values</span><span class="o">.</span><span class="n">freq</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">771</span> <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">772</span>     <span class="c1"># The presence of &#39;freq&#39; means we can fast-path sorting and know there</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span>     <span class="c1">#  aren&#39;t NAs</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/algorithms.py:238,</span> in <span class="ni">_ensure_arraylike</span><span class="nt">(values, func_name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">237</span>         <span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">238</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">construct_1d_object_array_from_listlike</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">239</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">240</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/dtypes/cast.py:1598,</span> in <span class="ni">construct_1d_object_array_from_listlike</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1595</span> <span class="c1"># numpy will try to interpret nested lists as further dimensions, hence</span>
+<span class="g g-Whitespace">   </span><span class="mi">1596</span> <span class="c1"># making a 1D array that contains list-likes is a bit tricky:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1597</span> <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1598</span> <span class="n">result</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">values</span>
+<span class="g g-Whitespace">   </span><span class="mi">1599</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="ne">ValueError</span>: could not broadcast input array from shape (372,2) into shape (372,)
 </pre></div>
 </div>
 </div>
@@ -1047,46 +1162,510 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># use the corr function to display the correlation between all the features</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">data_corr</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data_corr</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:11022,</span> in <span class="ni">DataFrame.corr</span><span class="nt">(self, method, min_periods, numeric_only)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11020</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
-<span class="g g-Whitespace">  </span><span class="mi">11021</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">cols</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="ne">&gt; </span><span class="mi">11022</span> <span class="n">mat</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11024</span> <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;pearson&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">  </span><span class="mi">11025</span>     <span class="n">correl</span> <span class="o">=</span> <span class="n">libalgos</span><span class="o">.</span><span class="n">nancorr</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">minp</span><span class="o">=</span><span class="n">min_periods</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:1981,</span> in <span class="ni">DataFrame.to_numpy</span><span class="nt">(self, dtype, copy, na_value)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1979</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1980</span>     <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1981</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">as_array</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">na_value</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1982</span> <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">dtype</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1983</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/internals/managers.py:1693,</span> in <span class="ni">BlockManager.as_array</span><span class="nt">(self, dtype, copy, na_value)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1691</span>         <span class="n">arr</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">   </span><span class="mi">1692</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1693</span>     <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interleave</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">na_value</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1694</span>     <span class="c1"># The underlying data was copied within _interleave, so no need</span>
-<span class="g g-Whitespace">   </span><span class="mi">1695</span>     <span class="c1"># to further copy if copy=True or setting na_value</span>
-<span class="g g-Whitespace">   </span><span class="mi">1697</span> <span class="k">if</span> <span class="n">na_value</span> <span class="ow">is</span> <span class="n">lib</span><span class="o">.</span><span class="n">no_default</span><span class="p">:</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/internals/managers.py:1752,</span> in <span class="ni">BlockManager._interleave</span><span class="nt">(self, dtype, na_value)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1750</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1751</span>         <span class="n">arr</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1752</span>     <span class="n">result</span><span class="p">[</span><span class="n">rl</span><span class="o">.</span><span class="n">indexer</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
-<span class="g g-Whitespace">   </span><span class="mi">1753</span>     <span class="n">itemmask</span><span class="p">[</span><span class="n">rl</span><span class="o">.</span><span class="n">indexer</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="g g-Whitespace">   </span><span class="mi">1755</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">itemmask</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
-
-<span class="ne">ValueError</span>: could not convert string to float: &#39;RABEKO choco light 250g&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>week</th>
+      <th>order_ID</th>
+      <th>amount</th>
+      <th>price_unit</th>
+      <th>price_total</th>
+      <th>promo</th>
+      <th>reorder</th>
+      <th>item_id</th>
+      <th>type_id</th>
+      <th>order_amount</th>
+      <th>order_price</th>
+      <th>day_num</th>
+      <th>storetype_num</th>
+      <th>storename_num</th>
+      <th>cat_num</th>
+      <th>time_num</th>
+      <th>promo_num</th>
+      <th>timestamp</th>
+      <th>times_min</th>
+      <th>dates_days</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>week</th>
+      <td>1.000000</td>
+      <td>0.804654</td>
+      <td>-0.048140</td>
+      <td>0.094480</td>
+      <td>5.483121e-02</td>
+      <td>-0.008244</td>
+      <td>0.330432</td>
+      <td>0.881411</td>
+      <td>4.026260e-01</td>
+      <td>-0.253494</td>
+      <td>-0.154799</td>
+      <td>0.016479</td>
+      <td>0.042430</td>
+      <td>-0.233660</td>
+      <td>0.129407</td>
+      <td>0.433118</td>
+      <td>-0.008244</td>
+      <td>0.859438</td>
+      <td>-0.220200</td>
+      <td>0.771482</td>
+    </tr>
+    <tr>
+      <th>order_ID</th>
+      <td>0.804654</td>
+      <td>1.000000</td>
+      <td>0.005611</td>
+      <td>0.134515</td>
+      <td>1.293462e-01</td>
+      <td>0.030952</td>
+      <td>0.234685</td>
+      <td>0.706636</td>
+      <td>3.350350e-01</td>
+      <td>-0.118124</td>
+      <td>0.011544</td>
+      <td>0.048467</td>
+      <td>0.080177</td>
+      <td>-0.125979</td>
+      <td>0.066919</td>
+      <td>0.410639</td>
+      <td>0.030952</td>
+      <td>0.972776</td>
+      <td>-0.386738</td>
+      <td>0.799191</td>
+    </tr>
+    <tr>
+      <th>amount</th>
+      <td>-0.048140</td>
+      <td>0.005611</td>
+      <td>1.000000</td>
+      <td>-0.209230</td>
+      <td>1.654026e-01</td>
+      <td>-0.048528</td>
+      <td>0.007978</td>
+      <td>-0.102130</td>
+      <td>-8.178184e-02</td>
+      <td>-0.012262</td>
+      <td>-0.062144</td>
+      <td>0.163514</td>
+      <td>-0.112660</td>
+      <td>0.171548</td>
+      <td>-0.298535</td>
+      <td>0.044981</td>
+      <td>-0.048528</td>
+      <td>-0.022860</td>
+      <td>-0.049977</td>
+      <td>-0.071387</td>
+    </tr>
+    <tr>
+      <th>price_unit</th>
+      <td>0.094480</td>
+      <td>0.134515</td>
+      <td>-0.209230</td>
+      <td>1.000000</td>
+      <td>8.995332e-01</td>
+      <td>0.183813</td>
+      <td>0.075232</td>
+      <td>0.106368</td>
+      <td>4.860249e-02</td>
+      <td>-0.041801</td>
+      <td>0.030875</td>
+      <td>0.071248</td>
+      <td>0.061079</td>
+      <td>-0.066105</td>
+      <td>0.147618</td>
+      <td>0.083835</td>
+      <td>0.183813</td>
+      <td>0.115674</td>
+      <td>-0.084926</td>
+      <td>0.083845</td>
+    </tr>
+    <tr>
+      <th>price_total</th>
+      <td>0.054831</td>
+      <td>0.129346</td>
+      <td>0.165403</td>
+      <td>0.899533</td>
+      <td>1.000000e+00</td>
+      <td>0.179947</td>
+      <td>0.069005</td>
+      <td>0.049907</td>
+      <td>-1.783440e-07</td>
+      <td>-0.055200</td>
+      <td>0.010706</td>
+      <td>0.133835</td>
+      <td>0.002398</td>
+      <td>0.011269</td>
+      <td>0.013796</td>
+      <td>0.121559</td>
+      <td>0.179947</td>
+      <td>0.096362</td>
+      <td>-0.126275</td>
+      <td>0.046190</td>
+    </tr>
+    <tr>
+      <th>promo</th>
+      <td>-0.008244</td>
+      <td>0.030952</td>
+      <td>-0.048528</td>
+      <td>0.183813</td>
+      <td>1.799472e-01</td>
+      <td>1.000000</td>
+      <td>0.030826</td>
+      <td>-0.018680</td>
+      <td>8.213454e-02</td>
+      <td>-0.080867</td>
+      <td>-0.017922</td>
+      <td>0.033664</td>
+      <td>0.136420</td>
+      <td>-0.234044</td>
+      <td>0.148676</td>
+      <td>0.086898</td>
+      <td>1.000000</td>
+      <td>0.002949</td>
+      <td>0.040621</td>
+      <td>-0.033650</td>
+    </tr>
+    <tr>
+      <th>reorder</th>
+      <td>0.330432</td>
+      <td>0.234685</td>
+      <td>0.007978</td>
+      <td>0.075232</td>
+      <td>6.900537e-02</td>
+      <td>0.030826</td>
+      <td>1.000000</td>
+      <td>0.237370</td>
+      <td>-4.185553e-01</td>
+      <td>-0.308725</td>
+      <td>-0.246657</td>
+      <td>0.076217</td>
+      <td>-0.243438</td>
+      <td>0.096743</td>
+      <td>-0.031300</td>
+      <td>0.264991</td>
+      <td>0.030826</td>
+      <td>0.260820</td>
+      <td>-0.211008</td>
+      <td>0.256427</td>
+    </tr>
+    <tr>
+      <th>item_id</th>
+      <td>0.881411</td>
+      <td>0.706636</td>
+      <td>-0.102130</td>
+      <td>0.106368</td>
+      <td>4.990737e-02</td>
+      <td>-0.018680</td>
+      <td>0.237370</td>
+      <td>1.000000</td>
+      <td>4.876312e-01</td>
+      <td>-0.158339</td>
+      <td>-0.034788</td>
+      <td>0.007337</td>
+      <td>0.092249</td>
+      <td>-0.217612</td>
+      <td>0.190643</td>
+      <td>0.377275</td>
+      <td>-0.018680</td>
+      <td>0.764460</td>
+      <td>-0.258153</td>
+      <td>0.711302</td>
+    </tr>
+    <tr>
+      <th>type_id</th>
+      <td>0.402626</td>
+      <td>0.335035</td>
+      <td>-0.081782</td>
+      <td>0.048602</td>
+      <td>-1.783440e-07</td>
+      <td>0.082135</td>
+      <td>-0.418555</td>
+      <td>0.487631</td>
+      <td>1.000000e+00</td>
+      <td>0.159421</td>
+      <td>0.219891</td>
+      <td>0.047117</td>
+      <td>0.348181</td>
+      <td>-0.249594</td>
+      <td>0.214586</td>
+      <td>0.070541</td>
+      <td>0.082135</td>
+      <td>0.343415</td>
+      <td>0.009918</td>
+      <td>0.275822</td>
+    </tr>
+    <tr>
+      <th>order_amount</th>
+      <td>-0.253494</td>
+      <td>-0.118124</td>
+      <td>-0.012262</td>
+      <td>-0.041801</td>
+      <td>-5.520033e-02</td>
+      <td>-0.080867</td>
+      <td>-0.308725</td>
+      <td>-0.158339</td>
+      <td>1.594209e-01</td>
+      <td>1.000000</td>
+      <td>0.920146</td>
+      <td>-0.116226</td>
+      <td>0.666429</td>
+      <td>-0.017109</td>
+      <td>0.130171</td>
+      <td>-0.379538</td>
+      <td>-0.080867</td>
+      <td>-0.163762</td>
+      <td>0.248016</td>
+      <td>-0.213740</td>
+    </tr>
+    <tr>
+      <th>order_price</th>
+      <td>-0.154799</td>
+      <td>0.011544</td>
+      <td>-0.062144</td>
+      <td>0.030875</td>
+      <td>1.070553e-02</td>
+      <td>-0.017922</td>
+      <td>-0.246657</td>
+      <td>-0.034788</td>
+      <td>2.198909e-01</td>
+      <td>0.920146</td>
+      <td>1.000000</td>
+      <td>-0.163981</td>
+      <td>0.685969</td>
+      <td>-0.128586</td>
+      <td>0.188877</td>
+      <td>-0.204887</td>
+      <td>-0.017922</td>
+      <td>-0.036339</td>
+      <td>0.069463</td>
+      <td>-0.076563</td>
+    </tr>
+    <tr>
+      <th>day_num</th>
+      <td>0.016479</td>
+      <td>0.048467</td>
+      <td>0.163514</td>
+      <td>0.071248</td>
+      <td>1.338352e-01</td>
+      <td>0.033664</td>
+      <td>0.076217</td>
+      <td>0.007337</td>
+      <td>4.711688e-02</td>
+      <td>-0.116226</td>
+      <td>-0.163981</td>
+      <td>1.000000</td>
+      <td>-0.069984</td>
+      <td>0.332089</td>
+      <td>-0.078327</td>
+      <td>0.375540</td>
+      <td>0.033664</td>
+      <td>-0.031768</td>
+      <td>-0.316375</td>
+      <td>-0.197257</td>
+    </tr>
+    <tr>
+      <th>storetype_num</th>
+      <td>0.042430</td>
+      <td>0.080177</td>
+      <td>-0.112660</td>
+      <td>0.061079</td>
+      <td>2.397553e-03</td>
+      <td>0.136420</td>
+      <td>-0.243438</td>
+      <td>0.092249</td>
+      <td>3.481810e-01</td>
+      <td>0.666429</td>
+      <td>0.685969</td>
+      <td>-0.069984</td>
+      <td>1.000000</td>
+      <td>-0.471853</td>
+      <td>0.344400</td>
+      <td>-0.229209</td>
+      <td>0.136420</td>
+      <td>0.087094</td>
+      <td>0.348492</td>
+      <td>0.062080</td>
+    </tr>
+    <tr>
+      <th>storename_num</th>
+      <td>-0.233660</td>
+      <td>-0.125979</td>
+      <td>0.171548</td>
+      <td>-0.066105</td>
+      <td>1.126945e-02</td>
+      <td>-0.234044</td>
+      <td>0.096743</td>
+      <td>-0.217612</td>
+      <td>-2.495939e-01</td>
+      <td>-0.017109</td>
+      <td>-0.128586</td>
+      <td>0.332089</td>
+      <td>-0.471853</td>
+      <td>1.000000</td>
+      <td>-0.297761</td>
+      <td>0.159855</td>
+      <td>-0.234044</td>
+      <td>-0.165459</td>
+      <td>-0.390154</td>
+      <td>-0.182963</td>
+    </tr>
+    <tr>
+      <th>cat_num</th>
+      <td>0.129407</td>
+      <td>0.066919</td>
+      <td>-0.298535</td>
+      <td>0.147618</td>
+      <td>1.379622e-02</td>
+      <td>0.148676</td>
+      <td>-0.031300</td>
+      <td>0.190643</td>
+      <td>2.145862e-01</td>
+      <td>0.130171</td>
+      <td>0.188877</td>
+      <td>-0.078327</td>
+      <td>0.344400</td>
+      <td>-0.297761</td>
+      <td>1.000000</td>
+      <td>-0.091360</td>
+      <td>0.148676</td>
+      <td>0.082753</td>
+      <td>0.134480</td>
+      <td>0.088114</td>
+    </tr>
+    <tr>
+      <th>time_num</th>
+      <td>0.433118</td>
+      <td>0.410639</td>
+      <td>0.044981</td>
+      <td>0.083835</td>
+      <td>1.215591e-01</td>
+      <td>0.086898</td>
+      <td>0.264991</td>
+      <td>0.377275</td>
+      <td>7.054108e-02</td>
+      <td>-0.379538</td>
+      <td>-0.204887</td>
+      <td>0.375540</td>
+      <td>-0.229209</td>
+      <td>0.159855</td>
+      <td>-0.091360</td>
+      <td>1.000000</td>
+      <td>0.086898</td>
+      <td>0.389622</td>
+      <td>-0.741985</td>
+      <td>0.308242</td>
+    </tr>
+    <tr>
+      <th>promo_num</th>
+      <td>-0.008244</td>
+      <td>0.030952</td>
+      <td>-0.048528</td>
+      <td>0.183813</td>
+      <td>1.799472e-01</td>
+      <td>1.000000</td>
+      <td>0.030826</td>
+      <td>-0.018680</td>
+      <td>8.213454e-02</td>
+      <td>-0.080867</td>
+      <td>-0.017922</td>
+      <td>0.033664</td>
+      <td>0.136420</td>
+      <td>-0.234044</td>
+      <td>0.148676</td>
+      <td>0.086898</td>
+      <td>1.000000</td>
+      <td>0.002949</td>
+      <td>0.040621</td>
+      <td>-0.033650</td>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <td>0.859438</td>
+      <td>0.972776</td>
+      <td>-0.022860</td>
+      <td>0.115674</td>
+      <td>9.636188e-02</td>
+      <td>0.002949</td>
+      <td>0.260820</td>
+      <td>0.764460</td>
+      <td>3.434150e-01</td>
+      <td>-0.163762</td>
+      <td>-0.036339</td>
+      <td>-0.031768</td>
+      <td>0.087094</td>
+      <td>-0.165459</td>
+      <td>0.082753</td>
+      <td>0.389622</td>
+      <td>0.002949</td>
+      <td>1.000000</td>
+      <td>-0.350025</td>
+      <td>0.910300</td>
+    </tr>
+    <tr>
+      <th>times_min</th>
+      <td>-0.220200</td>
+      <td>-0.386738</td>
+      <td>-0.049977</td>
+      <td>-0.084926</td>
+      <td>-1.262749e-01</td>
+      <td>0.040621</td>
+      <td>-0.211008</td>
+      <td>-0.258153</td>
+      <td>9.917873e-03</td>
+      <td>0.248016</td>
+      <td>0.069463</td>
+      <td>-0.316375</td>
+      <td>0.348492</td>
+      <td>-0.390154</td>
+      <td>0.134480</td>
+      <td>-0.741985</td>
+      <td>0.040621</td>
+      <td>-0.350025</td>
+      <td>1.000000</td>
+      <td>-0.291386</td>
+    </tr>
+    <tr>
+      <th>dates_days</th>
+      <td>0.771482</td>
+      <td>0.799191</td>
+      <td>-0.071387</td>
+      <td>0.083845</td>
+      <td>4.619038e-02</td>
+      <td>-0.033650</td>
+      <td>0.256427</td>
+      <td>0.711302</td>
+      <td>2.758221e-01</td>
+      <td>-0.213740</td>
+      <td>-0.076563</td>
+      <td>-0.197257</td>
+      <td>0.062080</td>
+      <td>-0.182963</td>
+      <td>0.088114</td>
+      <td>0.308242</td>
+      <td>-0.033650</td>
+      <td>0.910300</td>
+      <td>-0.291386</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="what-day-new-dataframe-grocery-visits-day-week">
@@ -2042,6 +2621,15 @@ The P-Value of the ChiSq Test 2 is: 0.5796249574256348
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="1.%20Collecting%20relevant%20data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1. Collecting relevant data</p>
+      </div>
+    </a>
 </div>
                 </footer>
               

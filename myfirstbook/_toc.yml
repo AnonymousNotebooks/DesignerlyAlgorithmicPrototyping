@@ -5,4 +5,4 @@ format: jb-book
 root: Notebooks/0. introjupy.ipynb
 chapters:
 - file: Notebooks/1. Collecting relevant data.ipynb
-- file: Notebooks/2.Structuring and visualizing.ipynb
+- file: Notebooks/2. Structuring and visualizing.ipynb

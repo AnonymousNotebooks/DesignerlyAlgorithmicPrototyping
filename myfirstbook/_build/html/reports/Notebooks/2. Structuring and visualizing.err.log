@@ -15,47 +15,60 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# use the corr function to display the correlation between all the features
-data_corr = df.corr()
-data_corr
+# new row for reordered items 
+df['reorder'] = df.item_type.duplicated()
+# convert reorder row to boolean value
+df['reorder'] = df['reorder'].astype(bool)
+#create an ID for each item 
+df.rename(columns={'item_id':'item_name'}, inplace=True)
+df['item_id'] = pd.factorize(df['item_name'])[0]
+#create an ID for each type 
+df['type_id'] = pd.factorize(df['item_type'])[0]
+#first make a new column for the amount of items per order
+df['order_amount'] = df.groupby('order_ID')['amount'].transform('sum')
+# make a new column for the price per order
+df['order_price'] = df.groupby('order_ID')['price_total'].transform('sum')
 ------------------
 
+----- stderr -----
+/tmp/ipykernel_28579/3658727776.py:7: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+  df['item_id'] = pd.factorize(df['item_name'])[0]
+------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
-Cell [0;32mIn[9], line 2[0m
-[1;32m      1[0m [38;5;66;03m# use the corr function to display the correlation between all the features[39;00m
-[0;32m----> 2[0m data_corr [38;5;241m=[39m [43mdf[49m[38;5;241;43m.[39;49m[43mcorr[49m[43m([49m[43m)[49m
-[1;32m      3[0m data_corr
+Cell [0;32mIn[3], line 7[0m
+[1;32m      5[0m [38;5;66;03m#create an ID for each item [39;00m
+[1;32m      6[0m df[38;5;241m.[39mrename(columns[38;5;241m=[39m{[38;5;124m'[39m[38;5;124mitem_id[39m[38;5;124m'[39m:[38;5;124m'[39m[38;5;124mitem_name[39m[38;5;124m'[39m}, inplace[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[0;32m----> 7[0m df[[38;5;124m'[39m[38;5;124mitem_id[39m[38;5;124m'[39m] [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mfactorize[49m[43m([49m[43mdf[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mitem_name[39;49m[38;5;124;43m'[39;49m[43m][49m[43m)[49m[[38;5;241m0[39m]
+[1;32m      8[0m [38;5;66;03m#create an ID for each type [39;00m
+[1;32m      9[0m df[[38;5;124m'[39m[38;5;124mtype_id[39m[38;5;124m'[39m] [38;5;241m=[39m pd[38;5;241m.[39mfactorize(df[[38;5;124m'[39m[38;5;124mitem_type[39m[38;5;124m'[39m])[[38;5;241m0[39m]
 
-File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:11022[0m, in [0;36mDataFrame.corr[0;34m(self, method, min_periods, numeric_only)[0m
-[1;32m  11020[0m cols [38;5;241m=[39m data[38;5;241m.[39mcolumns
-[1;32m  11021[0m idx [38;5;241m=[39m cols[38;5;241m.[39mcopy()
-[0;32m> 11022[0m mat [38;5;241m=[39m [43mdata[49m[38;5;241;43m.[39;49m[43mto_numpy[49m[43m([49m[43mdtype[49m[38;5;241;43m=[39;49m[38;5;28;43mfloat[39;49m[43m,[49m[43m [49m[43mna_value[49m[38;5;241;43m=[39;49m[43mnp[49m[38;5;241;43m.[39;49m[43mnan[49m[43m,[49m[43m [49m[43mcopy[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m
-[1;32m  11024[0m [38;5;28;01mif[39;00m method [38;5;241m==[39m [38;5;124m"[39m[38;5;124mpearson[39m[38;5;124m"[39m:
-[1;32m  11025[0m     correl [38;5;241m=[39m libalgos[38;5;241m.[39mnancorr(mat, minp[38;5;241m=[39mmin_periods)
+File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/algorithms.py:765[0m, in [0;36mfactorize[0;34m(values, sort, use_na_sentinel, size_hint)[0m
+[1;32m    762[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(values, (ABCIndex, ABCSeries)):
+[1;32m    763[0m     [38;5;28;01mreturn[39;00m values[38;5;241m.[39mfactorize(sort[38;5;241m=[39msort, use_na_sentinel[38;5;241m=[39muse_na_sentinel)
+[0;32m--> 765[0m values [38;5;241m=[39m [43m_ensure_arraylike[49m[43m([49m[43mvalues[49m[43m,[49m[43m [49m[43mfunc_name[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mfactorize[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[1;32m    766[0m original [38;5;241m=[39m values
+[1;32m    768[0m [38;5;28;01mif[39;00m (
+[1;32m    769[0m     [38;5;28misinstance[39m(values, (ABCDatetimeArray, ABCTimedeltaArray))
+[1;32m    770[0m     [38;5;129;01mand[39;00m values[38;5;241m.[39mfreq [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[1;32m    771[0m ):
+[1;32m    772[0m     [38;5;66;03m# The presence of 'freq' means we can fast-path sorting and know there[39;00m
+[1;32m    773[0m     [38;5;66;03m#  aren't NAs[39;00m
 
-File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:1981[0m, in [0;36mDataFrame.to_numpy[0;34m(self, dtype, copy, na_value)[0m
-[1;32m   1979[0m [38;5;28;01mif[39;00m dtype [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
-[1;32m   1980[0m     dtype [38;5;241m=[39m np[38;5;241m.[39mdtype(dtype)
-[0;32m-> 1981[0m result [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_mgr[49m[38;5;241;43m.[39;49m[43mas_array[49m[43m([49m[43mdtype[49m[38;5;241;43m=[39;49m[43mdtype[49m[43m,[49m[43m [49m[43mcopy[49m[38;5;241;43m=[39;49m[43mcopy[49m[43m,[49m[43m [49m[43mna_value[49m[38;5;241;43m=[39;49m[43mna_value[49m[43m)[49m
-[1;32m   1982[0m [38;5;28;01mif[39;00m result[38;5;241m.[39mdtype [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m dtype:
-[1;32m   1983[0m     result [38;5;241m=[39m np[38;5;241m.[39marray(result, dtype[38;5;241m=[39mdtype, copy[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
+File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/algorithms.py:238[0m, in [0;36m_ensure_arraylike[0;34m(values, func_name)[0m
+[1;32m    236[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(values, [38;5;28mtuple[39m):
+[1;32m    237[0m         values [38;5;241m=[39m [38;5;28mlist[39m(values)
+[0;32m--> 238[0m     values [38;5;241m=[39m [43mconstruct_1d_object_array_from_listlike[49m[43m([49m[43mvalues[49m[43m)[49m
+[1;32m    239[0m [38;5;28;01melse[39;00m:
+[1;32m    240[0m     values [38;5;241m=[39m np[38;5;241m.[39masarray(values)
 
-File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/internals/managers.py:1693[0m, in [0;36mBlockManager.as_array[0;34m(self, dtype, copy, na_value)[0m
-[1;32m   1691[0m         arr[38;5;241m.[39mflags[38;5;241m.[39mwriteable [38;5;241m=[39m [38;5;28;01mFalse[39;00m
-[1;32m   1692[0m [38;5;28;01melse[39;00m:
-[0;32m-> 1693[0m     arr [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_interleave[49m[43m([49m[43mdtype[49m[38;5;241;43m=[39;49m[43mdtype[49m[43m,[49m[43m [49m[43mna_value[49m[38;5;241;43m=[39;49m[43mna_value[49m[43m)[49m
-[1;32m   1694[0m     [38;5;66;03m# The underlying data was copied within _interleave, so no need[39;00m
-[1;32m   1695[0m     [38;5;66;03m# to further copy if copy=True or setting na_value[39;00m
-[1;32m   1697[0m [38;5;28;01mif[39;00m na_value [38;5;129;01mis[39;00m lib[38;5;241m.[39mno_default:
+File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/dtypes/cast.py:1598[0m, in [0;36mconstruct_1d_object_array_from_listlike[0;34m(values)[0m
+[1;32m   1595[0m [38;5;66;03m# numpy will try to interpret nested lists as further dimensions, hence[39;00m
+[1;32m   1596[0m [38;5;66;03m# making a 1D array that contains list-likes is a bit tricky:[39;00m
+[1;32m   1597[0m result [38;5;241m=[39m np[38;5;241m.[39mempty([38;5;28mlen[39m(values), dtype[38;5;241m=[39m[38;5;124m"[39m[38;5;124mobject[39m[38;5;124m"[39m)
+[0;32m-> 1598[0m [43mresult[49m[43m[[49m[43m:[49m[43m][49m [38;5;241m=[39m values
+[1;32m   1599[0m [38;5;28;01mreturn[39;00m result
 
-File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/core/internals/managers.py:1752[0m, in [0;36mBlockManager._interleave[0;34m(self, dtype, na_value)[0m
-[1;32m   1750[0m     [38;5;28;01melse[39;00m:
-[1;32m   1751[0m         arr [38;5;241m=[39m blk[38;5;241m.[39mget_values(dtype)
-[0;32m-> 1752[0m     [43mresult[49m[43m[[49m[43mrl[49m[38;5;241;43m.[39;49m[43mindexer[49m[43m][49m [38;5;241m=[39m arr
-[1;32m   1753[0m     itemmask[rl[38;5;241m.[39mindexer] [38;5;241m=[39m [38;5;241m1[39m
-[1;32m   1755[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m itemmask[38;5;241m.[39mall():
-
-[0;31mValueError[0m: could not convert string to float: 'RABEKO choco light 250g'
+[0;31mValueError[0m: could not broadcast input array from shape (372,2) into shape (372,)
 
