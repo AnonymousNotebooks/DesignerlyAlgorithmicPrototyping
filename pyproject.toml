@@ -21,6 +21,7 @@ dataframe-image = "^0.2.3"
 pyarrow = "^15.0.0"
 openpyxl = "^3.1.2"
 scikit-learn = "^1.4.0"
+datetime = "^5.4"
 
 
 [build-system]
