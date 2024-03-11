@@ -15,14 +15,47 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-df = pd.read_csv (r"C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2.csv")
+    # Function to generate #visits per day of the week
+from AlgorithmDAYS_HH2 import beforeNY, AfterNY, daysAfterNY
+    #Function to define the limits for total visits, days, same store and type per week
+from AlgorithmCOUNTS_HH2 import CountTotalVisits, CountTotalDays, CountStoreName, CountStoreType, CountTotalPerday, CountVisitsPerDay
+    # Function to generate #visits per time
+from AlgorithmTIMES_HH2 import AlbertHeijn, Okay, Delhaize, Carrefour, VersavelPoelman, Sys, Brabo, Ikea, Kruidvat
+    # Function to decide amounts per visit & per week
+from AlgorithmAMOUNT_HH2 import StoreAmount, WeekAmount, StoreCount, WeekCount, CatCount, PerCatCount, PerCatCountALL, PerCatCountSTORE, PerCatCountSTORE
+    # Function to generate store name (&type) per weekday (+ assign #of visits per day)
+from AlgorithmSTORE_HH2 import storeperday, countsperstore
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[28], line 1[0m
-[0;32m----> 1[0m df [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m [49m[43m([49m[38;5;124;43mr[39;49m[38;5;124;43m"[39;49m[38;5;124;43mC:[39;49m[38;5;124;43m\[39;49m[38;5;124;43mUsers[39;49m[38;5;124;43m\[39;49m[38;5;124;43m20204113[39;49m[38;5;124;43m\[39;49m[38;5;124;43mOneDrive - TU Eindhoven[39;49m[38;5;124;43m\[39;49m[38;5;124;43m2_Research[39;49m[38;5;124;43m\[39;49m[38;5;124;43m1_Groceries[39;49m[38;5;124;43m\[39;49m[38;5;124;43mDATA[39;49m[38;5;124;43m\[39;49m[38;5;124;43m9th week - narrative (3rd attempt)[39;49m[38;5;124;43m\[39;49m[38;5;124;43mHH2[39;49m[38;5;124;43m\[39;49m[38;5;124;43mdf[39;49m[38;5;124;43m\[39;49m[38;5;124;43mdf_HH2.csv[39;49m[38;5;124;43m"[39;49m[43m)[49m
+Cell [0;32mIn[2], line 2[0m
+[1;32m      1[0m [38;5;66;03m# Function to generate #visits per day of the week[39;00m
+[0;32m----> 2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mAlgorithmDAYS_HH2[39;00m [38;5;28;01mimport[39;00m beforeNY, AfterNY, daysAfterNY
+[1;32m      3[0m [38;5;66;03m#Function to define the limits for total visits, days, same store and type per week[39;00m
+[1;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mAlgorithmCOUNTS_HH2[39;00m [38;5;28;01mimport[39;00m CountTotalVisits, CountTotalDays, CountStoreName, CountStoreType, CountTotalPerday, CountVisitsPerDay
+
+File [0;32m/workspaces/Plenty-in-the-Pantry/myfirstbook/AlgorithmDAYS_HH2.py:47[0m
+[1;32m     32[0m     BOLD [38;5;241m=[39m [38;5;124m'[39m[38;5;130;01m\033[39;00m[38;5;124m[1m[39m[38;5;124m'[39m
+[1;32m     34[0m [38;5;66;03m# ### Load and view data [39;00m
+[1;32m     35[0m 
+[1;32m     36[0m [38;5;66;03m# In[2]:[39;00m
+[0;32m   (...)[0m
+[1;32m     43[0m 
+[1;32m     44[0m [38;5;66;03m# In[3]:[39;00m
+[0;32m---> 47[0m [38;5;28;01mfrom[39;00m [38;5;21;01mDAYS_HH2weights[39;00m [38;5;28;01mimport[39;00m period1, period2
+[1;32m     48[0m   [38;5;66;03m#Function to define the limits for total visits, days, same store and type per week[39;00m
+[1;32m     49[0m [38;5;28;01mfrom[39;00m [38;5;21;01mAlgorithmCOUNTS_HH2[39;00m [38;5;28;01mimport[39;00m CountTotalVisits, CountTotalDays, CountStoreName, CountTimePerDay, CountStoreType, CountTotalPerday, CountVisitsPerDay, CountTimingPerDay
+
+File [0;32m/workspaces/Plenty-in-the-Pantry/myfirstbook/DAYS_HH2weights.py:63[0m
+[1;32m     55[0m [38;5;28;01mfrom[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstats[39;00m [38;5;28;01mimport[39;00m chi2_contingency
+[1;32m     58[0m [38;5;66;03m# ### Load and view data [39;00m
+[1;32m     59[0m 
+[1;32m     60[0m [38;5;66;03m# In[96]:[39;00m
+[0;32m---> 63[0m df [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m [49m[43m([49m[38;5;124;43mr[39;49m[38;5;124;43m"[39;49m[38;5;124;43mC:[39;49m[38;5;124;43m\[39;49m[38;5;124;43mUsers[39;49m[38;5;124;43m\[39;49m[38;5;124;43m20204113[39;49m[38;5;124;43m\[39;49m[38;5;124;43mOneDrive - TU Eindhoven[39;49m[38;5;124;43m\[39;49m[38;5;124;43m2_Research[39;49m[38;5;124;43m\[39;49m[38;5;124;43m1_Groceries[39;49m[38;5;124;43m\[39;49m[38;5;124;43mDATA[39;49m[38;5;124;43m\[39;49m[38;5;124;43m9th week - narrative (3rd attempt)[39;49m[38;5;124;43m\[39;49m[38;5;124;43mHH2[39;49m[38;5;124;43m\[39;49m[38;5;124;43mdf[39;49m[38;5;124;43m\[39;49m[38;5;124;43mdf_HH2.csv[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[1;32m     65[0m [38;5;66;03m# del df["HH"][39;00m
+[1;32m     66[0m df[38;5;241m.[39mdescribe(include[38;5;241m=[39m[38;5;124m'[39m[38;5;124mall[39m[38;5;124m'[39m)
 
 File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry-xPFdo8rA-py3.10/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1024[0m, in [0;36mread_csv[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)[0m
 [1;32m   1011[0m kwds_defaults [38;5;241m=[39m _refine_defaults_read(

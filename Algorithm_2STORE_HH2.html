@@ -1,0 +1,1116 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2: SECOND ALGORITHM - WHERE WILL THEY SHOP? &#8212; Designerly Algorithmic Prototyping Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Algorithm_2STORE_HH2';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="0.%20introjupy.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Designerly Algorithmic Prototyping Notebooks - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Designerly Algorithmic Prototyping Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="0.%20introjupy.html">
+                    Designerly Algorithmic Prototyping | Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1.%20Collecting%20relevant%20data.html">1. Collecting relevant data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Labeling%2C%20structuring%20and%20visualizing.html">2. Labeling, structuring and visualizing the data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20Assigning%20weights.html">3. Assigning weights</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FAlgorithm_2STORE_HH2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Algorithm_2STORE_HH2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2: SECOND ALGORITHM - WHERE WILL THEY SHOP?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2: SECOND ALGORITHM - WHERE WILL THEY SHOP?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-view-data">Load and view data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#select-store-name">1. SELECT STORE NAME</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#new-function-for-store-per-day">New function for store per day</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#itemcounts-per-store">Itemcounts per store</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="second-algorithm-where-will-they-shop">
+<h1>2: SECOND ALGORITHM - WHERE WILL THEY SHOP?<a class="headerlink" href="#second-algorithm-where-will-they-shop" title="Permalink to this heading">#</a></h1>
+<p>Outcome (example):</p>
+<ol class="arabic simple">
+<li><p>input: Monday,Tuesday…</p></li>
+<li><p>output: store name X,Y…</p></li>
+</ol>
+<section id="load-and-view-data">
+<h2>Load and view data<a class="headerlink" href="#load-and-view-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data for HH</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># data for HH</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2.csv&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;pd&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data for different days vs stores</span>
+<span class="n">df_Monday</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Mo.csv&quot;</span><span class="p">)</span>
+<span class="n">df_Tuesday</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Tu.csv&quot;</span><span class="p">)</span>
+<span class="n">df_Wednesday</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_We.csv&quot;</span><span class="p">)</span>
+<span class="n">df_Thursday</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Th.csv&quot;</span><span class="p">)</span>
+<span class="n">df_Friday</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Fr.csv&quot;</span><span class="p">)</span>
+<span class="n">df_Saturday</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Sa.csv&quot;</span><span class="p">)</span>
+<span class="n">df_Sunday</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Su.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Function to generate #visits per day of the week</span>
+<span class="kn">from</span> <span class="nn">AlgorithmDAYS_HH2</span> <span class="kn">import</span> <span class="n">beforeNY</span><span class="p">,</span> <span class="n">AfterNY</span><span class="p">,</span> <span class="n">daysAfterNY</span>
+
+    <span class="c1">#Function to define the limits for total visits, days, same store and type per week</span>
+<span class="kn">from</span> <span class="nn">AlgorithmCOUNTS_HH2</span> <span class="kn">import</span> <span class="n">CountTotalVisits</span><span class="p">,</span> <span class="n">CountTotalDays</span><span class="p">,</span> <span class="n">CountStoreName</span><span class="p">,</span> <span class="n">CountTimePerDay</span><span class="p">,</span> <span class="n">CountStoreType</span><span class="p">,</span> <span class="n">CountTotalPerday</span><span class="p">,</span> <span class="n">CountVisitsPerDay</span><span class="p">,</span> <span class="n">CountTimingPerDay</span>
+
+    <span class="c1"># Function to decide time (morning, noon. afternoon) per visited store</span>
+<span class="kn">from</span> <span class="nn">AlgorithmTIMES_HH2</span> <span class="kn">import</span> <span class="n">AlbertHeijn</span><span class="p">,</span> <span class="n">Okay</span><span class="p">,</span> <span class="n">Delhaize</span><span class="p">,</span> <span class="n">Carrefour</span><span class="p">,</span> <span class="n">VersavelPoelman</span><span class="p">,</span> <span class="n">Sys</span><span class="p">,</span> <span class="n">Brabo</span><span class="p">,</span> <span class="n">Ikea</span><span class="p">,</span> <span class="n">Kruidvat</span>
+
+    <span class="c1"># Function to decide amounts per visit &amp; per week</span>
+<span class="kn">from</span> <span class="nn">AlgorithmAMOUNT_HH2</span> <span class="kn">import</span> <span class="n">StoreAmount</span><span class="p">,</span> <span class="n">WeekAmount</span><span class="p">,</span> <span class="n">StoreCount</span><span class="p">,</span> <span class="n">WeekCount</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="select-store-name">
+<h1>1. SELECT STORE NAME<a class="headerlink" href="#select-store-name" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Monday</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>store_name</th>
+      <th>store_type</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sys</td>
+      <td>bakery</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Versavel Poelman</td>
+      <td>butcher</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create random samples for this day based on the assigned weights</span>
+<span class="k">def</span> <span class="nf">Mondays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Mondays</span> <span class="o">=</span> <span class="n">df_Monday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Mondays</span> <span class="o">=</span> <span class="n">df_Mondays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Monday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Mondays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df_Mondays</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Mondays</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>store_name</th>
+      <th>store_type</th>
+      <th>day</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Sys</td>
+      <td>bakery</td>
+      <td>Monday</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create random samples for this day based on the assigned weights</span>
+<span class="k">def</span> <span class="nf">Tuesdays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Tuesdays</span> <span class="o">=</span> <span class="n">df_Tuesday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Tuesdays</span> <span class="o">=</span> <span class="n">df_Tuesdays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Tuesdays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df_Tuesdays</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create random samples for this day based on the assigned weights</span>
+<span class="k">def</span> <span class="nf">Wednesdays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Wednesdays</span> <span class="o">=</span> <span class="n">df_Wednesday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Wednesdays</span> <span class="o">=</span> <span class="n">df_Wednesdays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Wednesdays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df_Wednesdays</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create random samples for this day based on the assigned weights</span>
+<span class="k">def</span> <span class="nf">Thursdays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Thursdays</span> <span class="o">=</span> <span class="n">df_Thursday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Thursdays</span> <span class="o">=</span> <span class="n">df_Thursdays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Thursday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Thursdays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df_Thursdays</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create random samples for this day based on the assigned weights</span>
+<span class="k">def</span> <span class="nf">Fridays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Fridays</span> <span class="o">=</span> <span class="n">df_Friday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Fridays</span> <span class="o">=</span> <span class="n">df_Fridays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Friday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Fridays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df_Fridays</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create random samples for this day based on the assigned weights</span>
+<span class="k">def</span> <span class="nf">Saturdays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Saturdays</span> <span class="o">=</span> <span class="n">df_Saturday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Saturdays</span> <span class="o">=</span> <span class="n">df_Saturdays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Saturday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Saturdays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df_Saturdays</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create random samples for this day based on the assigned weights</span>
+<span class="k">def</span> <span class="nf">Sundays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Sundays</span> <span class="o">=</span> <span class="n">df_Sunday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Sundays</span> <span class="o">=</span> <span class="n">df_Sundays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Sunday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Sundays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df_Sundays</span>    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="new-function-for-store-per-day">
+<h1>New function for store per day<a class="headerlink" href="#new-function-for-store-per-day" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">daysAfterNY</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
+<span class="n">df1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> RERUN - Too few/many visits per week</span>
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>times</th>
+      <th>day</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>2.0</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1.0</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1.0</td>
+      <td>Wednesday</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>Thursday</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>Friday</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.0</td>
+      <td>Saturday</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>Sunday</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### 2. What STORE?</span>
+            <span class="c1"># identify counts for visits per weekday</span>
+<span class="n">mo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">tu</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">we</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">th</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">fr</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">sa</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">su</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+
+    <span class="c1"># Generate times for the [previously identified] shopping dags + corresponding time</span>
+<span class="n">stores</span> <span class="o">=</span> <span class="p">[</span><span class="n">Mondays</span><span class="p">(</span><span class="n">mo</span><span class="p">),</span> <span class="n">Tuesdays</span><span class="p">(</span><span class="n">tu</span><span class="p">),</span> <span class="n">Wednesdays</span><span class="p">(</span><span class="n">we</span><span class="p">),</span> <span class="n">Thursdays</span><span class="p">(</span><span class="n">th</span><span class="p">),</span> <span class="n">Fridays</span><span class="p">(</span><span class="n">fr</span><span class="p">),</span> <span class="n">Saturdays</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span> <span class="n">Sundays</span><span class="p">(</span><span class="n">su</span><span class="p">)]</span>
+    <span class="c1"># create one df for all visited stores + day of the week</span>
+<span class="n">stores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">stores</span><span class="p">)</span>
+
+<span class="n">stores</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>store_name</th>
+      <th>store_type</th>
+      <th>day</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>Versavel Poelman</td>
+      <td>butcher</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sys</td>
+      <td>bakery</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Okay</td>
+      <td>supermarket</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
+      <td>Wednesday</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AlbertHeijn</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>store_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>afternoon</td>
+      <td>Albert Heijn</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">storeperday</span><span class="p">(</span><span class="n">dataframes</span><span class="p">):</span>
+    <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span> 
+
+    <span class="k">while</span> <span class="n">restart</span><span class="p">:</span>
+
+        <span class="c1">### 2. What STORE?</span>
+                    <span class="c1"># identify counts for visits per weekday</span>
+        <span class="n">mo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">tu</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">we</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">th</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="n">fr</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+        <span class="n">sa</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+        <span class="n">su</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+
+            <span class="c1"># Generate store names for the [previously identified] shopping dags + corresponding store type</span>
+        <span class="n">stores</span> <span class="o">=</span> <span class="p">[</span><span class="n">Mondays</span><span class="p">(</span><span class="n">mo</span><span class="p">),</span> <span class="n">Tuesdays</span><span class="p">(</span><span class="n">tu</span><span class="p">),</span> <span class="n">Wednesdays</span><span class="p">(</span><span class="n">we</span><span class="p">),</span> <span class="n">Thursdays</span><span class="p">(</span><span class="n">th</span><span class="p">),</span> <span class="n">Fridays</span><span class="p">(</span><span class="n">fr</span><span class="p">),</span> <span class="n">Saturdays</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span> <span class="n">Sundays</span><span class="p">(</span><span class="n">su</span><span class="p">)]</span>
+            <span class="c1"># create one df for all visited stores + day of the week</span>
+        <span class="n">stores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">stores</span><span class="p">)</span>
+
+
+        <span class="c1">### 3. What TIME?</span>
+
+        <span class="c1"># Identifier counts for store names per week</span>
+        <span class="n">AHt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Albert Heijn&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">OKt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Okay&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">DHt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Delhaize&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">CFt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Carrefour&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">VPt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Versavel Poelman&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">SYt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sys&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">BRt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Brabo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">IKt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Ikea&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">KRt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Kruidvat&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+        <span class="c1"># Generate times per storename and compile in df with stores</span>
+        <span class="n">storetimes</span> <span class="o">=</span> <span class="p">[</span><span class="n">AlbertHeijn</span><span class="p">(</span><span class="n">AHt</span><span class="p">),</span> <span class="n">Okay</span><span class="p">(</span><span class="n">OKt</span><span class="p">),</span> <span class="n">Delhaize</span><span class="p">(</span><span class="n">DHt</span><span class="p">),</span> <span class="n">Carrefour</span><span class="p">(</span><span class="n">CFt</span><span class="p">),</span> <span class="n">VersavelPoelman</span><span class="p">(</span><span class="n">VPt</span><span class="p">),</span> <span class="n">Sys</span><span class="p">(</span><span class="n">SYt</span><span class="p">),</span> <span class="n">Brabo</span><span class="p">(</span><span class="n">BRt</span><span class="p">),</span> <span class="n">Ikea</span><span class="p">(</span><span class="n">IKt</span><span class="p">),</span> <span class="n">Kruidvat</span><span class="p">(</span><span class="n">KRt</span><span class="p">)]</span>
+        <span class="n">storetimes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">storetimes</span><span class="p">)</span>
+        <span class="n">stores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">stores</span><span class="p">,</span> <span class="n">storetimes</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;store_name&quot;</span><span class="p">)</span>
+
+        <span class="c1">### CHECKPOINT: range for amount of stores per week.day</span>
+
+            <span class="c1"># Check if the total STORE TYPES VISITED PER WEEK are within the normal range</span>
+        <span class="k">for</span> <span class="n">storetype</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]:</span>
+            <span class="n">typecount</span> <span class="o">=</span> <span class="n">stores</span><span class="p">[</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">storetype</span><span class="p">][</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+            <span class="n">countstoretype</span> <span class="o">=</span> <span class="n">CountStoreType</span><span class="p">(</span><span class="n">storetype</span><span class="p">)</span>
+            <span class="n">minstoretype</span> <span class="o">=</span> <span class="n">countstoretype</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">maxstoretype</span> <span class="o">=</span> <span class="n">countstoretype</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">typecount</span> <span class="o">&lt;</span> <span class="n">minstoretype</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too few store type:&quot;</span><span class="p">,</span> <span class="n">storetype</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">elif</span> <span class="n">maxstoretype</span> <span class="o">&lt;</span> <span class="n">typecount</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too many store type:&quot;</span><span class="p">,</span> <span class="n">storetype</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+
+            <span class="c1"># Check if the total STORE NAMES VISITED PER WEEK are within the normal range</span>
+        <span class="k">for</span> <span class="n">storename</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]:</span>
+            <span class="n">namecount</span> <span class="o">=</span> <span class="n">stores</span><span class="p">[</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">storename</span><span class="p">][</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+            <span class="n">countstorename</span> <span class="o">=</span> <span class="n">CountStoreName</span><span class="p">(</span><span class="n">storename</span><span class="p">)</span>
+            <span class="n">minstorename</span> <span class="o">=</span> <span class="n">countstorename</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">maxstorename</span> <span class="o">=</span> <span class="n">countstorename</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">namecount</span> <span class="o">&lt;</span> <span class="n">minstorename</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too few store name:&quot;</span><span class="p">,</span> <span class="n">storename</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">elif</span> <span class="n">maxstorename</span> <span class="o">&lt;</span> <span class="n">namecount</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too many store name:&quot;</span><span class="p">,</span> <span class="n">storename</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+
+            <span class="c1"># Check if the total STORES VISITED PER DAY are within the normal range</span>
+        <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]:</span>
+            <span class="n">perdaycount</span> <span class="o">=</span> <span class="n">stores</span><span class="p">[</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">day</span><span class="p">][</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+            <span class="n">CountTotalPerday</span> <span class="o">=</span> <span class="n">CountVisitsPerDay</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+            <span class="n">minstoreperday</span> <span class="o">=</span> <span class="n">CountTotalPerday</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">maxstoreperday</span> <span class="o">=</span> <span class="n">CountTotalPerday</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">namecount</span> <span class="o">&lt;</span> <span class="n">minstoreperday</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too few stores on:&quot;</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">elif</span> <span class="n">maxstoreperday</span> <span class="o">&lt;</span> <span class="n">namecount</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too many stores on:&quot;</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">return</span> <span class="n">stores</span>
+                <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">storetimes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_16412</span><span class="o">/</span><span class="mf">344355203.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">storetimes</span>
+
+<span class="ne">NameError</span>: name &#39;storetimes&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="itemcounts-per-store">
+<h1>Itemcounts per store<a class="headerlink" href="#itemcounts-per-store" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">countsperstore</span><span class="p">(</span><span class="n">dataframes</span><span class="p">):</span>
+    <span class="n">storetime</span> <span class="o">=</span> <span class="n">dataframes</span><span class="p">[[</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">]]</span>
+    <span class="n">storetime</span>
+
+    <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span> 
+
+    <span class="k">while</span> <span class="n">restart</span><span class="p">:</span>
+        <span class="n">storecounts</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">store</span><span class="p">,</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">storetime</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <span class="n">storecounts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">StoreCount</span><span class="p">(</span><span class="n">store</span><span class="p">,</span><span class="n">time</span><span class="p">))</span>
+
+        <span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">storecounts</span>
+
+        <span class="c1"># Check if the total ITEMS PER STORE are within the normal range</span>
+        <span class="k">for</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">]:</span>
+            <span class="n">week9count</span> <span class="o">=</span> <span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">NormWeekCount</span> <span class="o">=</span> <span class="n">WeekCount</span><span class="p">()</span>
+            <span class="n">minWeekCount</span> <span class="o">=</span> <span class="n">NormWeekCount</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">maxWeekCount</span> <span class="o">=</span> <span class="n">NormWeekCount</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">week9count</span> <span class="o">&lt;</span> <span class="n">minWeekCount</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too few items per storeNAME:&quot;</span><span class="p">,</span> <span class="n">week9count</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">elif</span> <span class="n">maxWeekCount</span> <span class="o">&lt;</span> <span class="n">week9count</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too many items per storeNAME:&quot;</span><span class="p">,</span> <span class="n">week9count</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">return</span> <span class="n">dataframes</span>
+                <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># WeekCount()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(31, 98)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2: SECOND ALGORITHM - WHERE WILL THEY SHOP?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-view-data">Load and view data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#select-store-name">1. SELECT STORE NAME</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#new-function-for-store-per-day">New function for store per day</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#itemcounts-per-store">Itemcounts per store</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By anonymous
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
