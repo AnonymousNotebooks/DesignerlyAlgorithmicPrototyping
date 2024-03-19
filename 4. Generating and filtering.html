@@ -377,7 +377,19 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store">4.2 Store</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store-time">4.2 Store &amp; Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#item-counts">4.3 Item Counts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#count-maximums-per-week-day-store">Count maximums per week/day/store</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-item-counts-per-store-for-the-predicted-week">Generate item counts per store for the predicted week</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grocery-lists">4.4 Grocery Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-up-the-dataframe-per-store-type">Split up the dataframe per store type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-grocery-lists-for-this-household-and-check-against-their-limits-for-amount-of-items-per-store-etc">Generate grocery lists for this household and check against their limits (for amount of items per store etc)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-check">Extra Check</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-call-the-grocery-lists">OUTPUT: Call the grocery lists</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -583,14 +595,190 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dayofweek</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">dayofweek</span><span class="p">()</span>
+<span class="n">df1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> RERUN - Too few/many visits per week</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: center;">
+      <th></th>
+      <th>times</th>
+      <th>day</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>2.0</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1.0</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>Wednesday</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>Thursday</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>Friday</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1.0</td>
+      <td>Saturday</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>Sunday</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
 </pre></div>
 </div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="store-time">
+<h2>4.2 Store &amp; Time<a class="headerlink" href="#store-time" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create random samples for each day based on the assigned weights</span>
+<span class="k">def</span> <span class="nf">Mondays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Mondays</span> <span class="o">=</span> <span class="n">df_Monday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Mondays</span> <span class="o">=</span> <span class="n">df_Mondays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Monday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Mondays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df_Mondays</span>
+
+<span class="k">def</span> <span class="nf">Tuesdays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Tuesdays</span> <span class="o">=</span> <span class="n">df_Tuesday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Tuesdays</span> <span class="o">=</span> <span class="n">df_Tuesdays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Tuesdays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df_Tuesdays</span>
+
+<span class="k">def</span> <span class="nf">Wednesdays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Wednesdays</span> <span class="o">=</span> <span class="n">df_Wednesday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Wednesdays</span> <span class="o">=</span> <span class="n">df_Wednesdays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Wednesdays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df_Wednesdays</span>
+
+<span class="k">def</span> <span class="nf">Thursdays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Thursdays</span> <span class="o">=</span> <span class="n">df_Thursday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Thursdays</span> <span class="o">=</span> <span class="n">df_Thursdays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Thursday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Thursdays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df_Thursdays</span>
+
+<span class="k">def</span> <span class="nf">Fridays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Fridays</span> <span class="o">=</span> <span class="n">df_Friday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Fridays</span> <span class="o">=</span> <span class="n">df_Fridays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Friday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Fridays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df_Fridays</span>
+
+<span class="k">def</span> <span class="nf">Saturdays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Saturdays</span> <span class="o">=</span> <span class="n">df_Saturday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Saturdays</span> <span class="o">=</span> <span class="n">df_Saturdays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Saturday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Saturdays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df_Saturdays</span>
+
+<span class="k">def</span> <span class="nf">Sundays</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Sundays</span> <span class="o">=</span> <span class="n">df_Sunday</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_Sundays</span> <span class="o">=</span> <span class="n">df_Sundays</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="s1">&#39;Sunday&#39;</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Sundays</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df_Sundays</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create random samples for each store based on the assigned weights</span>
+<span class="k">def</span> <span class="nf">AlbertHeijn</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_AlbertHeijn</span> <span class="o">=</span> <span class="n">df_AlbertHeijns</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+    <span class="k">del</span> <span class="n">df_AlbertHeijn</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="n">df_AlbertHeijn</span> <span class="o">=</span> <span class="n">df_AlbertHeijn</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">store_name</span><span class="o">=</span><span class="s1">&#39;Albert Heijn&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_AlbertHeijn</span>
+<span class="k">def</span> <span class="nf">Okay</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Okay</span> <span class="o">=</span> <span class="n">df_Okays</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Okay</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="n">df_Okay</span> <span class="o">=</span> <span class="n">df_Okay</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">store_name</span><span class="o">=</span><span class="s1">&#39;Okay&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Okay</span>
+<span class="k">def</span> <span class="nf">Delhaize</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Delhaize</span> <span class="o">=</span> <span class="n">df_Delhaizes</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Delhaize</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="n">df_Delhaize</span> <span class="o">=</span> <span class="n">df_Delhaize</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">store_name</span><span class="o">=</span><span class="s1">&#39;Delhaize&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Delhaize</span>
+<span class="k">def</span> <span class="nf">Carrefour</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Carrefour</span> <span class="o">=</span> <span class="n">df_Carrefours</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Carrefour</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="n">df_Carrefour</span> <span class="o">=</span> <span class="n">df_Carrefour</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">store_name</span><span class="o">=</span><span class="s1">&#39;Carrefour&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Carrefour</span>
+<span class="k">def</span> <span class="nf">VersavelPoelman</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Versavel</span> <span class="o">=</span> <span class="n">df_Versavels</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Versavel</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="n">df_Versavel</span> <span class="o">=</span> <span class="n">df_Versavel</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">store_name</span><span class="o">=</span><span class="s1">&#39;Versavel Poelman&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Versavel</span>
+<span class="k">def</span> <span class="nf">Sys</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Sys</span> <span class="o">=</span> <span class="n">df_Syss</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Sys</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="n">df_Sys</span> <span class="o">=</span> <span class="n">df_Sys</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">store_name</span><span class="o">=</span><span class="s1">&#39;Sys&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Sys</span>
+<span class="k">def</span> <span class="nf">Brabo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Brabo</span> <span class="o">=</span> <span class="n">df_Brabos</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Brabo</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="n">df_Brabo</span> <span class="o">=</span> <span class="n">df_Brabo</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">store_name</span><span class="o">=</span><span class="s1">&#39;Brabo&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Brabo</span>
+<span class="k">def</span> <span class="nf">Kruidvat</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Kruidvat</span> <span class="o">=</span> <span class="n">df_Kruidvats</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Kruidvat</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="n">df_Kruidvat</span> <span class="o">=</span> <span class="n">df_Kruidvat</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">store_name</span><span class="o">=</span><span class="s1">&#39;Kruidvat&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Kruidvat</span>
+<span class="k">def</span> <span class="nf">Ikea</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">df_Ikea</span> <span class="o">=</span> <span class="n">df_Ikeas</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df_Ikea</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+    <span class="n">df_Ikea</span> <span class="o">=</span> <span class="n">df_Ikea</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">store_name</span><span class="o">=</span><span class="s1">&#39;Ikea&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Ikea</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># example to generate times</span>
+<span class="n">AlbertHeijn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -609,45 +797,369 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>times</th>
-      <th>day</th>
+      <th>time</th>
+      <th>store_name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>2</td>
+      <th>2</th>
+      <td>noon</td>
+      <td>Albert Heijn</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>afternoon</td>
+      <td>Albert Heijn</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>morning</td>
+      <td>Albert Heijn</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">storeperday</span><span class="p">(</span><span class="n">dataframes</span><span class="p">):</span>
+    <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span> 
+
+    <span class="k">while</span> <span class="n">restart</span><span class="p">:</span>
+
+        <span class="c1">### 2. What STORE?</span>
+            <span class="c1"># identifier for counts for visits per weekday</span>
+        <span class="n">mo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">tu</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">we</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">th</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="n">fr</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+        <span class="n">sa</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+        <span class="n">su</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">dataframes</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+
+            <span class="c1"># Generate store names for the [previously identified] shopping dags + corresponding store type</span>
+        <span class="n">stores</span> <span class="o">=</span> <span class="p">[</span><span class="n">Mondays</span><span class="p">(</span><span class="n">mo</span><span class="p">),</span> <span class="n">Tuesdays</span><span class="p">(</span><span class="n">tu</span><span class="p">),</span> <span class="n">Wednesdays</span><span class="p">(</span><span class="n">we</span><span class="p">),</span> <span class="n">Thursdays</span><span class="p">(</span><span class="n">th</span><span class="p">),</span> <span class="n">Fridays</span><span class="p">(</span><span class="n">fr</span><span class="p">),</span> <span class="n">Saturdays</span><span class="p">(</span><span class="n">sa</span><span class="p">),</span> <span class="n">Sundays</span><span class="p">(</span><span class="n">su</span><span class="p">)]</span>
+            <span class="c1"># create one df for all visited stores + day of the week</span>
+        <span class="n">stores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">stores</span><span class="p">)</span>
+
+
+        <span class="c1">### 3. What TIME?</span>
+            <span class="c1"># Identifier for counts for store names per week</span>
+        <span class="n">AHt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Albert Heijn&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">OKt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Okay&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">DHt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Delhaize&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">CFt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Carrefour&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">VPt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Versavel Poelman&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">SYt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sys&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">BRt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Brabo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">IKt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Ikea&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">KRt</span> <span class="o">=</span> <span class="p">(</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Kruidvat&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+             <span class="c1"># Generate times per storename and compile in df with stores</span>
+        <span class="n">storetimes</span> <span class="o">=</span> <span class="p">[</span><span class="n">AlbertHeijn</span><span class="p">(</span><span class="n">AHt</span><span class="p">),</span> <span class="n">Okay</span><span class="p">(</span><span class="n">OKt</span><span class="p">),</span> <span class="n">Delhaize</span><span class="p">(</span><span class="n">DHt</span><span class="p">),</span> <span class="n">Carrefour</span><span class="p">(</span><span class="n">CFt</span><span class="p">),</span> <span class="n">VersavelPoelman</span><span class="p">(</span><span class="n">VPt</span><span class="p">),</span> <span class="n">Sys</span><span class="p">(</span><span class="n">SYt</span><span class="p">),</span> <span class="n">Brabo</span><span class="p">(</span><span class="n">BRt</span><span class="p">),</span> <span class="n">Ikea</span><span class="p">(</span><span class="n">IKt</span><span class="p">),</span> <span class="n">Kruidvat</span><span class="p">(</span><span class="n">KRt</span><span class="p">)]</span>
+        <span class="n">storetimes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">storetimes</span><span class="p">)</span>
+        <span class="n">stores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">stores</span><span class="p">,</span> <span class="n">storetimes</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;store_name&quot;</span><span class="p">)</span>
+
+        <span class="c1">### CHECKPOINT: range for amount of stores per week.day</span>
+
+            <span class="c1"># Check if the total STORE TYPES VISITED PER WEEK are within the normal range</span>
+        <span class="k">for</span> <span class="n">storetype</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]:</span>
+            <span class="n">typecount</span> <span class="o">=</span> <span class="n">stores</span><span class="p">[</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">storetype</span><span class="p">][</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+            <span class="n">countstoretype</span> <span class="o">=</span> <span class="n">CountStoreType</span><span class="p">(</span><span class="n">storetype</span><span class="p">)</span>
+            <span class="n">minstoretype</span> <span class="o">=</span> <span class="n">countstoretype</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">maxstoretype</span> <span class="o">=</span> <span class="n">countstoretype</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">typecount</span> <span class="o">&lt;</span> <span class="n">minstoretype</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too few store type:&quot;</span><span class="p">,</span> <span class="n">storetype</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">elif</span> <span class="n">maxstoretype</span> <span class="o">&lt;</span> <span class="n">typecount</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too many store type:&quot;</span><span class="p">,</span> <span class="n">storetype</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+
+            <span class="c1"># Check if the total STORE NAMES VISITED PER WEEK are within the normal range</span>
+        <span class="k">for</span> <span class="n">storename</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]:</span>
+            <span class="n">namecount</span> <span class="o">=</span> <span class="n">stores</span><span class="p">[</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">storename</span><span class="p">][</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+            <span class="n">countstorename</span> <span class="o">=</span> <span class="n">CountStoreName</span><span class="p">(</span><span class="n">storename</span><span class="p">)</span>
+            <span class="n">minstorename</span> <span class="o">=</span> <span class="n">countstorename</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">maxstorename</span> <span class="o">=</span> <span class="n">countstorename</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">namecount</span> <span class="o">&lt;</span> <span class="n">minstorename</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too few store name:&quot;</span><span class="p">,</span> <span class="n">storename</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">elif</span> <span class="n">maxstorename</span> <span class="o">&lt;</span> <span class="n">namecount</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too many store name:&quot;</span><span class="p">,</span> <span class="n">storename</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+
+            <span class="c1"># Check if the total STORES VISITED PER DAY are within the normal range</span>
+        <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]:</span>
+            <span class="n">perdaycount</span> <span class="o">=</span> <span class="n">stores</span><span class="p">[</span><span class="n">stores</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">day</span><span class="p">][</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+            <span class="n">CountTotalPerday</span> <span class="o">=</span> <span class="n">CountVisitsPerDay</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+            <span class="n">minstoreperday</span> <span class="o">=</span> <span class="n">CountTotalPerday</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">maxstoreperday</span> <span class="o">=</span> <span class="n">CountTotalPerday</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">namecount</span> <span class="o">&lt;</span> <span class="n">minstoreperday</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too few stores on:&quot;</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">elif</span> <span class="n">maxstoreperday</span> <span class="o">&lt;</span> <span class="n">namecount</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too many stores on:&quot;</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">return</span> <span class="n">stores</span>
+                <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">storeperday</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> RERUN - Too many stores on: Tuesday</span>
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: center;">
+      <th></th>
+      <th>store_name</th>
+      <th>store_type</th>
+      <th>day</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
       <td>Monday</td>
+      <td>noon</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0</td>
-      <td>Tuesday</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>Wednesday</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>Thursday</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-      <td>Friday</td>
+      <td>Sys</td>
+      <td>bakery</td>
+      <td>Monday</td>
+      <td>morning</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1</td>
-      <td>Saturday</td>
+      <td>Brabo</td>
+      <td>butcher</td>
+      <td>Thursday</td>
+      <td>afternoon</td>
     </tr>
     <tr>
+      <th>3</th>
+      <td>Okay</td>
+      <td>supermarket</td>
+      <td>Saturday</td>
+      <td>afternoon</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="item-counts">
+<h2>4.3 Item Counts<a class="headerlink" href="#item-counts" title="Permalink to this heading">#</a></h2>
+<section id="count-maximums-per-week-day-store">
+<h3>Count maximums per week/day/store<a class="headerlink" href="#count-maximums-per-week-day-store" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total orders per day</span>
+<span class="k">def</span> <span class="nf">CountTotalPerday</span><span class="p">():</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">df_orders</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;week&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">Count</span><span class="p">)</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="nb">min</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span>
+    <span class="nb">max</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span>
+
+<span class="c1"># Total indvidual store vitits per day</span>
+<span class="k">def</span> <span class="nf">CountVisitsPerDay</span><span class="p">(</span><span class="n">day</span><span class="p">):</span>
+    <span class="n">df_count</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">==</span> <span class="n">day</span><span class="p">]</span>
+
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;week&#39;</span><span class="p">])</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;week&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">Count</span><span class="p">)</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="nb">min</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span>
+    <span class="nb">max</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span>
+
+<span class="c1"># Count amounts of time a store (name) is visited per week </span>
+<span class="k">def</span> <span class="nf">CountStoreName</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
+    <span class="n">df_count</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span><span class="o">==</span> <span class="n">store</span><span class="p">]</span>
+
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;week&#39;</span><span class="p">])</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;week&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">Count</span><span class="p">)</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="nb">min</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span>
+    <span class="nb">max</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span>
+
+<span class="c1"># Count amounts of time a store type is visited per week </span>
+<span class="k">def</span> <span class="nf">CountStoreType</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
+    <span class="n">df_count</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span><span class="o">==</span> <span class="n">store</span><span class="p">]</span>
+
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;week&#39;</span><span class="p">])</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;week&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">Count</span><span class="p">)</span>
+    <span class="n">Count</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="nb">min</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span>
+    <span class="nb">max</span> <span class="o">=</span> <span class="n">Count</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generate-item-counts-per-store-for-the-predicted-week">
+<h3>Generate item counts per store for the predicted week<a class="headerlink" href="#generate-item-counts-per-store-for-the-predicted-week" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">countsperstore</span><span class="p">(</span><span class="n">dataframes</span><span class="p">):</span>
+    <span class="n">storetime</span> <span class="o">=</span> <span class="n">dataframes</span><span class="p">[[</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span><span class="s1">&#39;time&#39;</span><span class="p">]]</span>
+    <span class="n">storetime</span>
+
+    <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span> 
+
+    <span class="k">while</span> <span class="n">restart</span><span class="p">:</span>
+        <span class="n">storecounts</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">store</span><span class="p">,</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">storetime</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <span class="n">storecounts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">StoreCount</span><span class="p">(</span><span class="n">store</span><span class="p">,</span><span class="n">time</span><span class="p">))</span>
+
+        <span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">storecounts</span>
+
+        <span class="c1"># Check if the total ITEMS PER STORE are within the normal range</span>
+        <span class="k">for</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">]:</span>
+            <span class="n">week9count</span> <span class="o">=</span> <span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">NormWeekCount</span> <span class="o">=</span> <span class="n">WeekCount</span><span class="p">()</span>
+            <span class="n">minWeekCount</span> <span class="o">=</span> <span class="n">NormWeekCount</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">maxWeekCount</span> <span class="o">=</span> <span class="n">NormWeekCount</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">week9count</span> <span class="o">&lt;</span> <span class="n">minWeekCount</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too few items per storeNAME:&quot;</span><span class="p">,</span> <span class="n">week9count</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">elif</span> <span class="n">maxWeekCount</span> <span class="o">&lt;</span> <span class="n">week9count</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - Too many items per storeNAME:&quot;</span><span class="p">,</span> <span class="n">week9count</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span> <span class="c1"># force restart</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">return</span> <span class="n">dataframes</span>
+                <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df4</span> <span class="o">=</span> <span class="n">countsperstore</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+<span class="n">df4</span><span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df4</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">df4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: center;">
+      <th></th>
+      <th>store_name</th>
+      <th>store_type</th>
+      <th>day</th>
+      <th>time</th>
+      <th>counts</th>
+      <th>I</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
       <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
+      <td>Monday</td>
+      <td>noon</td>
+      <td>1</td>
       <td>0</td>
-      <td>Sunday</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sys</td>
+      <td>bakery</td>
+      <td>Monday</td>
+      <td>morning</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Brabo</td>
+      <td>butcher</td>
+      <td>Thursday</td>
+      <td>afternoon</td>
+      <td>6</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Okay</td>
+      <td>supermarket</td>
+      <td>Saturday</td>
+      <td>afternoon</td>
+      <td>31</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -655,9 +1167,749 @@ document.write(`
 </div>
 </section>
 </section>
+<section id="grocery-lists">
+<h2>4.4 Grocery Lists<a class="headerlink" href="#grocery-lists" title="Permalink to this heading">#</a></h2>
+<section id="split-up-the-dataframe-per-store-type">
+<h3>Split up the dataframe per store type<a class="headerlink" href="#split-up-the-dataframe-per-store-type" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">supermarket</span><span class="p">(</span><span class="n">dataframes</span><span class="p">,</span> <span class="n">counts</span><span class="p">,</span> <span class="n">storenamez</span><span class="p">):</span>
+        <span class="c1">## Create dataframes for each day they go shopping</span>
+    <span class="n">typedf</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">storetypes</span> <span class="o">=</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">store_type</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">storename</span> <span class="o">=</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">store_name</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>           
+    <span class="n">thisdaysdf</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">daydf</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">storetype</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]:</span>
+            <span class="n">storeday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">storetype</span><span class="p">]</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">storeday</span><span class="p">[[</span><span class="s1">&#39;item_type&#39;</span><span class="p">,</span> <span class="s1">&#39;item_name&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">,</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;amount&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;weights_itemtype&#39;</span><span class="p">]]</span>
+            <span class="n">typedf</span><span class="p">[</span><span class="n">storetype</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+            <span class="n">typedf</span><span class="p">[</span><span class="n">storetype</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>        
+    <span class="c1">## Split up the dataframes to store name for certain times</span>
+    <span class="k">if</span> <span class="s1">&#39;supermarket&#39;</span><span class="ow">in</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">storename</span><span class="p">:</span>
+                <span class="n">thisdaydf</span> <span class="o">=</span> <span class="n">typedf</span><span class="p">[</span><span class="s1">&#39;supermarket&#39;</span><span class="p">]</span>
+                <span class="n">storesdf</span> <span class="o">=</span> <span class="n">thisdaydf</span><span class="p">[</span><span class="n">thisdaydf</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">time</span><span class="p">]</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="n">storesdf</span><span class="p">[[</span><span class="s1">&#39;item_type&#39;</span><span class="p">,</span> <span class="s1">&#39;item_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">,</span> <span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;amount&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;weights_itemtype&#39;</span><span class="p">]]</span>
+                <span class="n">daydf</span><span class="p">[</span><span class="n">time</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+                <span class="n">daydf</span><span class="p">[</span><span class="n">time</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>                
+    <span class="c1">## Sample the dataframes per store type they go shopping</span>
+    <span class="k">if</span> <span class="s1">&#39;supermarket&#39;</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+            <span class="n">grocerylist</span> <span class="o">=</span> <span class="n">dataframes</span><span class="p">[</span><span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;supermarket&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;supermarket&#39;</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                <span class="n">daydf</span><span class="p">[</span><span class="n">storenamez</span><span class="p">]</span><span class="o">=</span> <span class="n">daydf</span><span class="p">[</span><span class="n">storenamez</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">daydf</span><span class="p">[</span><span class="n">storenamez</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            
+<span class="k">def</span> <span class="nf">butcher</span><span class="p">(</span><span class="n">dataframes</span><span class="p">,</span> <span class="n">counts</span><span class="p">):</span>
+        <span class="c1">## Create dataframes for each day they go shopping</span>
+    <span class="n">typedf</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">storetype</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]:</span>
+            <span class="n">storeday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">storetype</span><span class="p">]</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">storeday</span><span class="p">[[</span><span class="s1">&#39;item_type&#39;</span><span class="p">,</span> <span class="s1">&#39;item_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">,</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;amount&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;weights_itemtype&#39;</span><span class="p">]]</span>
+            <span class="n">typedf</span><span class="p">[</span><span class="n">storetype</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+            <span class="n">typedf</span><span class="p">[</span><span class="n">storetype</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span> 
+        <span class="c1">## sample dataframes per store type</span>
+    <span class="k">if</span> <span class="s1">&#39;butcher&#39;</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+            <span class="n">grocerylist</span> <span class="o">=</span> <span class="n">dataframes</span><span class="p">[</span><span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;butcher&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;butcher&#39;</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                <span class="n">typedf</span><span class="p">[</span><span class="s1">&#39;butcher&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">typedf</span><span class="p">[</span><span class="s1">&#39;butcher&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">typedf</span><span class="p">[</span><span class="s1">&#39;butcher&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            
+<span class="k">def</span> <span class="nf">bakery</span><span class="p">(</span><span class="n">dataframes</span><span class="p">,</span> <span class="n">counts</span><span class="p">):</span>
+        <span class="c1">## Create dataframes for each day they go shopping</span>
+    <span class="n">typedf</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">storetype</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]:</span>
+            <span class="n">storeday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">storetype</span><span class="p">]</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">storeday</span><span class="p">[[</span><span class="s1">&#39;item_type&#39;</span><span class="p">,</span> <span class="s1">&#39;item_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">,</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;amount&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;weights_itemtype&#39;</span><span class="p">]]</span>
+            <span class="n">typedf</span><span class="p">[</span><span class="n">storetype</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+            <span class="n">typedf</span><span class="p">[</span><span class="n">storetype</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span> 
+    <span class="k">if</span> <span class="s1">&#39;bakery&#39;</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+        <span class="n">grocerylist</span> <span class="o">=</span> <span class="n">dataframes</span><span class="p">[</span><span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bakery&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;bakery&#39;</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+            <span class="n">typedf</span><span class="p">[</span><span class="s1">&#39;bakery&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">typedf</span><span class="p">[</span><span class="s1">&#39;bakery&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">typedf</span><span class="p">[</span><span class="s1">&#39;bakery&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        
+<span class="k">def</span> <span class="nf">drugstore</span><span class="p">(</span><span class="n">dataframes</span><span class="p">,</span> <span class="n">counts</span><span class="p">):</span>
+        <span class="c1">## Create dataframes for each day they go shopping</span>
+    <span class="n">typedf</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">storetype</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]:</span>
+            <span class="n">storeday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">storetype</span><span class="p">]</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">storeday</span><span class="p">[[</span><span class="s1">&#39;item_type&#39;</span><span class="p">,</span> <span class="s1">&#39;item_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">,</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;amount&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;weights_itemtype&#39;</span><span class="p">]]</span>
+            <span class="n">typedf</span><span class="p">[</span><span class="n">storetype</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+            <span class="n">typedf</span><span class="p">[</span><span class="n">storetype</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span> 
+    <span class="k">if</span> <span class="s1">&#39;drugstore&#39;</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+            <span class="n">grocerylist</span> <span class="o">=</span> <span class="n">dataframes</span><span class="p">[</span><span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;drugstore&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;drugstore&#39;</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                <span class="n">typedf</span><span class="p">[</span><span class="s1">&#39;drugstore&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">typedf</span><span class="p">[</span><span class="s1">&#39;drugstore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">typedf</span><span class="p">[</span><span class="s1">&#39;drugstore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            
+<span class="k">def</span> <span class="nf">furniturestore</span><span class="p">(</span><span class="n">dataframes</span><span class="p">,</span> <span class="n">counts</span><span class="p">):</span>
+        <span class="c1">## Create dataframes for each day they go shopping</span>
+    <span class="n">typedf</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">storetype</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]:</span>
+            <span class="n">storeday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">storetype</span><span class="p">]</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">storeday</span><span class="p">[[</span><span class="s1">&#39;item_type&#39;</span><span class="p">,</span> <span class="s1">&#39;item_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">,</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;amount&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;weights_itemtype&#39;</span><span class="p">]]</span>
+            <span class="n">typedf</span><span class="p">[</span><span class="n">storetype</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+            <span class="n">typedf</span><span class="p">[</span><span class="n">storetype</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span> 
+    <span class="k">if</span> <span class="s1">&#39;furniture store&#39;</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+            <span class="n">grocerylist</span> <span class="o">=</span> <span class="n">dataframes</span><span class="p">[</span><span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;furniture store&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;furniture store&#39;</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                <span class="n">daydf</span><span class="p">[</span><span class="s1">&#39;furniture store&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">daydf</span><span class="p">[</span><span class="s1">&#39;furniture store&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">daydf</span><span class="p">[</span><span class="s1">&#39;furniture store&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example</span>
+<span class="n">bakery</span><span class="p">(</span><span class="n">df3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>item_type</th>
+      <th>item_name</th>
+      <th>store_type</th>
+      <th>store_name</th>
+      <th>amount</th>
+      <th>category</th>
+      <th>weights_itemtype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>bread</td>
+      <td>KLEIN GROF GESN.</td>
+      <td>bakery</td>
+      <td>Sys</td>
+      <td>1</td>
+      <td>bakery</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>294</th>
+      <td>danish</td>
+      <td>CHOCOLADE CRÈME KOEK</td>
+      <td>bakery</td>
+      <td>Sys</td>
+      <td>4</td>
+      <td>bakery</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>129</th>
+      <td>danish</td>
+      <td>RONDE BOTERKOEK</td>
+      <td>bakery</td>
+      <td>Sys</td>
+      <td>1</td>
+      <td>bakery</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
-<section id="store">
-<h2>4.2 Store<a class="headerlink" href="#store" title="Permalink to this heading">#</a></h2>
+<section id="generate-grocery-lists-for-this-household-and-check-against-their-limits-for-amount-of-items-per-store-etc">
+<h3>Generate grocery lists for this household and check against their limits (for amount of items per store etc)<a class="headerlink" href="#generate-grocery-lists-for-this-household-and-check-against-their-limits-for-amount-of-items-per-store-etc" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check max counts PER STORE TYPE:</span>
+<span class="n">CountTotalPeritemSTORE</span> <span class="o">=</span> <span class="n">CountTypePerStore</span><span class="p">(</span><span class="s1">&#39;lunch salad&#39;</span><span class="p">,</span> <span class="s1">&#39;supermarket&#39;</span><span class="p">)</span>
+<span class="n">minitemperdaySTORE</span> <span class="o">=</span> <span class="n">CountTotalPeritemSTORE</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">maxitemeperdaySTORE</span> <span class="o">=</span> <span class="n">CountTotalPeritemSTORE</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">maxitemeperdaySTORE</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span> 
+<span class="k">while</span> <span class="n">restart</span><span class="p">:</span>
+    <span class="c1"># GET A LIST PER STORE VISITED IN THIS WEEK [ADJUST ACCORDING TO WEEKPLANNING]</span>
+    <span class="n">super1</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">super2</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">baker1</span> <span class="o">=</span> <span class="n">bakeries</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">butcher1</span> <span class="o">=</span> <span class="n">butchers</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    
+    <span class="c1"># get lists per store type</span>
+    <span class="n">supermarketlist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">super1</span><span class="p">,</span> <span class="n">super2</span><span class="p">])</span>
+    <span class="n">bakerlist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">baker1</span><span class="p">])</span>
+    <span class="n">butcherlist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">butcher1</span><span class="p">])</span>
+
+    <span class="c1"># append the different lists to the entire week</span>
+    <span class="n">weeklist</span> <span class="o">=</span> <span class="p">[</span><span class="n">super1</span><span class="p">,</span> <span class="n">super2</span><span class="p">,</span> <span class="n">baker1</span><span class="p">,</span> <span class="n">butcher1</span><span class="p">]</span>
+    <span class="n">week</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">weeklist</span><span class="p">)</span>
+
+    <span class="c1">#########</span>
+    <span class="c1"># Check if the categories per WEEK counts are ok:</span>
+    <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]:</span>
+            <span class="n">percatcount</span> <span class="o">=</span> <span class="n">week</span><span class="p">[</span><span class="n">week</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">category</span><span class="p">][</span><span class="s1">&#39;category&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+            <span class="n">CountTotalPerCat</span> <span class="o">=</span> <span class="n">PerCatCountALL</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
+            <span class="n">mincatperday</span> <span class="o">=</span> <span class="n">CountTotalPerCat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">maxcateperday</span> <span class="o">=</span> <span class="n">CountTotalPerCat</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">mincatperday</span> <span class="o">&lt;=</span> <span class="n">percatcount</span> <span class="o">&lt;=</span> <span class="n">maxcateperday</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN -  week - Too many/few of category:&quot;</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>       
+                
+    <span class="k">for</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">]:</span>
+            <span class="n">week9Amount</span> <span class="o">=</span> <span class="n">week</span><span class="p">[</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">NormWeekAmount</span> <span class="o">=</span> <span class="n">WeekAmount</span><span class="p">()</span>
+            <span class="n">minWeekAmount</span> <span class="o">=</span> <span class="n">NormWeekAmount</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">maxWeekAmount</span> <span class="o">=</span> <span class="n">NormWeekAmount</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">minWeekAmount</span> <span class="o">&lt;=</span> <span class="n">week9Amount</span> <span class="o">&lt;=</span> <span class="n">maxWeekAmount</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - AMOUNT/WEEK - to many:&quot;</span><span class="p">,</span> <span class="n">week9Amount</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>  
+               
+    <span class="c1"># Check if the itemtype counts PER STORE TYPE are ok:</span>
+    <span class="k">for</span> <span class="n">itemtype</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">]:</span>
+            <span class="n">peritemcountSTORE</span> <span class="o">=</span> <span class="n">supermarketlist</span><span class="p">[</span><span class="n">supermarketlist</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">itemtype</span><span class="p">][</span><span class="s1">&#39;item_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+            <span class="n">CountTotalPeritemSTORE</span> <span class="o">=</span> <span class="n">CountTypePerStore</span><span class="p">(</span><span class="n">itemtype</span><span class="p">,</span> <span class="s1">&#39;supermarket&#39;</span><span class="p">)</span>
+            <span class="n">minitemperdaySTORE</span> <span class="o">=</span> <span class="n">CountTotalPeritemSTORE</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">maxitemeperdaySTORE</span> <span class="o">=</span> <span class="n">CountTotalPeritemSTORE</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">minitemperdaySTORE</span> <span class="o">&lt;=</span> <span class="n">peritemcountSTORE</span> <span class="o">&lt;=</span> <span class="n">maxitemeperdaySTORE</span><span class="p">:</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN -  week - Too many/few of item:&quot;</span><span class="p">,</span> <span class="n">itemtype</span><span class="p">)</span>
+                <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;gud&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extra-check">
+<h3>Extra Check<a class="headerlink" href="#extra-check" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if the itemtype counts PER STORE TYPE are ok:</span>
+<span class="k">for</span> <span class="n">itemtype</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">]:</span>
+        <span class="n">peritemcountSTORE</span> <span class="o">=</span> <span class="n">supermarketlist</span><span class="p">[</span><span class="n">supermarketlist</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">itemtype</span><span class="p">][</span><span class="s1">&#39;item_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+        <span class="n">CountTotalPeritemSTORE</span> <span class="o">=</span> <span class="n">CountTypePerStore</span><span class="p">(</span><span class="n">itemtype</span><span class="p">,</span> <span class="s1">&#39;supermarket&#39;</span><span class="p">)</span>
+        <span class="n">minitemperdaySTORE</span> <span class="o">=</span> <span class="n">CountTotalPeritemSTORE</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">maxitemeperdaySTORE</span> <span class="o">=</span> <span class="n">CountTotalPeritemSTORE</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">minitemperdaySTORE</span> <span class="o">&lt;=</span> <span class="n">peritemcountSTORE</span> <span class="o">&lt;=</span> <span class="n">maxitemeperdaySTORE</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN -  week - Too many/few of item:&quot;</span><span class="p">,</span> <span class="n">itemtype</span><span class="p">)</span>
+            <span class="k">break</span>
+    
+
+<span class="c1"># Check if the categories per WEEK counts are ok:</span>
+<span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]:</span>
+        <span class="n">percatcount</span> <span class="o">=</span> <span class="n">week</span><span class="p">[</span><span class="n">week</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">category</span><span class="p">][</span><span class="s1">&#39;category&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+        <span class="n">CountTotalPerCat</span> <span class="o">=</span> <span class="n">PerCatCountALL</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
+        <span class="n">mincatperday</span> <span class="o">=</span> <span class="n">CountTotalPerCat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">maxcateperday</span> <span class="o">=</span> <span class="n">CountTotalPerCat</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">mincatperday</span> <span class="o">&lt;=</span> <span class="n">percatcount</span> <span class="o">&lt;=</span> <span class="n">maxcateperday</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN -  week - Too many/few of category:&quot;</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+            <span class="k">break</span>    
+            
+            
+<span class="c1"># Check if the total item amount per week is ok:</span>
+<span class="k">for</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">]:</span>
+    <span class="n">week9Amount</span> <span class="o">=</span> <span class="n">week</span><span class="p">[</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">NormWeekAmount</span> <span class="o">=</span> <span class="n">WeekAmount</span><span class="p">()</span>
+    <span class="n">minWeekAmount</span> <span class="o">=</span> <span class="n">NormWeekAmount</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">maxWeekAmount</span> <span class="o">=</span> <span class="n">NormWeekAmount</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">week9Amount</span> <span class="o">&lt;</span> <span class="n">minWeekAmount</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - AMOUNT/WEEK - to few:&quot;</span><span class="p">,</span> <span class="n">week9Amount</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">elif</span> <span class="n">maxWeekAmount</span> <span class="o">&lt;</span> <span class="n">week9Amount</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">WARNING</span><span class="si">}{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> RERUN - AMOUNT/WEEK - to many:&quot;</span><span class="p">,</span> <span class="n">week9Amount</span><span class="p">)</span>
+        <span class="k">break</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">continue</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;all = gud!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>all = gud!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="output-call-the-grocery-lists">
+<h3>OUTPUT: Call the grocery lists<a class="headerlink" href="#output-call-the-grocery-lists" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check individual lists (if supermarket s[i], if bakery ba[i]; if butcher bu[i])</span>
+<span class="n">super2</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: center;">
+      <th></th>
+      <th>item_type</th>
+      <th>item_name</th>
+      <th>store_type</th>
+      <th>store_name</th>
+      <th>amount</th>
+      <th>category</th>
+      <th>weights_itemtype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>48</th>
+      <td>tea</td>
+      <td>20 CLI RAS7MIN BIO</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>beverages</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>coke</td>
+      <td>6X33C COCA ZERO</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>beverages</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>apple sauce</td>
+      <td>EVERYDAY appelcompote stuk 710g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>canned foods</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>pasta sauce</td>
+      <td>SPAGHERONI pastasaus tradizionale 520g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>condiments</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>andalouse sauce</td>
+      <td>BONI saus andalouse TD 420ml</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>condiments</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>coconut milk</td>
+      <td>BONI kokosmelk blik 400g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>2</td>
+      <td>cooking aid</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>cheese</td>
+      <td>WATOU SPECIAL</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>dairy &amp; plant based</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>cheese</td>
+      <td>BONI gouda light sneetjes 250g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>dairy &amp; plant based</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>chocolate milk</td>
+      <td>1L CECEMEL LESS-SU</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>dairy &amp; plant based</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>334</th>
+      <td>cheese</td>
+      <td>MORA Oven goudse kaasballetjes 14x20g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>dairy &amp; plant based</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>337</th>
+      <td>pizza</td>
+      <td>BONI Pizza Rondo di Roma 450g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>frozen foods</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>336</th>
+      <td>pizza</td>
+      <td>BONI Pizza Hawai 460g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>frozen foods</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>garlic</td>
+      <td>LOOK ZAKJE 100GR</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>sweet potatoes</td>
+      <td>BIO ZOETE AARD</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>eggplant</td>
+      <td>AUBERGINES</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>oranges</td>
+      <td>EETSINAASAP / BULK</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>salad</td>
+      <td>KROPSLA VERPAKT</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>vegetable mix</td>
+      <td>BONI spaghettigroenten 400g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>bell peppers</td>
+      <td>paprika punt zoet rood Los</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>tomatoes</td>
+      <td>EMMER TOMAAT 500G</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>vegetable mix</td>
+      <td>FLORETTE groentenmix Bordje Krokant 250g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>toiletpaper</td>
+      <td>DLL T. PAPIER</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>household</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>charcuterie</td>
+      <td>Kippenwit</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>meat, fish &amp; veggie</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>meat spread</td>
+      <td>Prepare</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>meat, fish &amp; veggie</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>minced meat</td>
+      <td>OKAY gekruid kalfsgehakt 400g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>meat, fish &amp; veggie</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>charcuterie</td>
+      <td>Italiaanse kiprollade</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>meat, fish &amp; veggie</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>chicken</td>
+      <td>KIPFILET PER 2 ST</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>meat, fish &amp; veggie</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>minced meat</td>
+      <td>GEHAKT VARKEN RUND</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>meat, fish &amp; veggie</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>face masks</td>
+      <td>wegwerp mondmaskers volwassenen 5st</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>non-food</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>figs</td>
+      <td>BONI gedroogde vijgen 500g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>nuts, seeds &amp; dried fruit</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>spaghetti</td>
+      <td>BONI spaghetti volkoren 500g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>pasta &amp; rice</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baker1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: center;">
+      <th></th>
+      <th>item_type</th>
+      <th>item_name</th>
+      <th>store_type</th>
+      <th>store_name</th>
+      <th>amount</th>
+      <th>category</th>
+      <th>weights_itemtype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>40</th>
+      <td>bread</td>
+      <td>KLEIN FRANS BROOD</td>
+      <td>bakery</td>
+      <td>Sys</td>
+      <td>2</td>
+      <td>bakery</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>danish</td>
+      <td>SUIS GELE CRÈME</td>
+      <td>bakery</td>
+      <td>Sys</td>
+      <td>1</td>
+      <td>bakery</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>fish spread</td>
+      <td>DIVERSEN: NOORDZEESALADE</td>
+      <td>bakery</td>
+      <td>Sys</td>
+      <td>1</td>
+      <td>meat, fish &amp; veggie</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>danish</td>
+      <td>CHOCOLADE CRÈME KOEK</td>
+      <td>bakery</td>
+      <td>Sys</td>
+      <td>4</td>
+      <td>bakery</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>308</th>
+      <td>sandwich</td>
+      <td>SANDWICH</td>
+      <td>bakery</td>
+      <td>Sys</td>
+      <td>4</td>
+      <td>bakery</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -724,7 +1976,19 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store">4.2 Store</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store-time">4.2 Store &amp; Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#item-counts">4.3 Item Counts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#count-maximums-per-week-day-store">Count maximums per week/day/store</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-item-counts-per-store-for-the-predicted-week">Generate item counts per store for the predicted week</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grocery-lists">4.4 Grocery Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-up-the-dataframe-per-store-type">Split up the dataframe per store type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-grocery-lists-for-this-household-and-check-against-their-limits-for-amount-of-items-per-store-etc">Generate grocery lists for this household and check against their limits (for amount of items per store etc)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-check">Extra Check</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-call-the-grocery-lists">OUTPUT: Call the grocery lists</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
