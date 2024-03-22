@@ -6,5 +6,5 @@ root: 0. introjupy.ipynb
 chapters:
 - file: 1. Collecting relevant data.ipynb
 - file: 2. Labeling, structuring and visualizing.ipynb
-- file: 3. Assigning weights
-- file: 4. Generating and filtering
+- file: 3. Assigning weights.ipynb
+- file: 4. Generating and filtering.ipynb
