@@ -3,7 +3,7 @@
 
 title: Designerly Algorithmic Prototyping Notebooks
 author: anonymous
-logo: _images/logo.png
+# logo: _images/logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
