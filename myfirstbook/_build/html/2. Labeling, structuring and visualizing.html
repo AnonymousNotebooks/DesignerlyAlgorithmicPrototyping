@@ -376,13 +376,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-final-dataframe-as-a-new-csv-file">2.1.2. Save the final dataframe as a new csv file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing">2.2. Visualizing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#days">2.2.1. DAYS</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-a-noticeable-pattern-in-this-households-shopping-trips-per-week">Is there a noticeable pattern in this households shopping trips per week?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-a-noticeable-pattern-in-this-households-shopping-trips-per-week">2.2.1.1. Is there a noticeable pattern in this households shopping trips per week?</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#can-we-check-whether-shopping-days-are-predictable-over-longer-time-periods">Can we check whether shopping days are predictable over longer time periods?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trips-per-week">Trips per week</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekends-vs-weekdays">Weekends vs weekdays</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-algorithm-to-randomize-shopping-days">Build Algorithm to ‘randomize’ shopping days</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trips-per-week">2.2.1.2. Trips per week</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekends-vs-weekdays">2.2.1.3. Weekends vs weekdays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-algorithm-to-randomize-shopping-days">2.2.1.4. Build Algorithm to ‘randomize’ shopping days</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-for-dow-week-descriptions">Grid for dow/week &amp; descriptions</a></li>
 </ul>
 </li>
@@ -390,8 +390,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store-type-name">2.2.2. STORE TYPE/NAME</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-correlation-per-store-type">check correlation per store TYPE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-correlation-per-store-name">check correlation per store NAME</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-correlation-per-store-type">2.2.2.1. check correlation per store TYPE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-correlation-per-store-name">2.2.2.2. check correlation per store NAME</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-2-2-2-store">CONCLUSION (2.2.2. Store)</a></li>
 </ul>
 </li>
@@ -697,7 +697,7 @@ Make sure all variables are formatted as the correct type (e.g., int, bool…)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_55135/3230577030.py:9: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_56545/3230577030.py:9: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
   df[&#39;item_id&#39;] = pd.factorize(df[&#39;item_name&#39;])[0]
 </pre></div>
 </div>
@@ -1243,7 +1243,7 @@ dtype: object
 <section id="days">
 <h2>2.2.1. DAYS<a class="headerlink" href="#days" title="Permalink to this heading">#</a></h2>
 <section id="is-there-a-noticeable-pattern-in-this-households-shopping-trips-per-week">
-<h3>Is there a noticeable pattern in this households shopping trips per week?<a class="headerlink" href="#is-there-a-noticeable-pattern-in-this-households-shopping-trips-per-week" title="Permalink to this heading">#</a></h3>
+<h3>2.2.1.1. Is there a noticeable pattern in this households shopping trips per week?<a class="headerlink" href="#is-there-a-noticeable-pattern-in-this-households-shopping-trips-per-week" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/Groceries_onehousehold.csv&quot;</span><span class="p">)</span>
@@ -1895,7 +1895,7 @@ dtype: object
 </section>
 </section>
 <section id="trips-per-week">
-<h3>Trips per week<a class="headerlink" href="#trips-per-week" title="Permalink to this heading">#</a></h3>
+<h3>2.2.1.2. Trips per week<a class="headerlink" href="#trips-per-week" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">,</span> <span class="s1">&#39;Friday&#39;</span><span class="p">,</span> <span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">]</span>
@@ -2046,7 +2046,7 @@ dtype: object
 </div></blockquote>
 </section>
 <section id="weekends-vs-weekdays">
-<h3>Weekends vs weekdays<a class="headerlink" href="#weekends-vs-weekdays" title="Permalink to this heading">#</a></h3>
+<h3>2.2.1.3. Weekends vs weekdays<a class="headerlink" href="#weekends-vs-weekdays" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure the numbers are rounded</span>
@@ -2156,7 +2156,7 @@ dtype: object
 </div></blockquote>
 </section>
 <section id="build-algorithm-to-randomize-shopping-days">
-<h3>Build Algorithm to ‘randomize’ shopping days<a class="headerlink" href="#build-algorithm-to-randomize-shopping-days" title="Permalink to this heading">#</a></h3>
+<h3>2.2.1.4. Build Algorithm to ‘randomize’ shopping days<a class="headerlink" href="#build-algorithm-to-randomize-shopping-days" title="Permalink to this heading">#</a></h3>
 <section id="grid-for-dow-week-descriptions">
 <h4>Grid for dow/week &amp; descriptions<a class="headerlink" href="#grid-for-dow-week-descriptions" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
@@ -2390,7 +2390,7 @@ dtype: object
 <h2>2.2.2. STORE TYPE/NAME<a class="headerlink" href="#store-type-name" title="Permalink to this heading">#</a></h2>
 <p>From the correlation heatmap we knew that there was a correlation of 0.33 between day and store name, and only 0.07 with store stype. This is at least interesting enough to explore further. Let’s try to visualize these correlations and figure out what they can tell us, if anything.</p>
 <section id="check-correlation-per-store-type">
-<h3>check correlation per store TYPE<a class="headerlink" href="#check-correlation-per-store-type" title="Permalink to this heading">#</a></h3>
+<h3>2.2.2.1. check correlation per store TYPE<a class="headerlink" href="#check-correlation-per-store-type" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/Groceries_onehousehold.csv&quot;</span><span class="p">)</span>
@@ -2719,7 +2719,7 @@ dtype: object
 <p>Can we find out more about the supermarket habits? Let’s get more specific:</p>
 </section>
 <section id="check-correlation-per-store-name">
-<h3>check correlation per store NAME<a class="headerlink" href="#check-correlation-per-store-name" title="Permalink to this heading">#</a></h3>
+<h3>2.2.2.2. check correlation per store NAME<a class="headerlink" href="#check-correlation-per-store-name" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/Groceries_onehousehold.csv&quot;</span><span class="p">)</span>
@@ -5574,13 +5574,13 @@ Categories (2, object): [&#39;weekday&#39;, &#39;weekend&#39;]&#39; has dtype in
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-final-dataframe-as-a-new-csv-file">2.1.2. Save the final dataframe as a new csv file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing">2.2. Visualizing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#days">2.2.1. DAYS</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-a-noticeable-pattern-in-this-households-shopping-trips-per-week">Is there a noticeable pattern in this households shopping trips per week?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-a-noticeable-pattern-in-this-households-shopping-trips-per-week">2.2.1.1. Is there a noticeable pattern in this households shopping trips per week?</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#can-we-check-whether-shopping-days-are-predictable-over-longer-time-periods">Can we check whether shopping days are predictable over longer time periods?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trips-per-week">Trips per week</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekends-vs-weekdays">Weekends vs weekdays</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-algorithm-to-randomize-shopping-days">Build Algorithm to ‘randomize’ shopping days</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trips-per-week">2.2.1.2. Trips per week</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weekends-vs-weekdays">2.2.1.3. Weekends vs weekdays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-algorithm-to-randomize-shopping-days">2.2.1.4. Build Algorithm to ‘randomize’ shopping days</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-for-dow-week-descriptions">Grid for dow/week &amp; descriptions</a></li>
 </ul>
 </li>
@@ -5588,8 +5588,8 @@ Categories (2, object): [&#39;weekday&#39;, &#39;weekend&#39;]&#39; has dtype in
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store-type-name">2.2.2. STORE TYPE/NAME</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-correlation-per-store-type">check correlation per store TYPE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-correlation-per-store-name">check correlation per store NAME</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-correlation-per-store-type">2.2.2.1. check correlation per store TYPE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-correlation-per-store-name">2.2.2.2. check correlation per store NAME</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-2-2-2-store">CONCLUSION (2.2.2. Store)</a></li>
 </ul>
 </li>
