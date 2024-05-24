@@ -1,373 +1,373 @@
-week,order_ID,item_id,amount,price_unit,price_total,date,day,timestamp,time,store_type,store_name,promo,item_type,category
-1,1,RABEKO choco light 250g,2,2.82,5.64,2021-11-23,Tuesday,12:32:00,noon,supermarket,Okay,0,chocolate spread,breakfast & spreads
-1,1,JOYVALLE pudding griesmeel natuur 135g,4,0.99,3.96,2021-11-23,Tuesday,12:32:00,noon,supermarket,Okay,0,pudding,dairy & plant based
-1,1,BONI tomatensoep met balletjes 950ml,1,1.99,1.99,2021-11-23,Tuesday,12:32:00,noon,supermarket,Okay,0,soup,canned foods
-1,1,LIEBIG DELISOUP 9 groenten brik 1L,1,2.59,2.59,2021-11-23,Tuesday,12:32:00,noon,supermarket,Okay,0,soup,canned foods
-1,1,LIEBIG DELISOUP tom. Balletjes brik 1L,1,2.59,2.59,2021-11-23,Tuesday,12:32:00,noon,supermarket,Okay,0,soup,canned foods
-1,2,KLEIN GROF GESN. ,1,1.3,1.3,2021-11-23,Tuesday,12:39:00,noon,bakery,Sys,0,bread,bakery
-1,2,CHOCOLADEKOEK,2,1.2,2.4,2021-11-23,Tuesday,12:39:00,noon,bakery,Sys,0,danish,bakery
-1,2,SANDWICH,4,0.6,2.4,2021-11-23,Tuesday,12:39:00,noon,bakery,Sys,0,sandwich,bakery
-1,3,WRAP KIP,1,3.0,3.0,2021-11-24,Wednesday,12:32:00,noon,supermarket,Albert Heijn,1,lunch,"meat, fish & veggie"
-1,3,AH EGGWRAP,1,3.99,3.99,2021-11-24,Wednesday,12:32:00,noon,supermarket,Albert Heijn,1,lunch,"meat, fish & veggie"
-1,4,CRODINO 8+2,1,4.49,4.49,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,alcoholic drinks,beverages
-1,4,400GR 365 APPELCOMP,1,0.75,0.75,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,apple sauce,canned foods
-1,4,JONAGOLD,1,0.8958599999999999,0.8958599999999999,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,apples,fruit & vegetables
-1,4,ZOE PUNTPAPRIKA R,1,0.7787000000000001,0.7787000000000001,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,bell peppers,fruit & vegetables
-1,4,BLAUWE BESSEN 500G,1,5.99,5.99,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,1,blueberries,fruit & vegetables
-1,4,400GR BROCCOLI,1,0.99,0.99,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,broccoli,fruit & vegetables
-1,4,Bayonneham,1,1.7766000000000002,1.7766000000000002,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,charcuterie,"meat, fish & veggie"
-1,4,Italiaanse kiprollade,1,1.52588,1.52588,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,charcuterie,"meat, fish & veggie"
-1,4,Kippenwit,1,1.4688,1.4688,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,charcuterie,"meat, fish & veggie"
-1,4,WATOU SPECIAL,1,4.09,4.09,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,cheese,dairy & plant based
-1,4,KIPFILET PER 2 ST,1,5.52,5.52,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,chicken,"meat, fish & veggie"
-1,4,BIESLOOK 20GR,1,1.05,1.05,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,chives,fruit & vegetables
-1,4,1L CECEMEL LESS-SU,1,1.89,1.89,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,chocolate milk,dairy & plant based
-1,4,CLEMENTIJNEN BLAD,1,0.8865000000000001,0.8865000000000001,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,clementines,fruit & vegetables
-1,4,6X33C COCA ZERO,1,4.35,4.35,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,coke,beverages
-1,4,DANONE KAAS 500G,1,1.8,1.8,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,cream cheese,dairy & plant based
-1,4,KOMKOMMER,1,0.69,0.69,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,cucumber,fruit & vegetables
-1,4,AUBERGINES,1,0.84376,0.84376,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,eggplant,fruit & vegetables
-1,4,AUBERGINES,1,0.44178,0.44178,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,eggplant,fruit & vegetables
-1,4,Langoustine salade,1,2.85776,2.85776,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,fish spread,"meat, fish & veggie"
-1,4,LOOK ZAKJE 100GR,1,0.59,0.59,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,garlic,fruit & vegetables
-1,4,Prepare,1,1.8018,1.8018,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,meat spread,"meat, fish & veggie"
-1,4,GEHAKT VARKEN RUND,1,4.44,4.44,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,minced meat,"meat, fish & veggie"
-1,4,GEHAKT VARKEN RUND,1,3.87,3.87,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,minced meat,"meat, fish & veggie"
-1,4,LAMSGEHAKT,1,7.12,7.12,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,minced meat,"meat, fish & veggie"
-1,4,JONGE AJUIN,1,1.09,1.09,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,onions,fruit & vegetables
-1,4,EETSINAASAP / BULK,1,1.55854,1.55854,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,oranges,fruit & vegetables
-1,4,BIO PETERSELIE,1,1.15,1.15,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,parsley,fruit & vegetables
-1,4,CONFERENCE,1,0.9309999999999999,0.9309999999999999,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,pears,fruit & vegetables
-1,4,1X5 PITABROODJES,1,1.19,1.19,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,pita bread,bakery
-1,4,BIO BUTTERNUT,1,3.5461400000000003,3.5461400000000003,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,pumpkin,fruit & vegetables
-1,4,KROPSLA VERPAKT,1,1.55,1.55,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,salad,fruit & vegetables
-1,4,BOTERSANDWICH DAGV,6,0.45,2.7,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,sandwich,bakery
-1,4,365 SJALOT 1KG,1,2.05,2.05,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,shallot,fruit & vegetables
-1,4,PADDESTOELEN 250G,1,0.85,0.85,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,skyr,fruit & vegetables
-1,4,SPINAZIE 450G,1,1.85,1.85,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,spinach,fruit & vegetables
-1,4,BIO ZOETE AARD,1,2.5622999999999996,2.5622999999999996,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,1,sweet potatoes,fruit & vegetables
-1,4,20 CLIPPER LEM&GIC BIO,1,2.99,2.99,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,tea,beverages
-1,4,20 CLI RAS7MIN BIO,1,2.99,2.99,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,tea,beverages
-1,4,20 CLI SNORE&P BIO,2,3.19,6.38,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,1,tea,beverages
-1,4,DLL T. PAPIER,1,4.35,4.35,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,toiletpaper,household
-1,4,EMMER TOMAAT 500G,1,2.99,2.99,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,tomatoes,fruit & vegetables
-1,4,VLEESTOMAAT BULK,1,0.68456,0.68456,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,tomatoes,fruit & vegetables
-1,4,YT NAT MAGERE,1,1.01,1.01,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,0,yoghurt,dairy & plant based
-2,5,AH MLTSALADE,1,3.99,3.99,2021-12-01,Wednesday,11:43:00,morning,supermarket,Albert Heijn,0,lunch salad,fruit & vegetables
-2,6,KLEIN GROF GESN. ,1,1.7,1.7,2021-12-01,Wednesday,09:57:00,morning,bakery,Sys,0,bread,bakery
-2,6,CHOCOLADEKOEK,2,1.2,2.4,2021-12-01,Wednesday,09:57:00,morning,bakery,Sys,0,danish,bakery
-2,6,SANDWICH,6,0.6,3.5999999999999996,2021-12-01,Wednesday,09:57:00,morning,bakery,Sys,0,sandwich,bakery
-2,7,BONI saus andalouse TD 420ml,1,1.29,1.29,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,andalouse sauce,condiments
-2,7,EVERYDAY appelcompote stuk 710g,1,0.91,0.91,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,apple sauce,canned foods
-2,7,paprika punt zoet rood Los,1,0.60878,0.60878,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,bell peppers,fruit & vegetables
-2,7,EVERYDAY doperwt wortel zeer fijn 400g,2,0.79,1.58,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,carrots and peas,canned foods
-2,7,knolselder 1stuk,1,1.29,1.29,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,celeriac,fruit & vegetables
-2,7,BONI Spaghetti Mix geraspt 200g,1,1.39,1.39,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,cheese,dairy & plant based
-2,7,BONI gouda light sneetjes 250g,1,2.49,2.49,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,cheese,dairy & plant based
-2,7,"OKAY gebakken kip met saus 1,1kg",1,7.09,7.09,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,chicken,"meat, fish & veggie"
-2,7,Witloof extra Flandria Los,1,0.5307,0.5307,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,chicory,fruit & vegetables
-2,7,RABEKO Choco light 250g,1,2.82,2.82,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,chocolate spread,breakfast & spreads
-2,7,BONI kokosmelk blik 400g,2,0.99,1.98,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,coconut milk,cooking aid
-2,7,BONI Lungo cups UTZ 16st,1,2.89,2.89,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,coffee,beverages
-2,7,ALPRO CUISINE soyaroom li 5%vg brik 25cl,3,1.85,5.550000000000001,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,cream,dairy & plant based
-2,7,wegwerp mondmaskers volwassenen 5st,1,1.58,1.58,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,face masks,non-food
-2,7,BONI gedroogde vijgen 500g,1,2.79,2.79,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,figs,"nuts, seeds & dried fruit"
-2,7,BELVIVA pom'pin 750g,1,3.39,3.39,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,french fries,frozen foods
-2,7,prei Los,1,1.82182,1.82182,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,leek,fruit & vegetables
-2,7,OKAY kippengehakt 500g,1,3.796923,3.796923,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,minced meat,"meat, fish & veggie"
-2,7,OKAY gekruid kalfsgehakt 400g,1,6.085940000000001,6.085940000000001,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,minced meat,"meat, fish & veggie"
-2,7,SPAGHERONI pastasaus tradizionale 520g,1,2.8,2.8,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,pasta sauce,condiments
-2,7,EVERYDAY halve perzik siroop blik 820g,1,0.75,0.75,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,peaches,canned foods
-2,7,BONI spaghetti volkoren 500g,1,0.89,0.89,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,spaghetti,pasta & rice
-2,7,BONI zoete aardappel (los),1,1.51892,1.51892,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,sweet potatoes,fruit & vegetables
-2,7,BONI tonic 50cl,6,0.325,1.9500000000000002,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,tonic,beverages
-2,7,BONI spaghettigroenten 400g,1,1.49,1.49,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,vegetable mix,fruit & vegetables
-2,7,FLORETTE groentenmix Bordje Krokant 250g,1,1.69,1.69,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,1,vegetable mix,fruit & vegetables
-2,8,INEX yoghurt halfvol framboos 4x125g,1,1.89,1.89,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,0,yoghurt,dairy & plant based
-2,8,boerenring,1,4.352399999999999,4.352399999999999,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,0,charcuterie,"meat, fish & veggie"
-2,8,chateaubriand,1,7.7185,7.7185,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,0,charcuterie,"meat, fish & veggie"
-2,8,kippenroulade peterselie,1,2.024,2.024,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,0,charcuterie,"meat, fish & veggie"
-2,8,kippenwit,1,1.7640000000000002,1.7640000000000002,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,0,charcuterie,"meat, fish & veggie"
-2,8,neptunus cocktail,1,2.3855999999999997,2.3855999999999997,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,0,meat spread,"meat, fish & veggie"
-2,8,prepare,1,1.7999999999999998,1.7999999999999998,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,0,meat spread,"meat, fish & veggie"
-2,9,GROOT GROF GESN. ,2,2.5,5.0,2021-12-05,Sunday,09:24:00,morning,bakery,Sys,0,bread,bakery
-2,10,AH TABLET,1,0.59,0.59,2021-12-09,Sunday,10:55:00,morning,supermarket,Albert Heijn,0,chocolate,snacks
-2,10,AH MLTSALADE,1,5.49,5.49,2021-12-09,Sunday,10:55:00,morning,supermarket,Albert Heijn,1,lunch salad,fruit & vegetables
-2,11,GROF BROOD GESN.,1,2.5,2.5,2021-12-05,Sunday,10:54:00,morning,bakery,Sys,0,bread,bakery
-2,11,SANDWICH,4,0.6,2.4,2021-12-05,Sunday,10:54:00,morning,bakery,Sys,0,sandwich,bakery
-3,12,EVERYDAY Jonagold appelen 6st 1kg,1,0.89298,0.89298,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,apples,fruit & vegetables
-3,12,BONI noordkriek ontpit siroop bok 700g,2,1.25,2.5,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,cherries,canned foods
-3,12,KELLOGG'S TRéSOR choco-hazelnoot 450g,1,4.26,4.26,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,cereal,breakfast & spreads
-3,12,WEIGHT WATCHERS kipfilet sneetjes 120g,1,2.35,2.35,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,charcuterie,"meat, fish & veggie"
-3,12,BREYDEL Breydelham 180g,1,3.09,3.09,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,charcuterie,"meat, fish & veggie"
-3,12,OKAY Ardeens gehaktbrood 500g,1,5.846766000000001,5.846766000000001,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,1,charcuterie,"meat, fish & veggie"
-3,12,OKAY Ardeens gehaktbrood 500g,1,5.563108000000001,5.563108000000001,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,1,charcuterie,"meat, fish & veggie"
-3,12,PORT SALUT 135g,1,2.99,2.99,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,cheese,dairy & plant based
-3,12,BEEMSTERLITE jong belegen sneetjes 250g,1,3.23741,3.23741,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,cheese,dairy & plant based
-3,12,RABEKO Choco light 250g,2,2.82,5.64,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,chocolate spread,breakfast & spreads
-3,12,ALPRO kokosnootdrink 1L,1,2.45,2.45,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,coconut drink,dairy & plant based
-3,12,PUR NATUR BIO Panna Cotta 2x125g ,2,2.72,5.44,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,1,dessert,dairy & plant based
-3,12,EVERYDAY dessert liégeois chocolade 200g,4,0.19,0.76,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,dessert,dairy & plant based
-3,12,ALPRO karamel dessert 4x125g,1,2.29,2.29,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,dessert,dairy & plant based
-3,12,BONI Green Tea niet-bruisend 33cl,6,0.358,2.1479999999999997,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,ice tea,beverages
-3,12,BONI Vleessalade 175g,1,1.6,1.6,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,meat spread,"meat, fish & veggie"
-3,12,BONI Kipsalade 175g,1,1.75,1.75,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,meat spread,"meat, fish & veggie"
-3,12,LUITEN filet americain uitjes 150g,1,1.55,1.55,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,meat spread,"meat, fish & veggie"
-3,12,Boni pitabroodjes voorgebakken 6st 480g,1,1.07,1.07,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,pita bread,bakery
-3,12,BONI pizza Prosciutto Crudo 385g,1,3.99,3.99,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,pizza,frozen foods
-3,12,OKAY Gyros +-500g,1,5.42875,5.42875,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,pork,"meat, fish & veggie"
-3,12,JOYVALLE pudding griesmeel natuur 135g,4,0.99,3.96,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,pudding,dairy & plant based
-3,12,BONI tomatensoep met balletjes 950ml,1,1.99,1.99,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,0,soup,canned foods
-3,12,FLORETTE groentenmix Bordje Krokant 250g,1,1.69,1.69,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,1,vegetable mix,fruit & vegetables
-3,13,DRYCK HALLON,1,0.75,0.75,2021-12-10,Friday,10:55:00,morning,furniture store,Ikea,0,raspberry drink,beverages
-3,13,EGENTID w thee,1,3.5,3.5,2021-12-10,Friday,10:55:00,morning,furniture store,Ikea,0,tea,beverages
-3,14,GROF BROOD GESN.,2,2.5,5.0,2021-12-11,Saturday,09:47:00,morning,bakery,Sys,0,bread,bakery
-3,15,LANG ZESGRANEN,1,2.5,2.5,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,0,bread,bakery
-3,15,GROF BROOD GESN.,1,2.5,2.5,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,0,bread,bakery
-3,15,KLEIN FRANS BROOD ,2,0.9,1.8,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,0,bread,bakery
-3,15,CHOCOLADEKOEK,1,1.2,1.2,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,0,danish,bakery
-3,15,VIERK. CREMEKOEK CH,1,1.3,1.3,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,0,danish,bakery
-3,15,SUIS GELE CRÈME,1,1.3,1.3,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,0,danish,bakery
-3,15,RONDE BOTERKOEK,1,1.3,1.3,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,0,danish,bakery
-3,16,RUMSTEAK,1,6.61,6.61,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,1,beef,"meat, fish & veggie"
-3,16,RUMSTEAK,1,5.55,5.55,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,1,beef,"meat, fish & veggie"
-3,16,BLAUW BESSEN 150GR,1,2.59,2.59,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,1,blueberries,fruit & vegetables
-3,16,BLOEMKOOL,1,1.49,1.49,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,cauliflower,fruit & vegetables
-3,16,HERTA GEROOKT SPEK,1,2.59,2.59,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,charcuterie,"meat, fish & veggie"
-3,16,BEENHAM 150g,2,3.15,6.3,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,charcuterie,"meat, fish & veggie"
-3,16,VERSNIJDIUNG DERDEN,1,15.61,15.61,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,charcuterie,"meat, fish & veggie"
-3,16,150G LIGHT GERASPT,2,1.45,2.9,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,cheese,dairy & plant based
-3,16,4X120G DLL GRATIN,1,2.79,2.79,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,cheese,dairy & plant based
-3,16,MDS FAGOTIN TRADIT,1,3.25,3.25,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,1,cheese,dairy & plant based
-3,16,12C DLL LUNGO 05,1,2.49,2.49,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,coffee,beverages
-3,16,6x33c COCA ZERO,1,4.35,4.35,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,coke,beverages
-3,16,LU PRINCE START,2,2.39,4.78,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,cookies,snacks
-3,16,DANONE KAAS 500G,2,1.84,3.68,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,cream cheese,dairy & plant based
-3,16,750G MCC DUCHESSE,2,3.89,7.78,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,croquettes,frozen foods
-3,16,6 EIEREN ROLLIE,1,1.76,1.76,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,eggs,dairy & plant based
-3,16,SCHELVISHAASJE MAP,1,5.16,5.16,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,1,fish,"meat, fish & veggie"
-3,16,SCHELVISHAASJE MAP,1,5.31,5.31,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,1,fish,"meat, fish & veggie"
-3,16,RODE POMPELMOES,1,0.9168999999999999,0.9168999999999999,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,grapefruits,fruit & vegetables
-3,16,DRUIF MIX Z/P 500G,1,2.59,2.59,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,grapes,fruit & vegetables
-3,16,4x FUZE TEA PEA HIB,2,2.85,5.7,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,1,ice tea,beverages
-3,16,KIWI GEEL 6ST,1,4.49,4.49,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,kiwi,fruit & vegetables
-3,16,CITROENEN,1,0.6014400000000001,0.6014400000000001,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,lemons,fruit & vegetables
-3,16,PERSSINAAS 3KG,1,4.49,4.49,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,oranges,fruit & vegetables
-3,16,CORDON BLEU,1,5.47,5.47,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,pork,"meat, fish & veggie"
-3,16,FRAMBOOS 125G,1,2.49,2.49,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,1,raspberries,fruit & vegetables
-3,16,SPINAZIE 450G,1,1.85,1.85,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,spinach,fruit & vegetables
-3,16,FRISTI 1L,1,1.29,1.29,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,0,strawberry milk,dairy & plant based
-4,17,AHMAALTIJDSLA,1,5.49,5.49,2021-12-15,Wednesday,12:07:00,noon,supermarket,Albert Heijn,1,lunch salad,fruit & vegetables
-4,18,CAR DR. AMANDEL 1L,1,1.49,1.49,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,almond milk,dairy & plant based
-4,18,CAR BIO MOUSSELINE,1,1.89,1.89,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,apple sauce,canned foods
-4,18,GROENE ASPERGES,1,5.99,5.99,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,asparagus,fruit & vegetables
-4,18,BANANEN CHIQUITA,1,1.4805599999999999,1.4805599999999999,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,bananas,fruit & vegetables
-4,18,RODE PAPRIKA,1,0.72094,0.72094,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,bell peppers,fruit & vegetables
-4,18,BROCCOLI 500G,1,0.99,0.99,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,broccoli,fruit & vegetables
-4,18,ETNA ST NIC GUIM C,1,0.57,0.57,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,candy,snacks
-4,18,GOUDAJONG SN 300,1,2.39,2.39,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,cheese,dairy & plant based
-4,18,WP GER KAAS 3X100G,1,1.79,1.79,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,cheese,dairy & plant based
-4,18,KIPILET 1/2,1,5.57,5.57,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,chicken,"meat, fish & veggie"
-4,18,KIPFILET 1/2,1,5.73,5.73,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,chicken,"meat, fish & veggie"
-4,18,M&M'S CRISPY 36G,1,0.88,0.88,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,1,chocolate,snacks
-4,18,CAR RICOTTA 250G,1,0.89,0.89,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,cream cheese,dairy & plant based
-4,18,KOMKOMMER,1,0.69,0.69,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,cucumber,fruit & vegetables
-4,18,WEV EIERKOEKEN 350G,1,2.39,2.39,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,egg cakes,snacks
-4,18,SIMPL SCHAR EI X12,1,1.35,1.35,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,eggs,dairy & plant based
-4,18,DISC KABELJAUWFIL,1,5.79,5.79,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,fish,"meat, fish & veggie"
-4,18,CV RIV KREEFTVL,1,4.99,4.99,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,fish spread,"meat, fish & veggie"
-4,18,ZEIS KETCHUP 425ML,1,2.56,2.56,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,ketchup,condiments
-4,18,VARKENSKALFGEHAKT,1,4.65,4.65,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,minced meat,"meat, fish & veggie"
-4,18,CAR HAVERMOUT 800G,1,1.59,1.59,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,oatmeal,breakfast & spreads
-4,18,PASTINAAK 350G,1,1.69,1.69,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,parsnip,fruit & vegetables
-4,18,SEIZOEN SLA 200G,1,1.89,1.89,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,salad,fruit & vegetables
-4,18,IJSBERGSLA,1,0.99,0.99,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,salad,fruit & vegetables
-4,18,CAR SKYR VAN 150G,1,0.65,0.65,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,skyr,dairy & plant based
-4,18,CAR SKYR B BES 150,1,0.65,0.65,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,skyr,dairy & plant based
-4,18,SPINAZIE 450G,1,1.79,1.79,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,spinach,fruit & vegetables
-4,18,ZOETE AARDAPPEL,1,2.47572,2.47572,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,sweet potatoes,fruit & vegetables
-4,18,KERSTOM 400G,1,1.59,1.59,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,tomatoes,fruit & vegetables
-4,18,CAR BIO YOG 2X150G,1,1.59,1.59,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,1,yoghurt,dairy & plant based
-4,18,COURGETTEN,1,0.6042000000000001,0.6042000000000001,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,0,zucchini,fruit & vegetables
-4,19,ZWARTE WOUD BROOD,1,2.6,2.6,2021-11-21,Sunday,09:30:00,morning,bakery,Sys,0,bread,bakery
-4,19,GROF BROOD GESN,1,2.5,2.5,2021-11-21,Sunday,09:30:00,morning,bakery,Sys,0,bread,bakery
-4,19,SUIS GELE CRÈME,1,1.3,1.3,2021-11-21,Sunday,09:30:00,morning,bakery,Sys,0,pastry,bakery
-4,19,BOOTJE,1,1.3,1.3,2021-11-21,Sunday,09:30:00,morning,bakery,Sys,0,pastry,bakery
-4,20,FRIKANDON,1,1.644,1.644,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,0,charcuterie,"meat, fish & veggie"
-4,20,GRILL-WORST,1,3.096,3.096,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,0,charcuterie,"meat, fish & veggie"
-4,20,DROGE WORST,1,1.064,1.064,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,0,charcuterie,"meat, fish & veggie"
-4,20,NEPTUNESALADA,1,2.9760000000000004,2.9760000000000004,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,0,fish spread,"meat, fish & veggie"
-4,20,PREPARE DU CHEF,1,2.023,2.023,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,0,meat spread,"meat, fish & veggie"
-4,20,KIPSALADE,1,2.7720000000000002,2.7720000000000002,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,0,meat spread,"meat, fish & veggie"
-4,20,HASPENGOUWSE SALADA,1,2.5900000000000003,2.5900000000000003,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,0,meat spread,"meat, fish & veggie"
-4,20,BROOD grof gesneden,1,2.5,2.5,2021-11-21,Sunday,10:30:00,morning,bakery,Sys,0,bread,bakery
-4,21,Thaise KIPSALADE 130g,1,2.7720000000000002,2.7720000000000002,2021-11-21,Sunday,10:30:00,morning,bakery,Sys,0,meat spread,"meat, fish & veggie"
-5,22,KALKOEN M/TUINKRUIDEN,1,2.532,2.532,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,0,charcuterie,"meat, fish & veggie"
-5,22,GEB. BOULETTEN,1,2.32,2.32,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,0,charcuterie,"meat, fish & veggie"
-5,22,KIPFILET,1,1.9285,1.9285,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,0,charcuterie,"meat, fish & veggie"
-5,22,KGOUDA JONG,1,4.185,4.185,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,0,cheese,dairy & plant based
-5,22,PREPARE DU CHEF,1,1.8445,1.8445,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,0,meat spread,"meat, fish & veggie"
-5,22,KIPSALADE,1,2.604,2.604,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,0,meat spread,"meat, fish & veggie"
-5,23,LANG ZESGRANEN,1,2.5,2.5,2021-12-20,Monday,10:20:00,morning,bakery,Sys,0,bread,bakery
-5,23,GROF BROOD GESN.,1,2.5,2.5,2021-12-20,Monday,10:20:00,morning,bakery,Sys,0,bread,bakery
-5,24,"KASTEEL bier Rouge 8,0%vol 6x33cl",1,9.48,9.48,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,beer,beverages
-5,24,ST BERNARDUS Abt 12 4x33cl,1,6.44,6.44,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,beer,beverages
-5,24,"OMER bier blond 8,0%vol 6x33cl",1,8.33,8.33,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,beer,beverages
-5,24,EVERYDAY bouillon groenten 12x10g,1,0.39,0.39,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,bouillon,cooking aid
-5,24,wortelen los,1,0.25116,0.25116,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,carrots,fruit & vegetables
-5,24,TAPERO salamiblokjes 200g,1,3.09,3.09,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,charcuterie,"meat, fish & veggie"
-5,24,BONI Gratin Mix geraspt 200g,1,1.39,1.39,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,cheese,dairy & plant based
-5,24,EVERYDAY geitenkaas rol gerijpt 180g,2,1.49,2.98,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,cheese,dairy & plant based
-5,24,TAPERO Abdijkaas Grimbergen kubus 150g,1,2.99,2.99,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,cheese,dairy & plant based
-5,24,"OKAY gebakken kip met saus 1,1kg",1,7.09,7.09,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,chicken,"meat, fish & veggie"
-5,24,OKAY kippenfiletreepjes 500g,1,5.29,5.29,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,chicken,"meat, fish & veggie"
-5,24,OKAY Kippenborstfilet 600g,1,5.99,5.99,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,chicken,"meat, fish & veggie"
-5,24,BONI witloof 500g,1,1.79,1.79,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,chicory,fruit & vegetables
-5,24,witloof extra Flandria Los,1,0.3689,0.3689,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,chicory,fruit & vegetables
-5,24,LAY'S strong chilli&lime 150g,1,1.6,1.6,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,chips,snacks
-5,24,RABEKO Choco light 250g,1,2.82,2.82,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,chocolate spread,breakfast & spreads
-5,24,COCA-COLA Zero Sugar 33cl,15,0.645,9.675,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,coke,beverages
-5,24,komkommer,1,0.69,0.69,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,cucumbers,fruit & vegetables
-5,24,BONI Belgische scharreleieren L 6st,1,1.79,1.79,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,eggs,dairy & plant based
-5,24,POCO LOCO Mexican fajita mix 40g,1,1.39,1.39,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,fajita herbs,cooking aid
-5,24,MCCAIN country potatoes met kruiden 750g,1,3.29,3.29,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,french fries,frozen foods
-5,24,gember los,1,0.06468,0.06468,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,ginger,fruit & vegetables
-5,24,BONI halfvolle melk PET 50cl,6,0.498,2.988,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,milk,dairy & plant based
-5,24,"EVERYDAY paella royale 1,5kg",1,4.58,4.58,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,paella,frozen foods
-5,24,PASTINAAK (los),1,0.96316,0.96316,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,parsnip,fruit & vegetables
-5,24,BONI pecannooten 200g,1,4.39,4.39,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,pecan nuts,"nuts, seeds & dried fruit"
-5,24,BELVIVA röstis 750g,1,3.65,3.65,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,röstis,frozen foods
-5,24,ijsbergsla 1 stuk,1,0.89,0.89,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,salad,fruit & vegetables
-5,24,lente uitjes bot,1,0.99,0.99,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,spring onions,fruit & vegetables
-5,24,EVERYDAY loempia kip ham 700g,1,1.7,1.7,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,spring roll,frozen foods
-5,24,BONI zoete aardappel (los),1,6.56006,6.56006,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,sweet potatoes,fruit & vegetables
-5,24,BONI tomatenpuree dubbel geconcentr. 70g,2,0.23,0.46,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,0,tomato paste,cooking aid
-5,25,SANDWICH,6,0.6,3.5999999999999996,2021-12-21,Tuesday,11:55:00,morning,bakery,Sys,0,sandwich,bakery
-5,26,MATERNE appelcompote stuk bok 850g,1,2.42,2.42,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,apple sauce,canned foods
-5,26,paprika punt zoet rood los,1,0.8383200000000001,0.8383200000000001,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,bell peppers,fruit & vegetables
-5,26,broccoli 1st 500g,1,0.99,0.99,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,broccoli,fruit & vegetables
-5,26,HAK erwt wortelen extra fijn 680g,1,2.01,2.01,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,carrots and peas,canned foods
-5,26,IGLO bloemkool met roomsaus 450g,1,3.89,3.89,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,cauliflower,frozen foods
-5,26,BONI Beenham meesterl. Glutenvrij 200g,1,3.19,3.19,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,charcuterie,"meat, fish & veggie"
-5,26,BONI Gratin Mix geraspt 200g,1,1.39,1.39,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,cheese,dairy & plant based
-5,26,BONI gouda light sneetjes 250g,1,2.49,2.49,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,cheese,dairy & plant based
-5,26,OKAY Kippenborstfilet 600g,1,5.79,5.79,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,chicken,"meat, fish & veggie"
-5,26,BONI koriander vers 20g,1,0.99,0.99,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,coriander,fruit & vegetables
-5,26,BONI Belgische scharreleieren L 6st,1,1.99,1.99,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,eggs,dairy & plant based
-5,26,MCCAIN country potatoes met kruiden 750g,1,3.29,3.29,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,french fries,frozen foods
-5,26,BONI aardappelpuree wortel 1kg,1,2.08,2.08,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,mashed potatoes,frozen foods
-5,26,BONI forestiere mix 1kg,1,3.49,3.49,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,potatoes,frozen foods
-5,26,verse knoflook los,1,1.3532,1.3532,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,garlic,fruit & vegetables
-5,26,BONI druiven pitloos mix 500g,1,2.29,2.29,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,grapes,fruit & vegetables
-5,26,"BONI Iced Tea Peach niet-bruisend 0,5L",1,0.465,0.465,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,ice tea,beverages
-5,26,prei Los,1,0.5774999999999999,0.5774999999999999,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,leek,fruit & vegetables
-5,26,OKAY gekruid kalfsgehakt 400g,1,5.96602,5.96602,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,minced meat,"meat, fish & veggie"
-5,26,OKAY gekruid varken/kalf gekruid 500g,1,4.200147,4.200147,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,1,minced meat,"meat, fish & veggie"
-5,26,Uien los,1,0.2686,0.2686,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,onions,fruit & vegetables
-5,26,BONI pistachenoten gepeld 200g,1,8.45,8.45,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,pistachio,"nuts, seeds & dried fruit"
-5,26,OK POM-PURE vastkokend aardappelen 1kg,1,1.59,1.59,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,potatoes,fruit & vegetables
-5,26,JOYVALLE pudding griesmeel natuur 135g,2,0.99,1.98,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,pudding,dairy & plant based
-5,26,BONI fijnproeversmix Rucola 250g,1,2.69,2.69,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,salad,fruit & vegetables
-5,26,EVERYDAY zalmfil. at. z. grat. ASC 2x125g,2,3.99,7.98,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,salmon,frozen foods
-5,26,EVERYDAY scampi gepeld medium ASC 50g,1,8.32,8.32,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,scampi,frozen foods
-5,26,BONI tomatensoep met balletjes 950ml,1,1.99,1.99,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,soup,beverages
-5,26,LIEBIG DELISOUP wortel pomp.bal. brik 1L,1,2.49,2.49,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,soup,beverages
-5,26,lenteuitjes bot,1,0.99,0.99,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,spring onions,fruit & vegetables
-5,26,EVERYDAY loempia kip ham 700g,1,1.46,1.46,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,spring roll,frozen foods
-5,26,BONI zoete aardappel (los),1,4.17942,4.17942,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,sweet potatoes,fruit & vegetables
-5,26,BONI tomatenpuree dubbel geconcentr. 70g,2,0.23,0.46,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,tomato paste,canned foods
-5,26,BONI BIO cocktailtomaten 250g,1,2.49,2.49,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,tomatoes,fruit & vegetables
-5,26,DANONE ACTIVIA VOL KOKOSNOOT 4X125G,1,1.75,1.75,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,0,yoghurt,dairy & plant based
-5,27,GROF BROOD GESN.,1,2.5,2.5,2022-01-08,Saturday,11:00:00,morning,bakery,Sys,0,bread,bakery
-5,27,LANG ZESGRANEN BROOD,1,2.5,2.5,2022-01-08,Saturday,11:00:00,morning,bakery,Sys,0,bread,bakery
-5,27,SANDWICH,4,0.6,2.4,2022-01-08,Saturday,11:00:00,morning,bakery,Sys,0,sandwich,bakery
-5,28,BROCHETTEN R-V,1,5.751,5.751,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,0,beef,"meat, fish & veggie"
-5,28,FRIKANDON,1,2.2605,2.2605,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,0,charcuterie,"meat, fish & veggie"
-5,28,GRILL-WORST,1,3.024,3.024,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,0,charcuterie,"meat, fish & veggie"
-5,28,PREPARE DU CHEF,1,3.0940000000000003,3.0940000000000003,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,0,meat spread,"meat, fish & veggie"
-5,28,HASPENGOUWSE SALADE,1,2.2199999999999998,2.2199999999999998,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,0,meat spread,"meat, fish & veggie"
-5,28,KIPSALADE,1,2.688,2.688,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,0,meat spread,"meat, fish & veggie"
-5,28,HOEVE BURGER,1,6.534,6.534,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,0,pork,"meat, fish & veggie"
-6,29,LULU BEERTJE LU CAKE,1,1.39,1.39,2022-01-11,Tuesday,17:02:00,afternoon,drugstore,Kruidvat,0,cookies,snacks
-6,29,COVID ZELFTEST,1,14.95,14.95,2022-01-11,Tuesday,17:02:00,afternoon,drugstore,Kruidvat,0,covid tests,care & hyygiene
-6,29,PYRAMIDE BOSVRUCHTEN THEE,1,1.79,1.79,2022-01-11,Tuesday,17:02:00,afternoon,drugstore,Kruidvat,0,tea,beverages
-6,30,GROF BROOD GESN.,1,2.5,2.5,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,0,bread,bakery
-6,30,DIVERSEN: CHOCOLADEMELK INEX,1,2.3,2.3,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,0,chocolate milk,dairy & plant based
-6,30,CHOCOLADE CRÈME KOEK,4,1.3,5.2,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,0,danish,bakery
-6,30,FRUITKOEK,4,1.4,5.6,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,0,danish,bakery
-6,30,BOOTJE,2,1.4,2.8,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,0,danish,bakery
-6,30,DIVERSEN: NOORDZEESALADE,1,5.4,5.4,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,0,fish spread,"meat, fish & veggie"
-6,31,PAPRIKA ROOD,1,0.84,0.84,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,bell peppers,fruit & vegetables
-6,31,BROCCOLI VERP 1STK,1,1.59,1.59,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,broccoli,fruit & vegetables
-6,31,WORTELS LOS,1,0.24,0.24,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,carrots,fruit & vegetables
-6,31,KELLOGG'S TRESOR MELKCHOC,1,4.29,4.29,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,cereal,breakfast & spreads
-6,31,LOUIS CHORIZO 150GR,1,3.69,3.69,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,charcuterie,"meat, fish & veggie"
-6,31,BEEMSTER JONG VFP TR 250G,1,3.59,3.59,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,cheese,dairy & plant based
-6,31,FETA GRECO 200GR,1,2.99,2.99,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,cheese,dairy & plant based
-6,31,BON'AP KIPFILET 800GR,1,7.43,7.43,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,chicken,"meat, fish & veggie"
-6,31,WW KIPFILET 120GR,1,2.65,2.65,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,chicken,"meat, fish & veggie"
-6,31,M&M KIPPENGEHAKT 500GR,1,4.91,4.91,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,minced meat,"meat, fish & veggie"
-6,31,BIESLOOK BIO POTJE 1STK,1,1.69,1.69,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,chives,fruit & vegetables
-6,31,SO THAI KOKOSNOTENMELK 40,1,2.99,2.99,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,coconut milk,dairy & plant based
-6,31,CORA PODS LUNGO 16STK,1,4.39,4.39,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,coffee,beverages
-6,31,COCA COLA ZERO SUGAR CAN,1,4.35,4.35,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,coke,beverages
-6,31,PRINCE START NATUUR 300GR,1,2.39,2.39,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,cookies,snacks
-6,31,PRINCE START NATUUR 300GR,1,2.39,2.39,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,cookies,snacks
-6,31,ALPRO SOYA CUISINE BRIK 2,1,3.59,3.59,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,cream,dairy & plant based
-6,31,SO THAI GROENE CURRYPASTA,1,2.09,2.09,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,curry paste,condiments
-6,31,HERTA KRUIMELDEEG 230gr,1,2.7,2.7,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,dough,bakery
-6,31,COLUMBUS EIEREN LARGE 6ST,1,2.9,2.9,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,eggs,dairy & plant based
-6,31,LOOK VERPAKT 175GR,1,1.59,1.59,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,garlic,fruit & vegetables
-6,31,GOLD KIWI,4,0.85,3.4,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,kiwi,fruit & vegetables
-6,31,PREI,1,1.79,1.79,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,leek,fruit & vegetables
-6,31,LOUIS VLEESSALADE 120GR,1,1.85,1.85,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,meat salad,"meat, fish & veggie"
-6,31,CHAMPIGNONS 250GR,1,1.3,1.3,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,mushrooms,fruit & vegetables
-6,31,SIMPL GEROOKTE ZALM NO200,1,4.89,4.89,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,salmon,"meat, fish & veggie"
-6,31,GO TAN WOKSAUS ZOET ZUUR,1,3.79,3.79,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,sauce,condiments
-6,31,EASY SOJASCHEUTEN 250G,1,1.05,1.05,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,soy beans,fruit & vegetables
-6,31,TOMAAT COEUR BOEUF CAT 2S,1,3.49,3.49,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,tomatoes,fruit & vegetables
-6,31,OIKOS YOG VANILLE 4X115GR,1,3.95,3.95,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,yoghurt,dairy & plant based
-6,31,COURGETTE,1,1.36,1.36,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,0,zucchini,fruit & vegetables
-7,32,PAD THAI,1,5.59,5.59,2022-01-12,Monday,12:32:00,noon,supermarket,Albert Heijn,1,lunch,"meat, fish & veggie"
-7,32,FRAMBOZEN,1,2.49,2.49,2022-01-17,Monday,12:32:00,noon,supermarket,Albert Heijn,0,raspberries,fruit & vegetables
-7,33,MILKA TABLET,1,0.99,0.99,2022-01-20,Thursday,12:37:00,noon,supermarket,Albert Heijn,0,chocolate,snacks
-7,33,FRUITSALADE,1,3.0,3.0,2022-01-20,Thursday,12:37:00,noon,supermarket,Albert Heijn,1,fruit salad,fruit & vegetables
-7,33,AH MAALTIJDSALADE,1,4.99,4.99,2022-01-20,Thursday,12:37:00,noon,supermarket,Albert Heijn,0,lunch salad,fruit & vegetables
-7,34,MORA Oven goudse kaasballetjes 14x20g,1,4.79,4.79,2022-01-22,Saturday,16:18:00,afternoon,supermarket,Okay,0,cheese,dairy & plant based
-7,34,"BONI Iced Tea Peach niet-bruisend 0,5L",6,0.465,2.79,2022-01-22,Saturday,16:18:00,afternoon,supermarket,Okay,0,ice tea,beverages
-7,34,BONI Pizza Hawai 460g,1,3.99,3.99,2022-01-22,Saturday,16:18:00,afternoon,supermarket,Okay,0,pizza,frozen foods
-7,34,BONI Pizza Rondo di Roma 450g,1,3.99,3.99,2022-01-22,Saturday,16:18:00,afternoon,supermarket,Okay,0,pizza,frozen foods
-8,35,VERSE PASTA,1,4.99,4.99,2022-01-24,Monday,12:04:00,noon,supermarket,Albert Heijn,0,lunch salad,fruit & vegetables
-8,35,FRAMBOZEN,1,2.39,2.39,2022-01-24,Monday,12:04:00,noon,supermarket,Albert Heijn,1,raspberries,fruit & vegetables
-8,36,DRAAGTAS,1,0.5,0.5,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,bag,non-food
-8,36,AH BANANEN,1,0.99,0.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,bananas,fruit & vegetables
-8,36,RUNDERGEHAKT,1,3.59,3.59,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,beef,"meat, fish & veggie"
-8,36,ST BERNARDUS,1,3.06,3.06,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,beer,beverages
-8,36,BRAMEN,1,2.79,2.79,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,blackberries,fruit & vegetables
-8,36,BRUGGE,1,2.89,2.89,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,cheese,dairy & plant based
-8,36,WW KIPFILET,1,2.29,2.29,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,minced meat,"meat, fish & veggie"
-8,36,KIPFILETHAAS,1,4.49,4.49,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,chicken,"meat, fish & veggie"
-8,36,AH TABLET,1,1.59,1.59,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,chocolate,snacks
-8,36,KOKOS,1,3.99,3.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,coconut,fruit & vegetables
-8,36,AH KOKOS NAT,1,1.99,1.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,coconut,fruit & vegetables
-8,36,FRUITBISCUIT,1,1.29,1.29,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,cookies,snacks
-8,36,MERGPIJPJES,1,1.59,1.59,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,1,cookies,snacks
-8,36,PREP CHEF B,1,2.33,2.33,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,meat spread,"meat, fish & veggie"
-8,36,AH MUESLI,1,1.79,1.79,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,muesli,breakfast & spreads
-8,36,FRAMBOZEN,1,2.39,2.39,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,raspberries,fruit & vegetables
-8,36,BOSTO THAI B,1,1.59,1.59,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,rice,pasta & rice
-8,36,BASMATI B ,1,1.99,1.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,rice,pasta & rice
-8,36,SW BROODJES,1,0.89,0.89,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,sandwich,bakery
-8,36,OPTIM KWARK,1,1.99,1.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,soft cheese,dairy & plant based
-8,36,PICKWICK TEA,1,2.19,2.19,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,tea,beverages
-8,36,VERSPAKKET,1,4.99,4.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,1,vegetable box,fruit & vegetables
-8,36,MEXICAANSE CHILI PAKKET,1,4.99,4.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,1,vegetable box,fruit & vegetables
-8,36,ROOMYOGHURT,1,1.09,1.09,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,yoghurt,dairy & plant based
-8,36,ISEY SKYR CR,1,1.69,1.69,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,yoghurt,dairy & plant based
-8,36,ISEY APPPEL,1,1.69,1.69,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,0,yoghurt,dairy & plant based
-8,37,AH MAALTIJDSALADE,1,3.5,3.5,2022-01-26,Wednesday,12:36:00,noon,supermarket,Albert Heijn,0,lunch salad,fruit & vegetables
-8,37,AH GR BIET GEITENKAAS SALADE,1,2.99,2.99,2022-01-26,Wednesday,12:36:00,noon,supermarket,Albert Heijn,0,lunch salad,fruit & vegetables
-8,38,EIERKOEKEN,1,1.69,1.69,2022-01-27,Thursday,11:20:00,morning,supermarket,Albert Heijn,1,egg cakes,snacks
-8,38,AH MLTSALADE,1,5.49,5.49,2022-01-27,Thursday,11:20:00,morning,supermarket,Albert Heijn,1,lunch salad,fruit & vegetables
-8,38,MENTOS,1,3.89,3.89,2022-01-27,Thursday,11:20:00,morning,supermarket,Albert Heijn,0,mints,snacks
-8,39,AH MLTSALADE,1,2.95,2.95,2022-01-27,Friday,12:15:00,noon,supermarket,Albert Heijn,0,lunch salad,fruit & vegetables
+HH,week,order_ID,item_name,amount,price_unit,price_total,date,day,timestamp,time,store_type,store_name,promo,item_type,category,reorder,item_id,type_id,order_amount,order_price,day_num,storetype_num,storename_num,cat_num,time_num,promo_num
+2,1,1,RABEKO choco light 250g,2,2.82,5.64,2021-11-23,Tuesday,12:32:00,noon,supermarket,Okay,False,chocolate spread,breakfast & spreads,False,0,0,9,16.77,5,4,6,2,3,0
+2,1,1,JOYVALLE pudding griesmeel natuur 135g,4,0.99,3.96,2021-11-23,Tuesday,12:32:00,noon,supermarket,Okay,False,pudding,dairy & plant based,False,1,1,9,16.77,5,4,6,7,3,0
+2,1,1,BONI tomatensoep met balletjes 950ml,1,1.99,1.99,2021-11-23,Tuesday,12:32:00,noon,supermarket,Okay,False,soup,canned foods,False,2,2,9,16.77,5,4,6,3,3,0
+2,1,1,LIEBIG DELISOUP 9 groenten brik 1L,1,2.59,2.59,2021-11-23,Tuesday,12:32:00,noon,supermarket,Okay,False,soup,canned foods,True,3,2,9,16.77,5,4,6,3,3,0
+2,1,1,LIEBIG DELISOUP tom. Balletjes brik 1L,1,2.59,2.59,2021-11-23,Tuesday,12:32:00,noon,supermarket,Okay,False,soup,canned foods,True,4,2,9,16.77,5,4,6,3,3,0
+2,1,2,KLEIN GROF GESN. ,1,1.3,1.3,2021-11-23,Tuesday,12:39:00,noon,bakery,Sys,False,bread,bakery,False,5,3,7,6.1,5,0,7,0,3,0
+2,1,2,CHOCOLADEKOEK,2,1.2,2.4,2021-11-23,Tuesday,12:39:00,noon,bakery,Sys,False,danish,bakery,False,6,4,7,6.1,5,0,7,0,3,0
+2,1,2,SANDWICH,4,0.6,2.4,2021-11-23,Tuesday,12:39:00,noon,bakery,Sys,False,sandwich,bakery,False,7,5,7,6.1,5,0,7,0,3,0
+2,1,3,WRAP KIP,1,3.0,3.0,2021-11-24,Wednesday,12:32:00,noon,supermarket,Albert Heijn,True,lunch,"meat, fish & veggie",False,8,6,2,6.99,6,4,0,11,3,1
+2,1,3,AH EGGWRAP,1,3.99,3.99,2021-11-24,Wednesday,12:32:00,noon,supermarket,Albert Heijn,True,lunch,"meat, fish & veggie",True,9,6,2,6.99,6,4,0,11,3,1
+2,1,4,CRODINO 8+2,1,4.49,4.49,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,alcoholic drinks,beverages,False,10,7,50,103.32998,0,4,3,1,0,0
+2,1,4,400GR 365 APPELCOMP,1,0.75,0.75,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,apple sauce,canned foods,False,11,8,50,103.32998,0,4,3,3,0,0
+2,1,4,JONAGOLD,1,0.8958599999999999,0.8958599999999999,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,apples,fruit & vegetables,False,12,9,50,103.32998,0,4,3,9,0,0
+2,1,4,ZOE PUNTPAPRIKA R,1,0.7787000000000001,0.7787000000000001,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,bell peppers,fruit & vegetables,False,13,10,50,103.32998,0,4,3,9,0,0
+2,1,4,BLAUWE BESSEN 500G,1,5.99,5.99,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,True,blueberries,fruit & vegetables,False,14,11,50,103.32998,0,4,3,9,0,1
+2,1,4,400GR BROCCOLI,1,0.99,0.99,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,broccoli,fruit & vegetables,False,15,12,50,103.32998,0,4,3,9,0,0
+2,1,4,Bayonneham,1,1.7766000000000002,1.7766000000000002,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,charcuterie,"meat, fish & veggie",False,16,13,50,103.32998,0,4,3,11,0,0
+2,1,4,Italiaanse kiprollade,1,1.52588,1.52588,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,charcuterie,"meat, fish & veggie",True,17,13,50,103.32998,0,4,3,11,0,0
+2,1,4,Kippenwit,1,1.4688,1.4688,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,charcuterie,"meat, fish & veggie",True,18,13,50,103.32998,0,4,3,11,0,0
+2,1,4,WATOU SPECIAL,1,4.09,4.09,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,cheese,dairy & plant based,False,19,14,50,103.32998,0,4,3,7,0,0
+2,1,4,KIPFILET PER 2 ST,1,5.52,5.52,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,chicken,"meat, fish & veggie",False,20,15,50,103.32998,0,4,3,11,0,0
+2,1,4,BIESLOOK 20GR,1,1.05,1.05,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,chives,fruit & vegetables,False,21,16,50,103.32998,0,4,3,9,0,0
+2,1,4,1L CECEMEL LESS-SU,1,1.89,1.89,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,chocolate milk,dairy & plant based,False,22,17,50,103.32998,0,4,3,7,0,0
+2,1,4,CLEMENTIJNEN BLAD,1,0.8865000000000001,0.8865000000000001,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,clementines,fruit & vegetables,False,23,18,50,103.32998,0,4,3,9,0,0
+2,1,4,6X33C COCA ZERO,1,4.35,4.35,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,coke,beverages,False,24,19,50,103.32998,0,4,3,1,0,0
+2,1,4,DANONE KAAS 500G,1,1.8,1.8,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,cream cheese,dairy & plant based,False,25,20,50,103.32998,0,4,3,7,0,0
+2,1,4,KOMKOMMER,1,0.69,0.69,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,cucumber,fruit & vegetables,False,26,21,50,103.32998,0,4,3,9,0,0
+2,1,4,AUBERGINES,1,0.84376,0.84376,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,eggplant,fruit & vegetables,False,27,22,50,103.32998,0,4,3,9,0,0
+2,1,4,AUBERGINES,1,0.44178,0.44178,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,eggplant,fruit & vegetables,True,27,22,50,103.32998,0,4,3,9,0,0
+2,1,4,Langoustine salade,1,2.85776,2.85776,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,fish spread,"meat, fish & veggie",False,28,23,50,103.32998,0,4,3,11,0,0
+2,1,4,LOOK ZAKJE 100GR,1,0.59,0.59,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,garlic,fruit & vegetables,False,29,24,50,103.32998,0,4,3,9,0,0
+2,1,4,Prepare,1,1.8018,1.8018,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,meat spread,"meat, fish & veggie",False,30,25,50,103.32998,0,4,3,11,0,0
+2,1,4,GEHAKT VARKEN RUND,1,4.44,4.44,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,minced meat,"meat, fish & veggie",False,31,26,50,103.32998,0,4,3,11,0,0
+2,1,4,GEHAKT VARKEN RUND,1,3.87,3.87,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,minced meat,"meat, fish & veggie",True,31,26,50,103.32998,0,4,3,11,0,0
+2,1,4,LAMSGEHAKT,1,7.12,7.12,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,minced meat,"meat, fish & veggie",True,32,26,50,103.32998,0,4,3,11,0,0
+2,1,4,JONGE AJUIN,1,1.09,1.09,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,onions,fruit & vegetables,False,33,27,50,103.32998,0,4,3,9,0,0
+2,1,4,EETSINAASAP / BULK,1,1.55854,1.55854,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,oranges,fruit & vegetables,False,34,28,50,103.32998,0,4,3,9,0,0
+2,1,4,BIO PETERSELIE,1,1.15,1.15,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,parsley,fruit & vegetables,False,35,29,50,103.32998,0,4,3,9,0,0
+2,1,4,CONFERENCE,1,0.931,0.931,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,pears,fruit & vegetables,False,36,30,50,103.32998,0,4,3,9,0,0
+2,1,4,1X5 PITABROODJES,1,1.19,1.19,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,pita bread,bakery,False,37,31,50,103.32998,0,4,3,0,0,0
+2,1,4,BIO BUTTERNUT,1,3.5461400000000003,3.5461400000000003,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,pumpkin,fruit & vegetables,False,38,32,50,103.32998,0,4,3,9,0,0
+2,1,4,KROPSLA VERPAKT,1,1.55,1.55,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,salad,fruit & vegetables,False,39,33,50,103.32998,0,4,3,9,0,0
+2,1,4,BOTERSANDWICH DAGV,6,0.45,2.7,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,sandwich,bakery,True,40,5,50,103.32998,0,4,3,0,0,0
+2,1,4,365 SJALOT 1KG,1,2.05,2.05,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,shallot,fruit & vegetables,False,41,34,50,103.32998,0,4,3,9,0,0
+2,1,4,PADDESTOELEN 250G,1,0.85,0.85,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,skyr,fruit & vegetables,False,42,35,50,103.32998,0,4,3,9,0,0
+2,1,4,SPINAZIE 450G,1,1.85,1.85,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,spinach,fruit & vegetables,False,43,36,50,103.32998,0,4,3,9,0,0
+2,1,4,BIO ZOETE AARD,1,2.5623,2.5623,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,True,sweet potatoes,fruit & vegetables,False,44,37,50,103.32998,0,4,3,9,0,1
+2,1,4,20 CLIPPER LEM&GIC BIO,1,2.99,2.99,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,tea,beverages,False,45,38,50,103.32998,0,4,3,1,0,0
+2,1,4,20 CLI RAS7MIN BIO,1,2.99,2.99,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,tea,beverages,True,46,38,50,103.32998,0,4,3,1,0,0
+2,1,4,20 CLI SNORE&P BIO,2,3.19,6.38,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,True,tea,beverages,True,47,38,50,103.32998,0,4,3,1,0,1
+2,1,4,DLL T. PAPIER,1,4.35,4.35,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,toiletpaper,household,False,48,39,50,103.32998,0,4,3,10,0,0
+2,1,4,EMMER TOMAAT 500G,1,2.99,2.99,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,tomatoes,fruit & vegetables,False,49,40,50,103.32998,0,4,3,9,0,0
+2,1,4,VLEESTOMAAT BULK,1,0.68456,0.68456,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,tomatoes,fruit & vegetables,True,50,40,50,103.32998,0,4,3,9,0,0
+2,1,4,YT NAT MAGERE,1,1.01,1.01,2021-11-26,Friday,17:25:00,afternoon,supermarket,Delhaize,False,yoghurt,dairy & plant based,False,51,41,50,103.32998,0,4,3,7,0,0
+2,2,5,AH MLTSALADE,1,3.99,3.99,2021-12-01,Wednesday,11:43:00,morning,supermarket,Albert Heijn,False,lunch salad,fruit & vegetables,False,52,42,1,3.99,6,4,0,9,2,0
+2,2,6,KLEIN GROF GESN. ,1,1.7,1.7,2021-12-01,Wednesday,09:57:00,morning,bakery,Sys,False,bread,bakery,True,5,3,9,7.7,6,0,7,0,2,0
+2,2,6,CHOCOLADEKOEK,2,1.2,2.4,2021-12-01,Wednesday,09:57:00,morning,bakery,Sys,False,danish,bakery,True,6,4,9,7.7,6,0,7,0,2,0
+2,2,6,SANDWICH,6,0.6,3.6,2021-12-01,Wednesday,09:57:00,morning,bakery,Sys,False,sandwich,bakery,True,7,5,9,7.7,6,0,7,0,2,0
+2,2,7,BONI saus andalouse TD 420ml,1,1.29,1.29,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,andalouse sauce,condiments,False,53,43,36,62.863083,4,4,6,5,0,0
+2,2,7,EVERYDAY appelcompote stuk 710g,1,0.91,0.91,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,apple sauce,canned foods,True,54,8,36,62.863083,4,4,6,3,0,0
+2,2,7,paprika punt zoet rood Los,1,0.60878,0.60878,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,bell peppers,fruit & vegetables,True,55,10,36,62.863083,4,4,6,9,0,0
+2,2,7,EVERYDAY doperwt wortel zeer fijn 400g,2,0.79,1.58,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,carrots and peas,canned foods,False,56,44,36,62.863083,4,4,6,3,0,0
+2,2,7,knolselder 1stuk,1,1.29,1.29,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,celeriac,fruit & vegetables,False,57,45,36,62.863083,4,4,6,9,0,0
+2,2,7,BONI Spaghetti Mix geraspt 200g,1,1.39,1.39,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,cheese,dairy & plant based,True,58,14,36,62.863083,4,4,6,7,0,0
+2,2,7,BONI gouda light sneetjes 250g,1,2.49,2.49,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,cheese,dairy & plant based,True,59,14,36,62.863083,4,4,6,7,0,0
+2,2,7,"OKAY gebakken kip met saus 1,1kg",1,7.09,7.09,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,chicken,"meat, fish & veggie",True,60,15,36,62.863083,4,4,6,11,0,0
+2,2,7,Witloof extra Flandria Los,1,0.5307,0.5307,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,chicory,fruit & vegetables,False,61,46,36,62.863083,4,4,6,9,0,0
+2,2,7,RABEKO Choco light 250g,1,2.82,2.82,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,chocolate spread,breakfast & spreads,True,62,0,36,62.863083,4,4,6,2,0,0
+2,2,7,BONI kokosmelk blik 400g,2,0.99,1.98,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,coconut milk,cooking aid,False,63,47,36,62.863083,4,4,6,6,0,0
+2,2,7,BONI Lungo cups UTZ 16st,1,2.89,2.89,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,coffee,beverages,False,64,48,36,62.863083,4,4,6,1,0,0
+2,2,7,ALPRO CUISINE soyaroom li 5%vg brik 25cl,3,1.85,5.550000000000001,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,cream,dairy & plant based,False,65,49,36,62.863083,4,4,6,7,0,0
+2,2,7,wegwerp mondmaskers volwassenen 5st,1,1.58,1.58,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,face masks,non-food,False,66,50,36,62.863083,4,4,6,12,0,0
+2,2,7,BONI gedroogde vijgen 500g,1,2.79,2.79,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,figs,"nuts, seeds & dried fruit",False,67,51,36,62.863083,4,4,6,13,0,0
+2,2,7,BELVIVA pom'pin 750g,1,3.39,3.39,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,french fries,frozen foods,False,68,52,36,62.863083,4,4,6,8,0,0
+2,2,7,prei Los,1,1.82182,1.82182,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,leek,fruit & vegetables,False,69,53,36,62.863083,4,4,6,9,0,0
+2,2,7,OKAY kippengehakt 500g,1,3.796923,3.796923,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,minced meat,"meat, fish & veggie",True,70,26,36,62.863083,4,4,6,11,0,0
+2,2,7,OKAY gekruid kalfsgehakt 400g,1,6.085940000000001,6.085940000000001,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,minced meat,"meat, fish & veggie",True,71,26,36,62.863083,4,4,6,11,0,0
+2,2,7,SPAGHERONI pastasaus tradizionale 520g,1,2.8,2.8,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,pasta sauce,condiments,False,72,54,36,62.863083,4,4,6,5,0,0
+2,2,7,EVERYDAY halve perzik siroop blik 820g,1,0.75,0.75,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,peaches,canned foods,False,73,55,36,62.863083,4,4,6,3,0,0
+2,2,7,BONI spaghetti volkoren 500g,1,0.89,0.89,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,spaghetti,pasta & rice,False,74,56,36,62.863083,4,4,6,14,0,0
+2,2,7,BONI zoete aardappel (los),1,1.51892,1.51892,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,sweet potatoes,fruit & vegetables,True,75,37,36,62.863083,4,4,6,9,0,0
+2,2,7,BONI tonic 50cl,6,0.325,1.95,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,tonic,beverages,False,76,57,36,62.863083,4,4,6,1,0,0
+2,2,7,BONI spaghettigroenten 400g,1,1.49,1.49,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,vegetable mix,fruit & vegetables,False,77,58,36,62.863083,4,4,6,9,0,0
+2,2,7,FLORETTE groentenmix Bordje Krokant 250g,1,1.69,1.69,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,True,vegetable mix,fruit & vegetables,True,78,58,36,62.863083,4,4,6,9,0,1
+2,2,7,INEX yoghurt halfvol framboos 4x125g,1,1.89,1.89,2021-12-02,Thursday,15:26:00,afternoon,supermarket,Okay,False,yoghurt,dairy & plant based,True,79,41,36,62.863083,4,4,6,7,0,0
+2,2,8,boerenring,1,4.352399999999999,4.352399999999999,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,False,charcuterie,"meat, fish & veggie",True,80,13,6,20.0445,4,1,1,11,0,0
+2,2,8,chateaubriand,1,7.7185,7.7185,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,False,charcuterie,"meat, fish & veggie",True,81,13,6,20.0445,4,1,1,11,0,0
+2,2,8,kippenroulade peterselie,1,2.024,2.024,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,False,charcuterie,"meat, fish & veggie",True,82,13,6,20.0445,4,1,1,11,0,0
+2,2,8,kippenwit,1,1.7640000000000002,1.7640000000000002,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,False,charcuterie,"meat, fish & veggie",True,83,13,6,20.0445,4,1,1,11,0,0
+2,2,8,neptunus cocktail,1,2.3856,2.3856,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,False,meat spread,"meat, fish & veggie",True,84,25,6,20.0445,4,1,1,11,0,0
+2,2,8,prepare,1,1.7999999999999998,1.7999999999999998,2021-12-02,Thursday,15:48:00,afternoon,butcher,Brabo,False,meat spread,"meat, fish & veggie",True,85,25,6,20.0445,4,1,1,11,0,0
+2,2,9,GROOT GROF GESN. ,2,2.5,5.0,2021-12-05,Sunday,09:24:00,morning,bakery,Sys,False,bread,bakery,True,86,3,2,5.0,3,0,7,0,2,0
+2,2,10,AH TABLET,1,0.59,0.59,2021-12-09,Sunday,10:55:00,morning,supermarket,Albert Heijn,False,chocolate,snacks,False,87,59,2,6.08,3,4,0,15,2,0
+2,2,10,AH MLTSALADE,1,5.49,5.49,2021-12-09,Sunday,10:55:00,morning,supermarket,Albert Heijn,True,lunch salad,fruit & vegetables,True,52,42,2,6.08,3,4,0,9,2,1
+2,2,11,GROF BROOD GESN.,1,2.5,2.5,2021-12-05,Sunday,10:54:00,morning,bakery,Sys,False,bread,bakery,True,88,3,5,4.9,3,0,7,0,2,0
+2,2,11,SANDWICH,4,0.6,2.4,2021-12-05,Sunday,10:54:00,morning,bakery,Sys,False,sandwich,bakery,True,7,5,5,4.9,3,0,7,0,2,0
+2,3,12,EVERYDAY Jonagold appelen 6st 1kg,1,0.89298,0.89298,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,apples,fruit & vegetables,True,89,9,38,72.487014,4,4,6,9,1,0
+2,3,12,BONI noordkriek ontpit siroop bok 700g,2,1.25,2.5,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,cherries,canned foods,False,90,60,38,72.487014,4,4,6,3,1,0
+2,3,12,KELLOGG'S TRéSOR choco-hazelnoot 450g,1,4.26,4.26,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,cereal,breakfast & spreads,False,91,61,38,72.487014,4,4,6,2,1,0
+2,3,12,WEIGHT WATCHERS kipfilet sneetjes 120g,1,2.35,2.35,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,charcuterie,"meat, fish & veggie",True,92,13,38,72.487014,4,4,6,11,1,0
+2,3,12,BREYDEL Breydelham 180g,1,3.09,3.09,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,charcuterie,"meat, fish & veggie",True,93,13,38,72.487014,4,4,6,11,1,0
+2,3,12,OKAY Ardeens gehaktbrood 500g,1,5.846766000000001,5.846766000000001,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,True,charcuterie,"meat, fish & veggie",True,94,13,38,72.487014,4,4,6,11,1,1
+2,3,12,OKAY Ardeens gehaktbrood 500g,1,5.563108000000001,5.563108000000001,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,True,charcuterie,"meat, fish & veggie",True,94,13,38,72.487014,4,4,6,11,1,1
+2,3,12,PORT SALUT 135g,1,2.99,2.99,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,cheese,dairy & plant based,True,95,14,38,72.487014,4,4,6,7,1,0
+2,3,12,BEEMSTERLITE jong belegen sneetjes 250g,1,3.23741,3.23741,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,cheese,dairy & plant based,True,96,14,38,72.487014,4,4,6,7,1,0
+2,3,12,RABEKO Choco light 250g,2,2.82,5.64,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,chocolate spread,breakfast & spreads,True,62,0,38,72.487014,4,4,6,2,1,0
+2,3,12,ALPRO kokosnootdrink 1L,1,2.45,2.45,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,coconut drink,dairy & plant based,False,97,62,38,72.487014,4,4,6,7,1,0
+2,3,12,PUR NATUR BIO Panna Cotta 2x125g ,2,2.72,5.44,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,True,dessert,dairy & plant based,False,98,63,38,72.487014,4,4,6,7,1,1
+2,3,12,EVERYDAY dessert liégeois chocolade 200g,4,0.19,0.76,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,dessert,dairy & plant based,True,99,63,38,72.487014,4,4,6,7,1,0
+2,3,12,ALPRO karamel dessert 4x125g,1,2.29,2.29,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,dessert,dairy & plant based,True,100,63,38,72.487014,4,4,6,7,1,0
+2,3,12,BONI Green Tea niet-bruisend 33cl,6,0.358,2.148,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,ice tea,beverages,False,101,64,38,72.487014,4,4,6,1,1,0
+2,3,12,BONI Vleessalade 175g,1,1.6,1.6,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,meat spread,"meat, fish & veggie",True,102,25,38,72.487014,4,4,6,11,1,0
+2,3,12,BONI Kipsalade 175g,1,1.75,1.75,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,meat spread,"meat, fish & veggie",True,103,25,38,72.487014,4,4,6,11,1,0
+2,3,12,LUITEN filet americain uitjes 150g,1,1.55,1.55,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,meat spread,"meat, fish & veggie",True,104,25,38,72.487014,4,4,6,11,1,0
+2,3,12,Boni pitabroodjes voorgebakken 6st 480g,1,1.07,1.07,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,pita bread,bakery,True,105,31,38,72.487014,4,4,6,0,1,0
+2,3,12,BONI pizza Prosciutto Crudo 385g,1,3.99,3.99,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,pizza,frozen foods,False,106,65,38,72.487014,4,4,6,8,1,0
+2,3,12,OKAY Gyros +-500g,1,5.42875,5.42875,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,pork,"meat, fish & veggie",False,107,66,38,72.487014,4,4,6,11,1,0
+2,3,12,JOYVALLE pudding griesmeel natuur 135g,4,0.99,3.96,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,pudding,dairy & plant based,True,1,1,38,72.487014,4,4,6,7,1,0
+2,3,12,BONI tomatensoep met balletjes 950ml,1,1.99,1.99,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,False,soup,canned foods,True,2,2,38,72.487014,4,4,6,3,1,0
+2,3,12,FLORETTE groentenmix Bordje Krokant 250g,1,1.69,1.69,2021-12-09,Thursday,18:54:00,evening,supermarket,Okay,True,vegetable mix,fruit & vegetables,True,78,58,38,72.487014,4,4,6,9,1,1
+2,3,13,DRYCK HALLON,1,0.75,0.75,2021-12-10,Friday,10:55:00,morning,furniture store,Ikea,False,raspberry drink,beverages,False,108,67,2,4.25,0,3,4,1,2,0
+2,3,13,EGENTID w thee,1,3.5,3.5,2021-12-10,Friday,10:55:00,morning,furniture store,Ikea,False,tea,beverages,True,109,38,2,4.25,0,3,4,1,2,0
+2,3,14,GROF BROOD GESN.,2,2.5,5.0,2021-12-11,Saturday,09:47:00,morning,bakery,Sys,False,bread,bakery,True,88,3,2,5.0,2,0,7,0,2,0
+2,3,15,LANG ZESGRANEN,1,2.5,2.5,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,False,bread,bakery,True,110,3,8,11.9,3,0,7,0,2,0
+2,3,15,GROF BROOD GESN.,1,2.5,2.5,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,False,bread,bakery,True,88,3,8,11.9,3,0,7,0,2,0
+2,3,15,KLEIN FRANS BROOD ,2,0.9,1.8,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,False,bread,bakery,True,111,3,8,11.9,3,0,7,0,2,0
+2,3,15,CHOCOLADEKOEK,1,1.2,1.2,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,False,danish,bakery,True,6,4,8,11.9,3,0,7,0,2,0
+2,3,15,VIERK. CREMEKOEK CH,1,1.3,1.3,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,False,danish,bakery,True,112,4,8,11.9,3,0,7,0,2,0
+2,3,15,SUIS GELE CRÈME,1,1.3,1.3,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,False,danish,bakery,True,113,4,8,11.9,3,0,7,0,2,0
+2,3,15,RONDE BOTERKOEK,1,1.3,1.3,2021-12-12,Sunday,10:47:00,morning,bakery,Sys,False,danish,bakery,True,114,4,8,11.9,3,0,7,0,2,0
+2,3,16,RUMSTEAK,1,6.61,6.61,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,True,beef,"meat, fish & veggie",False,115,68,34,114.87834,3,4,3,11,2,1
+2,3,16,RUMSTEAK,1,5.55,5.55,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,True,beef,"meat, fish & veggie",True,115,68,34,114.87834,3,4,3,11,2,1
+2,3,16,BLAUW BESSEN 150GR,1,2.59,2.59,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,True,blueberries,fruit & vegetables,True,116,11,34,114.87834,3,4,3,9,2,1
+2,3,16,BLOEMKOOL,1,1.49,1.49,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,cauliflower,fruit & vegetables,False,117,69,34,114.87834,3,4,3,9,2,0
+2,3,16,HERTA GEROOKT SPEK,1,2.59,2.59,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,charcuterie,"meat, fish & veggie",True,118,13,34,114.87834,3,4,3,11,2,0
+2,3,16,BEENHAM 150g,2,3.15,6.3,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,charcuterie,"meat, fish & veggie",True,119,13,34,114.87834,3,4,3,11,2,0
+2,3,16,VERSNIJDIUNG DERDEN,1,15.61,15.61,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,charcuterie,"meat, fish & veggie",True,120,13,34,114.87834,3,4,3,11,2,0
+2,3,16,150G LIGHT GERASPT,2,1.45,2.9,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,cheese,dairy & plant based,True,121,14,34,114.87834,3,4,3,7,2,0
+2,3,16,4X120G DLL GRATIN,1,2.79,2.79,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,cheese,dairy & plant based,True,122,14,34,114.87834,3,4,3,7,2,0
+2,3,16,MDS FAGOTIN TRADIT,1,3.25,3.25,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,True,cheese,dairy & plant based,True,123,14,34,114.87834,3,4,3,7,2,1
+2,3,16,12C DLL LUNGO 05,1,2.49,2.49,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,coffee,beverages,True,124,48,34,114.87834,3,4,3,1,2,0
+2,3,16,6x33c COCA ZERO,1,4.35,4.35,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,coke,beverages,True,125,19,34,114.87834,3,4,3,1,2,0
+2,3,16,LU PRINCE START,2,2.39,4.78,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,cookies,snacks,False,126,70,34,114.87834,3,4,3,15,2,0
+2,3,16,DANONE KAAS 500G,2,1.84,3.68,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,cream cheese,dairy & plant based,True,25,20,34,114.87834,3,4,3,7,2,0
+2,3,16,750G MCC DUCHESSE,2,3.89,7.78,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,croquettes,frozen foods,False,127,71,34,114.87834,3,4,3,8,2,0
+2,3,16,6 EIEREN ROLLIE,1,1.76,1.76,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,eggs,dairy & plant based,False,128,72,34,114.87834,3,4,3,7,2,0
+2,3,16,SCHELVISHAASJE MAP,1,5.16,5.16,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,True,fish,"meat, fish & veggie",False,129,73,34,114.87834,3,4,3,11,2,1
+2,3,16,SCHELVISHAASJE MAP,1,5.31,5.31,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,True,fish,"meat, fish & veggie",True,129,73,34,114.87834,3,4,3,11,2,1
+2,3,16,RODE POMPELMOES,1,0.9169,0.9169,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,grapefruits,fruit & vegetables,False,130,74,34,114.87834,3,4,3,9,2,0
+2,3,16,DRUIF MIX Z/P 500G,1,2.59,2.59,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,grapes,fruit & vegetables,False,131,75,34,114.87834,3,4,3,9,2,0
+2,3,16,4x FUZE TEA PEA HIB,2,2.85,5.7,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,True,ice tea,beverages,True,132,64,34,114.87834,3,4,3,1,2,1
+2,3,16,KIWI GEEL 6ST,1,4.49,4.49,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,kiwi,fruit & vegetables,False,133,76,34,114.87834,3,4,3,9,2,0
+2,3,16,CITROENEN,1,0.6014400000000001,0.6014400000000001,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,lemons,fruit & vegetables,False,134,77,34,114.87834,3,4,3,9,2,0
+2,3,16,PERSSINAAS 3KG,1,4.49,4.49,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,oranges,fruit & vegetables,True,135,28,34,114.87834,3,4,3,9,2,0
+2,3,16,CORDON BLEU,1,5.47,5.47,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,pork,"meat, fish & veggie",True,136,66,34,114.87834,3,4,3,11,2,0
+2,3,16,FRAMBOOS 125G,1,2.49,2.49,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,True,raspberries,fruit & vegetables,False,137,78,34,114.87834,3,4,3,9,2,1
+2,3,16,SPINAZIE 450G,1,1.85,1.85,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,spinach,fruit & vegetables,True,43,36,34,114.87834,3,4,3,9,2,0
+2,3,16,FRISTI 1L,1,1.29,1.29,2021-12-12,Sunday,10:55:00,morning,supermarket,Delhaize,False,strawberry milk,dairy & plant based,False,138,79,34,114.87834,3,4,3,7,2,0
+2,4,17,AHMAALTIJDSLA,1,5.49,5.49,2021-12-15,Wednesday,12:07:00,noon,supermarket,Albert Heijn,True,lunch salad,fruit & vegetables,True,139,42,1,5.49,6,4,0,9,3,1
+2,4,18,CAR DR. AMANDEL 1L,1,1.49,1.49,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,almond milk,dairy & plant based,False,140,80,31,68.31142,2,4,2,7,1,0
+2,4,18,CAR BIO MOUSSELINE,1,1.89,1.89,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,apple sauce,canned foods,True,141,8,31,68.31142,2,4,2,3,1,0
+2,4,18,GROENE ASPERGES,1,5.99,5.99,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,asparagus,fruit & vegetables,False,142,81,31,68.31142,2,4,2,9,1,0
+2,4,18,BANANEN CHIQUITA,1,1.48056,1.48056,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,bananas,fruit & vegetables,False,143,82,31,68.31142,2,4,2,9,1,0
+2,4,18,RODE PAPRIKA,1,0.72094,0.72094,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,bell peppers,fruit & vegetables,True,144,10,31,68.31142,2,4,2,9,1,0
+2,4,18,BROCCOLI 500G,1,0.99,0.99,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,broccoli,fruit & vegetables,True,145,12,31,68.31142,2,4,2,9,1,0
+2,4,18,ETNA ST NIC GUIM C,1,0.57,0.57,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,candy,snacks,False,146,83,31,68.31142,2,4,2,15,1,0
+2,4,18,GOUDAJONG SN 300,1,2.39,2.39,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,cheese,dairy & plant based,True,147,14,31,68.31142,2,4,2,7,1,0
+2,4,18,WP GER KAAS 3X100G,1,1.79,1.79,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,cheese,dairy & plant based,True,148,14,31,68.31142,2,4,2,7,1,0
+2,4,18,KIPILET 1/2,1,5.57,5.57,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,chicken,"meat, fish & veggie",True,149,15,31,68.31142,2,4,2,11,1,0
+2,4,18,KIPFILET 1/2,1,5.73,5.73,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,chicken,"meat, fish & veggie",True,150,15,31,68.31142,2,4,2,11,1,0
+2,4,18,M&M'S CRISPY 36G,1,0.88,0.88,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,True,chocolate,snacks,True,151,59,31,68.31142,2,4,2,15,1,1
+2,4,18,CAR RICOTTA 250G,1,0.89,0.89,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,cream cheese,dairy & plant based,True,152,20,31,68.31142,2,4,2,7,1,0
+2,4,18,KOMKOMMER,1,0.69,0.69,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,cucumber,fruit & vegetables,True,26,21,31,68.31142,2,4,2,9,1,0
+2,4,18,WEV EIERKOEKEN 350G,1,2.39,2.39,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,egg cakes,snacks,False,153,84,31,68.31142,2,4,2,15,1,0
+2,4,18,SIMPL SCHAR EI X12,1,1.35,1.35,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,eggs,dairy & plant based,True,154,72,31,68.31142,2,4,2,7,1,0
+2,4,18,DISC KABELJAUWFIL,1,5.79,5.79,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,fish,"meat, fish & veggie",True,155,73,31,68.31142,2,4,2,11,1,0
+2,4,18,CV RIV KREEFTVL,1,4.99,4.99,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,fish spread,"meat, fish & veggie",True,156,23,31,68.31142,2,4,2,11,1,0
+2,4,18,ZEIS KETCHUP 425ML,1,2.56,2.56,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,ketchup,condiments,False,157,85,31,68.31142,2,4,2,5,1,0
+2,4,18,VARKENSKALFGEHAKT,1,4.65,4.65,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,minced meat,"meat, fish & veggie",True,158,26,31,68.31142,2,4,2,11,1,0
+2,4,18,CAR HAVERMOUT 800G,1,1.59,1.59,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,oatmeal,breakfast & spreads,False,159,86,31,68.31142,2,4,2,2,1,0
+2,4,18,PASTINAAK 350G,1,1.69,1.69,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,parsnip,fruit & vegetables,False,160,87,31,68.31142,2,4,2,9,1,0
+2,4,18,SEIZOEN SLA 200G,1,1.89,1.89,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,salad,fruit & vegetables,True,161,33,31,68.31142,2,4,2,9,1,0
+2,4,18,IJSBERGSLA,1,0.99,0.99,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,salad,fruit & vegetables,True,162,33,31,68.31142,2,4,2,9,1,0
+2,4,18,CAR SKYR VAN 150G,1,0.65,0.65,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,skyr,dairy & plant based,True,163,35,31,68.31142,2,4,2,7,1,0
+2,4,18,CAR SKYR B BES 150,1,0.65,0.65,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,skyr,dairy & plant based,True,164,35,31,68.31142,2,4,2,7,1,0
+2,4,18,SPINAZIE 450G,1,1.79,1.79,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,spinach,fruit & vegetables,True,43,36,31,68.31142,2,4,2,9,1,0
+2,4,18,ZOETE AARDAPPEL,1,2.47572,2.47572,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,sweet potatoes,fruit & vegetables,True,165,37,31,68.31142,2,4,2,9,1,0
+2,4,18,KERSTOM 400G,1,1.59,1.59,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,tomatoes,fruit & vegetables,True,166,40,31,68.31142,2,4,2,9,1,0
+2,4,18,CAR BIO YOG 2X150G,1,1.59,1.59,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,True,yoghurt,dairy & plant based,True,167,41,31,68.31142,2,4,2,7,1,1
+2,4,18,COURGETTEN,1,0.6042000000000001,0.6042000000000001,2021-11-20,Saturday,18:58:00,evening,supermarket,Carrefour,False,zucchini,fruit & vegetables,False,168,88,31,68.31142,2,4,2,9,1,0
+2,4,19,ZWARTE WOUD BROOD,1,2.6,2.6,2021-11-21,Sunday,09:30:00,morning,bakery,Sys,False,bread,bakery,True,169,3,4,7.7,3,0,7,0,2,0
+2,4,19,GROF BROOD GESN,1,2.5,2.5,2021-11-21,Sunday,09:30:00,morning,bakery,Sys,False,bread,bakery,True,170,3,4,7.7,3,0,7,0,2,0
+2,4,19,SUIS GELE CRÈME,1,1.3,1.3,2021-11-21,Sunday,09:30:00,morning,bakery,Sys,False,pastry,bakery,False,113,89,4,7.7,3,0,7,0,2,0
+2,4,19,BOOTJE,1,1.3,1.3,2021-11-21,Sunday,09:30:00,morning,bakery,Sys,False,pastry,bakery,True,171,89,4,7.7,3,0,7,0,2,0
+2,4,20,FRIKANDON,1,1.644,1.644,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,False,charcuterie,"meat, fish & veggie",True,172,13,7,16.165,3,1,8,11,2,0
+2,4,20,GRILL-WORST,1,3.096,3.096,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,False,charcuterie,"meat, fish & veggie",True,173,13,7,16.165,3,1,8,11,2,0
+2,4,20,DROGE WORST,1,1.064,1.064,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,False,charcuterie,"meat, fish & veggie",True,174,13,7,16.165,3,1,8,11,2,0
+2,4,20,NEPTUNESALADA,1,2.9760000000000004,2.9760000000000004,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,False,fish spread,"meat, fish & veggie",True,175,23,7,16.165,3,1,8,11,2,0
+2,4,20,PREPARE DU CHEF,1,2.023,2.023,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,False,meat spread,"meat, fish & veggie",True,176,25,7,16.165,3,1,8,11,2,0
+2,4,20,KIPSALADE,1,2.772,2.772,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,False,meat spread,"meat, fish & veggie",True,177,25,7,16.165,3,1,8,11,2,0
+2,4,20,HASPENGOUWSE SALADA,1,2.5900000000000003,2.5900000000000003,2021-11-21,Sunday,09:52:00,morning,butcher,Versavel Poelman,False,meat spread,"meat, fish & veggie",True,178,25,7,16.165,3,1,8,11,2,0
+2,4,21,BROOD grof gesneden,1,2.5,2.5,2021-11-21,Sunday,10:30:00,morning,bakery,Sys,False,bread,bakery,True,179,3,2,5.272,3,0,7,0,2,0
+2,4,21,Thaise KIPSALADE 130g,1,2.772,2.772,2021-11-21,Sunday,10:30:00,morning,bakery,Sys,False,meat spread,"meat, fish & veggie",True,180,25,2,5.272,3,0,7,11,2,0
+2,5,22,KALKOEN M/TUINKRUIDEN,1,2.532,2.532,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,False,charcuterie,"meat, fish & veggie",True,181,13,6,15.414,1,1,8,11,2,0
+2,5,22,GEB. BOULETTEN,1,2.32,2.32,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,False,charcuterie,"meat, fish & veggie",True,182,13,6,15.414,1,1,8,11,2,0
+2,5,22,KIPFILET,1,1.9285,1.9285,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,False,charcuterie,"meat, fish & veggie",True,183,13,6,15.414,1,1,8,11,2,0
+2,5,22,KGOUDA JONG,1,4.185,4.185,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,False,cheese,dairy & plant based,True,184,14,6,15.414,1,1,8,7,2,0
+2,5,22,PREPARE DU CHEF,1,1.8445,1.8445,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,False,meat spread,"meat, fish & veggie",True,176,25,6,15.414,1,1,8,11,2,0
+2,5,22,KIPSALADE,1,2.604,2.604,2021-12-20,Monday,10:07:00,morning,butcher,Versavel Poelman,False,meat spread,"meat, fish & veggie",True,177,25,6,15.414,1,1,8,11,2,0
+2,5,23,LANG ZESGRANEN,1,2.5,2.5,2021-12-20,Monday,10:20:00,morning,bakery,Sys,False,bread,bakery,True,110,3,2,5.0,1,0,7,0,2,0
+2,5,23,GROF BROOD GESN.,1,2.5,2.5,2021-12-20,Monday,10:20:00,morning,bakery,Sys,False,bread,bakery,True,88,3,2,5.0,1,0,7,0,2,0
+2,5,24,"KASTEEL bier Rouge 8,0%vol 6x33cl",1,9.48,9.48,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,beer,beverages,False,185,90,53,104.36096,5,4,6,1,2,0
+2,5,24,ST BERNARDUS Abt 12 4x33cl,1,6.44,6.44,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,beer,beverages,True,186,90,53,104.36096,5,4,6,1,2,0
+2,5,24,"OMER bier blond 8,0%vol 6x33cl",1,8.33,8.33,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,beer,beverages,True,187,90,53,104.36096,5,4,6,1,2,0
+2,5,24,EVERYDAY bouillon groenten 12x10g,1,0.39,0.39,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,bouillon,cooking aid,False,188,91,53,104.36096,5,4,6,6,2,0
+2,5,24,wortelen los,1,0.25116,0.25116,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,carrots,fruit & vegetables,False,189,92,53,104.36096,5,4,6,9,2,0
+2,5,24,TAPERO salamiblokjes 200g,1,3.09,3.09,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,charcuterie,"meat, fish & veggie",True,190,13,53,104.36096,5,4,6,11,2,0
+2,5,24,BONI Gratin Mix geraspt 200g,1,1.39,1.39,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,cheese,dairy & plant based,True,191,14,53,104.36096,5,4,6,7,2,0
+2,5,24,EVERYDAY geitenkaas rol gerijpt 180g,2,1.49,2.98,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,cheese,dairy & plant based,True,192,14,53,104.36096,5,4,6,7,2,0
+2,5,24,TAPERO Abdijkaas Grimbergen kubus 150g,1,2.99,2.99,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,cheese,dairy & plant based,True,193,14,53,104.36096,5,4,6,7,2,0
+2,5,24,"OKAY gebakken kip met saus 1,1kg",1,7.09,7.09,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,chicken,"meat, fish & veggie",True,60,15,53,104.36096,5,4,6,11,2,0
+2,5,24,OKAY kippenfiletreepjes 500g,1,5.29,5.29,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,chicken,"meat, fish & veggie",True,194,15,53,104.36096,5,4,6,11,2,0
+2,5,24,OKAY Kippenborstfilet 600g,1,5.99,5.99,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,chicken,"meat, fish & veggie",True,195,15,53,104.36096,5,4,6,11,2,0
+2,5,24,BONI witloof 500g,1,1.79,1.79,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,chicory,fruit & vegetables,True,196,46,53,104.36096,5,4,6,9,2,0
+2,5,24,witloof extra Flandria Los,1,0.3689,0.3689,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,chicory,fruit & vegetables,True,197,46,53,104.36096,5,4,6,9,2,0
+2,5,24,LAY'S strong chilli&lime 150g,1,1.6,1.6,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,chips,snacks,False,198,93,53,104.36096,5,4,6,15,2,0
+2,5,24,RABEKO Choco light 250g,1,2.82,2.82,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,chocolate spread,breakfast & spreads,True,62,0,53,104.36096,5,4,6,2,2,0
+2,5,24,COCA-COLA Zero Sugar 33cl,15,0.645,9.675,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,coke,beverages,True,199,19,53,104.36096,5,4,6,1,2,0
+2,5,24,komkommer,1,0.69,0.69,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,cucumbers,fruit & vegetables,False,200,94,53,104.36096,5,4,6,9,2,0
+2,5,24,BONI Belgische scharreleieren L 6st,1,1.79,1.79,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,eggs,dairy & plant based,True,201,72,53,104.36096,5,4,6,7,2,0
+2,5,24,POCO LOCO Mexican fajita mix 40g,1,1.39,1.39,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,fajita herbs,cooking aid,False,202,95,53,104.36096,5,4,6,6,2,0
+2,5,24,MCCAIN country potatoes met kruiden 750g,1,3.29,3.29,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,french fries,frozen foods,True,203,52,53,104.36096,5,4,6,8,2,0
+2,5,24,gember los,1,0.06468,0.06468,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,ginger,fruit & vegetables,False,204,96,53,104.36096,5,4,6,9,2,0
+2,5,24,BONI halfvolle melk PET 50cl,6,0.498,2.988,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,milk,dairy & plant based,False,205,97,53,104.36096,5,4,6,7,2,0
+2,5,24,"EVERYDAY paella royale 1,5kg",1,4.58,4.58,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,paella,frozen foods,False,206,98,53,104.36096,5,4,6,8,2,0
+2,5,24,PASTINAAK (los),1,0.96316,0.96316,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,parsnip,fruit & vegetables,True,207,87,53,104.36096,5,4,6,9,2,0
+2,5,24,BONI pecannooten 200g,1,4.39,4.39,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,pecan nuts,"nuts, seeds & dried fruit",False,208,99,53,104.36096,5,4,6,13,2,0
+2,5,24,BELVIVA röstis 750g,1,3.65,3.65,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,röstis,frozen foods,False,209,100,53,104.36096,5,4,6,8,2,0
+2,5,24,ijsbergsla 1 stuk,1,0.89,0.89,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,salad,fruit & vegetables,True,210,33,53,104.36096,5,4,6,9,2,0
+2,5,24,lente uitjes bot,1,0.99,0.99,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,spring onions,fruit & vegetables,False,211,101,53,104.36096,5,4,6,9,2,0
+2,5,24,EVERYDAY loempia kip ham 700g,1,1.7,1.7,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,spring roll,frozen foods,False,212,102,53,104.36096,5,4,6,8,2,0
+2,5,24,BONI zoete aardappel (los),1,6.56006,6.56006,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,sweet potatoes,fruit & vegetables,True,75,37,53,104.36096,5,4,6,9,2,0
+2,5,24,BONI tomatenpuree dubbel geconcentr. 70g,2,0.23,0.46,2021-12-21,Tuesday,11:40:00,morning,supermarket,Okay,False,tomato paste,cooking aid,False,213,103,53,104.36096,5,4,6,6,2,0
+2,5,25,SANDWICH,6,0.6,3.6,2021-12-21,Tuesday,11:55:00,morning,bakery,Sys,False,sandwich,bakery,True,7,5,6,3.6,5,0,7,0,2,0
+2,5,26,MATERNE appelcompote stuk bok 850g,1,2.42,2.42,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,apple sauce,canned foods,True,214,8,38,96.788207,2,4,6,3,2,0
+2,5,26,paprika punt zoet rood los,1,0.8383200000000001,0.8383200000000001,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,bell peppers,fruit & vegetables,True,215,10,38,96.788207,2,4,6,9,2,0
+2,5,26,broccoli 1st 500g,1,0.99,0.99,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,broccoli,fruit & vegetables,True,216,12,38,96.788207,2,4,6,9,2,0
+2,5,26,HAK erwt wortelen extra fijn 680g,1,2.01,2.01,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,carrots and peas,canned foods,True,217,44,38,96.788207,2,4,6,3,2,0
+2,5,26,IGLO bloemkool met roomsaus 450g,1,3.89,3.89,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,cauliflower,frozen foods,True,218,69,38,96.788207,2,4,6,8,2,0
+2,5,26,BONI Beenham meesterl. Glutenvrij 200g,1,3.19,3.19,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,charcuterie,"meat, fish & veggie",True,219,13,38,96.788207,2,4,6,11,2,0
+2,5,26,BONI Gratin Mix geraspt 200g,1,1.39,1.39,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,cheese,dairy & plant based,True,191,14,38,96.788207,2,4,6,7,2,0
+2,5,26,BONI gouda light sneetjes 250g,1,2.49,2.49,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,cheese,dairy & plant based,True,59,14,38,96.788207,2,4,6,7,2,0
+2,5,26,OKAY Kippenborstfilet 600g,1,5.79,5.79,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,chicken,"meat, fish & veggie",True,195,15,38,96.788207,2,4,6,11,2,0
+2,5,26,BONI koriander vers 20g,1,0.99,0.99,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,coriander,fruit & vegetables,False,220,104,38,96.788207,2,4,6,9,2,0
+2,5,26,BONI Belgische scharreleieren L 6st,1,1.99,1.99,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,eggs,dairy & plant based,True,201,72,38,96.788207,2,4,6,7,2,0
+2,5,26,MCCAIN country potatoes met kruiden 750g,1,3.29,3.29,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,french fries,frozen foods,True,203,52,38,96.788207,2,4,6,8,2,0
+2,5,26,BONI aardappelpuree wortel 1kg,1,2.08,2.08,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,mashed potatoes,frozen foods,False,221,105,38,96.788207,2,4,6,8,2,0
+2,5,26,BONI forestiere mix 1kg,1,3.49,3.49,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,potatoes,frozen foods,False,222,106,38,96.788207,2,4,6,8,2,0
+2,5,26,verse knoflook los,1,1.3532,1.3532,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,garlic,fruit & vegetables,True,223,24,38,96.788207,2,4,6,9,2,0
+2,5,26,BONI druiven pitloos mix 500g,1,2.29,2.29,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,grapes,fruit & vegetables,True,224,75,38,96.788207,2,4,6,9,2,0
+2,5,26,"BONI Iced Tea Peach niet-bruisend 0,5L",1,0.465,0.465,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,ice tea,beverages,True,225,64,38,96.788207,2,4,6,1,2,0
+2,5,26,prei Los,1,0.5774999999999999,0.5774999999999999,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,leek,fruit & vegetables,True,69,53,38,96.788207,2,4,6,9,2,0
+2,5,26,OKAY gekruid kalfsgehakt 400g,1,5.96602,5.96602,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,minced meat,"meat, fish & veggie",True,71,26,38,96.788207,2,4,6,11,2,0
+2,5,26,OKAY gekruid varken/kalf gekruid 500g,1,4.200147,4.200147,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,True,minced meat,"meat, fish & veggie",True,226,26,38,96.788207,2,4,6,11,2,1
+2,5,26,Uien los,1,0.2686,0.2686,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,onions,fruit & vegetables,True,227,27,38,96.788207,2,4,6,9,2,0
+2,5,26,BONI pistachenoten gepeld 200g,1,8.45,8.45,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,pistachio,"nuts, seeds & dried fruit",False,228,107,38,96.788207,2,4,6,13,2,0
+2,5,26,OK POM-PURE vastkokend aardappelen 1kg,1,1.59,1.59,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,potatoes,fruit & vegetables,True,229,106,38,96.788207,2,4,6,9,2,0
+2,5,26,JOYVALLE pudding griesmeel natuur 135g,2,0.99,1.98,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,pudding,dairy & plant based,True,1,1,38,96.788207,2,4,6,7,2,0
+2,5,26,BONI fijnproeversmix Rucola 250g,1,2.69,2.69,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,salad,fruit & vegetables,True,230,33,38,96.788207,2,4,6,9,2,0
+2,5,26,EVERYDAY zalmfil. at. z. grat. ASC 2x125g,2,3.99,7.98,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,salmon,frozen foods,False,231,108,38,96.788207,2,4,6,8,2,0
+2,5,26,EVERYDAY scampi gepeld medium ASC 50g,1,8.32,8.32,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,scampi,frozen foods,False,232,109,38,96.788207,2,4,6,8,2,0
+2,5,26,BONI tomatensoep met balletjes 950ml,1,1.99,1.99,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,soup,beverages,True,2,2,38,96.788207,2,4,6,1,2,0
+2,5,26,LIEBIG DELISOUP wortel pomp.bal. brik 1L,1,2.49,2.49,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,soup,beverages,True,233,2,38,96.788207,2,4,6,1,2,0
+2,5,26,lenteuitjes bot,1,0.99,0.99,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,spring onions,fruit & vegetables,True,234,101,38,96.788207,2,4,6,9,2,0
+2,5,26,EVERYDAY loempia kip ham 700g,1,1.46,1.46,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,spring roll,frozen foods,True,212,102,38,96.788207,2,4,6,8,2,0
+2,5,26,BONI zoete aardappel (los),1,4.17942,4.17942,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,sweet potatoes,fruit & vegetables,True,75,37,38,96.788207,2,4,6,9,2,0
+2,5,26,BONI tomatenpuree dubbel geconcentr. 70g,2,0.23,0.46,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,tomato paste,canned foods,True,213,103,38,96.788207,2,4,6,3,2,0
+2,5,26,BONI BIO cocktailtomaten 250g,1,2.49,2.49,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,tomatoes,fruit & vegetables,True,235,40,38,96.788207,2,4,6,9,2,0
+2,5,26,DANONE ACTIVIA VOL KOKOSNOOT 4X125G,1,1.75,1.75,2022-01-08,Saturday,10:58:00,morning,supermarket,Okay,False,yoghurt,dairy & plant based,True,236,41,38,96.788207,2,4,6,7,2,0
+2,5,27,GROF BROOD GESN.,1,2.5,2.5,2022-01-08,Saturday,11:00:00,morning,bakery,Sys,False,bread,bakery,True,88,3,6,7.4,2,0,7,0,2,0
+2,5,27,LANG ZESGRANEN BROOD,1,2.5,2.5,2022-01-08,Saturday,11:00:00,morning,bakery,Sys,False,bread,bakery,True,237,3,6,7.4,2,0,7,0,2,0
+2,5,27,SANDWICH,4,0.6,2.4,2022-01-08,Saturday,11:00:00,morning,bakery,Sys,False,sandwich,bakery,True,7,5,6,7.4,2,0,7,0,2,0
+2,5,28,BROCHETTEN R-V,1,5.751,5.751,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,False,beef,"meat, fish & veggie",True,238,68,7,25.5715,2,1,8,11,2,0
+2,5,28,FRIKANDON,1,2.2605,2.2605,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,False,charcuterie,"meat, fish & veggie",True,172,13,7,25.5715,2,1,8,11,2,0
+2,5,28,GRILL-WORST,1,3.024,3.024,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,False,charcuterie,"meat, fish & veggie",True,173,13,7,25.5715,2,1,8,11,2,0
+2,5,28,PREPARE DU CHEF,1,3.0940000000000003,3.0940000000000003,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,False,meat spread,"meat, fish & veggie",True,176,25,7,25.5715,2,1,8,11,2,0
+2,5,28,HASPENGOUWSE SALADE,1,2.22,2.22,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,False,meat spread,"meat, fish & veggie",True,239,25,7,25.5715,2,1,8,11,2,0
+2,5,28,KIPSALADE,1,2.688,2.688,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,False,meat spread,"meat, fish & veggie",True,177,25,7,25.5715,2,1,8,11,2,0
+2,5,28,HOEVE BURGER,1,6.534,6.534,2022-01-08,Saturday,11:06:00,morning,butcher,Versavel Poelman,False,pork,"meat, fish & veggie",True,240,66,7,25.5715,2,1,8,11,2,0
+2,6,29,LULU BEERTJE LU CAKE,1,1.39,1.39,2022-01-11,Tuesday,17:02:00,afternoon,drugstore,Kruidvat,False,cookies,snacks,True,241,70,3,18.13,5,2,5,15,0,0
+2,6,29,COVID ZELFTEST,1,14.95,14.95,2022-01-11,Tuesday,17:02:00,afternoon,drugstore,Kruidvat,False,covid tests,care & hyygiene,False,242,110,3,18.13,5,2,5,4,0,0
+2,6,29,PYRAMIDE BOSVRUCHTEN THEE,1,1.79,1.79,2022-01-11,Tuesday,17:02:00,afternoon,drugstore,Kruidvat,False,tea,beverages,True,243,38,3,18.13,5,2,5,1,0,0
+2,6,30,GROF BROOD GESN.,1,2.5,2.5,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,False,bread,bakery,True,88,3,13,23.8,2,0,7,0,2,0
+2,6,30,DIVERSEN: CHOCOLADEMELK INEX,1,2.3,2.3,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,False,chocolate milk,dairy & plant based,True,244,17,13,23.8,2,0,7,7,2,0
+2,6,30,CHOCOLADE CRÈME KOEK,4,1.3,5.2,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,False,danish,bakery,True,245,4,13,23.8,2,0,7,0,2,0
+2,6,30,FRUITKOEK,4,1.4,5.6,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,False,danish,bakery,True,246,4,13,23.8,2,0,7,0,2,0
+2,6,30,BOOTJE,2,1.4,2.8,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,False,danish,bakery,True,171,4,13,23.8,2,0,7,0,2,0
+2,6,30,DIVERSEN: NOORDZEESALADE,1,5.4,5.4,2022-01-15,Saturday,08:02:00,morning,bakery,Sys,False,fish spread,"meat, fish & veggie",True,247,23,13,23.8,2,0,7,11,2,0
+2,6,31,PAPRIKA ROOD,1,0.84,0.84,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,bell peppers,fruit & vegetables,True,248,10,34,90.16,3,4,3,9,2,0
+2,6,31,BROCCOLI VERP 1STK,1,1.59,1.59,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,broccoli,fruit & vegetables,True,249,12,34,90.16,3,4,3,9,2,0
+2,6,31,WORTELS LOS,1,0.24,0.24,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,carrots,fruit & vegetables,True,250,92,34,90.16,3,4,3,9,2,0
+2,6,31,KELLOGG'S TRESOR MELKCHOC,1,4.29,4.29,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,cereal,breakfast & spreads,True,251,61,34,90.16,3,4,3,2,2,0
+2,6,31,LOUIS CHORIZO 150GR,1,3.69,3.69,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,charcuterie,"meat, fish & veggie",True,252,13,34,90.16,3,4,3,11,2,0
+2,6,31,BEEMSTER JONG VFP TR 250G,1,3.59,3.59,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,cheese,dairy & plant based,True,253,14,34,90.16,3,4,3,7,2,0
+2,6,31,FETA GRECO 200GR,1,2.99,2.99,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,cheese,dairy & plant based,True,254,14,34,90.16,3,4,3,7,2,0
+2,6,31,BON'AP KIPFILET 800GR,1,7.43,7.43,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,chicken,"meat, fish & veggie",True,255,15,34,90.16,3,4,3,11,2,0
+2,6,31,WW KIPFILET 120GR,1,2.65,2.65,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,chicken,"meat, fish & veggie",True,256,15,34,90.16,3,4,3,11,2,0
+2,6,31,M&M KIPPENGEHAKT 500GR,1,4.91,4.91,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,minced meat,"meat, fish & veggie",True,257,26,34,90.16,3,4,3,11,2,0
+2,6,31,BIESLOOK BIO POTJE 1STK,1,1.69,1.69,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,chives,fruit & vegetables,True,258,16,34,90.16,3,4,3,9,2,0
+2,6,31,SO THAI KOKOSNOTENMELK 40,1,2.99,2.99,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,coconut milk,dairy & plant based,True,259,47,34,90.16,3,4,3,7,2,0
+2,6,31,CORA PODS LUNGO 16STK,1,4.39,4.39,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,coffee,beverages,True,260,48,34,90.16,3,4,3,1,2,0
+2,6,31,COCA COLA ZERO SUGAR CAN,1,4.35,4.35,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,coke,beverages,True,261,19,34,90.16,3,4,3,1,2,0
+2,6,31,PRINCE START NATUUR 300GR,1,2.39,2.39,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,cookies,snacks,True,262,70,34,90.16,3,4,3,15,2,0
+2,6,31,PRINCE START NATUUR 300GR,1,2.39,2.39,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,cookies,snacks,True,262,70,34,90.16,3,4,3,15,2,0
+2,6,31,ALPRO SOYA CUISINE BRIK 2,1,3.59,3.59,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,cream,dairy & plant based,True,263,49,34,90.16,3,4,3,7,2,0
+2,6,31,SO THAI GROENE CURRYPASTA,1,2.09,2.09,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,curry paste,condiments,False,264,111,34,90.16,3,4,3,5,2,0
+2,6,31,HERTA KRUIMELDEEG 230gr,1,2.7,2.7,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,dough,bakery,False,265,112,34,90.16,3,4,3,0,2,0
+2,6,31,COLUMBUS EIEREN LARGE 6ST,1,2.9,2.9,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,eggs,dairy & plant based,True,266,72,34,90.16,3,4,3,7,2,0
+2,6,31,LOOK VERPAKT 175GR,1,1.59,1.59,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,garlic,fruit & vegetables,True,267,24,34,90.16,3,4,3,9,2,0
+2,6,31,GOLD KIWI,4,0.85,3.4,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,kiwi,fruit & vegetables,True,268,76,34,90.16,3,4,3,9,2,0
+2,6,31,PREI,1,1.79,1.79,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,leek,fruit & vegetables,True,269,53,34,90.16,3,4,3,9,2,0
+2,6,31,LOUIS VLEESSALADE 120GR,1,1.85,1.85,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,meat salad,"meat, fish & veggie",False,270,113,34,90.16,3,4,3,11,2,0
+2,6,31,CHAMPIGNONS 250GR,1,1.3,1.3,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,mushrooms,fruit & vegetables,False,271,114,34,90.16,3,4,3,9,2,0
+2,6,31,SIMPL GEROOKTE ZALM NO200,1,4.89,4.89,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,salmon,"meat, fish & veggie",True,272,108,34,90.16,3,4,3,11,2,0
+2,6,31,GO TAN WOKSAUS ZOET ZUUR,1,3.79,3.79,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,sauce,condiments,False,273,115,34,90.16,3,4,3,5,2,0
+2,6,31,EASY SOJASCHEUTEN 250G,1,1.05,1.05,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,soy beans,fruit & vegetables,False,274,116,34,90.16,3,4,3,9,2,0
+2,6,31,TOMAAT COEUR BOEUF CAT 2S,1,3.49,3.49,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,tomatoes,fruit & vegetables,True,275,40,34,90.16,3,4,3,9,2,0
+2,6,31,OIKOS YOG VANILLE 4X115GR,1,3.95,3.95,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,yoghurt,dairy & plant based,True,276,41,34,90.16,3,4,3,7,2,0
+2,6,31,COURGETTE,1,1.36,1.36,2022-01-16,Sunday,08:45:00,morning,supermarket,Delhaize,False,zucchini,fruit & vegetables,True,277,88,34,90.16,3,4,3,9,2,0
+2,7,32,PAD THAI,1,5.59,5.59,2022-01-12,Monday,12:32:00,noon,supermarket,Albert Heijn,True,lunch,"meat, fish & veggie",True,278,6,2,8.08,1,4,0,11,3,1
+2,7,32,FRAMBOZEN,1,2.49,2.49,2022-01-17,Monday,12:32:00,noon,supermarket,Albert Heijn,False,raspberries,fruit & vegetables,True,279,78,2,8.08,1,4,0,9,3,0
+2,7,33,MILKA TABLET,1,0.99,0.99,2022-01-20,Thursday,12:37:00,noon,supermarket,Albert Heijn,False,chocolate,snacks,True,280,59,3,8.98,4,4,0,15,3,0
+2,7,33,FRUITSALADE,1,3.0,3.0,2022-01-20,Thursday,12:37:00,noon,supermarket,Albert Heijn,True,fruit salad,fruit & vegetables,False,281,117,3,8.98,4,4,0,9,3,1
+2,7,33,AH MAALTIJDSALADE,1,4.99,4.99,2022-01-20,Thursday,12:37:00,noon,supermarket,Albert Heijn,False,lunch salad,fruit & vegetables,True,282,42,3,8.98,4,4,0,9,3,0
+2,7,34,MORA Oven goudse kaasballetjes 14x20g,1,4.79,4.79,2022-01-22,Saturday,16:18:00,afternoon,supermarket,Okay,False,cheese,dairy & plant based,True,283,14,9,15.56,2,4,6,7,0,0
+2,7,34,"BONI Iced Tea Peach niet-bruisend 0,5L",6,0.465,2.79,2022-01-22,Saturday,16:18:00,afternoon,supermarket,Okay,False,ice tea,beverages,True,225,64,9,15.56,2,4,6,1,0,0
+2,7,34,BONI Pizza Hawai 460g,1,3.99,3.99,2022-01-22,Saturday,16:18:00,afternoon,supermarket,Okay,False,pizza,frozen foods,True,284,65,9,15.56,2,4,6,8,0,0
+2,7,34,BONI Pizza Rondo di Roma 450g,1,3.99,3.99,2022-01-22,Saturday,16:18:00,afternoon,supermarket,Okay,False,pizza,frozen foods,True,285,65,9,15.56,2,4,6,8,0,0
+2,8,35,VERSE PASTA,1,4.99,4.99,2022-01-24,Monday,12:04:00,noon,supermarket,Albert Heijn,False,lunch salad,fruit & vegetables,True,286,42,2,7.380000000000001,1,4,0,9,3,0
+2,8,35,FRAMBOZEN,1,2.39,2.39,2022-01-24,Monday,12:04:00,noon,supermarket,Albert Heijn,True,raspberries,fruit & vegetables,True,279,78,2,7.380000000000001,1,4,0,9,3,1
+2,8,36,DRAAGTAS,1,0.5,0.5,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,bag,non-food,False,287,118,26,60.660000000000004,1,4,0,12,1,0
+2,8,36,AH BANANEN,1,0.99,0.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,bananas,fruit & vegetables,True,288,82,26,60.660000000000004,1,4,0,9,1,0
+2,8,36,RUNDERGEHAKT,1,3.59,3.59,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,beef,"meat, fish & veggie",True,289,68,26,60.660000000000004,1,4,0,11,1,0
+2,8,36,ST BERNARDUS,1,3.06,3.06,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,beer,beverages,True,290,90,26,60.660000000000004,1,4,0,1,1,0
+2,8,36,BRAMEN,1,2.79,2.79,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,blackberries,fruit & vegetables,False,291,119,26,60.660000000000004,1,4,0,9,1,0
+2,8,36,BRUGGE,1,2.89,2.89,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,cheese,dairy & plant based,True,292,14,26,60.660000000000004,1,4,0,7,1,0
+2,8,36,WW KIPFILET,1,2.29,2.29,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,minced meat,"meat, fish & veggie",True,293,26,26,60.660000000000004,1,4,0,11,1,0
+2,8,36,KIPFILETHAAS,1,4.49,4.49,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,chicken,"meat, fish & veggie",True,294,15,26,60.660000000000004,1,4,0,11,1,0
+2,8,36,AH TABLET,1,1.59,1.59,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,chocolate,snacks,True,87,59,26,60.660000000000004,1,4,0,15,1,0
+2,8,36,KOKOS,1,3.99,3.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,coconut,fruit & vegetables,False,295,120,26,60.660000000000004,1,4,0,9,1,0
+2,8,36,AH KOKOS NAT,1,1.99,1.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,coconut,fruit & vegetables,True,296,120,26,60.660000000000004,1,4,0,9,1,0
+2,8,36,FRUITBISCUIT,1,1.29,1.29,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,cookies,snacks,True,297,70,26,60.660000000000004,1,4,0,15,1,0
+2,8,36,MERGPIJPJES,1,1.59,1.59,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,True,cookies,snacks,True,298,70,26,60.660000000000004,1,4,0,15,1,1
+2,8,36,PREP CHEF B,1,2.33,2.33,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,meat spread,"meat, fish & veggie",True,299,25,26,60.660000000000004,1,4,0,11,1,0
+2,8,36,AH MUESLI,1,1.79,1.79,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,muesli,breakfast & spreads,False,300,121,26,60.660000000000004,1,4,0,2,1,0
+2,8,36,FRAMBOZEN,1,2.39,2.39,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,raspberries,fruit & vegetables,True,279,78,26,60.660000000000004,1,4,0,9,1,0
+2,8,36,BOSTO THAI B,1,1.59,1.59,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,rice,pasta & rice,False,301,122,26,60.660000000000004,1,4,0,14,1,0
+2,8,36,BASMATI B ,1,1.99,1.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,rice,pasta & rice,True,302,122,26,60.660000000000004,1,4,0,14,1,0
+2,8,36,SW BROODJES,1,0.89,0.89,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,sandwich,bakery,True,303,5,26,60.660000000000004,1,4,0,0,1,0
+2,8,36,OPTIM KWARK,1,1.99,1.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,soft cheese,dairy & plant based,False,304,123,26,60.660000000000004,1,4,0,7,1,0
+2,8,36,PICKWICK TEA,1,2.19,2.19,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,tea,beverages,True,305,38,26,60.660000000000004,1,4,0,1,1,0
+2,8,36,VERSPAKKET,1,4.99,4.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,True,vegetable box,fruit & vegetables,False,306,124,26,60.660000000000004,1,4,0,9,1,1
+2,8,36,MEXICAANSE CHILI PAKKET,1,4.99,4.99,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,True,vegetable box,fruit & vegetables,True,307,124,26,60.660000000000004,1,4,0,9,1,1
+2,8,36,ROOMYOGHURT,1,1.09,1.09,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,yoghurt,dairy & plant based,True,308,41,26,60.660000000000004,1,4,0,7,1,0
+2,8,36,ISEY SKYR CR,1,1.69,1.69,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,yoghurt,dairy & plant based,True,309,41,26,60.660000000000004,1,4,0,7,1,0
+2,8,36,ISEY APPPEL,1,1.69,1.69,2022-01-24,Monday,18:50:00,evening,supermarket,Albert Heijn,False,yoghurt,dairy & plant based,True,310,41,26,60.660000000000004,1,4,0,7,1,0
+2,8,37,AH MAALTIJDSALADE,1,3.5,3.5,2022-01-26,Wednesday,12:36:00,noon,supermarket,Albert Heijn,False,lunch salad,fruit & vegetables,True,282,42,2,6.49,6,4,0,9,3,0
+2,8,37,AH GR BIET GEITENKAAS SALADE,1,2.99,2.99,2022-01-26,Wednesday,12:36:00,noon,supermarket,Albert Heijn,False,lunch salad,fruit & vegetables,True,311,42,2,6.49,6,4,0,9,3,0
+2,8,38,EIERKOEKEN,1,1.69,1.69,2022-01-27,Thursday,11:20:00,morning,supermarket,Albert Heijn,True,egg cakes,snacks,True,312,84,3,11.07,4,4,0,15,2,1
+2,8,38,AH MLTSALADE,1,5.49,5.49,2022-01-27,Thursday,11:20:00,morning,supermarket,Albert Heijn,True,lunch salad,fruit & vegetables,True,52,42,3,11.07,4,4,0,9,2,1
+2,8,38,MENTOS,1,3.89,3.89,2022-01-27,Thursday,11:20:00,morning,supermarket,Albert Heijn,False,mints,snacks,False,313,125,3,11.07,4,4,0,15,2,0
+2,8,39,AH MLTSALADE,1,2.95,2.95,2022-01-27,Friday,12:15:00,noon,supermarket,Albert Heijn,False,lunch salad,fruit & vegetables,True,52,42,1,2.95,0,4,0,9,3,0
