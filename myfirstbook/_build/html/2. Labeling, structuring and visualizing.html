@@ -373,7 +373,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-numeric-variables-for-the-confusion-matrix">New (numeric) variables for the confusion matrix</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-final-dataframe-as-a-new-csv-file">2.1.2. Save the final dataframe as a new csv file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing">2.2. Visualizing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#days">2.2.1. DAYS</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-a-noticeable-pattern-in-this-households-shopping-trips-per-week">2.2.1.1. Is there a noticeable pattern in this households shopping trips per week?</a><ul class="nav section-nav flex-column">
@@ -426,6 +425,7 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-final-dataframe-as-a-new-csv-file">2.3. Save the final dataframe as a new csv file</a></li>
 </ul>
             </nav>
         </div>
@@ -520,24 +520,19 @@ Outcome (example):
       <th>HH</th>
       <th>week</th>
       <th>order_ID</th>
-      <th>item_name</th>
+      <th>item_id</th>
       <th>amount</th>
       <th>price_unit</th>
       <th>price_total</th>
       <th>date</th>
       <th>day</th>
       <th>timestamp</th>
-      <th>...</th>
-      <th>item_id</th>
-      <th>type_id</th>
-      <th>order_amount</th>
-      <th>order_price</th>
-      <th>day_num</th>
-      <th>storetype_num</th>
-      <th>storename_num</th>
-      <th>cat_num</th>
-      <th>time_num</th>
-      <th>promo_num</th>
+      <th>time</th>
+      <th>store_type</th>
+      <th>store_name</th>
+      <th>promo</th>
+      <th>item_type</th>
+      <th>category</th>
     </tr>
   </thead>
   <tbody>
@@ -553,17 +548,12 @@ Outcome (example):
       <td>2021-11-23</td>
       <td>Tuesday</td>
       <td>12:32:00</td>
-      <td>...</td>
+      <td>noon</td>
+      <td>supermarket</td>
+      <td>Okay</td>
       <td>0</td>
-      <td>0</td>
-      <td>9</td>
-      <td>16.77</td>
-      <td>5</td>
-      <td>4</td>
-      <td>6</td>
-      <td>2</td>
-      <td>3</td>
-      <td>0</td>
+      <td>chocolate spread</td>
+      <td>breakfast &amp; spreads</td>
     </tr>
     <tr>
       <th>1</th>
@@ -577,17 +567,12 @@ Outcome (example):
       <td>2021-11-23</td>
       <td>Tuesday</td>
       <td>12:32:00</td>
-      <td>...</td>
-      <td>1</td>
-      <td>1</td>
-      <td>9</td>
-      <td>16.77</td>
-      <td>5</td>
-      <td>4</td>
-      <td>6</td>
-      <td>7</td>
-      <td>3</td>
+      <td>noon</td>
+      <td>supermarket</td>
+      <td>Okay</td>
       <td>0</td>
+      <td>pudding</td>
+      <td>dairy &amp; plant based</td>
     </tr>
     <tr>
       <th>2</th>
@@ -601,17 +586,12 @@ Outcome (example):
       <td>2021-11-23</td>
       <td>Tuesday</td>
       <td>12:32:00</td>
-      <td>...</td>
-      <td>2</td>
-      <td>2</td>
-      <td>9</td>
-      <td>16.77</td>
-      <td>5</td>
-      <td>4</td>
-      <td>6</td>
-      <td>3</td>
-      <td>3</td>
+      <td>noon</td>
+      <td>supermarket</td>
+      <td>Okay</td>
       <td>0</td>
+      <td>soup</td>
+      <td>canned foods</td>
     </tr>
     <tr>
       <th>3</th>
@@ -625,17 +605,12 @@ Outcome (example):
       <td>2021-11-23</td>
       <td>Tuesday</td>
       <td>12:32:00</td>
-      <td>...</td>
-      <td>3</td>
-      <td>2</td>
-      <td>9</td>
-      <td>16.77</td>
-      <td>5</td>
-      <td>4</td>
-      <td>6</td>
-      <td>3</td>
-      <td>3</td>
+      <td>noon</td>
+      <td>supermarket</td>
+      <td>Okay</td>
       <td>0</td>
+      <td>soup</td>
+      <td>canned foods</td>
     </tr>
     <tr>
       <th>4</th>
@@ -649,21 +624,15 @@ Outcome (example):
       <td>2021-11-23</td>
       <td>Tuesday</td>
       <td>12:32:00</td>
-      <td>...</td>
-      <td>4</td>
-      <td>2</td>
-      <td>9</td>
-      <td>16.77</td>
-      <td>5</td>
-      <td>4</td>
-      <td>6</td>
-      <td>3</td>
-      <td>3</td>
+      <td>noon</td>
+      <td>supermarket</td>
+      <td>Okay</td>
       <td>0</td>
+      <td>soup</td>
+      <td>canned foods</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 27 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -696,50 +665,6 @@ Make sure all variables are formatted as the correct type (e.g., int, bool…)</
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_56545/3230577030.py:9: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
-  df[&#39;item_id&#39;] = pd.factorize(df[&#39;item_name&#39;])[0]
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#create an ID for each item </span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;item_id&#39;</span><span class="p">:</span><span class="s1">&#39;item_name&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_name&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">#create an ID for each type </span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;type_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_type&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/algorithms.py:765,</span> in <span class="ni">factorize</span><span class="nt">(values, sort, use_na_sentinel, size_hint)</span>
-<span class="g g-Whitespace">    </span><span class="mi">762</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="p">(</span><span class="n">ABCIndex</span><span class="p">,</span> <span class="n">ABCSeries</span><span class="p">)):</span>
-<span class="g g-Whitespace">    </span><span class="mi">763</span>     <span class="k">return</span> <span class="n">values</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span> <span class="n">use_na_sentinel</span><span class="o">=</span><span class="n">use_na_sentinel</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">765</span> <span class="n">values</span> <span class="o">=</span> <span class="n">_ensure_arraylike</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">func_name</span><span class="o">=</span><span class="s2">&quot;factorize&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">766</span> <span class="n">original</span> <span class="o">=</span> <span class="n">values</span>
-<span class="g g-Whitespace">    </span><span class="mi">768</span> <span class="k">if</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="p">(</span><span class="n">ABCDatetimeArray</span><span class="p">,</span> <span class="n">ABCTimedeltaArray</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">770</span>     <span class="ow">and</span> <span class="n">values</span><span class="o">.</span><span class="n">freq</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">771</span> <span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">772</span>     <span class="c1"># The presence of &#39;freq&#39; means we can fast-path sorting and know there</span>
-<span class="g g-Whitespace">    </span><span class="mi">773</span>     <span class="c1">#  aren&#39;t NAs</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/algorithms.py:238,</span> in <span class="ni">_ensure_arraylike</span><span class="nt">(values, func_name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">237</span>         <span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">238</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">construct_1d_object_array_from_listlike</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-
-<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/dtypes/cast.py:1598,</span> in <span class="ni">construct_1d_object_array_from_listlike</span><span class="nt">(values)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1595</span> <span class="c1"># numpy will try to interpret nested lists as further dimensions, hence</span>
-<span class="g g-Whitespace">   </span><span class="mi">1596</span> <span class="c1"># making a 1D array that contains list-likes is a bit tricky:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1597</span> <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1598</span> <span class="n">result</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">values</span>
-<span class="g g-Whitespace">   </span><span class="mi">1599</span> <span class="k">return</span> <span class="n">result</span>
-
-<span class="ne">ValueError</span>: could not broadcast input array from shape (372,2) into shape (372,)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -757,59 +682,6 @@ Make sure all variables are formatted as the correct type (e.g., int, bool…)</
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py:3805,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3804</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3805</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3806</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-
-<span class="nn">File index.pyx:167,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">File index.pyx:191,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">File index.pyx:234,</span> in <span class="ni">pandas._libs.index.IndexEngine._get_loc_duplicates</span><span class="nt">()</span>
-
-<span class="nn">File index.pyx:242,</span> in <span class="ni">pandas._libs.index.IndexEngine._maybe_get_bool_indexer</span><span class="nt">()</span>
-
-<span class="nn">File index.pyx:134,</span> in <span class="ni">pandas._libs.index._unpack_bool_indexer</span><span class="nt">()</span>
-
-<span class="ne">KeyError</span>: &#39;item_id&#39;
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;promo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;promo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;type_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;type_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/core/frame.py:4090,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4088</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4089</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4090</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4091</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">4092</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py:3812,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3808</span>         <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3809</span>         <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3810</span>     <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3811</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3812</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">   </span><span class="mi">3813</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3814</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3815</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3816</span>     <span class="c1">#  the TypeError.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3817</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: &#39;item_id&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -822,146 +694,427 @@ Make sure all variables are formatted as the correct type (e.g., int, bool…)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">File ~/.local/lib/python3.10/site-packages/IPython/core/formatters.py:347,</span> in <span class="ni">BaseFormatter.__call__</span><span class="nt">(self, obj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">345</span>     <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span>     <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">347</span>         <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">348</span>     <span class="k">return</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">349</span> <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/io/formats/style.py:405,</span> in <span class="ni">Styler._repr_html_</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">400</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span><span class="sd"> Hooks into Jupyter notebook rich display system, which calls _repr_html_ by</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span><span class="sd"> default if an object is returned at the end of a cell.</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="k">if</span> <span class="n">get_option</span><span class="p">(</span><span class="s2">&quot;styler.render.repr&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;html&quot;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">405</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">return</span> <span class="kc">None</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/io/formats/style.py:1345,</span> in <span class="ni">Styler.to_html</span><span class="nt">(self, buf, table_uuid, table_attributes, sparse_index, sparse_columns, bold_headers, caption, max_rows, max_columns, encoding, doctype_html, exclude_styles, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1342</span>     <span class="n">obj</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="n">caption</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1344</span> <span class="c1"># Build HTML string..</span>
-<span class="ne">-&gt; </span><span class="mi">1345</span> <span class="n">html</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">_render_html</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1346</span>     <span class="n">sparse_index</span><span class="o">=</span><span class="n">sparse_index</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1347</span>     <span class="n">sparse_columns</span><span class="o">=</span><span class="n">sparse_columns</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1348</span>     <span class="n">max_rows</span><span class="o">=</span><span class="n">max_rows</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1349</span>     <span class="n">max_cols</span><span class="o">=</span><span class="n">max_columns</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1350</span>     <span class="n">exclude_styles</span><span class="o">=</span><span class="n">exclude_styles</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1351</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span> <span class="ow">or</span> <span class="n">get_option</span><span class="p">(</span><span class="s2">&quot;styler.render.encoding&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1352</span>     <span class="n">doctype_html</span><span class="o">=</span><span class="n">doctype_html</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1353</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1354</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1356</span> <span class="k">return</span> <span class="n">save_to_buffer</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1357</span>     <span class="n">html</span><span class="p">,</span> <span class="n">buf</span><span class="o">=</span><span class="n">buf</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="p">(</span><span class="n">encoding</span> <span class="k">if</span> <span class="n">buf</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1358</span> <span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/io/formats/style_render.py:204,</span> in <span class="ni">StylerRenderer._render_html</span><span class="nt">(self, sparse_index, sparse_columns, max_rows, max_cols, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">192</span> <span class="k">def</span> <span class="nf">_render_html</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">193</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">194</span>     <span class="n">sparse_index</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">199</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span><span class="sd">     Renders the ``Styler`` including all applied styles to HTML.</span>
-<span class="g g-Whitespace">    </span><span class="mi">202</span><span class="sd">     Generates a dict with necessary kwargs passed to jinja2 template.</span>
-<span class="g g-Whitespace">    </span><span class="mi">203</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">204</span>     <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_render</span><span class="p">(</span><span class="n">sparse_index</span><span class="p">,</span> <span class="n">sparse_columns</span><span class="p">,</span> <span class="n">max_rows</span><span class="p">,</span> <span class="n">max_cols</span><span class="p">,</span> <span class="s2">&quot;&amp;nbsp;&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">205</span>     <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">206</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_html</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">207</span>         <span class="o">**</span><span class="n">d</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">208</span>         <span class="n">html_table_tpl</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">template_html_table</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span>         <span class="n">html_style_tpl</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">template_html_style</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span>     <span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/io/formats/style_render.py:161,</span> in <span class="ni">StylerRenderer._render</span><span class="nt">(self, sparse_index, sparse_columns, max_rows, max_cols, blank)</span>
-<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="k">def</span> <span class="nf">_render</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">148</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">149</span>     <span class="n">sparse_index</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">153</span>     <span class="n">blank</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">155</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">156</span><span class="sd">     Computes and applies styles and then generates the general render dicts.</span>
-<span class="g g-Whitespace">    </span><span class="mi">157</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">158</span><span class="sd">     Also extends the `ctx` and `ctx_index` attributes with those of concatenated</span>
-<span class="g g-Whitespace">    </span><span class="mi">159</span><span class="sd">     stylers for use within `_translate_latex`</span>
-<span class="g g-Whitespace">    </span><span class="mi">160</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">161</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_compute</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">162</span>     <span class="n">dxs</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">    </span><span class="mi">163</span>     <span class="n">ctx_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/io/formats/style_render.py:256,</span> in <span class="ni">StylerRenderer._compute</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">254</span> <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span>
-<span class="g g-Whitespace">    </span><span class="mi">255</span> <span class="k">for</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_todo</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">256</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">257</span> <span class="k">return</span> <span class="n">r</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/io/formats/style.py:1726,</span> in <span class="ni">Styler._apply</span><span class="nt">(self, func, axis, subset, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1724</span> <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">_get_axis_number</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1725</span> <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1726</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1727</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1728</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># see GH 42005</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/core/frame.py:10361,</span> in <span class="ni">DataFrame.apply</span><span class="nt">(self, func, axis, raw, result_type, args, by_row, engine, engine_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">10347</span> <span class="kn">from</span> <span class="nn">pandas.core.apply</span> <span class="kn">import</span> <span class="n">frame_apply</span>
-<span class="g g-Whitespace">  </span><span class="mi">10349</span> <span class="n">op</span> <span class="o">=</span> <span class="n">frame_apply</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">10350</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10351</span>     <span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">10359</span>     <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10360</span> <span class="p">)</span>
-<span class="ne">&gt; </span><span class="mi">10361</span> <span class="k">return</span> <span class="n">op</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;apply&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/core/apply.py:916,</span> in <span class="ni">FrameApply.apply</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">913</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">914</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_raw</span><span class="p">(</span><span class="n">engine</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span> <span class="n">engine_kwargs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">engine_kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">916</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_standard</span><span class="p">()</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/core/apply.py:1063,</span> in <span class="ni">FrameApply.apply_standard</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1061</span> <span class="k">def</span> <span class="nf">apply_standard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1062</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1063</span>         <span class="n">results</span><span class="p">,</span> <span class="n">res_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_series_generator</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1064</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1065</span>         <span class="n">results</span><span class="p">,</span> <span class="n">res_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_series_numba</span><span class="p">()</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/core/apply.py:1081,</span> in <span class="ni">FrameApply.apply_series_generator</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1078</span> <span class="k">with</span> <span class="n">option_context</span><span class="p">(</span><span class="s2">&quot;mode.chained_assignment&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1079</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">series_gen</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1080</span>         <span class="c1"># ignore SettingWithCopy here in case the user mutates</span>
-<span class="ne">-&gt; </span><span class="mi">1081</span>         <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1082</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ABCSeries</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1083</span>             <span class="c1"># If we have a view on v, we need to make a copy because</span>
-<span class="g g-Whitespace">   </span><span class="mi">1084</span>             <span class="c1">#  series_generator will swap out the underlying data</span>
-<span class="g g-Whitespace">   </span><span class="mi">1085</span>             <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/io/formats/style.py:3802,</span> in <span class="ni">_background_gradient</span><span class="nt">(data, cmap, low, high, text_color_threshold, vmin, vmax, gmap, text_only)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3798</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">3799</span><span class="sd"> Color background in a range according to the data or a gradient map</span>
-<span class="g g-Whitespace">   </span><span class="mi">3800</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">3801</span> <span class="k">if</span> <span class="n">gmap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># the data is used the gmap</span>
-<span class="ne">-&gt; </span><span class="mi">3802</span>     <span class="n">gmap</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">else</span><span class="p">:</span>  <span class="c1"># else validate gmap against the underlying data</span>
-<span class="g g-Whitespace">   </span><span class="mi">3804</span>     <span class="n">gmap</span> <span class="o">=</span> <span class="n">_validate_apply_axis_arg</span><span class="p">(</span><span class="n">gmap</span><span class="p">,</span> <span class="s2">&quot;gmap&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.10/site-packages/pandas/core/base.py:662,</span> in <span class="ni">IndexOpsMixin.to_numpy</span><span class="nt">(self, dtype, copy, na_value, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">658</span>         <span class="n">values</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">values</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">isna</span><span class="p">(</span><span class="bp">self</span><span class="p">))]</span> <span class="o">=</span> <span class="n">na_value</span>
-<span class="ne">--&gt; </span><span class="mi">662</span> <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">664</span> <span class="k">if</span> <span class="p">(</span><span class="n">copy</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">fillna</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">copy</span> <span class="ow">and</span> <span class="n">using_copy_on_write</span><span class="p">()):</span>
-<span class="g g-Whitespace">    </span><span class="mi">665</span>     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">result</span><span class="p">[:</span><span class="mi">2</span><span class="p">]):</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span>         <span class="c1"># Take slices to improve performance of check</span>
-
-<span class="ne">ValueError</span>: could not convert string to float: &#39;GROF BROOD GESN.&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.io.formats.style.Styler at 0x7cfd56220a00&gt;
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style type="text/css">
+#T_2e8cd_row0_col0, #T_2e8cd_row0_col1, #T_2e8cd_row0_col2, #T_2e8cd_row0_col4, #T_2e8cd_row0_col5, #T_2e8cd_row0_col6, #T_2e8cd_row0_col17, #T_2e8cd_row0_col18, #T_2e8cd_row0_col19, #T_2e8cd_row0_col20 {
+  background-color: #023858;
+  color: #f1f1f1;
+}
+#T_2e8cd_row1_col0, #T_2e8cd_row1_col1, #T_2e8cd_row1_col2, #T_2e8cd_row1_col4, #T_2e8cd_row1_col5, #T_2e8cd_row1_col6, #T_2e8cd_row1_col17, #T_2e8cd_row1_col18, #T_2e8cd_row1_col19, #T_2e8cd_row1_col20, #T_2e8cd_row2_col0, #T_2e8cd_row2_col1, #T_2e8cd_row2_col2, #T_2e8cd_row2_col4, #T_2e8cd_row2_col5, #T_2e8cd_row2_col6, #T_2e8cd_row2_col17, #T_2e8cd_row2_col18, #T_2e8cd_row2_col19, #T_2e8cd_row2_col20, #T_2e8cd_row3_col0, #T_2e8cd_row3_col1, #T_2e8cd_row3_col2, #T_2e8cd_row3_col4, #T_2e8cd_row3_col5, #T_2e8cd_row3_col6, #T_2e8cd_row3_col17, #T_2e8cd_row3_col18, #T_2e8cd_row3_col19, #T_2e8cd_row3_col20 {
+  background-color: #000000;
+  color: #f1f1f1;
+}
+#T_2e8cd_row4_col0, #T_2e8cd_row4_col5, #T_2e8cd_row4_col6, #T_2e8cd_row5_col5, #T_2e8cd_row5_col6, #T_2e8cd_row6_col0, #T_2e8cd_row7_col0, #T_2e8cd_row7_col6, #T_2e8cd_row8_col0, #T_2e8cd_row8_col5, #T_2e8cd_row8_col6, #T_2e8cd_row9_col0, #T_2e8cd_row10_col0 {
+  background-color: #fef6fb;
+  color: #000000;
+}
+#T_2e8cd_row4_col1, #T_2e8cd_row8_col1, #T_2e8cd_row9_col1, #T_2e8cd_row9_col5, #T_2e8cd_row9_col6 {
+  background-color: #fef6fa;
+  color: #000000;
+}
+#T_2e8cd_row4_col2, #T_2e8cd_row8_col2 {
+  background-color: #f8f1f8;
+  color: #000000;
+}
+#T_2e8cd_row4_col4, #T_2e8cd_row5_col0, #T_2e8cd_row5_col1, #T_2e8cd_row5_col4, #T_2e8cd_row6_col1, #T_2e8cd_row6_col2, #T_2e8cd_row6_col4, #T_2e8cd_row6_col5, #T_2e8cd_row6_col6, #T_2e8cd_row6_col17, #T_2e8cd_row6_col18, #T_2e8cd_row6_col19, #T_2e8cd_row6_col20, #T_2e8cd_row7_col1, #T_2e8cd_row7_col4, #T_2e8cd_row7_col5, #T_2e8cd_row8_col4, #T_2e8cd_row9_col4 {
+  background-color: #fff7fb;
+  color: #000000;
+}
+#T_2e8cd_row4_col17 {
+  background-color: #9ebad9;
+  color: #000000;
+}
+#T_2e8cd_row4_col18 {
+  background-color: #eee8f3;
+  color: #000000;
+}
+#T_2e8cd_row4_col19 {
+  background-color: #f3edf5;
+  color: #000000;
+}
+#T_2e8cd_row4_col20 {
+  background-color: #e0deed;
+  color: #000000;
+}
+#T_2e8cd_row5_col2, #T_2e8cd_row7_col2 {
+  background-color: #fbf4f9;
+  color: #000000;
+}
+#T_2e8cd_row5_col17 {
+  background-color: #d1d2e6;
+  color: #000000;
+}
+#T_2e8cd_row5_col18, #T_2e8cd_row5_col20, #T_2e8cd_row8_col18 {
+  background-color: #f1ebf5;
+  color: #000000;
+}
+#T_2e8cd_row5_col19, #T_2e8cd_row10_col5, #T_2e8cd_row10_col6 {
+  background-color: #f9f2f8;
+  color: #000000;
+}
+#T_2e8cd_row7_col17 {
+  background-color: #dfddec;
+  color: #000000;
+}
+#T_2e8cd_row7_col18, #T_2e8cd_row10_col4 {
+  background-color: #faf2f8;
+  color: #000000;
+}
+#T_2e8cd_row7_col19 {
+  background-color: #faf3f9;
+  color: #000000;
+}
+#T_2e8cd_row7_col20 {
+  background-color: #f6eff7;
+  color: #000000;
+}
+#T_2e8cd_row8_col17 {
+  background-color: #9fbad9;
+  color: #000000;
+}
+#T_2e8cd_row8_col19 {
+  background-color: #f2ecf5;
+  color: #000000;
+}
+#T_2e8cd_row8_col20 {
+  background-color: #dedcec;
+  color: #000000;
+}
+#T_2e8cd_row9_col2 {
+  background-color: #f5eef6;
+  color: #000000;
+}
+#T_2e8cd_row9_col17 {
+  background-color: #4094c3;
+  color: #f1f1f1;
+}
+#T_2e8cd_row9_col18 {
+  background-color: #e0dded;
+  color: #000000;
+}
+#T_2e8cd_row9_col19, #T_2e8cd_row10_col2 {
+  background-color: #f0eaf4;
+  color: #000000;
+}
+#T_2e8cd_row9_col20 {
+  background-color: #c9cee4;
+  color: #000000;
+}
+#T_2e8cd_row10_col1 {
+  background-color: #fdf5fa;
+  color: #000000;
+}
+#T_2e8cd_row10_col17 {
+  background-color: #046096;
+  color: #f1f1f1;
+}
+#T_2e8cd_row10_col18 {
+  background-color: #b3c3de;
+  color: #000000;
+}
+#T_2e8cd_row10_col19 {
+  background-color: #e9e5f1;
+  color: #000000;
+}
+#T_2e8cd_row10_col20 {
+  background-color: #bfc9e1;
+  color: #000000;
+}
+</style>
+<table id="T_2e8cd">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_2e8cd_level0_col0" class="col_heading level0 col0" >HH</th>
+      <th id="T_2e8cd_level0_col1" class="col_heading level0 col1" >week</th>
+      <th id="T_2e8cd_level0_col2" class="col_heading level0 col2" >order_ID</th>
+      <th id="T_2e8cd_level0_col3" class="col_heading level0 col3" >item_name</th>
+      <th id="T_2e8cd_level0_col4" class="col_heading level0 col4" >amount</th>
+      <th id="T_2e8cd_level0_col5" class="col_heading level0 col5" >price_unit</th>
+      <th id="T_2e8cd_level0_col6" class="col_heading level0 col6" >price_total</th>
+      <th id="T_2e8cd_level0_col7" class="col_heading level0 col7" >date</th>
+      <th id="T_2e8cd_level0_col8" class="col_heading level0 col8" >day</th>
+      <th id="T_2e8cd_level0_col9" class="col_heading level0 col9" >timestamp</th>
+      <th id="T_2e8cd_level0_col10" class="col_heading level0 col10" >time</th>
+      <th id="T_2e8cd_level0_col11" class="col_heading level0 col11" >store_type</th>
+      <th id="T_2e8cd_level0_col12" class="col_heading level0 col12" >store_name</th>
+      <th id="T_2e8cd_level0_col13" class="col_heading level0 col13" >promo</th>
+      <th id="T_2e8cd_level0_col14" class="col_heading level0 col14" >item_type</th>
+      <th id="T_2e8cd_level0_col15" class="col_heading level0 col15" >category</th>
+      <th id="T_2e8cd_level0_col16" class="col_heading level0 col16" >reorder</th>
+      <th id="T_2e8cd_level0_col17" class="col_heading level0 col17" >item_id</th>
+      <th id="T_2e8cd_level0_col18" class="col_heading level0 col18" >type_id</th>
+      <th id="T_2e8cd_level0_col19" class="col_heading level0 col19" >order_amount</th>
+      <th id="T_2e8cd_level0_col20" class="col_heading level0 col20" >order_price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_2e8cd_level0_row0" class="row_heading level0 row0" >count</th>
+      <td id="T_2e8cd_row0_col0" class="data row0 col0" >372.000000</td>
+      <td id="T_2e8cd_row0_col1" class="data row0 col1" >372.000000</td>
+      <td id="T_2e8cd_row0_col2" class="data row0 col2" >372.000000</td>
+      <td id="T_2e8cd_row0_col3" class="data row0 col3" >372</td>
+      <td id="T_2e8cd_row0_col4" class="data row0 col4" >372.000000</td>
+      <td id="T_2e8cd_row0_col5" class="data row0 col5" >372.000000</td>
+      <td id="T_2e8cd_row0_col6" class="data row0 col6" >372.000000</td>
+      <td id="T_2e8cd_row0_col7" class="data row0 col7" >372</td>
+      <td id="T_2e8cd_row0_col8" class="data row0 col8" >372</td>
+      <td id="T_2e8cd_row0_col9" class="data row0 col9" >372</td>
+      <td id="T_2e8cd_row0_col10" class="data row0 col10" >372</td>
+      <td id="T_2e8cd_row0_col11" class="data row0 col11" >372</td>
+      <td id="T_2e8cd_row0_col12" class="data row0 col12" >372</td>
+      <td id="T_2e8cd_row0_col13" class="data row0 col13" >372</td>
+      <td id="T_2e8cd_row0_col14" class="data row0 col14" >372</td>
+      <td id="T_2e8cd_row0_col15" class="data row0 col15" >372</td>
+      <td id="T_2e8cd_row0_col16" class="data row0 col16" >372</td>
+      <td id="T_2e8cd_row0_col17" class="data row0 col17" >372.000000</td>
+      <td id="T_2e8cd_row0_col18" class="data row0 col18" >372.000000</td>
+      <td id="T_2e8cd_row0_col19" class="data row0 col19" >372.000000</td>
+      <td id="T_2e8cd_row0_col20" class="data row0 col20" >372.000000</td>
+    </tr>
+    <tr>
+      <th id="T_2e8cd_level0_row1" class="row_heading level0 row1" >unique</th>
+      <td id="T_2e8cd_row1_col0" class="data row1 col0" >nan</td>
+      <td id="T_2e8cd_row1_col1" class="data row1 col1" >nan</td>
+      <td id="T_2e8cd_row1_col2" class="data row1 col2" >nan</td>
+      <td id="T_2e8cd_row1_col3" class="data row1 col3" >314</td>
+      <td id="T_2e8cd_row1_col4" class="data row1 col4" >nan</td>
+      <td id="T_2e8cd_row1_col5" class="data row1 col5" >nan</td>
+      <td id="T_2e8cd_row1_col6" class="data row1 col6" >nan</td>
+      <td id="T_2e8cd_row1_col7" class="data row1 col7" >26</td>
+      <td id="T_2e8cd_row1_col8" class="data row1 col8" >7</td>
+      <td id="T_2e8cd_row1_col9" class="data row1 col9" >35</td>
+      <td id="T_2e8cd_row1_col10" class="data row1 col10" >4</td>
+      <td id="T_2e8cd_row1_col11" class="data row1 col11" >5</td>
+      <td id="T_2e8cd_row1_col12" class="data row1 col12" >9</td>
+      <td id="T_2e8cd_row1_col13" class="data row1 col13" >2</td>
+      <td id="T_2e8cd_row1_col14" class="data row1 col14" >126</td>
+      <td id="T_2e8cd_row1_col15" class="data row1 col15" >16</td>
+      <td id="T_2e8cd_row1_col16" class="data row1 col16" >2</td>
+      <td id="T_2e8cd_row1_col17" class="data row1 col17" >nan</td>
+      <td id="T_2e8cd_row1_col18" class="data row1 col18" >nan</td>
+      <td id="T_2e8cd_row1_col19" class="data row1 col19" >nan</td>
+      <td id="T_2e8cd_row1_col20" class="data row1 col20" >nan</td>
+    </tr>
+    <tr>
+      <th id="T_2e8cd_level0_row2" class="row_heading level0 row2" >top</th>
+      <td id="T_2e8cd_row2_col0" class="data row2 col0" >nan</td>
+      <td id="T_2e8cd_row2_col1" class="data row2 col1" >nan</td>
+      <td id="T_2e8cd_row2_col2" class="data row2 col2" >nan</td>
+      <td id="T_2e8cd_row2_col3" class="data row2 col3" >GROF BROOD GESN.</td>
+      <td id="T_2e8cd_row2_col4" class="data row2 col4" >nan</td>
+      <td id="T_2e8cd_row2_col5" class="data row2 col5" >nan</td>
+      <td id="T_2e8cd_row2_col6" class="data row2 col6" >nan</td>
+      <td id="T_2e8cd_row2_col7" class="data row2 col7" >2022-01-08</td>
+      <td id="T_2e8cd_row2_col8" class="data row2 col8" >Saturday</td>
+      <td id="T_2e8cd_row2_col9" class="data row2 col9" >17:25:00</td>
+      <td id="T_2e8cd_row2_col10" class="data row2 col10" >morning</td>
+      <td id="T_2e8cd_row2_col11" class="data row2 col11" >supermarket</td>
+      <td id="T_2e8cd_row2_col12" class="data row2 col12" >Okay</td>
+      <td id="T_2e8cd_row2_col13" class="data row2 col13" >False</td>
+      <td id="T_2e8cd_row2_col14" class="data row2 col14" >charcuterie</td>
+      <td id="T_2e8cd_row2_col15" class="data row2 col15" >fruit & vegetables</td>
+      <td id="T_2e8cd_row2_col16" class="data row2 col16" >True</td>
+      <td id="T_2e8cd_row2_col17" class="data row2 col17" >nan</td>
+      <td id="T_2e8cd_row2_col18" class="data row2 col18" >nan</td>
+      <td id="T_2e8cd_row2_col19" class="data row2 col19" >nan</td>
+      <td id="T_2e8cd_row2_col20" class="data row2 col20" >nan</td>
+    </tr>
+    <tr>
+      <th id="T_2e8cd_level0_row3" class="row_heading level0 row3" >freq</th>
+      <td id="T_2e8cd_row3_col0" class="data row3 col0" >nan</td>
+      <td id="T_2e8cd_row3_col1" class="data row3 col1" >nan</td>
+      <td id="T_2e8cd_row3_col2" class="data row3 col2" >nan</td>
+      <td id="T_2e8cd_row3_col3" class="data row3 col3" >6</td>
+      <td id="T_2e8cd_row3_col4" class="data row3 col4" >nan</td>
+      <td id="T_2e8cd_row3_col5" class="data row3 col5" >nan</td>
+      <td id="T_2e8cd_row3_col6" class="data row3 col6" >nan</td>
+      <td id="T_2e8cd_row3_col7" class="data row3 col7" >45</td>
+      <td id="T_2e8cd_row3_col8" class="data row3 col8" >87</td>
+      <td id="T_2e8cd_row3_col9" class="data row3 col9" >44</td>
+      <td id="T_2e8cd_row3_col10" class="data row3 col10" >186</td>
+      <td id="T_2e8cd_row3_col11" class="data row3 col11" >306</td>
+      <td id="T_2e8cd_row3_col12" class="data row3 col12" >127</td>
+      <td id="T_2e8cd_row3_col13" class="data row3 col13" >341</td>
+      <td id="T_2e8cd_row3_col14" class="data row3 col14" >25</td>
+      <td id="T_2e8cd_row3_col15" class="data row3 col15" >103</td>
+      <td id="T_2e8cd_row3_col16" class="data row3 col16" >246</td>
+      <td id="T_2e8cd_row3_col17" class="data row3 col17" >nan</td>
+      <td id="T_2e8cd_row3_col18" class="data row3 col18" >nan</td>
+      <td id="T_2e8cd_row3_col19" class="data row3 col19" >nan</td>
+      <td id="T_2e8cd_row3_col20" class="data row3 col20" >nan</td>
+    </tr>
+    <tr>
+      <th id="T_2e8cd_level0_row4" class="row_heading level0 row4" >mean</th>
+      <td id="T_2e8cd_row4_col0" class="data row4 col0" >2.000000</td>
+      <td id="T_2e8cd_row4_col1" class="data row4 col1" >4.056452</td>
+      <td id="T_2e8cd_row4_col2" class="data row4 col2" >19.182796</td>
+      <td id="T_2e8cd_row4_col3" class="data row4 col3" >nan</td>
+      <td id="T_2e8cd_row4_col4" class="data row4 col4" >1.274194</td>
+      <td id="T_2e8cd_row4_col5" class="data row4 col5" >2.602328</td>
+      <td id="T_2e8cd_row4_col6" class="data row4 col6" >2.867247</td>
+      <td id="T_2e8cd_row4_col7" class="data row4 col7" >nan</td>
+      <td id="T_2e8cd_row4_col8" class="data row4 col8" >nan</td>
+      <td id="T_2e8cd_row4_col9" class="data row4 col9" >nan</td>
+      <td id="T_2e8cd_row4_col10" class="data row4 col10" >nan</td>
+      <td id="T_2e8cd_row4_col11" class="data row4 col11" >nan</td>
+      <td id="T_2e8cd_row4_col12" class="data row4 col12" >nan</td>
+      <td id="T_2e8cd_row4_col13" class="data row4 col13" >nan</td>
+      <td id="T_2e8cd_row4_col14" class="data row4 col14" >nan</td>
+      <td id="T_2e8cd_row4_col15" class="data row4 col15" >nan</td>
+      <td id="T_2e8cd_row4_col16" class="data row4 col16" >nan</td>
+      <td id="T_2e8cd_row4_col17" class="data row4 col17" >147.865591</td>
+      <td id="T_2e8cd_row4_col18" class="data row4 col18" >42.543011</td>
+      <td id="T_2e8cd_row4_col19" class="data row4 col19" >30.381720</td>
+      <td id="T_2e8cd_row4_col20" class="data row4 col20" >68.919265</td>
+    </tr>
+    <tr>
+      <th id="T_2e8cd_level0_row5" class="row_heading level0 row5" >std</th>
+      <td id="T_2e8cd_row5_col0" class="data row5 col0" >0.000000</td>
+      <td id="T_2e8cd_row5_col1" class="data row5 col1" >2.067470</td>
+      <td id="T_2e8cd_row5_col2" class="data row5 col2" >10.531632</td>
+      <td id="T_2e8cd_row5_col3" class="data row5 col3" >nan</td>
+      <td id="T_2e8cd_row5_col4" class="data row5 col4" >1.103819</td>
+      <td id="T_2e8cd_row5_col5" class="data row5 col5" >1.947725</td>
+      <td id="T_2e8cd_row5_col6" class="data row5 col6" >2.019200</td>
+      <td id="T_2e8cd_row5_col7" class="data row5 col7" >nan</td>
+      <td id="T_2e8cd_row5_col8" class="data row5 col8" >nan</td>
+      <td id="T_2e8cd_row5_col9" class="data row5 col9" >nan</td>
+      <td id="T_2e8cd_row5_col10" class="data row5 col10" >nan</td>
+      <td id="T_2e8cd_row5_col11" class="data row5 col11" >nan</td>
+      <td id="T_2e8cd_row5_col12" class="data row5 col12" >nan</td>
+      <td id="T_2e8cd_row5_col13" class="data row5 col13" >nan</td>
+      <td id="T_2e8cd_row5_col14" class="data row5 col14" >nan</td>
+      <td id="T_2e8cd_row5_col15" class="data row5 col15" >nan</td>
+      <td id="T_2e8cd_row5_col16" class="data row5 col16" >nan</td>
+      <td id="T_2e8cd_row5_col17" class="data row5 col17" >91.676674</td>
+      <td id="T_2e8cd_row5_col18" class="data row5 col18" >34.169954</td>
+      <td id="T_2e8cd_row5_col19" class="data row5 col19" >16.118312</td>
+      <td id="T_2e8cd_row5_col20" class="data row5 col20" >36.489459</td>
+    </tr>
+    <tr>
+      <th id="T_2e8cd_level0_row6" class="row_heading level0 row6" >min</th>
+      <td id="T_2e8cd_row6_col0" class="data row6 col0" >2.000000</td>
+      <td id="T_2e8cd_row6_col1" class="data row6 col1" >1.000000</td>
+      <td id="T_2e8cd_row6_col2" class="data row6 col2" >1.000000</td>
+      <td id="T_2e8cd_row6_col3" class="data row6 col3" >nan</td>
+      <td id="T_2e8cd_row6_col4" class="data row6 col4" >1.000000</td>
+      <td id="T_2e8cd_row6_col5" class="data row6 col5" >0.064680</td>
+      <td id="T_2e8cd_row6_col6" class="data row6 col6" >0.064680</td>
+      <td id="T_2e8cd_row6_col7" class="data row6 col7" >nan</td>
+      <td id="T_2e8cd_row6_col8" class="data row6 col8" >nan</td>
+      <td id="T_2e8cd_row6_col9" class="data row6 col9" >nan</td>
+      <td id="T_2e8cd_row6_col10" class="data row6 col10" >nan</td>
+      <td id="T_2e8cd_row6_col11" class="data row6 col11" >nan</td>
+      <td id="T_2e8cd_row6_col12" class="data row6 col12" >nan</td>
+      <td id="T_2e8cd_row6_col13" class="data row6 col13" >nan</td>
+      <td id="T_2e8cd_row6_col14" class="data row6 col14" >nan</td>
+      <td id="T_2e8cd_row6_col15" class="data row6 col15" >nan</td>
+      <td id="T_2e8cd_row6_col16" class="data row6 col16" >nan</td>
+      <td id="T_2e8cd_row6_col17" class="data row6 col17" >0.000000</td>
+      <td id="T_2e8cd_row6_col18" class="data row6 col18" >0.000000</td>
+      <td id="T_2e8cd_row6_col19" class="data row6 col19" >1.000000</td>
+      <td id="T_2e8cd_row6_col20" class="data row6 col20" >2.950000</td>
+    </tr>
+    <tr>
+      <th id="T_2e8cd_level0_row7" class="row_heading level0 row7" >25%</th>
+      <td id="T_2e8cd_row7_col0" class="data row7 col0" >2.000000</td>
+      <td id="T_2e8cd_row7_col1" class="data row7 col1" >2.000000</td>
+      <td id="T_2e8cd_row7_col2" class="data row7 col2" >10.000000</td>
+      <td id="T_2e8cd_row7_col3" class="data row7 col3" >nan</td>
+      <td id="T_2e8cd_row7_col4" class="data row7 col4" >1.000000</td>
+      <td id="T_2e8cd_row7_col5" class="data row7 col5" >1.300000</td>
+      <td id="T_2e8cd_row7_col6" class="data row7 col6" >1.543970</td>
+      <td id="T_2e8cd_row7_col7" class="data row7 col7" >nan</td>
+      <td id="T_2e8cd_row7_col8" class="data row7 col8" >nan</td>
+      <td id="T_2e8cd_row7_col9" class="data row7 col9" >nan</td>
+      <td id="T_2e8cd_row7_col10" class="data row7 col10" >nan</td>
+      <td id="T_2e8cd_row7_col11" class="data row7 col11" >nan</td>
+      <td id="T_2e8cd_row7_col12" class="data row7 col12" >nan</td>
+      <td id="T_2e8cd_row7_col13" class="data row7 col13" >nan</td>
+      <td id="T_2e8cd_row7_col14" class="data row7 col14" >nan</td>
+      <td id="T_2e8cd_row7_col15" class="data row7 col15" >nan</td>
+      <td id="T_2e8cd_row7_col16" class="data row7 col16" >nan</td>
+      <td id="T_2e8cd_row7_col17" class="data row7 col17" >68.750000</td>
+      <td id="T_2e8cd_row7_col18" class="data row7 col18" >14.000000</td>
+      <td id="T_2e8cd_row7_col19" class="data row7 col19" >13.000000</td>
+      <td id="T_2e8cd_row7_col20" class="data row7 col20" >25.571500</td>
+    </tr>
+    <tr>
+      <th id="T_2e8cd_level0_row8" class="row_heading level0 row8" >50%</th>
+      <td id="T_2e8cd_row8_col0" class="data row8 col0" >2.000000</td>
+      <td id="T_2e8cd_row8_col1" class="data row8 col1" >4.000000</td>
+      <td id="T_2e8cd_row8_col2" class="data row8 col2" >18.000000</td>
+      <td id="T_2e8cd_row8_col3" class="data row8 col3" >nan</td>
+      <td id="T_2e8cd_row8_col4" class="data row8 col4" >1.000000</td>
+      <td id="T_2e8cd_row8_col5" class="data row8 col5" >2.240250</td>
+      <td id="T_2e8cd_row8_col6" class="data row8 col6" >2.462860</td>
+      <td id="T_2e8cd_row8_col7" class="data row8 col7" >nan</td>
+      <td id="T_2e8cd_row8_col8" class="data row8 col8" >nan</td>
+      <td id="T_2e8cd_row8_col9" class="data row8 col9" >nan</td>
+      <td id="T_2e8cd_row8_col10" class="data row8 col10" >nan</td>
+      <td id="T_2e8cd_row8_col11" class="data row8 col11" >nan</td>
+      <td id="T_2e8cd_row8_col12" class="data row8 col12" >nan</td>
+      <td id="T_2e8cd_row8_col13" class="data row8 col13" >nan</td>
+      <td id="T_2e8cd_row8_col14" class="data row8 col14" >nan</td>
+      <td id="T_2e8cd_row8_col15" class="data row8 col15" >nan</td>
+      <td id="T_2e8cd_row8_col16" class="data row8 col16" >nan</td>
+      <td id="T_2e8cd_row8_col17" class="data row8 col17" >145.500000</td>
+      <td id="T_2e8cd_row8_col18" class="data row8 col18" >34.500000</td>
+      <td id="T_2e8cd_row8_col19" class="data row8 col19" >34.000000</td>
+      <td id="T_2e8cd_row8_col20" class="data row8 col20" >72.487014</td>
+    </tr>
+    <tr>
+      <th id="T_2e8cd_level0_row9" class="row_heading level0 row9" >75%</th>
+      <td id="T_2e8cd_row9_col0" class="data row9 col0" >2.000000</td>
+      <td id="T_2e8cd_row9_col1" class="data row9 col1" >5.000000</td>
+      <td id="T_2e8cd_row9_col2" class="data row9 col2" >26.250000</td>
+      <td id="T_2e8cd_row9_col3" class="data row9 col3" >nan</td>
+      <td id="T_2e8cd_row9_col4" class="data row9 col4" >1.000000</td>
+      <td id="T_2e8cd_row9_col5" class="data row9 col5" >3.290000</td>
+      <td id="T_2e8cd_row9_col6" class="data row9 col6" >3.875000</td>
+      <td id="T_2e8cd_row9_col7" class="data row9 col7" >nan</td>
+      <td id="T_2e8cd_row9_col8" class="data row9 col8" >nan</td>
+      <td id="T_2e8cd_row9_col9" class="data row9 col9" >nan</td>
+      <td id="T_2e8cd_row9_col10" class="data row9 col10" >nan</td>
+      <td id="T_2e8cd_row9_col11" class="data row9 col11" >nan</td>
+      <td id="T_2e8cd_row9_col12" class="data row9 col12" >nan</td>
+      <td id="T_2e8cd_row9_col13" class="data row9 col13" >nan</td>
+      <td id="T_2e8cd_row9_col14" class="data row9 col14" >nan</td>
+      <td id="T_2e8cd_row9_col15" class="data row9 col15" >nan</td>
+      <td id="T_2e8cd_row9_col16" class="data row9 col16" >nan</td>
+      <td id="T_2e8cd_row9_col17" class="data row9 col17" >225.000000</td>
+      <td id="T_2e8cd_row9_col18" class="data row9 col18" >68.000000</td>
+      <td id="T_2e8cd_row9_col19" class="data row9 col19" >38.000000</td>
+      <td id="T_2e8cd_row9_col20" class="data row9 col20" >103.329980</td>
+    </tr>
+    <tr>
+      <th id="T_2e8cd_level0_row10" class="row_heading level0 row10" >max</th>
+      <td id="T_2e8cd_row10_col0" class="data row10 col0" >2.000000</td>
+      <td id="T_2e8cd_row10_col1" class="data row10 col1" >8.000000</td>
+      <td id="T_2e8cd_row10_col2" class="data row10 col2" >39.000000</td>
+      <td id="T_2e8cd_row10_col3" class="data row10 col3" >nan</td>
+      <td id="T_2e8cd_row10_col4" class="data row10 col4" >15.000000</td>
+      <td id="T_2e8cd_row10_col5" class="data row10 col5" >15.610000</td>
+      <td id="T_2e8cd_row10_col6" class="data row10 col6" >15.610000</td>
+      <td id="T_2e8cd_row10_col7" class="data row10 col7" >nan</td>
+      <td id="T_2e8cd_row10_col8" class="data row10 col8" >nan</td>
+      <td id="T_2e8cd_row10_col9" class="data row10 col9" >nan</td>
+      <td id="T_2e8cd_row10_col10" class="data row10 col10" >nan</td>
+      <td id="T_2e8cd_row10_col11" class="data row10 col11" >nan</td>
+      <td id="T_2e8cd_row10_col12" class="data row10 col12" >nan</td>
+      <td id="T_2e8cd_row10_col13" class="data row10 col13" >nan</td>
+      <td id="T_2e8cd_row10_col14" class="data row10 col14" >nan</td>
+      <td id="T_2e8cd_row10_col15" class="data row10 col15" >nan</td>
+      <td id="T_2e8cd_row10_col16" class="data row10 col16" >nan</td>
+      <td id="T_2e8cd_row10_col17" class="data row10 col17" >313.000000</td>
+      <td id="T_2e8cd_row10_col18" class="data row10 col18" >125.000000</td>
+      <td id="T_2e8cd_row10_col19" class="data row10 col19" >53.000000</td>
+      <td id="T_2e8cd_row10_col20" class="data row10 col20" >114.878340</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <section id="new-numeric-variables-for-the-confusion-matrix">
 <h3>New (numeric) variables for the confusion matrix<a class="headerlink" href="#new-numeric-variables-for-the-confusion-matrix" title="Permalink to this heading">#</a></h3>
@@ -996,7 +1149,8 @@ Make sure all variables are formatted as the correct type (e.g., int, bool…)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>week               int64
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HH                 int64
+week               int64
 order_ID           int64
 item_name         object
 amount             int64
@@ -1012,7 +1166,7 @@ promo               bool
 item_type         object
 category          object
 reorder             bool
-item_name          int64
+item_id            int64
 type_id            int64
 order_amount       int64
 order_price      float64
@@ -1028,186 +1182,6 @@ dtype: object
 </div>
 </div>
 </section>
-</section>
-<section id="save-the-final-dataframe-as-a-new-csv-file">
-<h2>2.1.2. Save the final dataframe as a new csv file<a class="headerlink" href="#save-the-final-dataframe-as-a-new-csv-file" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/Groceries_onehousehold.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># df.drop([&quot;storename_num&quot;, &#39;cat_num&#39;, &#39;time_num&#39;, &#39;promo_num&#39;, &#39;timestamp&#39;], axis=1, inplace=True)</span>
-<span class="c1"># df.drop([&#39;day_num&#39;, &#39;storetype_num&#39;, &#39;reorder&#39;], axis=1, inplace=True)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>week</th>
-      <th>order_ID</th>
-      <th>item_name</th>
-      <th>amount</th>
-      <th>price_unit</th>
-      <th>price_total</th>
-      <th>date</th>
-      <th>day</th>
-      <th>timestamp</th>
-      <th>time</th>
-      <th>...</th>
-      <th>item_name</th>
-      <th>type_id</th>
-      <th>order_amount</th>
-      <th>order_price</th>
-      <th>day_num</th>
-      <th>storetype_num</th>
-      <th>storename_num</th>
-      <th>cat_num</th>
-      <th>time_num</th>
-      <th>promo_num</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>1</td>
-      <td>RABEKO choco light 250g</td>
-      <td>2</td>
-      <td>2.82</td>
-      <td>5.64</td>
-      <td>2021-11-23</td>
-      <td>Tuesday</td>
-      <td>12:32:00</td>
-      <td>noon</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>9</td>
-      <td>16.77</td>
-      <td>5</td>
-      <td>4</td>
-      <td>6</td>
-      <td>2</td>
-      <td>3</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>1</td>
-      <td>JOYVALLE pudding griesmeel natuur 135g</td>
-      <td>4</td>
-      <td>0.99</td>
-      <td>3.96</td>
-      <td>2021-11-23</td>
-      <td>Tuesday</td>
-      <td>12:32:00</td>
-      <td>noon</td>
-      <td>...</td>
-      <td>1</td>
-      <td>1</td>
-      <td>9</td>
-      <td>16.77</td>
-      <td>5</td>
-      <td>4</td>
-      <td>6</td>
-      <td>7</td>
-      <td>3</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1</td>
-      <td>1</td>
-      <td>BONI tomatensoep met balletjes 950ml</td>
-      <td>1</td>
-      <td>1.99</td>
-      <td>1.99</td>
-      <td>2021-11-23</td>
-      <td>Tuesday</td>
-      <td>12:32:00</td>
-      <td>noon</td>
-      <td>...</td>
-      <td>2</td>
-      <td>2</td>
-      <td>9</td>
-      <td>16.77</td>
-      <td>5</td>
-      <td>4</td>
-      <td>6</td>
-      <td>3</td>
-      <td>3</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1</td>
-      <td>1</td>
-      <td>LIEBIG DELISOUP 9 groenten brik 1L</td>
-      <td>1</td>
-      <td>2.59</td>
-      <td>2.59</td>
-      <td>2021-11-23</td>
-      <td>Tuesday</td>
-      <td>12:32:00</td>
-      <td>noon</td>
-      <td>...</td>
-      <td>3</td>
-      <td>2</td>
-      <td>9</td>
-      <td>16.77</td>
-      <td>5</td>
-      <td>4</td>
-      <td>6</td>
-      <td>3</td>
-      <td>3</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1</td>
-      <td>1</td>
-      <td>LIEBIG DELISOUP tom. Balletjes brik 1L</td>
-      <td>1</td>
-      <td>2.59</td>
-      <td>2.59</td>
-      <td>2021-11-23</td>
-      <td>Tuesday</td>
-      <td>12:32:00</td>
-      <td>noon</td>
-      <td>...</td>
-      <td>4</td>
-      <td>2</td>
-      <td>9</td>
-      <td>16.77</td>
-      <td>5</td>
-      <td>4</td>
-      <td>6</td>
-      <td>3</td>
-      <td>3</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 26 columns</p>
-</div></div></div>
-</div>
 </section>
 <section id="visualizing">
 <h2>2.2. Visualizing<a class="headerlink" href="#visualizing" title="Permalink to this heading">#</a></h2>
@@ -1233,10 +1207,62 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">df_corr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/Groceries_onehousehold.csv&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">df_corr</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;item_name&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;item_type&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># use the corr function to display the correlation between all the features</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">data_corr</span> <span class="o">=</span> <span class="n">df_corr</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:5568,</span> in <span class="ni">DataFrame.drop</span><span class="nt">(self, labels, axis, index, columns, level, inplace, errors)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5420</span> <span class="k">def</span> <span class="nf">drop</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">5421</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5422</span>     <span class="n">labels</span><span class="p">:</span> <span class="n">IndexLabel</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5429</span>     <span class="n">errors</span><span class="p">:</span> <span class="n">IgnoreRaise</span> <span class="o">=</span> <span class="s2">&quot;raise&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5430</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">5431</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">5432</span><span class="sd">     Drop specified labels from rows or columns.</span>
+<span class="g g-Whitespace">   </span><span class="mi">5433</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5566</span><span class="sd">             weight  1.0     0.8</span>
+<span class="g g-Whitespace">   </span><span class="mi">5567</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">5568</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">5569</span>         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5570</span>         <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5571</span>         <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5572</span>         <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5573</span>         <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5574</span>         <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5575</span>         <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5576</span>     <span class="p">)</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:4782,</span> in <span class="ni">NDFrame.drop</span><span class="nt">(self, labels, axis, index, columns, level, inplace, errors)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4780</span> <span class="k">for</span> <span class="n">axis</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">axes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="g g-Whitespace">   </span><span class="mi">4781</span>     <span class="k">if</span> <span class="n">labels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">4782</span>         <span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">_drop_axis</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4784</span> <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4785</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_update_inplace</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:4824,</span> in <span class="ni">NDFrame._drop_axis</span><span class="nt">(self, labels, axis, level, errors, only_slice)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4822</span>         <span class="n">new_axis</span> <span class="o">=</span> <span class="n">axis</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4823</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">4824</span>         <span class="n">new_axis</span> <span class="o">=</span> <span class="n">axis</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4825</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="n">axis</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span><span class="n">new_axis</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4827</span> <span class="c1"># Case for non-unique axis</span>
+<span class="g g-Whitespace">   </span><span class="mi">4828</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:7069,</span> in <span class="ni">Index.drop</span><span class="nt">(self, labels, errors)</span>
+<span class="g g-Whitespace">   </span><span class="mi">7067</span> <span class="k">if</span> <span class="n">mask</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+<span class="g g-Whitespace">   </span><span class="mi">7068</span>     <span class="k">if</span> <span class="n">errors</span> <span class="o">!=</span> <span class="s2">&quot;ignore&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">7069</span>         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2"> not found in axis&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">7070</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="n">indexer</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">7071</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &quot;[&#39;item_name&#39;] not found in axis&quot;
 </pre></div>
 </div>
-<img alt="_images/470af8496427c47bab3be3db343ebf82f0128b1dd9e8ff2b730b9e843fffa31f.png" src="_images/470af8496427c47bab3be3db343ebf82f0128b1dd9e8ff2b730b9e843fffa31f.png" />
 </div>
 </div>
 </section>
@@ -5496,6 +5522,186 @@ Categories (2, object): [&#39;weekday&#39;, &#39;weekend&#39;]&#39; has dtype in
 </section>
 </section>
 </section>
+<section id="save-the-final-dataframe-as-a-new-csv-file">
+<h2>2.3. Save the final dataframe as a new csv file<a class="headerlink" href="#save-the-final-dataframe-as-a-new-csv-file" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/Groceries_onehousehold.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># df.drop([&quot;storename_num&quot;, &#39;cat_num&#39;, &#39;time_num&#39;, &#39;promo_num&#39;, &#39;timestamp&#39;], axis=1, inplace=True)</span>
+<span class="c1"># df.drop([&#39;day_num&#39;, &#39;storetype_num&#39;, &#39;reorder&#39;], axis=1, inplace=True)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>HH</th>
+      <th>week</th>
+      <th>order_ID</th>
+      <th>item_name</th>
+      <th>amount</th>
+      <th>price_unit</th>
+      <th>price_total</th>
+      <th>date</th>
+      <th>day</th>
+      <th>timestamp</th>
+      <th>...</th>
+      <th>item_id</th>
+      <th>type_id</th>
+      <th>order_amount</th>
+      <th>order_price</th>
+      <th>day_num</th>
+      <th>storetype_num</th>
+      <th>storename_num</th>
+      <th>cat_num</th>
+      <th>time_num</th>
+      <th>promo_num</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>RABEKO choco light 250g</td>
+      <td>2</td>
+      <td>2.82</td>
+      <td>5.64</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>JOYVALLE pudding griesmeel natuur 135g</td>
+      <td>4</td>
+      <td>0.99</td>
+      <td>3.96</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>7</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>BONI tomatensoep met balletjes 950ml</td>
+      <td>1</td>
+      <td>1.99</td>
+      <td>1.99</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>...</td>
+      <td>2</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>LIEBIG DELISOUP 9 groenten brik 1L</td>
+      <td>1</td>
+      <td>2.59</td>
+      <td>2.59</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>...</td>
+      <td>3</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>LIEBIG DELISOUP tom. Balletjes brik 1L</td>
+      <td>1</td>
+      <td>2.59</td>
+      <td>2.59</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>...</td>
+      <td>4</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 27 columns</p>
+</div></div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -5571,7 +5777,6 @@ Categories (2, object): [&#39;weekday&#39;, &#39;weekend&#39;]&#39; has dtype in
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-numeric-variables-for-the-confusion-matrix">New (numeric) variables for the confusion matrix</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-final-dataframe-as-a-new-csv-file">2.1.2. Save the final dataframe as a new csv file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing">2.2. Visualizing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#days">2.2.1. DAYS</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-there-a-noticeable-pattern-in-this-households-shopping-trips-per-week">2.2.1.1. Is there a noticeable pattern in this households shopping trips per week?</a><ul class="nav section-nav flex-column">
@@ -5624,6 +5829,7 @@ Categories (2, object): [&#39;weekday&#39;, &#39;weekend&#39;]&#39; has dtype in
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-final-dataframe-as-a-new-csv-file">2.3. Save the final dataframe as a new csv file</a></li>
 </ul>
   </nav></div>
 

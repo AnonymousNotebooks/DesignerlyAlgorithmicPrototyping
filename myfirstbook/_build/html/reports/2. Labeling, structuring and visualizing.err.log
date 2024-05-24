@@ -15,65 +15,71 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# new row for reordered items 
-df['reorder'] = df.item_type.duplicated()
+df_corr = pd.read_csv (r"/workspaces/DesignerlyAlgorithmicPrototyping/database/Groceries_onehousehold.csv")
+df_corr.drop(['item_name', 'date', 'day', 'time', 'store_type', 'timestamp', 'store_name', 'item_type', 'category'], axis=1, inplace=True)
 
-# convert reorder row to boolean value
-df['reorder'] = df['reorder'].astype(bool)
 
-#create an ID for each item 
-df.rename(columns={'item_id':'item_name'}, inplace=True)
-df['item_id'] = pd.factorize(df['item_name'])[0]
+# use the corr function to display the correlation between all the features
+data_corr = df_corr.corr()
 
-#create an ID for each type 
-df['type_id'] = pd.factorize(df['item_type'])[0]
-
-#first make a new column for the amount of items per order
-df['order_amount'] = df.groupby('order_ID')['amount'].transform('sum')
-
-# make a new column for the price per order
-df['order_price'] = df.groupby('order_ID')['price_total'].transform('sum')
+#plotting correlation matrix 
+fig, ax = plt.subplots(figsize=(15,10))         # Sample figsize in inches
+sns.heatmap(data_corr, cmap="Greens", annot=True,)
 ------------------
 
------ stderr -----
-/tmp/ipykernel_56545/3230577030.py:9: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
-  df['item_id'] = pd.factorize(df['item_name'])[0]
-------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-Cell [0;32mIn[3], line 9[0m
-[1;32m      7[0m [38;5;66;03m#create an ID for each item [39;00m
-[1;32m      8[0m df[38;5;241m.[39mrename(columns[38;5;241m=[39m{[38;5;124m'[39m[38;5;124mitem_id[39m[38;5;124m'[39m:[38;5;124m'[39m[38;5;124mitem_name[39m[38;5;124m'[39m}, inplace[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
-[0;32m----> 9[0m df[[38;5;124m'[39m[38;5;124mitem_id[39m[38;5;124m'[39m] [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mfactorize[49m[43m([49m[43mdf[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mitem_name[39;49m[38;5;124;43m'[39;49m[43m][49m[43m)[49m[[38;5;241m0[39m]
-[1;32m     11[0m [38;5;66;03m#create an ID for each type [39;00m
-[1;32m     12[0m df[[38;5;124m'[39m[38;5;124mtype_id[39m[38;5;124m'[39m] [38;5;241m=[39m pd[38;5;241m.[39mfactorize(df[[38;5;124m'[39m[38;5;124mitem_type[39m[38;5;124m'[39m])[[38;5;241m0[39m]
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+Cell [0;32mIn[8], line 2[0m
+[1;32m      1[0m df_corr [38;5;241m=[39m pd[38;5;241m.[39mread_csv ([38;5;124mr[39m[38;5;124m"[39m[38;5;124m/workspaces/DesignerlyAlgorithmicPrototyping/database/Groceries_onehousehold.csv[39m[38;5;124m"[39m)
+[0;32m----> 2[0m [43mdf_corr[49m[38;5;241;43m.[39;49m[43mdrop[49m[43m([49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mitem_name[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mdate[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mday[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mtime[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mstore_type[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mtimestamp[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mstore_name[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mitem_type[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mcategory[39;49m[38;5;124;43m'[39;49m[43m][49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[38;5;241;43m1[39;49m[43m,[49m[43m [49m[43minplace[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
+[1;32m      5[0m [38;5;66;03m# use the corr function to display the correlation between all the features[39;00m
+[1;32m      6[0m data_corr [38;5;241m=[39m df_corr[38;5;241m.[39mcorr()
 
-File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/algorithms.py:765[0m, in [0;36mfactorize[0;34m(values, sort, use_na_sentinel, size_hint)[0m
-[1;32m    762[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(values, (ABCIndex, ABCSeries)):
-[1;32m    763[0m     [38;5;28;01mreturn[39;00m values[38;5;241m.[39mfactorize(sort[38;5;241m=[39msort, use_na_sentinel[38;5;241m=[39muse_na_sentinel)
-[0;32m--> 765[0m values [38;5;241m=[39m [43m_ensure_arraylike[49m[43m([49m[43mvalues[49m[43m,[49m[43m [49m[43mfunc_name[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mfactorize[39;49m[38;5;124;43m"[39;49m[43m)[49m
-[1;32m    766[0m original [38;5;241m=[39m values
-[1;32m    768[0m [38;5;28;01mif[39;00m (
-[1;32m    769[0m     [38;5;28misinstance[39m(values, (ABCDatetimeArray, ABCTimedeltaArray))
-[1;32m    770[0m     [38;5;129;01mand[39;00m values[38;5;241m.[39mfreq [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
-[1;32m    771[0m ):
-[1;32m    772[0m     [38;5;66;03m# The presence of 'freq' means we can fast-path sorting and know there[39;00m
-[1;32m    773[0m     [38;5;66;03m#  aren't NAs[39;00m
+File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/frame.py:5568[0m, in [0;36mDataFrame.drop[0;34m(self, labels, axis, index, columns, level, inplace, errors)[0m
+[1;32m   5420[0m [38;5;28;01mdef[39;00m [38;5;21mdrop[39m(
+[1;32m   5421[0m     [38;5;28mself[39m,
+[1;32m   5422[0m     labels: IndexLabel [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m,
+[0;32m   (...)[0m
+[1;32m   5429[0m     errors: IgnoreRaise [38;5;241m=[39m [38;5;124m"[39m[38;5;124mraise[39m[38;5;124m"[39m,
+[1;32m   5430[0m ) [38;5;241m-[39m[38;5;241m>[39m DataFrame [38;5;241m|[39m [38;5;28;01mNone[39;00m:
+[1;32m   5431[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m   5432[0m [38;5;124;03m    Drop specified labels from rows or columns.[39;00m
+[1;32m   5433[0m 
+[0;32m   (...)[0m
+[1;32m   5566[0m [38;5;124;03m            weight  1.0     0.8[39;00m
+[1;32m   5567[0m [38;5;124;03m    """[39;00m
+[0;32m-> 5568[0m     [38;5;28;01mreturn[39;00m [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mdrop[49m[43m([49m
+[1;32m   5569[0m [43m        [49m[43mlabels[49m[38;5;241;43m=[39;49m[43mlabels[49m[43m,[49m
+[1;32m   5570[0m [43m        [49m[43maxis[49m[38;5;241;43m=[39;49m[43maxis[49m[43m,[49m
+[1;32m   5571[0m [43m        [49m[43mindex[49m[38;5;241;43m=[39;49m[43mindex[49m[43m,[49m
+[1;32m   5572[0m [43m        [49m[43mcolumns[49m[38;5;241;43m=[39;49m[43mcolumns[49m[43m,[49m
+[1;32m   5573[0m [43m        [49m[43mlevel[49m[38;5;241;43m=[39;49m[43mlevel[49m[43m,[49m
+[1;32m   5574[0m [43m        [49m[43minplace[49m[38;5;241;43m=[39;49m[43minplace[49m[43m,[49m
+[1;32m   5575[0m [43m        [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m,[49m
+[1;32m   5576[0m [43m    [49m[43m)[49m
 
-File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/algorithms.py:238[0m, in [0;36m_ensure_arraylike[0;34m(values, func_name)[0m
-[1;32m    236[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(values, [38;5;28mtuple[39m):
-[1;32m    237[0m         values [38;5;241m=[39m [38;5;28mlist[39m(values)
-[0;32m--> 238[0m     values [38;5;241m=[39m [43mconstruct_1d_object_array_from_listlike[49m[43m([49m[43mvalues[49m[43m)[49m
-[1;32m    239[0m [38;5;28;01melse[39;00m:
-[1;32m    240[0m     values [38;5;241m=[39m np[38;5;241m.[39masarray(values)
+File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:4782[0m, in [0;36mNDFrame.drop[0;34m(self, labels, axis, index, columns, level, inplace, errors)[0m
+[1;32m   4780[0m [38;5;28;01mfor[39;00m axis, labels [38;5;129;01min[39;00m axes[38;5;241m.[39mitems():
+[1;32m   4781[0m     [38;5;28;01mif[39;00m labels [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[0;32m-> 4782[0m         obj [38;5;241m=[39m [43mobj[49m[38;5;241;43m.[39;49m[43m_drop_axis[49m[43m([49m[43mlabels[49m[43m,[49m[43m [49m[43maxis[49m[43m,[49m[43m [49m[43mlevel[49m[38;5;241;43m=[39;49m[43mlevel[49m[43m,[49m[43m [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m)[49m
+[1;32m   4784[0m [38;5;28;01mif[39;00m inplace:
+[1;32m   4785[0m     [38;5;28mself[39m[38;5;241m.[39m_update_inplace(obj)
 
-File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/dtypes/cast.py:1598[0m, in [0;36mconstruct_1d_object_array_from_listlike[0;34m(values)[0m
-[1;32m   1595[0m [38;5;66;03m# numpy will try to interpret nested lists as further dimensions, hence[39;00m
-[1;32m   1596[0m [38;5;66;03m# making a 1D array that contains list-likes is a bit tricky:[39;00m
-[1;32m   1597[0m result [38;5;241m=[39m np[38;5;241m.[39mempty([38;5;28mlen[39m(values), dtype[38;5;241m=[39m[38;5;124m"[39m[38;5;124mobject[39m[38;5;124m"[39m)
-[0;32m-> 1598[0m [43mresult[49m[43m[[49m[43m:[49m[43m][49m [38;5;241m=[39m values
-[1;32m   1599[0m [38;5;28;01mreturn[39;00m result
+File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:4824[0m, in [0;36mNDFrame._drop_axis[0;34m(self, labels, axis, level, errors, only_slice)[0m
+[1;32m   4822[0m         new_axis [38;5;241m=[39m axis[38;5;241m.[39mdrop(labels, level[38;5;241m=[39mlevel, errors[38;5;241m=[39merrors)
+[1;32m   4823[0m     [38;5;28;01melse[39;00m:
+[0;32m-> 4824[0m         new_axis [38;5;241m=[39m [43maxis[49m[38;5;241;43m.[39;49m[43mdrop[49m[43m([49m[43mlabels[49m[43m,[49m[43m [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m)[49m
+[1;32m   4825[0m     indexer [38;5;241m=[39m axis[38;5;241m.[39mget_indexer(new_axis)
+[1;32m   4827[0m [38;5;66;03m# Case for non-unique axis[39;00m
+[1;32m   4828[0m [38;5;28;01melse[39;00m:
 
-[0;31mValueError[0m: could not broadcast input array from shape (372,2) into shape (372,)
+File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/pandas/core/indexes/base.py:7069[0m, in [0;36mIndex.drop[0;34m(self, labels, errors)[0m
+[1;32m   7067[0m [38;5;28;01mif[39;00m mask[38;5;241m.[39many():
+[1;32m   7068[0m     [38;5;28;01mif[39;00m errors [38;5;241m!=[39m [38;5;124m"[39m[38;5;124mignore[39m[38;5;124m"[39m:
+[0;32m-> 7069[0m         [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mlabels[mask][38;5;241m.[39mtolist()[38;5;132;01m}[39;00m[38;5;124m not found in axis[39m[38;5;124m"[39m)
+[1;32m   7070[0m     indexer [38;5;241m=[39m indexer[[38;5;241m~[39mmask]
+[1;32m   7071[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mdelete(indexer)
+
+[0;31mKeyError[0m: "['item_name'] not found in axis"
 
