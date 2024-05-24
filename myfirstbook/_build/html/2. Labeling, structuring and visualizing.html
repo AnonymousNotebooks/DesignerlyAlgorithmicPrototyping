@@ -417,11 +417,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-vs-store-name">2.2.4.2 CATEGORIES VS STORE NAME</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-vs-week">2.2.4.3 CATEGORIES VS WEEK</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-vs-day-vs-time">2.2.4.4 CATEGORIES VS DAY &amp; VS TIME</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#item-types">2.2.5. ITEM TYPES</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#item-type-vs-promo">2.2.5.1 item type vs promo</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#if-for-promo-1-0">(if for promo #1&gt;#0)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#item-types">2.2.5. ITEM TYPES</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#item-type-vs-promo">2.2.5.1 item type vs promo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-for-promo-1-0">(if for promo #1&gt;#0)</a></li>
 </ul>
 </li>
 </ul>
@@ -697,7 +697,7 @@ Make sure all variables are formatted as the correct type (e.g., int, bool…)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_54189/3230577030.py:9: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_55135/3230577030.py:9: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
   df[&#39;item_id&#39;] = pd.factorize(df[&#39;item_name&#39;])[0]
 </pre></div>
 </div>
@@ -5270,8 +5270,9 @@ Categories (2, object): [&#39;weekday&#39;, &#39;weekend&#39;]&#39; has dtype in
 <div><p>Same here; bakery seems to be in the morning, and the biggest noon category is fruit &amp; veggies. Other than that no noteable patterns.</p>
 </div></blockquote>
 </section>
+</section>
 <section id="item-types">
-<h3>2.2.5. ITEM TYPES<a class="headerlink" href="#item-types" title="Permalink to this heading">#</a></h3>
+<h2>2.2.5. ITEM TYPES<a class="headerlink" href="#item-types" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/Groceries_onehousehold.csv&quot;</span><span class="p">)</span>
@@ -5296,7 +5297,7 @@ Categories (2, object): [&#39;weekday&#39;, &#39;weekend&#39;]&#39; has dtype in
 </div>
 </div>
 <section id="item-type-vs-promo">
-<h4>2.2.5.1 item type vs promo<a class="headerlink" href="#item-type-vs-promo" title="Permalink to this heading">#</a></h4>
+<h3>2.2.5.1 item type vs promo<a class="headerlink" href="#item-type-vs-promo" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cross tabulation between category and store type</span>
@@ -5397,7 +5398,7 @@ Categories (2, object): [&#39;weekday&#39;, &#39;weekend&#39;]&#39; has dtype in
 </div>
 <p>We could separate items that are more often than not bought when they are in promo</p>
 <section id="if-for-promo-1-0">
-<h5>(if for promo #1&gt;#0)<a class="headerlink" href="#if-for-promo-1-0" title="Permalink to this heading">#</a></h5>
+<h4>(if for promo #1&gt;#0)<a class="headerlink" href="#if-for-promo-1-0" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CrosstabResult</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">CrosstabResult</span><span class="p">[</span><span class="n">CrosstabResult</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">CrosstabResult</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -5492,7 +5493,6 @@ Categories (2, object): [&#39;weekday&#39;, &#39;weekend&#39;]&#39; has dtype in
 <blockquote>
 <div><p>It might be sensible to remove these items from the dataframe since we have no control over whether the store they will visit in week 9 will have these items in promo</p>
 </div></blockquote>
-</section>
 </section>
 </section>
 </section>
@@ -5615,11 +5615,11 @@ Categories (2, object): [&#39;weekday&#39;, &#39;weekend&#39;]&#39; has dtype in
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-vs-store-name">2.2.4.2 CATEGORIES VS STORE NAME</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-vs-week">2.2.4.3 CATEGORIES VS WEEK</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories-vs-day-vs-time">2.2.4.4 CATEGORIES VS DAY &amp; VS TIME</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#item-types">2.2.5. ITEM TYPES</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#item-type-vs-promo">2.2.5.1 item type vs promo</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#if-for-promo-1-0">(if for promo #1&gt;#0)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#item-types">2.2.5. ITEM TYPES</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#item-type-vs-promo">2.2.5.1 item type vs promo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-for-promo-1-0">(if for promo #1&gt;#0)</a></li>
 </ul>
 </li>
 </ul>

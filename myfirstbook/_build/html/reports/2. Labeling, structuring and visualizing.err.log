@@ -36,7 +36,7 @@ df['order_price'] = df.groupby('order_ID')['price_total'].transform('sum')
 ------------------
 
 ----- stderr -----
-/tmp/ipykernel_54189/3230577030.py:9: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
+/tmp/ipykernel_55135/3230577030.py:9: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.
   df['item_id'] = pd.factorize(df['item_name'])[0]
 ------------------
 
