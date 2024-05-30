@@ -1,10 +1,8 @@
 to publish: 
-poetry run jupyter-book build myfirstbook &&  git add -A && git commit -m "publish" && git config pull.rebase true git pull && git push && poetry run ghp-import -n -p -f myfirstbook/_build/html
-
 poetry run jupyter-book build myfirstbook &&  git add -A && git commit -m "publish" && git push && poetry run ghp-import -n -p -f myfirstbook/_build/html
 
 
-git config pull.rebase false git pull
+git config pull.ff only git pull
 
 # Markdown Files
 
