@@ -388,7 +388,11 @@ document.write(`
                   
   <p>to publish:
 poetry run jupyter-book build myfirstbook &amp;&amp;  git add -A &amp;&amp; git commit -m “publish” &amp;&amp; git push &amp;&amp; poetry run ghp-import -n -p -f myfirstbook/_build/html</p>
-<p>git config pull.ff only git pull</p>
+<p>poetry run jupyter-book build myfirstbook
+git add -A
+git commit -m “publish”
+git push
+poetry run ghp-import -n -p -f myfirstbook/_build/html</p>
 <section id="markdown-files">
 <h1>Markdown Files<a class="headerlink" href="#markdown-files" title="Permalink to this heading">#</a></h1>
 <p>Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
@@ -417,7 +421,7 @@ that is being called.</p>
 <p>Here is a note</p>
 </div>
 <p>It will be rendered in a special box when you build your book.</p>
-<p>Here is an inline directive to refer to a document: <a class="reference internal" href="markdown-notebooks.html"><span class="doc">Notebooks with MyST Markdown</span></a>.</p>
+<p>Here is an inline directive to refer to a document: <span class="xref std std-doc">markdown-notebooks</span>.</p>
 </section>
 <section id="learn-more">
 <h2>Learn more<a class="headerlink" href="#learn-more" title="Permalink to this heading">#</a></h2>
