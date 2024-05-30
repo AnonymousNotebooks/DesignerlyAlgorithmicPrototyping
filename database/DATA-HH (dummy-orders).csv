@@ -1,0 +1,37 @@
+week,order_ID,store_name,storename_num,store_type,storetype_num,day,day_num,time,time_num,timestamp,order_amount,order_price
+1,1,Okay,6,supermarket,4,Tuesday,5,noon,3,12:32:00,9,16.77
+1,2,baker,7,bakery,0,Tuesday,5,noon,3,12:39:00,7,6.1
+1,4,Delhaize,3,supermarket,4,Friday,0,afternoon,0,17:25:00,50,103.32998
+2,5,Albert Heijn,0,supermarket,4,Wednesday,6,morning,2,11:43:00,1,3.99
+2,6,baker,7,bakery,0,Wednesday,6,morning,2,09:57:00,9,7.7
+2,7,Okay,6,supermarket,4,Thursday,4,afternoon,0,15:26:00,36,62.863083
+2,8,butcher,1,butcher,1,Thursday,4,afternoon,0,15:48:00,6,20.0445
+2,9,baker,7,bakery,0,Sunday,3,morning,2,09:24:00,2,5.0
+2,10,Albert Heijn,0,supermarket,4,Sunday,3,morning,2,10:55:00,2,6.08
+2,11,baker,7,bakery,0,Sunday,3,morning,2,10:54:00,5,4.9
+3,12,Okay,6,supermarket,4,Thursday,4,afternoon,1,18:54:00,38,72.487014
+3,14,baker,7,bakery,0,Saturday,2,morning,2,09:47:00,2,5.0
+3,15,baker,7,bakery,0,Sunday,3,morning,2,10:47:00,8,11.9
+3,16,Delhaize,3,supermarket,4,Sunday,3,morning,2,10:55:00,34,114.87834
+4,17,Albert Heijn,0,supermarket,4,Wednesday,6,noon,3,12:07:00,1,5.49
+4,18,Carrefour,2,supermarket,4,Saturday,2,afternoon,1,18:58:00,31,68.31142
+4,19,baker,7,bakery,0,Sunday,3,morning,2,09:30:00,4,7.7
+4,20,butcher,8,butcher,1,Sunday,3,morning,2,09:52:00,7,16.165
+4,21,baker,7,bakery,0,Sunday,3,morning,2,10:30:00,2,5.272
+5,22,butcher,8,butcher,1,Monday,1,morning,2,10:07:00,6,15.414
+5,23,baker,7,bakery,0,Monday,1,morning,2,10:20:00,2,5.0
+5,24,Okay,6,supermarket,4,Tuesday,5,morning,2,11:40:00,53,104.36096
+5,25,baker,7,bakery,0,Tuesday,5,morning,2,11:55:00,6,3.6
+5,26,Okay,6,supermarket,4,Saturday,2,morning,2,10:58:00,38,96.788207
+5,27,baker,7,bakery,0,Saturday,2,morning,2,11:00:00,6,7.4
+5,28,butcher,8,butcher,1,Saturday,2,morning,2,11:06:00,7,25.5715
+6,30,baker,7,bakery,0,Saturday,2,morning,2,08:02:00,13,23.8
+6,31,Delhaize,3,supermarket,4,Sunday,3,morning,2,08:45:00,34,90.16
+7,32,Albert Heijn,0,supermarket,4,Monday,1,noon,3,12:32:00,2,8.08
+7,33,Albert Heijn,0,supermarket,4,Thursday,4,noon,3,12:37:00,3,8.98
+7,34,Okay,6,supermarket,4,Saturday,2,afternoon,0,16:18:00,9,15.56
+8,35,Albert Heijn,0,supermarket,4,Monday,1,noon,3,12:04:00,2,7.380000000000001
+8,36,Albert Heijn,0,supermarket,4,Monday,1,afternoon,1,18:50:00,26,60.66
+8,37,Albert Heijn,0,supermarket,4,Wednesday,6,noon,3,12:36:00,2,6.49
+8,38,Albert Heijn,0,supermarket,4,Thursday,4,morning,2,11:20:00,3,11.07
+8,39,Albert Heijn,0,supermarket,4,Friday,0,noon,3,12:15:00,1,2.95

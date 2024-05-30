@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. Generating and filtering" href="4.%20Generating%20and%20filtering.html" />
-    <link rel="prev" title="2. Labeling, structuring and visualizing the data" href="2.%20Labeling%2C%20structuring%20and%20visualizing.html" />
+    <link rel="prev" title="2.2. Visualizing" href="2.2.%20Visualizing%20the%20data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,7 +166,14 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1.%20Collecting%20relevant%20data.html">1. Collecting relevant data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.%20Labeling%2C%20structuring%20and%20visualizing.html">2. Labeling, structuring and visualizing the data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.2.%20Visualizing%20the%20data.html">2.2. Visualizing</a></li>
+
+
+
+
+
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Assigning weights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4.%20Generating%20and%20filtering.html">4. Generating and filtering</a></li>
 </ul>
@@ -365,13 +372,24 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#days-of-the-week">3.1. Days of the week</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-view-data">Load and view data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-view-data">Load and view data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-day-of-week">3.1. New Dataframes per day of week</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-weights-for-amounts-of-visits-per-day">3.1.1. Set weights for amounts of visits per day</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-model-step-1-on-what-days-will-they-shop">3.1.2: Conclusion:  MODEL STEP 1 : ON WHAT DAYS WILL THEY SHOP?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store-types-names">3.2. Store types/names</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time">3.3. Time</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#items">3.4. Items</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-times-of-the-day">3.2. New Dataframes per times of the day</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-weights-for-times-per-day">3.2.1. Set weights for times per day</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-model-step-2-at-what-time-will-they-shop">3.2.2: Conclusion:  MODEL STEP 2 : At what time will they shop?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-they-go-to-store-x-on-day-y-at-x-time-noon-afternoon-evening">If they go to store X (on day Y) =&gt; at X time (noon, afternoon, evening)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-week-weekend">3.3. New dataframes per week/weekend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-now-have-all-weighted-dataframes-necessary-to-be-able-to-create-our-designerly-baseline-model-the-steps-in-this-model-will-be">We now have all weighted dataframes necessary to be able to create our designerly baseline model. The steps in this model will be:</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -385,7 +403,6 @@ document.write(`
                   
   <section id="assigning-weights">
 <h1>3. Assigning weights<a class="headerlink" href="#assigning-weights" title="Permalink to this heading">#</a></h1>
-<p>Once we have identified meaningful patterns in the data, we can use them to assign weights to the relevant value counts to inform the predictions. For instance, we can use the amount of times a household bought groceries on a Monday as a weight that influences the probability that the algorithm will predict Monday as a potential grocery day (e.g., if they bought groceires on Monday one time out of eight, it is unlikely that the algorithm predicted that the household would buy groceries on Monday again).</p>
 <section id="import-libraries">
 <h2>Import libraries<a class="headerlink" href="#import-libraries" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -400,63 +417,372 @@ document.write(`
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="c1">#Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">dataframe_image</span> <span class="k">as</span> <span class="nn">dfi</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">time</span>
-<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
 <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">StrMethodFormatter</span>
 <span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">figure</span>
 <span class="k">class</span> <span class="nc">bcolors</span><span class="p">:</span>
     <span class="n">WARNING</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[91m&#39;</span>
     <span class="n">BOLD</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[1m&#39;</span>
-    
-<span class="n">SEED</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">export_graphviz</span><span class="p">,</span> <span class="n">plot_tree</span>
+
+<span class="c1"># importing the required function for CHI2 tests</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="days-of-the-week">
-<h2>3.1. Days of the week<a class="headerlink" href="#days-of-the-week" title="Permalink to this heading">#</a></h2>
-<p>Outcome (example):</p>
-<ol class="arabic simple">
-<li><p>input: Monday,Tuesday…</p></li>
-<li><p>output: 0 times, 1 time, 2 times…</p></li>
-</ol>
 <section id="load-and-view-data">
-<h3>Load and view data<a class="headerlink" href="#load-and-view-data" title="Permalink to this heading">#</a></h3>
+<h2>Load and view data<a class="headerlink" href="#load-and-view-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>  <span class="c1"># data for dow</span>
-<span class="c1"># df_period1 = pd.read_csv (r&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_period1.csv&quot;)</span>
-<span class="c1"># df_period2 = pd.read_csv (r&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_period2.csv&quot;)</span>
-<span class="kn">from</span> <span class="nn">DAYS_HH2weights</span> <span class="kn">import</span> <span class="n">period1</span><span class="p">,</span> <span class="n">period2</span>
-
-  <span class="c1">#Function to define the limits for total visits, days, same store and type per week</span>
-<span class="kn">from</span> <span class="nn">AlgorithmCOUNTS_HH2</span> <span class="kn">import</span> <span class="n">CountTotalVisits</span><span class="p">,</span> <span class="n">CountTotalDays</span><span class="p">,</span> <span class="n">CountStoreName</span><span class="p">,</span> <span class="n">CountTimePerDay</span><span class="p">,</span> <span class="n">CountStoreType</span><span class="p">,</span> <span class="n">CountTotalPerday</span><span class="p">,</span> <span class="n">CountVisitsPerDay</span><span class="p">,</span> <span class="n">CountTimingPerDay</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the dataframe that was saved after step 2.2. Visualizing the data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/DATA-HH (dummy).csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># data for dow</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># df_period1 = pd.read_csv (r&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_period1.csv&quot;)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># df_period2 = pd.read_csv (r&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_period2.csv&quot;)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">DAYS_HH2weights</span> <span class="kn">import</span> <span class="n">period1</span><span class="p">,</span> <span class="n">period2</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1">#Function to define the limits for total visits, days, same store and type per week</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">AlgorithmCOUNTS_HH2</span> <span class="kn">import</span> <span class="n">CountTotalVisits</span><span class="p">,</span> <span class="n">CountTotalDays</span><span class="p">,</span> <span class="n">CountStoreName</span><span class="p">,</span> <span class="n">CountTimePerDay</span><span class="p">,</span> <span class="n">CountStoreType</span><span class="p">,</span> <span class="n">CountTotalPerday</span><span class="p">,</span> <span class="n">CountVisitsPerDay</span><span class="p">,</span> <span class="n">CountTimingPerDay</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;DAYS_HH2weights&#39;
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>week</th>
+      <th>order_ID</th>
+      <th>item_name</th>
+      <th>amount</th>
+      <th>price_unit</th>
+      <th>price_total</th>
+      <th>date</th>
+      <th>day</th>
+      <th>timestamp</th>
+      <th>time</th>
+      <th>...</th>
+      <th>item_id</th>
+      <th>type_id</th>
+      <th>order_amount</th>
+      <th>order_price</th>
+      <th>day_num</th>
+      <th>storetype_num</th>
+      <th>storename_num</th>
+      <th>cat_num</th>
+      <th>time_num</th>
+      <th>promo_num</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>RABEKO choco light 250g</td>
+      <td>2</td>
+      <td>2.82</td>
+      <td>5.64</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>JOYVALLE pudding griesmeel natuur 135g</td>
+      <td>4</td>
+      <td>0.99</td>
+      <td>3.96</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>7</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>BONI tomatensoep met balletjes 950ml</td>
+      <td>1</td>
+      <td>1.99</td>
+      <td>1.99</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>2</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>LIEBIG DELISOUP 9 groenten brik 1L</td>
+      <td>1</td>
+      <td>2.59</td>
+      <td>2.59</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>3</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1</td>
+      <td>LIEBIG DELISOUP tom. Balletjes brik 1L</td>
+      <td>1</td>
+      <td>2.59</td>
+      <td>2.59</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>4</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 26 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the dataframe for just the orders (not all individual items) as saved after step 2.2. Visualizing the data</span>
+<span class="n">df_orders</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/DATA-HH (dummy-orders).csv&quot;</span><span class="p">)</span>
+<span class="n">df_orders</span> <span class="o">=</span> <span class="n">df_orders</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_orders</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>week</th>
+      <th>order_ID</th>
+      <th>store_name</th>
+      <th>storename_num</th>
+      <th>store_type</th>
+      <th>storetype_num</th>
+      <th>day</th>
+      <th>day_num</th>
+      <th>time</th>
+      <th>time_num</th>
+      <th>timestamp</th>
+      <th>order_amount</th>
+      <th>order_price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Okay</td>
+      <td>6</td>
+      <td>supermarket</td>
+      <td>4</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>noon</td>
+      <td>3</td>
+      <td>12:32:00</td>
+      <td>9</td>
+      <td>16.77000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>baker</td>
+      <td>7</td>
+      <td>bakery</td>
+      <td>0</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>noon</td>
+      <td>3</td>
+      <td>12:39:00</td>
+      <td>7</td>
+      <td>6.10000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>4</td>
+      <td>Delhaize</td>
+      <td>3</td>
+      <td>supermarket</td>
+      <td>4</td>
+      <td>Friday</td>
+      <td>0</td>
+      <td>afternoon</td>
+      <td>0</td>
+      <td>17:25:00</td>
+      <td>50</td>
+      <td>103.32998</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>5</td>
+      <td>Albert Heijn</td>
+      <td>0</td>
+      <td>supermarket</td>
+      <td>4</td>
+      <td>Wednesday</td>
+      <td>6</td>
+      <td>morning</td>
+      <td>2</td>
+      <td>11:43:00</td>
+      <td>1</td>
+      <td>3.99000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>6</td>
+      <td>baker</td>
+      <td>7</td>
+      <td>bakery</td>
+      <td>0</td>
+      <td>Wednesday</td>
+      <td>6</td>
+      <td>morning</td>
+      <td>2</td>
+      <td>09:57:00</td>
+      <td>9</td>
+      <td>7.70000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="new-dataframes-per-day-of-week">
+<h2>3.1. New Dataframes per day of week<a class="headerlink" href="#new-dataframes-per-day-of-week" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">,</span> <span class="s1">&#39;Friday&#39;</span><span class="p">,</span> <span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">days</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_dow</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;week&#39;</span><span class="p">,</span><span class="s1">&#39;day&#39;</span><span class="p">])</span>
+
+<span class="c1"># grouping the variables for week, day and unique order id&#39;s</span>
+<span class="n">df_dow</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;week&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">],</span> <span class="n">observed</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_dow</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_dow</span><span class="p">)</span>
+<span class="n">df_dow</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="c1"># make grid for days vs. week</span>
+<span class="n">df_dowgrid1</span> <span class="o">=</span> <span class="n">df_dow</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;week&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">],</span> <span class="n">observed</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<span class="n">df_dowgrid1</span> <span class="o">=</span> <span class="n">df_dowgrid1</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_dowgrid1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_dowgrid1</span>
+
+<span class="c1"># second grid to generate extra variables</span>
+<span class="n">df_dowgrid2</span> <span class="o">=</span> <span class="n">df_dowgrid1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">df_dowgrid2</span><span class="p">[</span><span class="s2">&quot;week&quot;</span><span class="p">]</span>
+<span class="c1"># column for total grocery visits</span>
+<span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_dowgrid2</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># column for total days shopped</span>
+<span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;ndays&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_dowgrid2</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># column for median visits/week</span>
+<span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;med&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_dowgrid2</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_dowgrid1</span> <span class="o">=</span> <span class="n">df_dowgrid1</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_period1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">period1</span><span class="p">(),</span> <span class="n">period2</span><span class="p">()])</span>
-<span class="n">df_period1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dowgrid1</span> <span class="o">=</span> <span class="n">df_dowgrid1</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df_dowgrid1</span> <span class="o">=</span> <span class="n">df_dowgrid1</span><span class="o">.</span> <span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span> <span class="n">nan</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df_dowgrid1</span>
 </pre></div>
 </div>
 </div>
@@ -479,6 +805,7 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th>day</th>
+      <th>week</th>
       <th>Monday</th>
       <th>Tuesday</th>
       <th>Wednesday</th>
@@ -494,19 +821,21 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
+      <td>1</td>
       <td>0.0</td>
       <td>2.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>4.0</td>
-      <td>3</td>
       <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>2</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>2.0</td>
@@ -520,19 +849,21 @@ document.write(`
     </tr>
     <tr>
       <th>2</th>
+      <td>3</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
       <td>1.0</td>
       <td>2.0</td>
-      <td>5.0</td>
-      <td>4</td>
+      <td>4.0</td>
+      <td>3</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>4</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
@@ -546,6 +877,7 @@ document.write(`
     </tr>
     <tr>
       <th>4</th>
+      <td>5</td>
       <td>2.0</td>
       <td>2.0</td>
       <td>0.0</td>
@@ -559,19 +891,21 @@ document.write(`
     </tr>
     <tr>
       <th>5</th>
+      <td>6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>3</td>
+      <td>2.0</td>
+      <td>2</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>6</th>
+      <td>7</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -585,6 +919,7 @@ document.write(`
     </tr>
     <tr>
       <th>7</th>
+      <td>8</td>
       <td>2.0</td>
       <td>0.0</td>
       <td>1.0</td>
@@ -600,87 +935,45 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+<section id="set-weights-for-amounts-of-visits-per-day">
+<h3>3.1.1. Set weights for amounts of visits per day<a class="headerlink" href="#set-weights-for-amounts-of-visits-per-day" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign weights based on how the numbers per day are represented</span>
-<span class="n">df_Mondays1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period1</span><span class="p">[</span><span class="s1">&#39;Monday&#39;</span><span class="p">])</span>
-<span class="n">df_Mondays1</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Mondays1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Monday&#39;</span><span class="p">])[</span><span class="s1">&#39;Monday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Mondays1</span> <span class="o">=</span> <span class="n">df_Mondays1</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_Mondays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Monday&#39;</span><span class="p">])</span>
+<span class="n">df_Mondays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Mondays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Monday&#39;</span><span class="p">])[</span><span class="s1">&#39;Monday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Mondays</span> <span class="o">=</span> <span class="n">df_Mondays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 
-<span class="n">df_Tuesdays1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period1</span><span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">])</span>
-<span class="n">df_Tuesdays1</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Tuesdays1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">])[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Tuesdays1</span> <span class="o">=</span> <span class="n">df_Tuesdays1</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_Tuesdays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">])</span>
+<span class="n">df_Tuesdays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Tuesdays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">])[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Tuesdays</span> <span class="o">=</span> <span class="n">df_Tuesdays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 
-<span class="n">df_Wednesdays1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period1</span><span class="p">[</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">])</span>
-<span class="n">df_Wednesdays1</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Wednesdays1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">])[</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Wednesdays1</span> <span class="o">=</span> <span class="n">df_Wednesdays1</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_Wednesdays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">])</span>
+<span class="n">df_Wednesdays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Wednesdays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">])[</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Wednesdays</span> <span class="o">=</span> <span class="n">df_Wednesdays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 
-<span class="n">df_Thursdays1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period1</span><span class="p">[</span><span class="s1">&#39;Thursday&#39;</span><span class="p">])</span>
-<span class="n">df_Thursdays1</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Thursdays1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Thursday&#39;</span><span class="p">])[</span><span class="s1">&#39;Thursday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Thursdays1</span> <span class="o">=</span> <span class="n">df_Thursdays1</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_Thursdays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Thursday&#39;</span><span class="p">])</span>
+<span class="n">df_Thursdays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Thursdays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Thursday&#39;</span><span class="p">])[</span><span class="s1">&#39;Thursday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Thursdays</span> <span class="o">=</span> <span class="n">df_Thursdays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 
-<span class="n">df_Fridays1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period1</span><span class="p">[</span><span class="s1">&#39;Friday&#39;</span><span class="p">])</span>
-<span class="n">df_Fridays1</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Fridays1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Friday&#39;</span><span class="p">])[</span><span class="s1">&#39;Friday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Fridays1</span> <span class="o">=</span> <span class="n">df_Fridays1</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_Fridays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Friday&#39;</span><span class="p">])</span>
+<span class="n">df_Fridays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Fridays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Friday&#39;</span><span class="p">])[</span><span class="s1">&#39;Friday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Fridays</span> <span class="o">=</span> <span class="n">df_Fridays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 
-<span class="n">df_Saturdays1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period1</span><span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">])</span>
-<span class="n">df_Saturdays1</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Saturdays1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Saturday&#39;</span><span class="p">])[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Saturdays1</span> <span class="o">=</span> <span class="n">df_Saturdays1</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_Saturdays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">])</span>
+<span class="n">df_Saturdays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Saturdays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Saturday&#39;</span><span class="p">])[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Saturdays</span> <span class="o">=</span> <span class="n">df_Saturdays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 
-<span class="n">df_Sundays1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period1</span><span class="p">[</span><span class="s1">&#39;Sunday&#39;</span><span class="p">])</span>
-<span class="n">df_Sundays1</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Sundays1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sunday&#39;</span><span class="p">])[</span><span class="s1">&#39;Sunday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Sundays1</span> <span class="o">=</span> <span class="n">df_Sundays1</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_Sundays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Sunday&#39;</span><span class="p">])</span>
+<span class="n">df_Sundays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Sundays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sunday&#39;</span><span class="p">])[</span><span class="s1">&#39;Sunday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Sundays</span> <span class="o">=</span> <span class="n">df_Sundays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_period2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">period1</span><span class="p">(),</span> <span class="n">period2</span><span class="p">()])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign weights based on how the numbers per day are represented</span>
-<span class="n">df_Mondays2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period2</span><span class="p">[</span><span class="s1">&#39;Monday&#39;</span><span class="p">])</span>
-<span class="n">df_Mondays2</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Mondays2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Monday&#39;</span><span class="p">])[</span><span class="s1">&#39;Monday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Mondays2</span> <span class="o">=</span> <span class="n">df_Mondays2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-
-<span class="n">df_Tuesdays2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period2</span><span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">])</span>
-<span class="n">df_Tuesdays2</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Tuesdays2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">])[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Tuesdays2</span> <span class="o">=</span> <span class="n">df_Tuesdays2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-
-<span class="n">df_Wednesdays2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period2</span><span class="p">[</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">])</span>
-<span class="n">df_Wednesdays2</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Wednesdays2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">])[</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Wednesdays2</span> <span class="o">=</span> <span class="n">df_Wednesdays2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-
-<span class="n">df_Thursdays2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period2</span><span class="p">[</span><span class="s1">&#39;Thursday&#39;</span><span class="p">])</span>
-<span class="n">df_Thursdays2</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Thursdays2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Thursday&#39;</span><span class="p">])[</span><span class="s1">&#39;Thursday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Thursdays2</span> <span class="o">=</span> <span class="n">df_Thursdays2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-
-<span class="n">df_Fridays2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period2</span><span class="p">[</span><span class="s1">&#39;Friday&#39;</span><span class="p">])</span>
-<span class="n">df_Fridays2</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Fridays2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Friday&#39;</span><span class="p">])[</span><span class="s1">&#39;Friday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Fridays2</span> <span class="o">=</span> <span class="n">df_Fridays2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-
-<span class="n">df_Saturdays2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period2</span><span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">])</span>
-<span class="n">df_Saturdays2</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Saturdays2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Saturday&#39;</span><span class="p">])[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Saturdays2</span> <span class="o">=</span> <span class="n">df_Saturdays2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-
-<span class="n">df_Sundays2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_period2</span><span class="p">[</span><span class="s1">&#39;Sunday&#39;</span><span class="p">])</span>
-<span class="n">df_Sundays2</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Sundays2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sunday&#39;</span><span class="p">])[</span><span class="s1">&#39;Sunday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">df_Sundays2</span> <span class="o">=</span> <span class="n">df_Sundays2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_Thursdays1.sort_values(by=[&#39;Thursday&#39;])</span>
-<span class="c1"># df_Fridays1.sort_values(by=[&#39;Friday&#39;])</span>
-<span class="c1"># df_Saturdays1.sort_values(by=[&#39;Saturday&#39;])</span>
-<span class="n">df_Sundays1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sunday&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Sundays</span>
 </pre></div>
 </div>
 </div>
@@ -714,9 +1007,9 @@ document.write(`
       <td>4</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>1.0</td>
-      <td>1</td>
+      <th>1</th>
+      <td>3.0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>2</th>
@@ -724,18 +1017,39 @@ document.write(`
       <td>1</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>3.0</td>
-      <td>2</td>
+      <th>5</th>
+      <td>1.0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Mondays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Mondays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Tuesdays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Tuesdays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Wednesdays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Wednesdays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Thursdays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Thursdays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Fridays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Fridays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Saturdays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Saturdays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Sundays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Sundays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusion-model-step-1-on-what-days-will-they-shop">
+<h3>3.1.2: Conclusion:  MODEL STEP 1 : ON WHAT DAYS WILL THEY SHOP?<a class="headerlink" href="#conclusion-model-step-1-on-what-days-will-they-shop" title="Permalink to this heading">#</a></h3>
+<p>Outcome (example):</p>
+<ol class="arabic simple">
+<li><p>input: Monday,Tuesday…</p></li>
+<li><p>output: 0 times, 1 time, 2 times… (weights)</p></li>
+</ol>
 </section>
 </section>
-<section id="store-types-names">
-<h2>3.2. Store types/names<a class="headerlink" href="#store-types-names" title="Permalink to this heading">#</a></h2>
+<section id="new-dataframes-per-times-of-the-day">
+<h2>3.2. New Dataframes per times of the day<a class="headerlink" href="#new-dataframes-per-times-of-the-day" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select only one day</span>
@@ -748,56 +1062,162 @@ document.write(`
 <span class="n">Sunday</span> <span class="o">=</span> <span class="s1">&#39;Sunday&#39;</span>
 
 <span class="c1"># select only these data for the df</span>
-<span class="n">df_Monday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Monday&#39;</span><span class="p">]</span>
-<span class="n">df_Tuesday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Tuesday&#39;</span><span class="p">]</span>
-<span class="n">df_Wednesday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">]</span>
-<span class="n">df_Thursday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">]</span>
-<span class="n">df_Friday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Friday&#39;</span><span class="p">]</span>
-<span class="n">df_Saturday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Saturday&#39;</span><span class="p">]</span>
-<span class="n">df_Sunday</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">]</span>
+<span class="n">df_Monday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Monday&#39;</span><span class="p">]</span>
+<span class="n">df_Tuesday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Tuesday&#39;</span><span class="p">]</span>
+<span class="n">df_Wednesday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">]</span>
+<span class="n">df_Thursday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">]</span>
+<span class="n">df_Friday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Friday&#39;</span><span class="p">]</span>
+<span class="n">df_Saturday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Saturday&#39;</span><span class="p">]</span>
+<span class="n">df_Sunday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">]</span>
+
+<span class="n">df_Tuesday</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>week</th>
+      <th>order_ID</th>
+      <th>store_name</th>
+      <th>storename_num</th>
+      <th>store_type</th>
+      <th>storetype_num</th>
+      <th>day</th>
+      <th>day_num</th>
+      <th>time</th>
+      <th>time_num</th>
+      <th>timestamp</th>
+      <th>order_amount</th>
+      <th>order_price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Okay</td>
+      <td>6</td>
+      <td>supermarket</td>
+      <td>4</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>noon</td>
+      <td>3</td>
+      <td>12:32:00</td>
+      <td>9</td>
+      <td>16.77000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>baker</td>
+      <td>7</td>
+      <td>bakery</td>
+      <td>0</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>noon</td>
+      <td>3</td>
+      <td>12:39:00</td>
+      <td>7</td>
+      <td>6.10000</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>5</td>
+      <td>24</td>
+      <td>Okay</td>
+      <td>6</td>
+      <td>supermarket</td>
+      <td>4</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>morning</td>
+      <td>2</td>
+      <td>11:40:00</td>
+      <td>53</td>
+      <td>104.36096</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>5</td>
+      <td>25</td>
+      <td>baker</td>
+      <td>7</td>
+      <td>bakery</td>
+      <td>0</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>morning</td>
+      <td>2</td>
+      <td>11:55:00</td>
+      <td>6</td>
+      <td>3.60000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
+<section id="set-weights-for-times-per-day">
+<h3>3.2.1. Set weights for times per day<a class="headerlink" href="#set-weights-for-times-per-day" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Mo</span> <span class="o">=</span> <span class="n">df_Monday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Mo</span> <span class="o">=</span> <span class="n">df_Monday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 <span class="n">df_Mo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Mo</span><span class="p">)</span>
 <span class="n">df_Mo</span> <span class="o">=</span> <span class="n">df_Mo</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">df_Mo</span> <span class="o">=</span> <span class="n">df_Mo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Mo</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 <span class="n">df_Mo</span> <span class="o">=</span> <span class="n">df_Mo</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
 
-<span class="n">df_Tu</span> <span class="o">=</span> <span class="n">df_Tuesday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_Tu</span> <span class="o">=</span> <span class="n">df_Tuesday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 <span class="n">df_Tu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Tu</span><span class="p">)</span>
 <span class="n">df_Tu</span> <span class="o">=</span> <span class="n">df_Tu</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">df_Tu</span> <span class="o">=</span> <span class="n">df_Tu</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Tu</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 <span class="n">df_Tu</span> <span class="o">=</span> <span class="n">df_Tu</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
 
-<span class="n">df_We</span> <span class="o">=</span> <span class="n">df_Wednesday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_We</span> <span class="o">=</span> <span class="n">df_Wednesday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 <span class="n">df_We</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_We</span><span class="p">)</span>
 <span class="n">df_We</span> <span class="o">=</span> <span class="n">df_We</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">df_We</span> <span class="o">=</span> <span class="n">df_We</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_We</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 <span class="n">df_We</span> <span class="o">=</span> <span class="n">df_We</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
 
-<span class="n">df_Th</span> <span class="o">=</span> <span class="n">df_Thursday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_Th</span> <span class="o">=</span> <span class="n">df_Thursday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 <span class="n">df_Th</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Th</span><span class="p">)</span>
 <span class="n">df_Th</span> <span class="o">=</span> <span class="n">df_Th</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">df_Th</span> <span class="o">=</span> <span class="n">df_Th</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Th</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 <span class="n">df_Th</span> <span class="o">=</span> <span class="n">df_Th</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
 
-<span class="n">df_Fr</span> <span class="o">=</span> <span class="n">df_Friday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_Fr</span> <span class="o">=</span> <span class="n">df_Friday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 <span class="n">df_Fr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Fr</span><span class="p">)</span>
 <span class="n">df_Fr</span> <span class="o">=</span> <span class="n">df_Fr</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">df_Fr</span> <span class="o">=</span> <span class="n">df_Fr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Fr</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 <span class="n">df_Fr</span> <span class="o">=</span> <span class="n">df_Fr</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
 
-<span class="n">df_Sa</span> <span class="o">=</span> <span class="n">df_Saturday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_Sa</span> <span class="o">=</span> <span class="n">df_Saturday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 <span class="n">df_Sa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Sa</span><span class="p">)</span>
 <span class="n">df_Sa</span> <span class="o">=</span> <span class="n">df_Sa</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">df_Sa</span> <span class="o">=</span> <span class="n">df_Sa</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Sa</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 <span class="n">df_Sa</span> <span class="o">=</span> <span class="n">df_Sa</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
 
-<span class="n">df_Su</span> <span class="o">=</span> <span class="n">df_Sunday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_Su</span> <span class="o">=</span> <span class="n">df_Sunday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 <span class="n">df_Su</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Su</span><span class="p">)</span>
 <span class="n">df_Su</span> <span class="o">=</span> <span class="n">df_Su</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">df_Su</span> <span class="o">=</span> <span class="n">df_Su</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Su</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
@@ -808,122 +1228,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Mo</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Mo.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_Tu</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Tu.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_We</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_We.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_Th</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Th.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_Fr</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Fr.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_Sa</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Sa.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_Su</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_Su.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="time">
-<h2>3.3. Time<a class="headerlink" href="#time" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aggregate afternoon and evening</span>
-<span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;afternoon&#39;</span><span class="p">,</span> <span class="s1">&#39;evening&#39;</span><span class="p">],</span> <span class="s1">&#39;afternoon&#39;</span><span class="p">)</span>
-
-<span class="c1"># to select only one</span>
-<span class="n">store1</span> <span class="o">=</span> <span class="s1">&#39;Albert Heijn&#39;</span>
-<span class="n">store2</span> <span class="o">=</span> <span class="s1">&#39;Sys&#39;</span>
-<span class="n">store3</span> <span class="o">=</span> <span class="s1">&#39;Okay&#39;</span>
-<span class="n">store4</span> <span class="o">=</span> <span class="s1">&#39;Delhaize&#39;</span>
-<span class="n">store5</span> <span class="o">=</span> <span class="s1">&#39;Versavel Poelman&#39;</span>
-<span class="n">store6</span> <span class="o">=</span> <span class="s1">&#39;Kruidvat&#39;</span>
-<span class="n">store7</span> <span class="o">=</span> <span class="s1">&#39;Brabo&#39;</span>
-<span class="n">store8</span> <span class="o">=</span> <span class="s1">&#39;Ikea&#39;</span>
-<span class="n">store9</span> <span class="o">=</span> <span class="s1">&#39;Carrefour&#39;</span>
-
-<span class="c1"># select only these data for the df</span>
-<span class="n">df_store1</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">store1</span><span class="p">]</span>
-<span class="n">df_store2</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">store2</span><span class="p">]</span>
-<span class="n">df_store3</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">store3</span><span class="p">]</span>
-<span class="n">df_store4</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">store4</span><span class="p">]</span>
-<span class="n">df_store5</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">store5</span><span class="p">]</span>
-<span class="n">df_store6</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">store6</span><span class="p">]</span>
-<span class="n">df_store7</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">store7</span><span class="p">]</span>
-<span class="n">df_store8</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">store8</span><span class="p">]</span>
-<span class="n">df_store9</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;store_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">store9</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_19722/711048548.py:2: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  df_orders[&#39;time&#39;] = df_orders[&#39;time&#39;].replace([&#39;afternoon&#39;, &#39;evening&#39;], &#39;afternoon&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_AH</span> <span class="o">=</span> <span class="n">df_store1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">df_AH</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_AH</span><span class="p">)</span>
-<span class="n">df_AH</span> <span class="o">=</span> <span class="n">df_AH</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df_AH</span> <span class="o">=</span> <span class="n">df_AH</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_AH</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">df_AH</span> <span class="o">=</span> <span class="n">df_AH</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
-
-<span class="n">df_SYS</span> <span class="o">=</span> <span class="n">df_store2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">df_SYS</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_SYS</span><span class="p">)</span>
-<span class="n">df_SYS</span> <span class="o">=</span> <span class="n">df_SYS</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df_SYS</span> <span class="o">=</span> <span class="n">df_SYS</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_SYS</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">df_SYS</span> <span class="o">=</span> <span class="n">df_SYS</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
-
-<span class="n">df_OKAY</span> <span class="o">=</span> <span class="n">df_store3</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">df_OKAY</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_OKAY</span><span class="p">)</span>
-<span class="n">df_OKAY</span> <span class="o">=</span> <span class="n">df_OKAY</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df_OKAY</span> <span class="o">=</span> <span class="n">df_OKAY</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_OKAY</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">df_OKAY</span> <span class="o">=</span> <span class="n">df_OKAY</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
-
-<span class="n">df_DELHAIZE</span> <span class="o">=</span> <span class="n">df_store4</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">df_DELHAIZE</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_DELHAIZE</span><span class="p">)</span>
-<span class="n">df_DELHAIZE</span> <span class="o">=</span> <span class="n">df_DELHAIZE</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df_DELHAIZE</span> <span class="o">=</span> <span class="n">df_DELHAIZE</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_DELHAIZE</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">df_DELHAIZE</span> <span class="o">=</span> <span class="n">df_DELHAIZE</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
-
-<span class="n">df_VERSAVEL</span> <span class="o">=</span> <span class="n">df_store5</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">df_VERSAVEL</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_VERSAVEL</span><span class="p">)</span>
-<span class="n">df_VERSAVEL</span> <span class="o">=</span> <span class="n">df_VERSAVEL</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df_VERSAVEL</span> <span class="o">=</span> <span class="n">df_VERSAVEL</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_VERSAVEL</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">df_VERSAVEL</span> <span class="o">=</span> <span class="n">df_VERSAVEL</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
-
-<span class="n">df_KRUIDVAT</span> <span class="o">=</span> <span class="n">df_store6</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">df_KRUIDVAT</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_KRUIDVAT</span><span class="p">)</span>
-<span class="n">df_KRUIDVAT</span> <span class="o">=</span> <span class="n">df_KRUIDVAT</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df_KRUIDVAT</span> <span class="o">=</span> <span class="n">df_KRUIDVAT</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_KRUIDVAT</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">df_KRUIDVAT</span> <span class="o">=</span> <span class="n">df_KRUIDVAT</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
-
-<span class="n">df_BRABO</span> <span class="o">=</span> <span class="n">df_store7</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">df_BRABO</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_BRABO</span><span class="p">)</span>
-<span class="n">df_BRABO</span> <span class="o">=</span> <span class="n">df_BRABO</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df_BRABO</span> <span class="o">=</span> <span class="n">df_BRABO</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_BRABO</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">df_BRABO</span> <span class="o">=</span> <span class="n">df_BRABO</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
-
-<span class="n">df_IKEA</span> <span class="o">=</span> <span class="n">df_store8</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">df_IKEA</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_IKEA</span><span class="p">)</span>
-<span class="n">df_IKEA</span> <span class="o">=</span> <span class="n">df_IKEA</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df_IKEA</span> <span class="o">=</span> <span class="n">df_IKEA</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_IKEA</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">df_IKEA</span> <span class="o">=</span> <span class="n">df_IKEA</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
-
-<span class="n">df_CARREFOUR</span> <span class="o">=</span> <span class="n">df_store9</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">df_CARREFOUR</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_CARREFOUR</span><span class="p">)</span>
-<span class="n">df_CARREFOUR</span> <span class="o">=</span> <span class="n">df_CARREFOUR</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df_CARREFOUR</span> <span class="o">=</span> <span class="n">df_CARREFOUR</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_CARREFOUR</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">df_CARREFOUR</span> <span class="o">=</span> <span class="n">df_CARREFOUR</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_AH</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Mo</span>
 </pre></div>
 </div>
 </div>
@@ -959,12 +1264,12 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
     <tr>
       <th>1</th>
       <td>morning</td>
-      <td>3</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>2</th>
       <td>noon</td>
-      <td>7</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -972,33 +1277,347 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_AH</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_AHTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_SYS</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_SYTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_OKAY</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_OKTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_DELHAIZE</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_DETime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_VERSAVEL</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_VETime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_KRUIDVAT</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_KRTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_BRABO</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_BRTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_IKEA</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_IKTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_CARREFOUR</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\20204113\OneDrive - TU Eindhoven\2_Research\1_Groceries\DATA\9th week - narrative (3rd attempt)\HH2\df\df_HH2_CATime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Mo</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_MoTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Tu</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_TuTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_We</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_WeTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Th</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_ThTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Fr</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_FrTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Sa</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_SaTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Su</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_SuTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="items">
-<h2>3.4. Items<a class="headerlink" href="#items" title="Permalink to this heading">#</a></h2>
+<section id="conclusion-model-step-2-at-what-time-will-they-shop">
+<h3>3.2.2: Conclusion:  MODEL STEP 2 : At what time will they shop?<a class="headerlink" href="#conclusion-model-step-2-at-what-time-will-they-shop" title="Permalink to this heading">#</a></h3>
+<section id="if-they-go-to-store-x-on-day-y-at-x-time-noon-afternoon-evening">
+<h4>If they go to store X (on day Y) =&gt; at X time (noon, afternoon, evening)<a class="headerlink" href="#if-they-go-to-store-x-on-day-y-at-x-time-noon-afternoon-evening" title="Permalink to this heading">#</a></h4>
+<p>Data to build the algorithm:</p>
+<blockquote>
+<div><ol class="arabic simple" start="2">
+<li><p>Number of visits per time (per week)
+1. Assign weights to each time (based on times shopped on these times)</p></li>
+</ol>
+</div></blockquote>
+<p>We then have the second given:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Week 9: HH3 will shop on <b>Monday/Tuesday/…, X times</b></p></li>
+<li><p>Week 9: HH3 will shop on <b>noon/afternoon/…, X times</b> ==&gt; related to the day</p></li>
+</ol>
+</div></blockquote>
+</section>
+</section>
+</section>
+<section id="new-dataframes-per-week-weekend">
+<h2>3.3. New dataframes per week/weekend<a class="headerlink" href="#new-dataframes-per-week-weekend" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/Plenty-in-the-Pantry/database/Groceries_onehousehold1.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/DATA-HH (dummy).csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;weights_itemtype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;item_type&#39;</span><span class="p">)[</span><span class="s1">&#39;item_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/Plenty-in-the-Pantry/database/Groceries_onehousehold1.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>week</th>
+      <th>order_ID</th>
+      <th>item_name</th>
+      <th>amount</th>
+      <th>price_unit</th>
+      <th>price_total</th>
+      <th>date</th>
+      <th>day</th>
+      <th>timestamp</th>
+      <th>time</th>
+      <th>...</th>
+      <th>item_id</th>
+      <th>type_id</th>
+      <th>order_amount</th>
+      <th>order_price</th>
+      <th>day_num</th>
+      <th>storetype_num</th>
+      <th>storename_num</th>
+      <th>cat_num</th>
+      <th>time_num</th>
+      <th>promo_num</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>RABEKO choco light 250g</td>
+      <td>2</td>
+      <td>2.82</td>
+      <td>5.64</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>JOYVALLE pudding griesmeel natuur 135g</td>
+      <td>4</td>
+      <td>0.99</td>
+      <td>3.96</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>7</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>BONI tomatensoep met balletjes 950ml</td>
+      <td>1</td>
+      <td>1.99</td>
+      <td>1.99</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>2</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>LIEBIG DELISOUP 9 groenten brik 1L</td>
+      <td>1</td>
+      <td>2.59</td>
+      <td>2.59</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>3</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1</td>
+      <td>LIEBIG DELISOUP tom. Balletjes brik 1L</td>
+      <td>1</td>
+      <td>2.59</td>
+      <td>2.59</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>4</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 26 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aggregate afternoon and evening</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">,</span> <span class="s1">&#39;Friday&#39;</span><span class="p">],</span> <span class="s1">&#39;weekday&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">],</span> <span class="s1">&#39;weekend&#39;</span><span class="p">)</span>
+
+<span class="c1"># aggregate afternoon and evening</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;drugstore&#39;</span><span class="p">,</span> <span class="s1">&#39;furniture store&#39;</span><span class="p">],</span> <span class="s1">&#39;other&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span><span class="o">==</span> <span class="s1">&#39;other&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_24880/3710669754.py:2: FutureWarning: The behavior of Series.replace (and DataFrame.replace) with CategoricalDtype is deprecated. In a future version, replace will only be used for cases that preserve the categories. To change the categories, use ser.cat.rename_categories instead.
+  df[&#39;day&#39;] = df[&#39;day&#39;].replace([&#39;Monday&#39;, &#39;Tuesday&#39;, &#39;Wednesday&#39;, &#39;Thursday&#39;, &#39;Friday&#39;], &#39;weekday&#39;)
+/tmp/ipykernel_24880/3710669754.py:3: FutureWarning: The behavior of Series.replace (and DataFrame.replace) with CategoricalDtype is deprecated. In a future version, replace will only be used for cases that preserve the categories. To change the categories, use ser.cat.rename_categories instead.
+  df[&#39;day&#39;] = df[&#39;day&#39;].replace([&#39;Saturday&#39;, &#39;Sunday&#39;], &#39;weekend&#39;)
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select only these data for the df</span>
+<span class="n">df_weekdays</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;weekday&#39;</span><span class="p">]</span>
+<span class="n">df_weekends</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;weekend&#39;</span><span class="p">]</span>
+
+<span class="n">df_week</span> <span class="o">=</span> <span class="n">df_weekdays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_week</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_week</span><span class="p">)</span>
+<span class="n">df_week</span> <span class="o">=</span> <span class="n">df_week</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_week</span> <span class="o">=</span> <span class="n">df_week</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_week</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_week</span> <span class="o">=</span> <span class="n">df_week</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
+
+<span class="n">df_end</span> <span class="o">=</span> <span class="n">df_weekends</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_end</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_end</span><span class="p">)</span>
+<span class="n">df_end</span> <span class="o">=</span> <span class="n">df_end</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_end</span> <span class="o">=</span> <span class="n">df_end</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_end</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_end</span> <span class="o">=</span> <span class="n">df_end</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_week</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_weekstore.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_end</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_weekendstore.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>store_name</th>
+      <th>store_type</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Carrefour</td>
+      <td>supermarket</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Delhaize</td>
+      <td>supermarket</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Okay</td>
+      <td>supermarket</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>butcher</td>
+      <td>butcher</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="we-now-have-all-weighted-dataframes-necessary-to-be-able-to-create-our-designerly-baseline-model-the-steps-in-this-model-will-be">
+<h3>We now have all weighted dataframes necessary to be able to create our designerly baseline model. The steps in this model will be:<a class="headerlink" href="#we-now-have-all-weighted-dataframes-necessary-to-be-able-to-create-our-designerly-baseline-model-the-steps-in-this-model-will-be" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Generate a shopping week (per day of the week: (1) Will they shop? (0/1) (2) How many store visits will they do on this day? –&gt; limited by min/max amounts of visits and shopping days per week</p></li>
+<li><p>Generate a store (name) per shopping visit —&gt; limited by min/max different store visits per day, stores per week (type, name)</p></li>
+<li><p>Generate time per day per store type —&gt; limited by min/max different store visits per time of day</p></li>
+<li><p>Generate amount of items bought for each shopping visit —&gt; limited by min/max (unique) item amounts per week</p></li>
+<li><p>Generate item types per shopping visit (= individual SHOPPING LISTS)</p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -1033,12 +1652,12 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="2.%20Labeling%2C%20structuring%20and%20visualizing.html"
+       href="2.2.%20Visualizing%20the%20data.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">2. Labeling, structuring and visualizing the data</p>
+        <p class="prev-next-title">2.2. Visualizing</p>
       </div>
     </a>
     <a class="right-next"
@@ -1067,13 +1686,24 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#days-of-the-week">3.1. Days of the week</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-view-data">Load and view data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-view-data">Load and view data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-day-of-week">3.1. New Dataframes per day of week</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-weights-for-amounts-of-visits-per-day">3.1.1. Set weights for amounts of visits per day</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-model-step-1-on-what-days-will-they-shop">3.1.2: Conclusion:  MODEL STEP 1 : ON WHAT DAYS WILL THEY SHOP?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#store-types-names">3.2. Store types/names</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time">3.3. Time</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#items">3.4. Items</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-times-of-the-day">3.2. New Dataframes per times of the day</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-weights-for-times-per-day">3.2.1. Set weights for times per day</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-model-step-2-at-what-time-will-they-shop">3.2.2: Conclusion:  MODEL STEP 2 : At what time will they shop?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-they-go-to-store-x-on-day-y-at-x-time-noon-afternoon-evening">If they go to store X (on day Y) =&gt; at X time (noon, afternoon, evening)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-week-weekend">3.3. New dataframes per week/weekend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-now-have-all-weighted-dataframes-necessary-to-be-able-to-create-our-designerly-baseline-model-the-steps-in-this-model-will-be">We now have all weighted dataframes necessary to be able to create our designerly baseline model. The steps in this model will be:</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

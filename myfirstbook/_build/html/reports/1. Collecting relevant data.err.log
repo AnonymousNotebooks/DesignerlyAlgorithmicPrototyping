@@ -15,18 +15,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# The data has been collected in an excel file, and needs to be converted to csv:
-read_file = pd.read_excel (open (r"/workspaces/Plenty-in-the-Pantry/database/Groceries_onehousehold.xlsx", 'rb'), sheet_name='Household 1m+1f rural')
-read_file.to_csv (r"/workspaces/Plenty-in-the-Pantry/database/Groceries_onehousehold.csv", index = None, header=True)
+read_file = pd.read_excel (open (r"database/DATA-HH (dummy).xlsx", 'rb'), sheet_name='H1 (2; 1M&1F-rural)')
+read_file.to_csv (r"/workspaces/DesignerlyAlgorithmicPrototyping/database/DATA-HH (dummy).csv", index = None, header=True)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[2], line 2[0m
-[1;32m      1[0m [38;5;66;03m# The data has been collected in an excel file, and needs to be converted to csv:[39;00m
-[0;32m----> 2[0m read_file [38;5;241m=[39m pd[38;5;241m.[39mread_excel ([38;5;28;43mopen[39;49m[43m [49m[43m([49m[38;5;124;43mr[39;49m[38;5;124;43m"[39;49m[38;5;124;43m/workspaces/Plenty-in-the-Pantry/database/Groceries_onehousehold.xlsx[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrb[39;49m[38;5;124;43m'[39;49m[43m)[49m, sheet_name[38;5;241m=[39m[38;5;124m'[39m[38;5;124mHousehold 1m+1f rural[39m[38;5;124m'[39m)
-[1;32m      3[0m read_file[38;5;241m.[39mto_csv ([38;5;124mr[39m[38;5;124m"[39m[38;5;124m/workspaces/Plenty-in-the-Pantry/database/Groceries_onehousehold.csv[39m[38;5;124m"[39m, index [38;5;241m=[39m [38;5;28;01mNone[39;00m, header[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+Cell [0;32mIn[2], line 1[0m
+[0;32m----> 1[0m read_file [38;5;241m=[39m pd[38;5;241m.[39mread_excel ([38;5;28;43mopen[39;49m[43m [49m[43m([49m[38;5;124;43mr[39;49m[38;5;124;43m"[39;49m[38;5;124;43mdatabase/DATA-HH (dummy).xlsx[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrb[39;49m[38;5;124;43m'[39;49m[43m)[49m, sheet_name[38;5;241m=[39m[38;5;124m'[39m[38;5;124mH1 (2; 1M&1F-rural)[39m[38;5;124m'[39m)
+[1;32m      2[0m read_file[38;5;241m.[39mto_csv ([38;5;124mr[39m[38;5;124m"[39m[38;5;124m/workspaces/DesignerlyAlgorithmicPrototyping/database/DATA-HH (dummy).csv[39m[38;5;124m"[39m, index [38;5;241m=[39m [38;5;28;01mNone[39;00m, header[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
 
 File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/lib/python3.10/site-packages/IPython/core/interactiveshell.py:310[0m, in [0;36m_modified_open[0;34m(file, *args, **kwargs)[0m
 [1;32m    303[0m [38;5;28;01mif[39;00m file [38;5;129;01min[39;00m {[38;5;241m0[39m, [38;5;241m1[39m, [38;5;241m2[39m}:
@@ -37,5 +35,5 @@ File [0;32m~/.cache/pypoetry/virtualenvs/plenty-in-the-pantry--3J3HE2a-py3.10/l
 [1;32m    308[0m     )
 [0;32m--> 310[0m [38;5;28;01mreturn[39;00m [43mio_open[49m[43m([49m[43mfile[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/workspaces/Plenty-in-the-Pantry/database/Groceries_onehousehold.xlsx'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'database/DATA-HH (dummy).xlsx'
 
