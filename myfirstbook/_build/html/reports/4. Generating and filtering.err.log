@@ -84,19 +84,19 @@ while restart:
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mKeyError[0m                                  Traceback (most recent call last)
-Cell [0;32mIn[49], line 5[0m
+Cell [0;32mIn[49], line 4[0m
+[1;32m      1[0m restart [38;5;241m=[39m [38;5;28;01mTrue[39;00m 
 [1;32m      2[0m [38;5;28;01mwhile[39;00m restart:
 [1;32m      3[0m     [38;5;66;03m# GET A LIST PER STORE VISITED IN THIS WEEK [ADJUST ACCORDING TO WEEKPLANNING][39;00m
-[1;32m      4[0m     butcher1 [38;5;241m=[39m butchers(df4, [38;5;241m0[39m)
-[0;32m----> 5[0m     super1 [38;5;241m=[39m [43msupermarkets[49m[43m([49m[43mdf4[49m[43m,[49m[43m [49m[38;5;241;43m2[39;49m[43m)[49m
+[0;32m----> 4[0m     butcher1 [38;5;241m=[39m [43mbutchers[49m[43m([49m[43mdf4[49m[43m,[49m[43m [49m[38;5;241;43m0[39;49m[43m)[49m
+[1;32m      5[0m     super1 [38;5;241m=[39m supermarkets(df4, [38;5;241m2[39m)
 [1;32m      6[0m     [38;5;66;03m# super2 = supermarkets(df4, 3)[39;00m
 [1;32m      7[0m     [38;5;66;03m# super3 = supermarkets(df4, 4)[39;00m
-[1;32m      8[0m     bakery1 [38;5;241m=[39m bakeries(df4, [38;5;241m1[39m)
 
-Cell [0;32mIn[40], line 28[0m, in [0;36msupermarkets[0;34m(dataframes, index)[0m
-[1;32m     26[0m     [38;5;28;01mif[39;00m storetype [38;5;241m==[39m [38;5;124m'[39m[38;5;124msupermarket[39m[38;5;124m'[39m:
-[1;32m     27[0m         storetypes[i] [38;5;241m=[39m pd[38;5;241m.[39mDataFrame(supermarket(dataframes, counts))
+Cell [0;32mIn[42], line 28[0m, in [0;36mbutchers[0;34m(dataframes, index)[0m
+[1;32m     26[0m     [38;5;28;01mif[39;00m storetype [38;5;241m==[39m [38;5;124m'[39m[38;5;124mbutcher[39m[38;5;124m'[39m:
+[1;32m     27[0m         storetypes[i] [38;5;241m=[39m pd[38;5;241m.[39mDataFrame(butcher(dataframes, counts))
 [0;32m---> 28[0m [38;5;28;01mreturn[39;00m [43mstoretypes[49m[43m[[49m[43mindex[49m[43m][49m
 
-[0;31mKeyError[0m: 2
+[0;31mKeyError[0m: 0
 
