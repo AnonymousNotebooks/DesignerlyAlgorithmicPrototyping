@@ -386,7 +386,7 @@ document.write(`
                 <article class="bd-article">
                   
   <p>to publish:
-poetry run jupyter-book build myfirstbook &amp;&amp;  git add -A &amp;&amp; git commit -m “publish” &amp;&amp; git push &amp;&amp; poetry run ghp-import -n -p -f myfirstbook/_build/html</p>
+poetry run jupyter-book build myfirstbook &amp;&amp;  git add -A &amp;&amp; git commit -m “publish” &amp;&amp; git pull &amp;&amp; git push &amp;&amp; poetry run ghp-import -n -p -f myfirstbook/_build/html</p>
 <p>poetry run jupyter-book build myfirstbook &amp;&amp; git pull</p>
 <p>git config pull.rebase false git pull</p>
 <section id="markdown-files">
