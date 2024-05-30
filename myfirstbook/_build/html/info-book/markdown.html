@@ -166,7 +166,14 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../1.%20Collecting%20relevant%20data.html">1. Collecting relevant data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.%20Labeling%2C%20structuring%20and%20visualizing.html">2. Labeling, structuring and visualizing the data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.2.%20Visualizing%20the%20data.html">2.2. Visualizing</a></li>
+
+
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../3.%20Assigning%20weights.html">3. Assigning weights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4.%20Generating%20and%20filtering.html">4. Generating and filtering</a></li>
 </ul>
@@ -380,6 +387,8 @@ document.write(`
                   
   <p>to publish:
 poetry run jupyter-book build myfirstbook &amp;&amp;  git add -A &amp;&amp; git commit -m “publish” &amp;&amp; git push &amp;&amp; poetry run ghp-import -n -p -f myfirstbook/_build/html</p>
+<p>poetry run jupyter-book build myfirstbook &amp;&amp; git pull</p>
+<p>git config pull.rebase false git pull</p>
 <section id="markdown-files">
 <h1>Markdown Files<a class="headerlink" href="#markdown-files" title="Permalink to this heading">#</a></h1>
 <p>Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
