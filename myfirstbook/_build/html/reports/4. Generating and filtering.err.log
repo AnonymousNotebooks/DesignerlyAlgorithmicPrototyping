@@ -18,24 +18,24 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 restart = True 
 while restart:
     # GET A LIST PER STORE VISITED IN THIS WEEK [ADJUST ACCORDING TO WEEKPLANNING]
-    butcher1 = butchers(df4, 0)
-    super1 = supermarkets(df4, 2)
-    # super2 = supermarkets(df4, 3)
+    # butcher1 = butchers(df4, 0)
+    super1 = supermarkets(df4, 0)
+    super2 = supermarkets(df4,1)
     # super3 = supermarkets(df4, 4)
-    bakery1 = bakeries(df4, 1)
-    bakery2 = bakeries(df4, 3)
+    bakery1 = bakeries(df4, 2)
+    # bakery2 = bakeries(df4, 3)
 
     
     # get lists per store type
     supermarketlist = pd.concat([super1])
-    # supermarketlist = pd.concat([super2])
+    supermarketlist = pd.concat([super2])
     # supermarketlist = pd.concat([super3])
     bakerlist = pd.concat([bakery1])
-    bakerlist = pd.concat([bakery2])
-    butcherlist = pd.concat([butcher1])
+    # bakerlist = pd.concat([bakery2])
+    # butcherlist = pd.concat([butcher1])
 
     # append the different lists to the entire week
-    weeklist = [super1, butcher1, bakery1, bakery2]
+    weeklist = [super1, super2, bakery1]
     week = pd.concat(weeklist)
 
     #########
@@ -84,19 +84,20 @@ while restart:
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mKeyError[0m                                  Traceback (most recent call last)
-Cell [0;32mIn[49], line 4[0m
-[1;32m      1[0m restart [38;5;241m=[39m [38;5;28;01mTrue[39;00m 
-[1;32m      2[0m [38;5;28;01mwhile[39;00m restart:
-[1;32m      3[0m     [38;5;66;03m# GET A LIST PER STORE VISITED IN THIS WEEK [ADJUST ACCORDING TO WEEKPLANNING][39;00m
-[0;32m----> 4[0m     butcher1 [38;5;241m=[39m [43mbutchers[49m[43m([49m[43mdf4[49m[43m,[49m[43m [49m[38;5;241;43m0[39;49m[43m)[49m
-[1;32m      5[0m     super1 [38;5;241m=[39m supermarkets(df4, [38;5;241m2[39m)
-[1;32m      6[0m     [38;5;66;03m# super2 = supermarkets(df4, 3)[39;00m
-[1;32m      7[0m     [38;5;66;03m# super3 = supermarkets(df4, 4)[39;00m
+Cell [0;32mIn[48], line 8[0m
+[1;32m      6[0m super2 [38;5;241m=[39m supermarkets(df4,[38;5;241m1[39m)
+[1;32m      7[0m [38;5;66;03m# super3 = supermarkets(df4, 4)[39;00m
+[0;32m----> 8[0m bakery1 [38;5;241m=[39m [43mbakeries[49m[43m([49m[43mdf4[49m[43m,[49m[43m [49m[38;5;241;43m2[39;49m[43m)[49m
+[1;32m      9[0m [38;5;66;03m# bakery2 = bakeries(df4, 3)[39;00m
+[1;32m     10[0m 
+[1;32m     11[0m 
+[1;32m     12[0m [38;5;66;03m# get lists per store type[39;00m
+[1;32m     13[0m supermarketlist [38;5;241m=[39m pd[38;5;241m.[39mconcat([super1])
 
-Cell [0;32mIn[42], line 28[0m, in [0;36mbutchers[0;34m(dataframes, index)[0m
-[1;32m     26[0m     [38;5;28;01mif[39;00m storetype [38;5;241m==[39m [38;5;124m'[39m[38;5;124mbutcher[39m[38;5;124m'[39m:
-[1;32m     27[0m         storetypes[i] [38;5;241m=[39m pd[38;5;241m.[39mDataFrame(butcher(dataframes, counts))
+Cell [0;32mIn[40], line 28[0m, in [0;36mbakeries[0;34m(dataframes, index)[0m
+[1;32m     26[0m     [38;5;28;01mif[39;00m storetype [38;5;241m==[39m [38;5;124m'[39m[38;5;124mbakery[39m[38;5;124m'[39m:
+[1;32m     27[0m         storetypes[i] [38;5;241m=[39m pd[38;5;241m.[39mDataFrame(bakery(dataframes, counts))
 [0;32m---> 28[0m [38;5;28;01mreturn[39;00m [43mstoretypes[49m[43m[[49m[43mindex[49m[43m][49m
 
-[0;31mKeyError[0m: 0
+[0;31mKeyError[0m: 2
 
