@@ -421,7 +421,7 @@ document.write(`
                   
   <section id="generating-and-filtering">
 <h1>4. Generating and filtering<a class="headerlink" href="#generating-and-filtering" title="Permalink to this heading">#</a></h1>
-<p>Once we have assigned weights to all the variables that we wanted to predict for the individual household, we can use them to generate their predictions. These predictions are made by using the Pandas DataFrame.sample’’ function and setting a weights’’ parameter. This function returns a random sample of items from the dataframe~\cite{pandas}. For example, we can use this function to return one randomized value (0,1, or 2) from the dataframe for Mondays with the ``weights’’ variable to determine whether or not this household will shop on Monday.</p>
+<p>Once we have assigned weights to all the variables that we wanted to predict for the individual household, we can use them to generate their predictions. These predictions are made by using the Pandas DataFrame.sample’’ function and setting a weights’’ parameter. This function returns a random sample of items from the dataframe. For example, we can use this function to return one randomized value (0,1, or 2) from the dataframe for Mondays with the ``weights’’ variable to determine whether or not this household will shop on Monday.</p>
 <section id="import-libraries">
 <h2>Import libraries<a class="headerlink" href="#import-libraries" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -905,8 +905,8 @@ document.write(`
       <td>Monday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>0.0</td>
+      <th>0</th>
+      <td>2.0</td>
       <td>Tuesday</td>
     </tr>
     <tr>
@@ -930,8 +930,8 @@ document.write(`
       <td>Saturday</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>0.0</td>
+      <th>2</th>
+      <td>2.0</td>
       <td>Sunday</td>
     </tr>
   </tbody>
@@ -1031,8 +1031,8 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>0.0</td>
+      <th>1</th>
+      <td>2.0</td>
       <td>Monday</td>
     </tr>
     <tr>
@@ -1041,8 +1041,8 @@ document.write(`
       <td>Tuesday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>2.0</td>
+      <th>0</th>
+      <td>0.0</td>
       <td>Wednesday</td>
     </tr>
     <tr>
@@ -1051,8 +1051,8 @@ document.write(`
       <td>Thursday</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>1.0</td>
+      <th>1</th>
+      <td>0.0</td>
       <td>Friday</td>
     </tr>
     <tr>
@@ -1061,8 +1061,8 @@ document.write(`
       <td>Saturday</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>1.0</td>
+      <th>0</th>
+      <td>0.0</td>
       <td>Sunday</td>
     </tr>
   </tbody>
@@ -1122,9 +1122,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too few/many visits per week | minimum: 2 | maximum: 7 | generated: 1.0</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too few/many visits per week | minimum: 2 | maximum: 7 | generated: 8.0</span>
+<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too few/many grocery days per week | minimum: 2 | maximum: 4 | generated: 1</span>
 <span class=" -Color -Color-Bold">FINAL grocery days count: 3</span>
-<span class=" -Color -Color-Bold">FINAL visit count: 6.0</span>
+<span class=" -Color -Color-Bold">FINAL visit count: 5.0</span>
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1151,8 +1152,8 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>0</td>
+      <th>1</th>
+      <td>2</td>
       <td>Monday</td>
     </tr>
     <tr>
@@ -1166,23 +1167,23 @@ document.write(`
       <td>Wednesday</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>1</td>
+      <th>1</th>
+      <td>2</td>
       <td>Thursday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>0</td>
+      <th>0</th>
+      <td>1</td>
       <td>Friday</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>3</td>
+      <th>0</th>
+      <td>0</td>
       <td>Saturday</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>2</td>
+      <th>0</th>
+      <td>0</td>
       <td>Sunday</td>
     </tr>
   </tbody>
@@ -1366,9 +1367,9 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
+      <th>3</th>
+      <td>Okay</td>
+      <td>supermarket</td>
       <td>weekend</td>
     </tr>
   </tbody>
@@ -1429,34 +1430,28 @@ document.write(`
       <td>week</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Okay</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
       <td>supermarket</td>
-      <td>weekend</td>
+      <td>week</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
+      <td>butcher</td>
+      <td>butcher</td>
+      <td>week</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
+      <td>week</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Delhaize</td>
+      <td>Okay</td>
       <td>supermarket</td>
-      <td>weekend</td>
+      <td>week</td>
     </tr>
   </tbody>
 </table>
@@ -1516,42 +1511,35 @@ document.write(`
       <td>Okay</td>
       <td>supermarket</td>
       <td>week</td>
-      <td>Thursday</td>
+      <td>Monday</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Saturday</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Saturday</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Okay</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
       <td>supermarket</td>
-      <td>weekend</td>
-      <td>Saturday</td>
+      <td>week</td>
+      <td>Monday</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <td>butcher</td>
+      <td>butcher</td>
+      <td>week</td>
+      <td>Thursday</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
+      <td>week</td>
+      <td>Thursday</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Delhaize</td>
+      <td>Okay</td>
       <td>supermarket</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <td>week</td>
+      <td>Friday</td>
     </tr>
   </tbody>
 </table>
@@ -1747,68 +1735,6 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store type: butcher | maximum: 2 | generated: 3</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too many store name: butcher | maximum: 2 | generated: 3</span>
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1835,46 +1761,39 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>butcher</td>
-      <td>butcher</td>
+      <th>1</th>
+      <td>Delhaize</td>
+      <td>supermarket</td>
+      <td>week</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>week</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
       <td>week</td>
       <td>Thursday</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Saturday</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Saturday</td>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>week</td>
+      <td>Thursday</td>
     </tr>
     <tr>
       <th>0</th>
       <td>Albert Heijn</td>
       <td>supermarket</td>
-      <td>weekend</td>
-      <td>Saturday</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <td>week</td>
+      <td>Friday</td>
     </tr>
   </tbody>
 </table>
@@ -2136,6 +2055,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> RERUN - Too few/many different times per day | minimum: 0 | maximum: 2 | generated: 3</span>
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2163,52 +2085,44 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>butcher</td>
-      <td>butcher</td>
+      <th>1</th>
+      <td>Delhaize</td>
+      <td>supermarket</td>
+      <td>week</td>
+      <td>Monday</td>
+      <td>morning</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>week</td>
+      <td>Monday</td>
+      <td>morning</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
       <td>week</td>
       <td>Thursday</td>
       <td>afternoon</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Saturday</td>
-      <td>morning</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Saturday</td>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>week</td>
+      <td>Thursday</td>
       <td>morning</td>
     </tr>
     <tr>
       <th>0</th>
       <td>Albert Heijn</td>
       <td>supermarket</td>
-      <td>weekend</td>
-      <td>Saturday</td>
-      <td>morning</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
+      <td>week</td>
+      <td>Friday</td>
+      <td>afternoon</td>
     </tr>
   </tbody>
 </table>
@@ -2244,7 +2158,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
 </pre></div>
 </div>
 </div>
@@ -2331,7 +2245,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINAL total itemcount (amount) = 47
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINAL total itemcount (amount) = 64
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2363,64 +2277,54 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>butcher</td>
-      <td>butcher</td>
+      <th>1</th>
+      <td>Delhaize</td>
+      <td>supermarket</td>
       <td>week</td>
-      <td>Thursday</td>
-      <td>afternoon</td>
-      <td>6</td>
+      <td>Monday</td>
+      <td>morning</td>
+      <td>42</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Saturday</td>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>week</td>
+      <td>Monday</td>
       <td>morning</td>
       <td>7</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Saturday</td>
-      <td>morning</td>
-      <td>6</td>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>week</td>
+      <td>Thursday</td>
+      <td>afternoon</td>
+      <td>1</td>
       <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>week</td>
+      <td>Thursday</td>
+      <td>morning</td>
+      <td>1</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>0</th>
       <td>Albert Heijn</td>
       <td>supermarket</td>
-      <td>weekend</td>
-      <td>Saturday</td>
-      <td>morning</td>
-      <td>20</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-      <td>7</td>
+      <td>week</td>
+      <td>Friday</td>
+      <td>afternoon</td>
+      <td>13</td>
       <td>4</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-      <td>1</td>
-      <td>5</td>
     </tr>
   </tbody>
 </table>
@@ -2746,64 +2650,54 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>butcher</td>
-      <td>butcher</td>
+      <th>1</th>
+      <td>Delhaize</td>
+      <td>supermarket</td>
       <td>week</td>
-      <td>Thursday</td>
-      <td>afternoon</td>
-      <td>6</td>
+      <td>Monday</td>
+      <td>morning</td>
+      <td>42</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Saturday</td>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>week</td>
+      <td>Monday</td>
       <td>morning</td>
       <td>7</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Saturday</td>
-      <td>morning</td>
-      <td>6</td>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>week</td>
+      <td>Thursday</td>
+      <td>afternoon</td>
+      <td>1</td>
       <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>week</td>
+      <td>Thursday</td>
+      <td>morning</td>
+      <td>1</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>0</th>
       <td>Albert Heijn</td>
       <td>supermarket</td>
-      <td>weekend</td>
-      <td>Saturday</td>
-      <td>morning</td>
-      <td>20</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-      <td>7</td>
+      <td>week</td>
+      <td>Friday</td>
+      <td>afternoon</td>
+      <td>13</td>
       <td>4</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-      <td>1</td>
-      <td>5</td>
     </tr>
   </tbody>
 </table>
@@ -2881,21 +2775,21 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">48</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span> 
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">48</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">while</span> <span class="n">restart</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># GET A LIST PER STORE VISITED IN THIS WEEK [ADJUST ACCORDING TO WEEKPLANNING]</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1"># butcher1 = butchers(df4, 3)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">super1</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">super2</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">super1</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">super2</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="c1"># super3 = supermarkets(df4, 2)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">bakery1</span> <span class="o">=</span> <span class="n">bakeries</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="nn">Cell In[39], line 28,</span> in <span class="ni">supermarkets</span><span class="nt">(dataframes, index)</span>
 <span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="k">if</span> <span class="n">storetype</span> <span class="o">==</span> <span class="s1">&#39;supermarket&#39;</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">27</span>         <span class="n">storetypes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">supermarket</span><span class="p">(</span><span class="n">dataframes</span><span class="p">,</span> <span class="n">counts</span><span class="p">))</span>
 <span class="ne">---&gt; </span><span class="mi">28</span> <span class="k">return</span> <span class="n">storetypes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 
-<span class="ne">KeyError</span>: 0
+<span class="ne">KeyError</span>: 1
 </pre></div>
 </div>
 </div>
