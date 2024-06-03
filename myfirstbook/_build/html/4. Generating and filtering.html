@@ -900,8 +900,8 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>2.0</td>
+      <th>0</th>
+      <td>0.0</td>
       <td>Monday</td>
     </tr>
     <tr>
@@ -915,8 +915,8 @@ document.write(`
       <td>Wednesday</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>1.0</td>
+      <th>0</th>
+      <td>0.0</td>
       <td>Thursday</td>
     </tr>
     <tr>
@@ -1031,8 +1031,8 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>2.0</td>
+      <th>0</th>
+      <td>0.0</td>
       <td>Monday</td>
     </tr>
     <tr>
@@ -1041,18 +1041,18 @@ document.write(`
       <td>Tuesday</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>1.0</td>
+      <th>1</th>
+      <td>2.0</td>
       <td>Wednesday</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>0.0</td>
+      <th>1</th>
+      <td>2.0</td>
       <td>Thursday</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>1.0</td>
+      <th>1</th>
+      <td>0.0</td>
       <td>Friday</td>
     </tr>
     <tr>
@@ -1061,8 +1061,8 @@ document.write(`
       <td>Saturday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>3.0</td>
+      <th>0</th>
+      <td>0.0</td>
       <td>Sunday</td>
     </tr>
   </tbody>
@@ -1122,8 +1122,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINAL grocery days count: 2
-FINAL visit count: 5.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too few/many visits per week | minimum: 2 | maximum: 7 | generated: 1.0</span>
+<span class=" -Color -Color-Bold">FINAL grocery days count: 3</span>
+<span class=" -Color -Color-Bold">FINAL visit count: 4.0</span>
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1150,18 +1151,18 @@ FINAL visit count: 5.0
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>2</td>
+      <th>0</th>
+      <td>0</td>
       <td>Monday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>0</td>
+      <th>0</th>
+      <td>2</td>
       <td>Tuesday</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>0</td>
+      <th>2</th>
+      <td>1</td>
       <td>Wednesday</td>
     </tr>
     <tr>
@@ -1170,8 +1171,8 @@ FINAL visit count: 5.0
       <td>Thursday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>0</td>
+      <th>0</th>
+      <td>1</td>
       <td>Friday</td>
     </tr>
     <tr>
@@ -1180,8 +1181,8 @@ FINAL visit count: 5.0
       <td>Saturday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>3</td>
+      <th>0</th>
+      <td>0</td>
       <td>Sunday</td>
     </tr>
   </tbody>
@@ -1365,9 +1366,9 @@ FINAL visit count: 5.0
   </thead>
   <tbody>
     <tr>
-      <th>3</th>
-      <td>Okay</td>
-      <td>supermarket</td>
+      <th>4</th>
+      <td>baker</td>
+      <td>bakery</td>
       <td>weekend</td>
     </tr>
   </tbody>
@@ -1422,9 +1423,9 @@ FINAL visit count: 5.0
   </thead>
   <tbody>
     <tr>
-      <th>2</th>
-      <td>Okay</td>
-      <td>supermarket</td>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
       <td>week</td>
     </tr>
     <tr>
@@ -1434,22 +1435,16 @@ FINAL visit count: 5.0
       <td>week</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>baker</td>
       <td>bakery</td>
-      <td>weekend</td>
+      <td>week</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
+      <td>butcher</td>
+      <td>butcher</td>
+      <td>week</td>
     </tr>
   </tbody>
 </table>
@@ -1505,39 +1500,32 @@ FINAL visit count: 5.0
   </thead>
   <tbody>
     <tr>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>week</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
       <th>2</th>
       <td>Okay</td>
       <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
+      <td>Tuesday</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Okay</td>
-      <td>supermarket</td>
+      <th>3</th>
+      <td>baker</td>
+      <td>bakery</td>
       <td>week</td>
-      <td>Monday</td>
+      <td>Wednesday</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <td>butcher</td>
+      <td>butcher</td>
+      <td>week</td>
+      <td>Friday</td>
     </tr>
   </tbody>
 </table>
@@ -1759,39 +1747,32 @@ FINAL visit count: 5.0
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>Delhaize</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
       <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
+      <td>Tuesday</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>butcher</td>
-      <td>butcher</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
+      <td>Tuesday</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
+      <td>week</td>
+      <td>Wednesday</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>baker</td>
       <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <td>week</td>
+      <td>Friday</td>
     </tr>
   </tbody>
 </table>
@@ -2080,44 +2061,36 @@ FINAL visit count: 5.0
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>Delhaize</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
       <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
-      <td>afternoon</td>
+      <td>Tuesday</td>
+      <td>noon</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>butcher</td>
-      <td>butcher</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
+      <td>Tuesday</td>
+      <td>noon</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
+      <td>week</td>
+      <td>Wednesday</td>
       <td>morning</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>baker</td>
       <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
+      <td>week</td>
+      <td>Friday</td>
+      <td>afternoon</td>
     </tr>
   </tbody>
 </table>
@@ -2153,7 +2126,7 @@ FINAL visit count: 5.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
 </pre></div>
 </div>
 </div>
@@ -2240,7 +2213,7 @@ FINAL visit count: 5.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINAL total itemcount (amount) = 48
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINAL total itemcount (amount) = 27
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2272,54 +2245,44 @@ FINAL visit count: 5.0
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>Delhaize</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
       <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
-      <td>afternoon</td>
-      <td>25</td>
+      <td>Tuesday</td>
+      <td>noon</td>
+      <td>10</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>butcher</td>
-      <td>butcher</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
-      <td>morning</td>
-      <td>7</td>
+      <td>Tuesday</td>
+      <td>noon</td>
+      <td>5</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
+      <td>week</td>
+      <td>Wednesday</td>
       <td>morning</td>
-      <td>5</td>
+      <td>10</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>baker</td>
       <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-      <td>4</td>
+      <td>week</td>
+      <td>Friday</td>
+      <td>afternoon</td>
+      <td>2</td>
       <td>3</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-      <td>7</td>
-      <td>4</td>
     </tr>
   </tbody>
 </table>
@@ -2645,54 +2608,44 @@ FINAL visit count: 5.0
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>Delhaize</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
       <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
-      <td>afternoon</td>
-      <td>25</td>
+      <td>Tuesday</td>
+      <td>noon</td>
+      <td>10</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>butcher</td>
-      <td>butcher</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
-      <td>morning</td>
-      <td>7</td>
+      <td>Tuesday</td>
+      <td>noon</td>
+      <td>5</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
+      <td>week</td>
+      <td>Wednesday</td>
       <td>morning</td>
-      <td>5</td>
+      <td>10</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>baker</td>
       <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-      <td>4</td>
+      <td>week</td>
+      <td>Friday</td>
+      <td>afternoon</td>
+      <td>2</td>
       <td>3</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-      <td>7</td>
-      <td>4</td>
     </tr>
   </tbody>
 </table>
@@ -2703,24 +2656,24 @@ FINAL visit count: 5.0
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span> 
 <span class="k">while</span> <span class="n">restart</span><span class="p">:</span>
     <span class="c1"># GET A LIST PER STORE VISITED IN THIS WEEK [ADJUST ACCORDING TO WEEKPLANNING]</span>
-    <span class="n">butcher1</span> <span class="o">=</span> <span class="n">butchers</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="c1"># butcher1 = butchers(df4, 3)</span>
     <span class="n">super1</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">super2</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">super3</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="c1"># bakery1 = bakeries(df4, 2)</span>
-    <span class="c1"># bakery2 = bakeries(df4, 3)</span>
+    <span class="c1"># super3 = supermarkets(df4, 2)</span>
+    <span class="n">bakery1</span> <span class="o">=</span> <span class="n">bakeries</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">bakery2</span> <span class="o">=</span> <span class="n">bakeries</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
     
     <span class="c1"># get lists per store type</span>
     <span class="n">supermarketlist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">super1</span><span class="p">])</span>
     <span class="n">supermarketlist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">super2</span><span class="p">])</span>
-    <span class="n">supermarketlist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">super3</span><span class="p">])</span>
-    <span class="c1"># bakerlist = pd.concat([bakery1])</span>
-    <span class="c1"># bakerlist = pd.concat([bakery2])</span>
-    <span class="n">butcherlist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">butcher1</span><span class="p">])</span>
+    <span class="c1"># supermarketlist = pd.concat([super3])</span>
+    <span class="n">bakerlist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">bakery1</span><span class="p">])</span>
+    <span class="n">bakerlist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">bakery2</span><span class="p">])</span>
+    <span class="c1"># butcherlist = pd.concat([butcher1])</span>
 
     <span class="c1"># append the different lists to the entire week</span>
-    <span class="n">weeklist</span> <span class="o">=</span> <span class="p">[</span><span class="n">super1</span><span class="p">,</span> <span class="n">super2</span><span class="p">,</span> <span class="n">super3</span><span class="p">,</span> <span class="n">butcher1</span><span class="p">]</span>
+    <span class="n">weeklist</span> <span class="o">=</span> <span class="p">[</span><span class="n">super1</span><span class="p">,</span> <span class="n">super2</span><span class="p">,</span> <span class="n">bakery1</span><span class="p">,</span> <span class="n">bakery2</span><span class="p">]</span>
     <span class="n">week</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">weeklist</span><span class="p">)</span>
 
     <span class="c1">#########</span>
@@ -2770,20 +2723,19 @@ FINAL visit count: 5.0
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">48</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">restart</span> <span class="o">=</span> <span class="kc">True</span> 
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">while</span> <span class="n">restart</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># GET A LIST PER STORE VISITED IN THIS WEEK [ADJUST ACCORDING TO WEEKPLANNING]</span>
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">butcher1</span> <span class="o">=</span> <span class="n">butchers</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">super1</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">super2</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">48</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">super2</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># super3 = supermarkets(df4, 2)</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">bakery1</span> <span class="o">=</span> <span class="n">bakeries</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">bakery2</span> <span class="o">=</span> <span class="n">bakeries</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># get lists per store type</span>
 
-<span class="nn">Cell In[41], line 28,</span> in <span class="ni">butchers</span><span class="nt">(dataframes, index)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="k">if</span> <span class="n">storetype</span> <span class="o">==</span> <span class="s1">&#39;butcher&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span>         <span class="n">storetypes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">butcher</span><span class="p">(</span><span class="n">dataframes</span><span class="p">,</span> <span class="n">counts</span><span class="p">))</span>
+<span class="nn">Cell In[40], line 28,</span> in <span class="ni">bakeries</span><span class="nt">(dataframes, index)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="k">if</span> <span class="n">storetype</span> <span class="o">==</span> <span class="s1">&#39;bakery&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>         <span class="n">storetypes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bakery</span><span class="p">(</span><span class="n">dataframes</span><span class="p">,</span> <span class="n">counts</span><span class="p">))</span>
 <span class="ne">---&gt; </span><span class="mi">28</span> <span class="k">return</span> <span class="n">storetypes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 
-<span class="ne">KeyError</span>: 3
+<span class="ne">KeyError</span>: 2
 </pre></div>
 </div>
 </div>
@@ -2825,54 +2777,54 @@ FINAL visit count: 5.0
   </thead>
   <tbody>
     <tr>
-      <th>301</th>
-      <td>dough</td>
-      <td>HERTA KRUIMELDEEG 230gr</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
+      <th>178</th>
+      <td>bread</td>
+      <td>ZWARTE WOUD BROOD</td>
+      <td>bakery</td>
+      <td>baker</td>
       <td>1</td>
       <td>bakery</td>
-      <td>1</td>
+      <td>16</td>
     </tr>
     <tr>
-      <th>341</th>
-      <td>sandwich</td>
-      <td>SW BROODJES</td>
-      <td>supermarket</td>
-      <td>Albert Heijn</td>
+      <th>181</th>
+      <td>pastry</td>
+      <td>BOOTJE</td>
+      <td>bakery</td>
+      <td>baker</td>
       <td>1</td>
+      <td>bakery</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>sandwich</td>
+      <td>SANDWICH</td>
+      <td>bakery</td>
+      <td>baker</td>
+      <td>4</td>
       <td>bakery</td>
       <td>7</td>
     </tr>
     <tr>
-      <th>139</th>
-      <td>ice tea</td>
-      <td>4x FUZE TEA PEA HIB</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
+      <th>281</th>
+      <td>danish</td>
+      <td>BOOTJE</td>
+      <td>bakery</td>
+      <td>baker</td>
       <td>2</td>
-      <td>beverages</td>
-      <td>4</td>
+      <td>bakery</td>
+      <td>9</td>
     </tr>
     <tr>
-      <th>295</th>
-      <td>coffee</td>
-      <td>CORA PODS LUNGO 16STK</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
+      <th>189</th>
+      <td>bread</td>
+      <td>BROOD grof gesneden</td>
+      <td>bakery</td>
+      <td>baker</td>
       <td>1</td>
-      <td>beverages</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>296</th>
-      <td>coke</td>
-      <td>COCA COLA ZERO SUGAR CAN</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
-      <td>1</td>
-      <td>beverages</td>
-      <td>4</td>
+      <td>bakery</td>
+      <td>16</td>
     </tr>
   </tbody>
 </table>
@@ -2915,54 +2867,44 @@ FINAL visit count: 5.0
   </thead>
   <tbody>
     <tr>
-      <th>139</th>
-      <td>ice tea</td>
-      <td>4x FUZE TEA PEA HIB</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
-      <td>2</td>
-      <td>beverages</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>296</th>
-      <td>coke</td>
-      <td>COCA COLA ZERO SUGAR CAN</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
-      <td>1</td>
-      <td>beverages</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>248</th>
+      <th>318</th>
       <td>ice tea</td>
       <td>BONI Iced Tea Peach niet-bruisend 0,5L</td>
       <td>supermarket</td>
       <td>Okay</td>
+      <td>6</td>
+      <td>beverages</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>326</th>
+      <td>beer</td>
+      <td>ST BERNARDUS</td>
+      <td>supermarket</td>
+      <td>Albert Heijn</td>
       <td>1</td>
       <td>beverages</td>
       <td>4</td>
     </tr>
     <tr>
-      <th>64</th>
-      <td>chocolate spread</td>
-      <td>RABEKO Choco light 250g</td>
+      <th>259</th>
+      <td>soup</td>
+      <td>BONI tomatensoep met balletjes 950ml</td>
       <td>supermarket</td>
       <td>Okay</td>
       <td>1</td>
-      <td>breakfast &amp; spreads</td>
-      <td>4</td>
+      <td>beverages</td>
+      <td>6</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>soup</td>
-      <td>LIEBIG DELISOUP tom. Balletjes brik 1L</td>
+      <th>45</th>
+      <td>tea</td>
+      <td>20 CLI RAS7MIN BIO</td>
       <td>supermarket</td>
-      <td>Okay</td>
+      <td>Delhaize</td>
       <td>1</td>
-      <td>canned foods</td>
-      <td>6</td>
+      <td>beverages</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>264</th>
@@ -2975,54 +2917,34 @@ FINAL visit count: 5.0
       <td>2</td>
     </tr>
     <tr>
-      <th>165</th>
-      <td>ketchup</td>
-      <td>ZEIS KETCHUP 425ML</td>
+      <th>309</th>
+      <td>sauce</td>
+      <td>GO TAN WOKSAUS ZOET ZUUR</td>
       <td>supermarket</td>
-      <td>Carrefour</td>
+      <td>Delhaize</td>
       <td>1</td>
       <td>condiments</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>55</th>
-      <td>andalouse sauce</td>
-      <td>BONI saus andalouse TD 420ml</td>
+      <th>98</th>
+      <td>cheese</td>
+      <td>PORT SALUT 135g</td>
       <td>supermarket</td>
       <td>Okay</td>
       <td>1</td>
-      <td>condiments</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>300</th>
-      <td>curry paste</td>
-      <td>SO THAI GROENE CURRYPASTA</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
-      <td>1</td>
-      <td>condiments</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>344</th>
-      <td>yoghurt</td>
-      <td>ROOMYOGHURT</td>
-      <td>supermarket</td>
-      <td>Albert Heijn</td>
-      <td>1</td>
       <td>dairy &amp; plant based</td>
-      <td>8</td>
+      <td>20</td>
     </tr>
     <tr>
-      <th>299</th>
-      <td>cream</td>
-      <td>ALPRO SOYA CUISINE BRIK 2</td>
+      <th>221</th>
+      <td>milk</td>
+      <td>BONI halfvolle melk PET 50cl</td>
       <td>supermarket</td>
-      <td>Delhaize</td>
-      <td>1</td>
+      <td>Okay</td>
+      <td>6</td>
       <td>dairy &amp; plant based</td>
-      <td>2</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>155</th>
@@ -3035,144 +2957,24 @@ FINAL visit count: 5.0
       <td>20</td>
     </tr>
     <tr>
-      <th>205</th>
-      <td>cheese</td>
-      <td>BONI Gratin Mix geraspt 200g</td>
+      <th>163</th>
+      <td>eggs</td>
+      <td>SIMPL SCHAR EI X12</td>
       <td>supermarket</td>
-      <td>Okay</td>
+      <td>Carrefour</td>
       <td>1</td>
       <td>dairy &amp; plant based</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <th>317</th>
-      <td>cheese</td>
-      <td>MORA Oven goudse kaasballetjes 14x20g</td>
-      <td>supermarket</td>
-      <td>Okay</td>
-      <td>1</td>
-      <td>dairy &amp; plant based</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <th>236</th>
-      <td>cauliflower</td>
-      <td>IGLO bloemkool met roomsaus 450g</td>
-      <td>supermarket</td>
-      <td>Okay</td>
-      <td>1</td>
-      <td>frozen foods</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>257</th>
-      <td>salmon</td>
-      <td>EVERYDAY zalmfil. at. z. grat. ASC 2x125g</td>
-      <td>supermarket</td>
-      <td>Okay</td>
-      <td>2</td>
-      <td>frozen foods</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>lunch salad</td>
-      <td>AH MLTSALADE</td>
-      <td>supermarket</td>
-      <td>Albert Heijn</td>
-      <td>1</td>
-      <td>fruit &amp; vegetables</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>cucumber</td>
-      <td>KOMKOMMER</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
-      <td>1</td>
-      <td>fruit &amp; vegetables</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>223</th>
-      <td>parsnip</td>
-      <td>PASTINAAK (los)</td>
-      <td>supermarket</td>
-      <td>Okay</td>
-      <td>1</td>
-      <td>fruit &amp; vegetables</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>garlic</td>
-      <td>LOOK ZAKJE 100GR</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
-      <td>1</td>
-      <td>fruit &amp; vegetables</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>311</th>
-      <td>tomatoes</td>
-      <td>TOMAAT COEUR BOEUF CAT 2S</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
-      <td>1</td>
-      <td>fruit &amp; vegetables</td>
       <td>5</td>
     </tr>
     <tr>
-      <th>37</th>
-      <td>pumpkin</td>
-      <td>BIO BUTTERNUT</td>
+      <th>135</th>
+      <td>croquettes</td>
+      <td>750G MCC DUCHESSE</td>
       <td>supermarket</td>
       <td>Delhaize</td>
-      <td>1</td>
-      <td>fruit &amp; vegetables</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>parsley</td>
-      <td>BIO PETERSELIE</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
-      <td>1</td>
-      <td>fruit &amp; vegetables</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>apples</td>
-      <td>JONAGOLD</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
-      <td>1</td>
-      <td>fruit &amp; vegetables</td>
       <td>2</td>
-    </tr>
-    <tr>
-      <th>304</th>
-      <td>kiwi</td>
-      <td>GOLD KIWI</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
-      <td>4</td>
-      <td>fruit &amp; vegetables</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>144</th>
-      <td>raspberries</td>
-      <td>FRAMBOOS 125G</td>
-      <td>supermarket</td>
-      <td>Delhaize</td>
+      <td>frozen foods</td>
       <td>1</td>
-      <td>fruit &amp; vegetables</td>
-      <td>4</td>
     </tr>
     <tr>
       <th>48</th>
@@ -3185,44 +2987,74 @@ FINAL visit count: 5.0
       <td>5</td>
     </tr>
     <tr>
-      <th>94</th>
-      <td>charcuterie</td>
-      <td>WEIGHT WATCHERS kipfilet sneetjes 120g</td>
+      <th>23</th>
+      <td>cucumber</td>
+      <td>KOMKOMMER</td>
       <td>supermarket</td>
-      <td>Okay</td>
+      <td>Delhaize</td>
       <td>1</td>
-      <td>meat, fish &amp; veggie</td>
-      <td>25</td>
+      <td>fruit &amp; vegetables</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>15</th>
-      <td>charcuterie</td>
-      <td>Kippenwit</td>
+      <th>170</th>
+      <td>salad</td>
+      <td>IJSBERGSLA</td>
+      <td>supermarket</td>
+      <td>Carrefour</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>168</th>
+      <td>parsnip</td>
+      <td>PASTINAAK 350G</td>
+      <td>supermarket</td>
+      <td>Carrefour</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>clementines</td>
+      <td>CLEMENTIJNEN BLAD</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>pumpkin</td>
+      <td>BIO BUTTERNUT</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>sweet potatoes</td>
+      <td>BIO ZOETE AARD</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>meat spread</td>
+      <td>Prepare</td>
       <td>supermarket</td>
       <td>Delhaize</td>
       <td>1</td>
       <td>meat, fish &amp; veggie</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>335</th>
-      <td>cookies</td>
-      <td>MERGPIJPJES</td>
-      <td>supermarket</td>
-      <td>Albert Heijn</td>
-      <td>1</td>
-      <td>snacks</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>213</th>
-      <td>chips</td>
-      <td>LAY'S strong chilli&amp;lime 150g</td>
-      <td>supermarket</td>
-      <td>Okay</td>
-      <td>1</td>
-      <td>snacks</td>
-      <td>1</td>
+      <td>16</td>
     </tr>
   </tbody>
 </table>
