@@ -30,12 +30,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,18 +49,14 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '4. Generating and filtering';</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -153,7 +149,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Designerly Algorithmic Prototyping | Notebooks</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -441,12 +448,6 @@ document.write(`
 <span class="k">class</span> <span class="nc">bcolors</span><span class="p">:</span>
     <span class="n">WARNING</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[91m&#39;</span>
     <span class="n">BOLD</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[1m&#39;</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">export_graphviz</span><span class="p">,</span> <span class="n">plot_tree</span>
 <span class="c1"># importing the required function for CHI2 tests</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span>
 </pre></div>
@@ -900,8 +901,8 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>0.0</td>
+      <th>1</th>
+      <td>2.0</td>
       <td>Monday</td>
     </tr>
     <tr>
@@ -920,18 +921,18 @@ document.write(`
       <td>Thursday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>0.0</td>
-      <td>Friday</td>
-    </tr>
-    <tr>
-      <th>1</th>
+      <th>0</th>
       <td>1.0</td>
-      <td>Saturday</td>
+      <td>Friday</td>
     </tr>
     <tr>
       <th>0</th>
       <td>0.0</td>
+      <td>Saturday</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
       <td>Sunday</td>
     </tr>
   </tbody>
@@ -1036,18 +1037,18 @@ document.write(`
       <td>Monday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>0.0</td>
+      <th>0</th>
+      <td>2.0</td>
       <td>Tuesday</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>0.0</td>
+      <th>2</th>
+      <td>1.0</td>
       <td>Wednesday</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>0.0</td>
+      <th>2</th>
+      <td>1.0</td>
       <td>Thursday</td>
     </tr>
     <tr>
@@ -1056,13 +1057,13 @@ document.write(`
       <td>Friday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>1.0</td>
+      <th>2</th>
+      <td>3.0</td>
       <td>Saturday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>3.0</td>
+      <th>2</th>
+      <td>2.0</td>
       <td>Sunday</td>
     </tr>
   </tbody>
@@ -1122,8 +1123,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINAL grocery days count: 3
-FINAL visit count: 6.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too few/many visits per week | minimum: 2 | maximum: 7 | generated: 8.0</span>
+<span class=" -Color -Color-Bold"> MODEL WAS RERUN - Too few/many visits per week | minimum: 2 | maximum: 7 | generated: 1.0</span>
+<span class=" -Color -Color-Bold">FINAL grocery days count: 2</span>
+<span class=" -Color -Color-Bold">FINAL visit count: 4.0</span>
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1150,8 +1153,8 @@ FINAL visit count: 6.0
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>2</td>
+      <th>0</th>
+      <td>0</td>
       <td>Monday</td>
     </tr>
     <tr>
@@ -1165,8 +1168,8 @@ FINAL visit count: 6.0
       <td>Wednesday</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>0</td>
+      <th>2</th>
+      <td>1</td>
       <td>Thursday</td>
     </tr>
     <tr>
@@ -1175,13 +1178,13 @@ FINAL visit count: 6.0
       <td>Friday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>1</td>
+      <th>2</th>
+      <td>3</td>
       <td>Saturday</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>3</td>
+      <th>0</th>
+      <td>0</td>
       <td>Sunday</td>
     </tr>
   </tbody>
@@ -1422,22 +1425,10 @@ FINAL visit count: 6.0
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>week</td>
-    </tr>
-    <tr>
       <th>0</th>
       <td>Albert Heijn</td>
       <td>supermarket</td>
       <td>week</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1452,9 +1443,9 @@ FINAL visit count: 6.0
       <td>weekend</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>Okay</td>
-      <td>supermarket</td>
+      <th>4</th>
+      <td>baker</td>
+      <td>bakery</td>
       <td>weekend</td>
     </tr>
   </tbody>
@@ -1511,18 +1502,18 @@ FINAL visit count: 6.0
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>butcher</td>
-      <td>butcher</td>
-      <td>week</td>
-      <td>Monday</td>
-    </tr>
-    <tr>
       <th>0</th>
       <td>Albert Heijn</td>
       <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
+      <td>Thursday</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Delhaize</td>
+      <td>supermarket</td>
+      <td>weekend</td>
+      <td>Saturday</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1532,25 +1523,11 @@ FINAL visit count: 6.0
       <td>Saturday</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Delhaize</td>
-      <td>supermarket</td>
-      <td>weekend</td>
-      <td>Sunday</td>
-    </tr>
-    <tr>
       <th>4</th>
       <td>baker</td>
       <td>bakery</td>
       <td>weekend</td>
-      <td>Sunday</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Okay</td>
-      <td>supermarket</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <td>Saturday</td>
     </tr>
   </tbody>
 </table>
@@ -1776,14 +1753,7 @@ FINAL visit count: 6.0
       <td>Albert Heijn</td>
       <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>Albert Heijn</td>
-      <td>supermarket</td>
-      <td>week</td>
-      <td>Monday</td>
+      <td>Thursday</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1797,21 +1767,14 @@ FINAL visit count: 6.0
       <td>baker</td>
       <td>bakery</td>
       <td>weekend</td>
-      <td>Sunday</td>
+      <td>Saturday</td>
     </tr>
     <tr>
       <th>4</th>
       <td>baker</td>
       <td>bakery</td>
       <td>weekend</td>
-      <td>Sunday</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Delhaize</td>
-      <td>supermarket</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <td>Saturday</td>
     </tr>
   </tbody>
 </table>
@@ -2073,7 +2036,7 @@ FINAL visit count: 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> RERUN - Too few/many different times per day | minimum: 0 | maximum: 3 | generated: 6</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> RERUN - Too few/many different times per day | minimum: 0 | maximum: 2 | generated: 3</span>
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2107,16 +2070,8 @@ FINAL visit count: 6.0
       <td>Albert Heijn</td>
       <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
+      <td>Thursday</td>
       <td>noon</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>Albert Heijn</td>
-      <td>supermarket</td>
-      <td>week</td>
-      <td>Monday</td>
-      <td>morning</td>
     </tr>
     <tr>
       <th>4</th>
@@ -2131,7 +2086,7 @@ FINAL visit count: 6.0
       <td>baker</td>
       <td>bakery</td>
       <td>weekend</td>
-      <td>Sunday</td>
+      <td>Saturday</td>
       <td>morning</td>
     </tr>
     <tr>
@@ -2139,15 +2094,7 @@ FINAL visit count: 6.0
       <td>baker</td>
       <td>bakery</td>
       <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Delhaize</td>
-      <td>supermarket</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <td>Saturday</td>
       <td>morning</td>
     </tr>
   </tbody>
@@ -2184,7 +2131,7 @@ FINAL visit count: 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 </div>
@@ -2271,7 +2218,7 @@ FINAL visit count: 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINAL total itemcount (amount) = 50
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINAL total itemcount (amount) = 22
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2307,20 +2254,10 @@ FINAL visit count: 6.0
       <td>Albert Heijn</td>
       <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
+      <td>Thursday</td>
       <td>noon</td>
-      <td>5</td>
+      <td>16</td>
       <td>0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>Albert Heijn</td>
-      <td>supermarket</td>
-      <td>week</td>
-      <td>Monday</td>
-      <td>morning</td>
-      <td>6</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
@@ -2329,38 +2266,28 @@ FINAL visit count: 6.0
       <td>weekend</td>
       <td>Saturday</td>
       <td>afternoon</td>
-      <td>2</td>
-      <td>2</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>baker</td>
       <td>bakery</td>
       <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-      <td>7</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <td>Saturday</td>
       <td>morning</td>
       <td>1</td>
-      <td>4</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Delhaize</td>
-      <td>supermarket</td>
+      <th>4</th>
+      <td>baker</td>
+      <td>bakery</td>
       <td>weekend</td>
-      <td>Sunday</td>
+      <td>Saturday</td>
       <td>morning</td>
-      <td>29</td>
-      <td>5</td>
+      <td>4</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -2690,20 +2617,10 @@ FINAL visit count: 6.0
       <td>Albert Heijn</td>
       <td>supermarket</td>
       <td>week</td>
-      <td>Monday</td>
+      <td>Thursday</td>
       <td>noon</td>
-      <td>5</td>
+      <td>16</td>
       <td>0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>Albert Heijn</td>
-      <td>supermarket</td>
-      <td>week</td>
-      <td>Monday</td>
-      <td>morning</td>
-      <td>6</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
@@ -2712,38 +2629,28 @@ FINAL visit count: 6.0
       <td>weekend</td>
       <td>Saturday</td>
       <td>afternoon</td>
-      <td>2</td>
-      <td>2</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>baker</td>
       <td>bakery</td>
       <td>weekend</td>
-      <td>Sunday</td>
-      <td>morning</td>
-      <td>7</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>baker</td>
-      <td>bakery</td>
-      <td>weekend</td>
-      <td>Sunday</td>
+      <td>Saturday</td>
       <td>morning</td>
       <td>1</td>
-      <td>4</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Delhaize</td>
-      <td>supermarket</td>
+      <th>4</th>
+      <td>baker</td>
+      <td>bakery</td>
       <td>weekend</td>
-      <td>Sunday</td>
+      <td>Saturday</td>
       <td>morning</td>
-      <td>29</td>
-      <td>5</td>
+      <td>4</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -2819,7 +2726,23 @@ FINAL visit count: 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> RERUN -  week - Too many/few of item: coconut | minimum: 0.0 | maximum: 0.0 | generated: 1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">48</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">while</span> <span class="n">restart</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># GET A LIST PER STORE VISITED IN THIS WEEK [ADJUST ACCORDING TO WEEKPLANNING]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1"># butcher1 = butchers(df4, 3)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">super1</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">super2</span> <span class="o">=</span> <span class="n">supermarkets</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="c1"># super3 = supermarkets(df4, 2)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">bakery1</span> <span class="o">=</span> <span class="n">bakeries</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nn">Cell In[39], line 28,</span> in <span class="ni">supermarkets</span><span class="nt">(dataframes, index)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="k">if</span> <span class="n">storetype</span> <span class="o">==</span> <span class="s1">&#39;supermarket&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>         <span class="n">storetypes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">supermarket</span><span class="p">(</span><span class="n">dataframes</span><span class="p">,</span> <span class="n">counts</span><span class="p">))</span>
+<span class="ne">---&gt; </span><span class="mi">28</span> <span class="k">return</span> <span class="n">storetypes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+<span class="ne">KeyError</span>: 1
 </pre></div>
 </div>
 </div>
@@ -2861,9 +2784,9 @@ FINAL visit count: 6.0
   </thead>
   <tbody>
     <tr>
-      <th>89</th>
+      <th>178</th>
       <td>bread</td>
-      <td>GROF BROOD GESN.</td>
+      <td>ZWARTE WOUD BROOD</td>
       <td>bakery</td>
       <td>baker</td>
       <td>1</td>
@@ -2871,42 +2794,42 @@ FINAL visit count: 6.0
       <td>16</td>
     </tr>
     <tr>
-      <th>120</th>
-      <td>danish</td>
-      <td>SUIS GELE CRÈME</td>
+      <th>181</th>
+      <td>pastry</td>
+      <td>BOOTJE</td>
       <td>bakery</td>
       <td>baker</td>
       <td>1</td>
       <td>bakery</td>
-      <td>9</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>279</th>
-      <td>danish</td>
-      <td>CHOCOLADE CRÈME KOEK</td>
+      <th>7</th>
+      <td>sandwich</td>
+      <td>SANDWICH</td>
       <td>bakery</td>
       <td>baker</td>
       <td>4</td>
       <td>bakery</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>281</th>
+      <td>danish</td>
+      <td>BOOTJE</td>
+      <td>bakery</td>
+      <td>baker</td>
+      <td>2</td>
+      <td>bakery</td>
       <td>9</td>
     </tr>
     <tr>
-      <th>117</th>
+      <th>189</th>
       <td>bread</td>
-      <td>KLEIN FRANS BROOD</td>
+      <td>BROOD grof gesneden</td>
       <td>bakery</td>
       <td>baker</td>
-      <td>2</td>
-      <td>bakery</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>117</th>
-      <td>bread</td>
-      <td>KLEIN FRANS BROOD</td>
-      <td>bakery</td>
-      <td>baker</td>
-      <td>2</td>
+      <td>1</td>
       <td>bakery</td>
       <td>16</td>
     </tr>
@@ -2951,14 +2874,74 @@ FINAL visit count: 6.0
   </thead>
   <tbody>
     <tr>
-      <th>64</th>
-      <td>chocolate spread</td>
-      <td>RABEKO Choco light 250g</td>
+      <th>318</th>
+      <td>ice tea</td>
+      <td>BONI Iced Tea Peach niet-bruisend 0,5L</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>6</td>
+      <td>beverages</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>326</th>
+      <td>beer</td>
+      <td>ST BERNARDUS</td>
+      <td>supermarket</td>
+      <td>Albert Heijn</td>
+      <td>1</td>
+      <td>beverages</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>259</th>
+      <td>soup</td>
+      <td>BONI tomatensoep met balletjes 950ml</td>
       <td>supermarket</td>
       <td>Okay</td>
       <td>1</td>
-      <td>breakfast &amp; spreads</td>
+      <td>beverages</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>tea</td>
+      <td>20 CLI RAS7MIN BIO</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>beverages</td>
       <td>4</td>
+    </tr>
+    <tr>
+      <th>264</th>
+      <td>tomato paste</td>
+      <td>BONI tomatenpuree dubbel geconcentr. 70g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>2</td>
+      <td>canned foods</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>309</th>
+      <td>sauce</td>
+      <td>GO TAN WOKSAUS ZOET ZUUR</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>condiments</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>cheese</td>
+      <td>PORT SALUT 135g</td>
+      <td>supermarket</td>
+      <td>Okay</td>
+      <td>1</td>
+      <td>dairy &amp; plant based</td>
+      <td>20</td>
     </tr>
     <tr>
       <th>221</th>
@@ -2971,19 +2954,39 @@ FINAL visit count: 6.0
       <td>1</td>
     </tr>
     <tr>
-      <th>61</th>
+      <th>155</th>
       <td>cheese</td>
-      <td>BONI gouda light sneetjes 250g</td>
+      <td>GOUDAJONG SN 300</td>
       <td>supermarket</td>
-      <td>Okay</td>
+      <td>Carrefour</td>
       <td>1</td>
       <td>dairy &amp; plant based</td>
       <td>20</td>
     </tr>
     <tr>
-      <th>283</th>
-      <td>bell peppers</td>
-      <td>PAPRIKA ROOD</td>
+      <th>163</th>
+      <td>eggs</td>
+      <td>SIMPL SCHAR EI X12</td>
+      <td>supermarket</td>
+      <td>Carrefour</td>
+      <td>1</td>
+      <td>dairy &amp; plant based</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>croquettes</td>
+      <td>750G MCC DUCHESSE</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>2</td>
+      <td>frozen foods</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>tomatoes</td>
+      <td>EMMER TOMAAT 500G</td>
       <td>supermarket</td>
       <td>Delhaize</td>
       <td>1</td>
@@ -2991,24 +2994,74 @@ FINAL visit count: 6.0
       <td>5</td>
     </tr>
     <tr>
-      <th>321</th>
-      <td>lunch salad</td>
-      <td>VERSE PASTA</td>
+      <th>23</th>
+      <td>cucumber</td>
+      <td>KOMKOMMER</td>
       <td>supermarket</td>
-      <td>Albert Heijn</td>
+      <td>Delhaize</td>
       <td>1</td>
       <td>fruit &amp; vegetables</td>
-      <td>9</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>31</th>
-      <td>minced meat</td>
-      <td>LAMSGEHAKT</td>
+      <th>170</th>
+      <td>salad</td>
+      <td>IJSBERGSLA</td>
+      <td>supermarket</td>
+      <td>Carrefour</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>168</th>
+      <td>parsnip</td>
+      <td>PASTINAAK 350G</td>
+      <td>supermarket</td>
+      <td>Carrefour</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>clementines</td>
+      <td>CLEMENTIJNEN BLAD</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>pumpkin</td>
+      <td>BIO BUTTERNUT</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>sweet potatoes</td>
+      <td>BIO ZOETE AARD</td>
+      <td>supermarket</td>
+      <td>Delhaize</td>
+      <td>1</td>
+      <td>fruit &amp; vegetables</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>meat spread</td>
+      <td>Prepare</td>
       <td>supermarket</td>
       <td>Delhaize</td>
       <td>1</td>
       <td>meat, fish &amp; veggie</td>
-      <td>10</td>
+      <td>16</td>
     </tr>
   </tbody>
 </table>
@@ -3134,7 +3187,7 @@ By anonymous
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
