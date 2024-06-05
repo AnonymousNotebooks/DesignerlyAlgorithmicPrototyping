@@ -1,0 +1,1761 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Assigning weights &#8212; Designerly Algorithmic Prototyping | Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '3. Assigning weights';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Generating and filtering" href="4.%20Generating%20and%20filtering.html" />
+    <link rel="prev" title="2.2. Visualizing" href="2.2.%20Visualizing%20the%20data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="0.%20introjupy.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Designerly Algorithmic Prototyping | Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="0.%20introjupy.html">
+                    Designerly Algorithmic Prototyping | Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1.%20Collecting%20relevant%20data.html">1. Collecting relevant data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.1.%20Labeling%20and%20structuring%20the%20data.html">2. Labeling, structuring and visualizing the data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.2.%20Visualizing%20the%20data.html">2.2. Visualizing</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Assigning weights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.%20Generating%20and%20filtering.html">4. Generating and filtering</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/AnonymousNotebooks/DesignerlyAlgorithmicPrototyping" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/AnonymousNotebooks/DesignerlyAlgorithmicPrototyping/issues/new?title=Issue%20on%20page%20%2F3. Assigning weights.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/3. Assigning weights.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3. Assigning weights</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-view-data">Load and view data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-day-of-week">3.1. New Dataframes per day of week</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-weights-for-amounts-of-visits-per-day">3.1.1. Set weights for amounts of visits per day</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-model-step-1-on-what-days-will-they-shop">3.1.2: Conclusion:  MODEL STEP 1 : ON WHAT DAYS WILL THEY SHOP?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-times-of-the-day">3.2. New Dataframes per times of the day</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-weights-for-times-per-day">3.2.1. Set weights for times per day</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-model-step-2-at-what-time-will-they-shop">3.2.2: Conclusion:  MODEL STEP 2 : At what time will they shop?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-they-go-to-store-x-on-day-y-at-x-time-noon-afternoon-evening">If they go to store X (on day Y) =&gt; at X time (noon, afternoon, evening)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-week-weekend">3.3. New dataframes per week/weekend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-now-have-all-weighted-dataframes-necessary-to-be-able-to-create-our-designerly-baseline-model-the-steps-in-this-model-will-be">We now have all weighted dataframes necessary to be able to create our designerly baseline model. The steps in this model will be:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="assigning-weights">
+<h1>3. Assigning weights<a class="headerlink" href="#assigning-weights" title="Permalink to this heading">#</a></h1>
+<section id="import-libraries">
+<h2>Import libraries<a class="headerlink" href="#import-libraries" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %matplotlib notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1">#Pandas is a software library written for the Python programming language for data manipulation and analysis.</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1">#NumPy is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># Matplotlib is a plotting library for python and pyplot gives us a MatLab like plotting framework. We will use this in our plotter function to plot data.</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1">#Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">StrMethodFormatter</span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">figure</span>
+<span class="k">class</span> <span class="nc">bcolors</span><span class="p">:</span>
+    <span class="n">WARNING</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[91m&#39;</span>
+    <span class="n">BOLD</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[1m&#39;</span>
+<span class="c1"># importing the required function for CHI2 tests</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-and-view-data">
+<h2>Load and view data<a class="headerlink" href="#load-and-view-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the dataframe that was saved after step 2.2. Visualizing the data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/DATA-HH (dummy).csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>week</th>
+      <th>order_ID</th>
+      <th>item_name</th>
+      <th>amount</th>
+      <th>price_unit</th>
+      <th>price_total</th>
+      <th>date</th>
+      <th>day</th>
+      <th>timestamp</th>
+      <th>time</th>
+      <th>...</th>
+      <th>item_id</th>
+      <th>type_id</th>
+      <th>order_amount</th>
+      <th>order_price</th>
+      <th>day_num</th>
+      <th>storetype_num</th>
+      <th>storename_num</th>
+      <th>cat_num</th>
+      <th>time_num</th>
+      <th>promo_num</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>RABEKO choco light 250g</td>
+      <td>2</td>
+      <td>2.82</td>
+      <td>5.64</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>JOYVALLE pudding griesmeel natuur 135g</td>
+      <td>4</td>
+      <td>0.99</td>
+      <td>3.96</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>7</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>BONI tomatensoep met balletjes 950ml</td>
+      <td>1</td>
+      <td>1.99</td>
+      <td>1.99</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>2</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>LIEBIG DELISOUP 9 groenten brik 1L</td>
+      <td>1</td>
+      <td>2.59</td>
+      <td>2.59</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>3</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1</td>
+      <td>LIEBIG DELISOUP tom. Balletjes brik 1L</td>
+      <td>1</td>
+      <td>2.59</td>
+      <td>2.59</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>4</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 26 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the dataframe for just the orders (not all individual items) as saved after step 2.2. Visualizing the data</span>
+<span class="n">df_orders</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/DATA-HH (dummy-orders).csv&quot;</span><span class="p">)</span>
+<span class="n">df_orders</span> <span class="o">=</span> <span class="n">df_orders</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_orders</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>week</th>
+      <th>order_ID</th>
+      <th>store_name</th>
+      <th>storename_num</th>
+      <th>store_type</th>
+      <th>storetype_num</th>
+      <th>day</th>
+      <th>day_num</th>
+      <th>time</th>
+      <th>time_num</th>
+      <th>timestamp</th>
+      <th>order_amount</th>
+      <th>order_price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Okay</td>
+      <td>6</td>
+      <td>supermarket</td>
+      <td>4</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>noon</td>
+      <td>3</td>
+      <td>12:32:00</td>
+      <td>9</td>
+      <td>16.77000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>baker</td>
+      <td>7</td>
+      <td>bakery</td>
+      <td>0</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>noon</td>
+      <td>3</td>
+      <td>12:39:00</td>
+      <td>7</td>
+      <td>6.10000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>4</td>
+      <td>Delhaize</td>
+      <td>3</td>
+      <td>supermarket</td>
+      <td>4</td>
+      <td>Friday</td>
+      <td>0</td>
+      <td>afternoon</td>
+      <td>0</td>
+      <td>17:25:00</td>
+      <td>50</td>
+      <td>103.32998</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>5</td>
+      <td>Albert Heijn</td>
+      <td>0</td>
+      <td>supermarket</td>
+      <td>4</td>
+      <td>Wednesday</td>
+      <td>6</td>
+      <td>morning</td>
+      <td>2</td>
+      <td>11:43:00</td>
+      <td>1</td>
+      <td>3.99000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>6</td>
+      <td>baker</td>
+      <td>7</td>
+      <td>bakery</td>
+      <td>0</td>
+      <td>Wednesday</td>
+      <td>6</td>
+      <td>morning</td>
+      <td>2</td>
+      <td>09:57:00</td>
+      <td>9</td>
+      <td>7.70000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="new-dataframes-per-day-of-week">
+<h2>3.1. New Dataframes per day of week<a class="headerlink" href="#new-dataframes-per-day-of-week" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">,</span> <span class="s1">&#39;Friday&#39;</span><span class="p">,</span> <span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">days</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_dow</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;week&#39;</span><span class="p">,</span><span class="s1">&#39;day&#39;</span><span class="p">])</span>
+
+<span class="c1"># grouping the variables for week, day and unique order id&#39;s</span>
+<span class="n">df_dow</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;week&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">],</span> <span class="n">observed</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_dow</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_dow</span><span class="p">)</span>
+<span class="n">df_dow</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="c1"># make grid for days vs. week</span>
+<span class="n">df_dowgrid1</span> <span class="o">=</span> <span class="n">df_dow</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;week&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">],</span> <span class="n">observed</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<span class="n">df_dowgrid1</span> <span class="o">=</span> <span class="n">df_dowgrid1</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_dowgrid1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_dowgrid1</span>
+
+<span class="c1"># second grid to generate extra variables</span>
+<span class="n">df_dowgrid2</span> <span class="o">=</span> <span class="n">df_dowgrid1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">df_dowgrid2</span><span class="p">[</span><span class="s2">&quot;week&quot;</span><span class="p">]</span>
+<span class="c1"># column for total grocery visits</span>
+<span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_dowgrid2</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># column for total days shopped</span>
+<span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;ndays&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_dowgrid2</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># column for median visits/week</span>
+<span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;med&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_dowgrid2</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_dowgrid1</span> <span class="o">=</span> <span class="n">df_dowgrid1</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dowgrid1</span> <span class="o">=</span> <span class="n">df_dowgrid1</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df_dowgrid1</span> <span class="o">=</span> <span class="n">df_dowgrid1</span><span class="o">.</span> <span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span> <span class="n">nan</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df_dowgrid1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>day</th>
+      <th>week</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th>Saturday</th>
+      <th>Sunday</th>
+      <th>sum</th>
+      <th>ndays</th>
+      <th>med</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>7.0</td>
+      <td>3</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>3</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>3</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>7.0</td>
+      <td>3</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5.0</td>
+      <td>4</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="set-weights-for-amounts-of-visits-per-day">
+<h3>3.1.1. Set weights for amounts of visits per day<a class="headerlink" href="#set-weights-for-amounts-of-visits-per-day" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign weights based on how the numbers per day are represented</span>
+<span class="n">df_Mondays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Monday&#39;</span><span class="p">])</span>
+<span class="n">df_Mondays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Mondays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Monday&#39;</span><span class="p">])[</span><span class="s1">&#39;Monday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Mondays</span> <span class="o">=</span> <span class="n">df_Mondays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">df_Tuesdays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">])</span>
+<span class="n">df_Tuesdays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Tuesdays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">])[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Tuesdays</span> <span class="o">=</span> <span class="n">df_Tuesdays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">df_Wednesdays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">])</span>
+<span class="n">df_Wednesdays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Wednesdays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">])[</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Wednesdays</span> <span class="o">=</span> <span class="n">df_Wednesdays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">df_Thursdays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Thursday&#39;</span><span class="p">])</span>
+<span class="n">df_Thursdays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Thursdays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Thursday&#39;</span><span class="p">])[</span><span class="s1">&#39;Thursday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Thursdays</span> <span class="o">=</span> <span class="n">df_Thursdays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">df_Fridays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Friday&#39;</span><span class="p">])</span>
+<span class="n">df_Fridays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Fridays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Friday&#39;</span><span class="p">])[</span><span class="s1">&#39;Friday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Fridays</span> <span class="o">=</span> <span class="n">df_Fridays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">df_Saturdays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">])</span>
+<span class="n">df_Saturdays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Saturdays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Saturday&#39;</span><span class="p">])[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Saturdays</span> <span class="o">=</span> <span class="n">df_Saturdays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">df_Sundays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dowgrid1</span><span class="p">[</span><span class="s1">&#39;Sunday&#39;</span><span class="p">])</span>
+<span class="n">df_Sundays</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_Sundays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sunday&#39;</span><span class="p">])[</span><span class="s1">&#39;Sunday&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df_Sundays</span> <span class="o">=</span> <span class="n">df_Sundays</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Sundays</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sunday</th>
+      <th>weights</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1.0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Mondays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Mondays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Tuesdays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Tuesdays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Wednesdays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Wednesdays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Thursdays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Thursdays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Fridays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Fridays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Saturdays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Saturdays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Sundays</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1(Sundays).csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusion-model-step-1-on-what-days-will-they-shop">
+<h3>3.1.2: Conclusion:  MODEL STEP 1 : ON WHAT DAYS WILL THEY SHOP?<a class="headerlink" href="#conclusion-model-step-1-on-what-days-will-they-shop" title="Permalink to this heading">#</a></h3>
+<p>Outcome (example):</p>
+<ol class="arabic simple">
+<li><p>input: Monday,Tuesday…</p></li>
+<li><p>output: 0 times, 1 time, 2 times… (weights)</p></li>
+</ol>
+</section>
+</section>
+<section id="new-dataframes-per-times-of-the-day">
+<h2>3.2. New Dataframes per times of the day<a class="headerlink" href="#new-dataframes-per-times-of-the-day" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select only one day</span>
+<span class="n">Monday</span> <span class="o">=</span> <span class="s1">&#39;Monday&#39;</span>
+<span class="n">Tuesday</span> <span class="o">=</span> <span class="s1">&#39;Tuesday&#39;</span>
+<span class="n">Wednesday</span> <span class="o">=</span> <span class="s1">&#39;Wednesday&#39;</span>
+<span class="n">Thursday</span> <span class="o">=</span> <span class="s1">&#39;Thursday&#39;</span>
+<span class="n">Friday</span> <span class="o">=</span> <span class="s1">&#39;Friday&#39;</span>
+<span class="n">Saturday</span> <span class="o">=</span> <span class="s1">&#39;Saturday&#39;</span>
+<span class="n">Sunday</span> <span class="o">=</span> <span class="s1">&#39;Sunday&#39;</span>
+
+<span class="c1"># select only these data for the df</span>
+<span class="n">df_Monday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Monday&#39;</span><span class="p">]</span>
+<span class="n">df_Tuesday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Tuesday&#39;</span><span class="p">]</span>
+<span class="n">df_Wednesday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">]</span>
+<span class="n">df_Thursday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">]</span>
+<span class="n">df_Friday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Friday&#39;</span><span class="p">]</span>
+<span class="n">df_Saturday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Saturday&#39;</span><span class="p">]</span>
+<span class="n">df_Sunday</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">]</span>
+
+<span class="n">df_Tuesday</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>week</th>
+      <th>order_ID</th>
+      <th>store_name</th>
+      <th>storename_num</th>
+      <th>store_type</th>
+      <th>storetype_num</th>
+      <th>day</th>
+      <th>day_num</th>
+      <th>time</th>
+      <th>time_num</th>
+      <th>timestamp</th>
+      <th>order_amount</th>
+      <th>order_price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Okay</td>
+      <td>6</td>
+      <td>supermarket</td>
+      <td>4</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>noon</td>
+      <td>3</td>
+      <td>12:32:00</td>
+      <td>9</td>
+      <td>16.77000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>baker</td>
+      <td>7</td>
+      <td>bakery</td>
+      <td>0</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>noon</td>
+      <td>3</td>
+      <td>12:39:00</td>
+      <td>7</td>
+      <td>6.10000</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>5</td>
+      <td>24</td>
+      <td>Okay</td>
+      <td>6</td>
+      <td>supermarket</td>
+      <td>4</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>morning</td>
+      <td>2</td>
+      <td>11:40:00</td>
+      <td>53</td>
+      <td>104.36096</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>5</td>
+      <td>25</td>
+      <td>baker</td>
+      <td>7</td>
+      <td>bakery</td>
+      <td>0</td>
+      <td>Tuesday</td>
+      <td>5</td>
+      <td>morning</td>
+      <td>2</td>
+      <td>11:55:00</td>
+      <td>6</td>
+      <td>3.60000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="set-weights-for-times-per-day">
+<h3>3.2.1. Set weights for times per day<a class="headerlink" href="#set-weights-for-times-per-day" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Mo</span> <span class="o">=</span> <span class="n">df_Monday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_Mo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Mo</span><span class="p">)</span>
+<span class="n">df_Mo</span> <span class="o">=</span> <span class="n">df_Mo</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_Mo</span> <span class="o">=</span> <span class="n">df_Mo</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Mo</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_Mo</span> <span class="o">=</span> <span class="n">df_Mo</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
+
+<span class="n">df_Tu</span> <span class="o">=</span> <span class="n">df_Tuesday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_Tu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Tu</span><span class="p">)</span>
+<span class="n">df_Tu</span> <span class="o">=</span> <span class="n">df_Tu</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_Tu</span> <span class="o">=</span> <span class="n">df_Tu</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Tu</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_Tu</span> <span class="o">=</span> <span class="n">df_Tu</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
+
+<span class="n">df_We</span> <span class="o">=</span> <span class="n">df_Wednesday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_We</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_We</span><span class="p">)</span>
+<span class="n">df_We</span> <span class="o">=</span> <span class="n">df_We</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_We</span> <span class="o">=</span> <span class="n">df_We</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_We</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_We</span> <span class="o">=</span> <span class="n">df_We</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
+
+<span class="n">df_Th</span> <span class="o">=</span> <span class="n">df_Thursday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_Th</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Th</span><span class="p">)</span>
+<span class="n">df_Th</span> <span class="o">=</span> <span class="n">df_Th</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_Th</span> <span class="o">=</span> <span class="n">df_Th</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Th</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_Th</span> <span class="o">=</span> <span class="n">df_Th</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
+
+<span class="n">df_Fr</span> <span class="o">=</span> <span class="n">df_Friday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_Fr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Fr</span><span class="p">)</span>
+<span class="n">df_Fr</span> <span class="o">=</span> <span class="n">df_Fr</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_Fr</span> <span class="o">=</span> <span class="n">df_Fr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Fr</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_Fr</span> <span class="o">=</span> <span class="n">df_Fr</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
+
+<span class="n">df_Sa</span> <span class="o">=</span> <span class="n">df_Saturday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_Sa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Sa</span><span class="p">)</span>
+<span class="n">df_Sa</span> <span class="o">=</span> <span class="n">df_Sa</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_Sa</span> <span class="o">=</span> <span class="n">df_Sa</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Sa</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_Sa</span> <span class="o">=</span> <span class="n">df_Sa</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
+
+<span class="n">df_Su</span> <span class="o">=</span> <span class="n">df_Sunday</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_Su</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_Su</span><span class="p">)</span>
+<span class="n">df_Su</span> <span class="o">=</span> <span class="n">df_Su</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_Su</span> <span class="o">=</span> <span class="n">df_Su</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_Su</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_Su</span> <span class="o">=</span> <span class="n">df_Su</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Mo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>afternoon</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>morning</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>noon</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Mo</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_MoTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Tu</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_TuTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_We</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_WeTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Th</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_ThTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Fr</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_FrTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Sa</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_SaTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_Su</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_SuTime.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusion-model-step-2-at-what-time-will-they-shop">
+<h3>3.2.2: Conclusion:  MODEL STEP 2 : At what time will they shop?<a class="headerlink" href="#conclusion-model-step-2-at-what-time-will-they-shop" title="Permalink to this heading">#</a></h3>
+<section id="if-they-go-to-store-x-on-day-y-at-x-time-noon-afternoon-evening">
+<h4>If they go to store X (on day Y) =&gt; at X time (noon, afternoon, evening)<a class="headerlink" href="#if-they-go-to-store-x-on-day-y-at-x-time-noon-afternoon-evening" title="Permalink to this heading">#</a></h4>
+<p>Data to build the algorithm:</p>
+<blockquote>
+<div><ol class="arabic simple" start="2">
+<li><p>Number of visits per time (per week)
+1. Assign weights to each time (based on times shopped on these times)</p></li>
+</ol>
+</div></blockquote>
+<p>We then have the second given:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Week 9: HH3 will shop on <b>Monday/Tuesday/…, X times</b></p></li>
+<li><p>Week 9: HH3 will shop on <b>noon/afternoon/…, X times</b> ==&gt; related to the day</p></li>
+</ol>
+</div></blockquote>
+</section>
+</section>
+</section>
+<section id="new-dataframes-per-week-weekend">
+<h2>3.3. New dataframes per week/weekend<a class="headerlink" href="#new-dataframes-per-week-weekend" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/DATA-HH (dummy).csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>week</th>
+      <th>order_ID</th>
+      <th>item_name</th>
+      <th>amount</th>
+      <th>price_unit</th>
+      <th>price_total</th>
+      <th>date</th>
+      <th>day</th>
+      <th>timestamp</th>
+      <th>time</th>
+      <th>...</th>
+      <th>item_id</th>
+      <th>type_id</th>
+      <th>order_amount</th>
+      <th>order_price</th>
+      <th>day_num</th>
+      <th>storetype_num</th>
+      <th>storename_num</th>
+      <th>cat_num</th>
+      <th>time_num</th>
+      <th>promo_num</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>RABEKO choco light 250g</td>
+      <td>2</td>
+      <td>2.82</td>
+      <td>5.64</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>JOYVALLE pudding griesmeel natuur 135g</td>
+      <td>4</td>
+      <td>0.99</td>
+      <td>3.96</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>7</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>BONI tomatensoep met balletjes 950ml</td>
+      <td>1</td>
+      <td>1.99</td>
+      <td>1.99</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>2</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>LIEBIG DELISOUP 9 groenten brik 1L</td>
+      <td>1</td>
+      <td>2.59</td>
+      <td>2.59</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>3</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1</td>
+      <td>LIEBIG DELISOUP tom. Balletjes brik 1L</td>
+      <td>1</td>
+      <td>2.59</td>
+      <td>2.59</td>
+      <td>2021-11-23</td>
+      <td>Tuesday</td>
+      <td>12:32:00</td>
+      <td>noon</td>
+      <td>...</td>
+      <td>4</td>
+      <td>2</td>
+      <td>9</td>
+      <td>16.77</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 26 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aggregate afternoon and evening</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">,</span> <span class="s1">&#39;Friday&#39;</span><span class="p">],</span> <span class="s1">&#39;weekday&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">],</span> <span class="s1">&#39;weekend&#39;</span><span class="p">)</span>
+
+<span class="c1"># aggregate afternoon and evening</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;drugstore&#39;</span><span class="p">,</span> <span class="s1">&#39;furniture store&#39;</span><span class="p">],</span> <span class="s1">&#39;other&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;store_type&#39;</span><span class="p">]</span><span class="o">==</span> <span class="s1">&#39;other&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_9848/3710669754.py:2: FutureWarning: The behavior of Series.replace (and DataFrame.replace) with CategoricalDtype is deprecated. In a future version, replace will only be used for cases that preserve the categories. To change the categories, use ser.cat.rename_categories instead.
+  df[&#39;day&#39;] = df[&#39;day&#39;].replace([&#39;Monday&#39;, &#39;Tuesday&#39;, &#39;Wednesday&#39;, &#39;Thursday&#39;, &#39;Friday&#39;], &#39;weekday&#39;)
+/tmp/ipykernel_9848/3710669754.py:3: FutureWarning: The behavior of Series.replace (and DataFrame.replace) with CategoricalDtype is deprecated. In a future version, replace will only be used for cases that preserve the categories. To change the categories, use ser.cat.rename_categories instead.
+  df[&#39;day&#39;] = df[&#39;day&#39;].replace([&#39;Saturday&#39;, &#39;Sunday&#39;], &#39;weekend&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select only these data for the df</span>
+<span class="n">df_weekdays</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;weekday&#39;</span><span class="p">]</span>
+<span class="n">df_weekends</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;weekend&#39;</span><span class="p">]</span>
+
+<span class="n">df_week</span> <span class="o">=</span> <span class="n">df_weekdays</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_week</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_week</span><span class="p">)</span>
+<span class="n">df_week</span> <span class="o">=</span> <span class="n">df_week</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_week</span> <span class="o">=</span> <span class="n">df_week</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_week</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_week</span> <span class="o">=</span> <span class="n">df_week</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
+
+<span class="n">df_end</span> <span class="o">=</span> <span class="n">df_weekends</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;store_name&#39;</span><span class="p">,</span> <span class="s1">&#39;store_type&#39;</span><span class="p">])[</span><span class="s1">&#39;order_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">df_end</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="p">(</span><span class="n">df_end</span><span class="p">)</span>
+<span class="n">df_end</span> <span class="o">=</span> <span class="n">df_end</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_end</span> <span class="o">=</span> <span class="n">df_end</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df_end</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_end</span> <span class="o">=</span> <span class="n">df_end</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;weight&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_week</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_weekstore.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_end</span><span class="o">.</span><span class="n">to_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/workspaces/DesignerlyAlgorithmicPrototyping/database/df_HH1_weekendstore.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>store_name</th>
+      <th>store_type</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Albert Heijn</td>
+      <td>supermarket</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Carrefour</td>
+      <td>supermarket</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Delhaize</td>
+      <td>supermarket</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Okay</td>
+      <td>supermarket</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>baker</td>
+      <td>bakery</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>butcher</td>
+      <td>butcher</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="we-now-have-all-weighted-dataframes-necessary-to-be-able-to-create-our-designerly-baseline-model-the-steps-in-this-model-will-be">
+<h3>We now have all weighted dataframes necessary to be able to create our designerly baseline model. The steps in this model will be:<a class="headerlink" href="#we-now-have-all-weighted-dataframes-necessary-to-be-able-to-create-our-designerly-baseline-model-the-steps-in-this-model-will-be" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Generate a shopping week (per day of the week: (1) Will they shop? (0/1) (2) How many store visits will they do on this day? –&gt; limited by min/max amounts of visits and shopping days per week</p></li>
+<li><p>Generate a store (name) per shopping visit —&gt; limited by min/max different store visits per day, stores per week (type, name)</p></li>
+<li><p>Generate time per day per store type —&gt; limited by min/max different store visits per time of day</p></li>
+<li><p>Generate amount of items bought for each shopping visit —&gt; limited by min/max (unique) item amounts per week</p></li>
+<li><p>Generate item types per shopping visit (= individual SHOPPING LISTS)</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2.2.%20Visualizing%20the%20data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.2. Visualizing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="4.%20Generating%20and%20filtering.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4. Generating and filtering</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-view-data">Load and view data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-day-of-week">3.1. New Dataframes per day of week</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-weights-for-amounts-of-visits-per-day">3.1.1. Set weights for amounts of visits per day</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-model-step-1-on-what-days-will-they-shop">3.1.2: Conclusion:  MODEL STEP 1 : ON WHAT DAYS WILL THEY SHOP?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-times-of-the-day">3.2. New Dataframes per times of the day</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-weights-for-times-per-day">3.2.1. Set weights for times per day</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-model-step-2-at-what-time-will-they-shop">3.2.2: Conclusion:  MODEL STEP 2 : At what time will they shop?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-they-go-to-store-x-on-day-y-at-x-time-noon-afternoon-evening">If they go to store X (on day Y) =&gt; at X time (noon, afternoon, evening)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-dataframes-per-week-weekend">3.3. New dataframes per week/weekend</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-now-have-all-weighted-dataframes-necessary-to-be-able-to-create-our-designerly-baseline-model-the-steps-in-this-model-will-be">We now have all weighted dataframes necessary to be able to create our designerly baseline model. The steps in this model will be:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By anonymous
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+Traceback (most recent call last):
+  File "/home/codespace/.cache/pypoetry/virtualenvs/designerlyalgorithmicprototyping--3J3HE2a-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/codespace/.cache/pypoetry/virtualenvs/designerlyalgorithmicprototyping--3J3HE2a-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/codespace/.cache/pypoetry/virtualenvs/designerlyalgorithmicprototyping--3J3HE2a-py3.10/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/local/python/3.10.13/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/codespace/.cache/pypoetry/virtualenvs/designerlyalgorithmicprototyping--3J3HE2a-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/codespace/.cache/pypoetry/virtualenvs/designerlyalgorithmicprototyping--3J3HE2a-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/codespace/.cache/pypoetry/virtualenvs/designerlyalgorithmicprototyping--3J3HE2a-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+restart = True 
+while restart:
+    # GET A LIST PER STORE VISITED IN THIS WEEK [ADJUST ACCORDING TO WEEKPLANNING]
+    # butcher1 = butchers(df4, 3)
+    super1 = supermarkets(df4, 0)
+    super2 = supermarkets(df4,1)
+    # super3 = supermarkets(df4, 2)
+    bakery1 = bakeries(df4, 2)
+    bakery2 = bakeries(df4, 3)
+
+    
+    # get lists per store type
+    supermarketlist = pd.concat([super1])
+    supermarketlist = pd.concat([super2])
+    # supermarketlist = pd.concat([super3])
+    bakerlist = pd.concat([bakery1])
+    bakerlist = pd.concat([bakery2])
+    # butcherlist = pd.concat([butcher1])
+
+    # append the different lists to the entire week
+    weeklist = [super1, super2, bakery1, bakery2]
+    week = pd.concat(weeklist)
+
+    #########
+    # Check if the categories per WEEK counts are ok:
+    for category in df['category']:
+            percatcount = week[week['category']==category]['category'].count()
+            CountTotalPerCat = PerCatCountALL(category)
+            mincatperday = CountTotalPerCat[0]
+            maxcatperday = CountTotalPerCat[1]
+            if mincatperday <= percatcount <= maxcatperday:
+                pass
+            else:
+                print(f"{bcolors.WARNING}{bcolors.BOLD} RERUN -  week - Too many/few of category:", category, "| minimum:", mincatperday, "| maximum:", maxcatperday, "| generated:", percatcount)
+                restart = True
+                break       
+                
+    for items in df['item_type']:
+            week9Amount = week['amount'].sum()
+            NormWeekAmount = WeekAmount()
+            minWeekAmount = NormWeekAmount[0]
+            maxWeekAmount = NormWeekAmount[1]
+            if minWeekAmount <= week9Amount <= maxWeekAmount:
+                pass
+            else:
+                print(f"{bcolors.WARNING}{bcolors.BOLD} RERUN - AMOUNT/WEEK - to many:", week9Amount, "| minimum:", minWeekAmount, "| maximum:", maxWeekAmount, "| generated:", week9Amount)
+                restart = True
+                break  
+               
+    # Check if the itemtype counts PER STORE TYPE are ok:
+    for itemtype in df['item_type']:
+            peritemcountSTORE = supermarketlist[supermarketlist['item_type']==itemtype]['item_type'].count()
+            CountTotalPeritemSTORE = CountTypePerStore(itemtype, 'supermarket')
+            minitemperdaySTORE = CountTotalPeritemSTORE[0]
+            maxitemeperdaySTORE = CountTotalPeritemSTORE[1]
+            if minitemperdaySTORE <= peritemcountSTORE <= maxitemeperdaySTORE:
+                # print('gud')
+                restart = False
+                continue
+            else:
+                print(f"{bcolors.WARNING}{bcolors.BOLD} RERUN -  week - Too many/few of item:", itemtype, "| minimum:", minitemperdaySTORE, "| maximum:", maxitemeperdaySTORE, "| generated:", peritemcountSTORE)
+                restart = True
+                break
+            
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+Cell [0;32mIn[48], line 6[0m
+[1;32m      2[0m [38;5;28;01mwhile[39;00m restart:
+[1;32m      3[0m     [38;5;66;03m# GET A LIST PER STORE VISITED IN THIS WEEK [ADJUST ACCORDING TO WEEKPLANNING][39;00m
+[1;32m      4[0m     [38;5;66;03m# butcher1 = butchers(df4, 3)[39;00m
+[1;32m      5[0m     super1 [38;5;241m=[39m supermarkets(df4, [38;5;241m0[39m)
+[0;32m----> 6[0m     super2 [38;5;241m=[39m [43msupermarkets[49m[43m([49m[43mdf4[49m[43m,[49m[38;5;241;43m1[39;49m[43m)[49m
+[1;32m      7[0m     [38;5;66;03m# super3 = supermarkets(df4, 2)[39;00m
+[1;32m      8[0m     bakery1 [38;5;241m=[39m bakeries(df4, [38;5;241m2[39m)
+
+Cell [0;32mIn[39], line 28[0m, in [0;36msupermarkets[0;34m(dataframes, index)[0m
+[1;32m     26[0m     [38;5;28;01mif[39;00m storetype [38;5;241m==[39m [38;5;124m'[39m[38;5;124msupermarket[39m[38;5;124m'[39m:
+[1;32m     27[0m         storetypes[i] [38;5;241m=[39m pd[38;5;241m.[39mDataFrame(supermarket(dataframes, counts))
+[0;32m---> 28[0m [38;5;28;01mreturn[39;00m [43mstoretypes[49m[43m[[49m[43mindex[49m[43m][49m
+
+[0;31mKeyError[0m: 1
+
